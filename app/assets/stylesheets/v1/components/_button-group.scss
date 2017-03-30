@@ -1,0 +1,152 @@
+
+@mixin li-list-style($radius-first-button: 8px 0 0 8px, $radius-last-button: 0 8px 8px 0, $padding: 0.3rem) {
+  & > li {
+    list-style-type: none;
+    display: inline-block;
+    &:first-child label {
+      @include radius($radius-first-button);
+      border-left-width: 0px;
+    }
+    &:last-child label {
+      @include radius($radius-last-button);
+    }
+  }
+  input[type="radio"] + label {
+    margin: 0;
+    padding: $padding;
+    font-size: $input-font-size;
+  }
+}
+
+@mixin label-radio-button (
+  $bg-label: $white-color,
+  $label-color: $primary-color-extra-light,
+  $text-align: center,
+  $label-color-hover: $primary-color,
+  $bg-label-color-hover: white) {
+  label {
+    background: $bg-label;
+    border-left: 1px solid rgba($primary-color-very-dark, .3);
+    color: $label-color;
+    text-align: $text-align;
+    &:hover{
+      color: $label-color-hover;
+      background-color: $bg-label-color-hover;
+    }
+  }
+}
+
+@mixin label-status-button (
+  $even: 3,
+  $bg-label-checked: $primary-color-very-dark,
+  $bg-label-checked-hover: $primary-color-very-dark,
+  $color-checked: white,
+  $color-hover: white) {
+  & > li.toggle { @include button-group-style($even);}
+  label,
+  input[type=radio]:checked + label {
+    background: $bg-label-checked;
+    border-color: transparent;
+    color: $color-checked;
+    display: block;
+  }
+  input[type=radio]:checked + label:hover {
+    background: $bg-label-checked-hover;
+    color: $color-hover;
+  }
+  input[type=radio] {
+    opacity: 0;
+    -webkit-appearance: none;
+    position: absolute;
+  }
+}
+
+@mixin list-radio-toggle ($width-toogle: 33%) {
+  & > li {
+    width: $width-toogle;
+    &.two-col { width: 50%; }
+    label {
+      width: 100%;
+      text-align: center;
+    }
+  }
+}
+
+.pet-type-button-group {
+  li {
+    width: 50%
+  }
+  input[type="radio"] + label {
+    height: 2.3125rem;
+    padding-top: .5rem !important;
+  }
+}
+
+.radio-button-group {
+  margin-left: 0;
+  @include li-list-style;
+  @include label-radio-button;
+  @include label-status-button(
+    $bg-label-checked: $primary-color-very-dark,
+    $bg-label-checked-hover: $primary-color-very-dark,
+    $color-checked: white,
+    $color-hover: white
+  );
+  @include label-radio-button (
+    $bg-label: $label-bg-unselected-color,
+    $label-color: $primary-color-light,
+    $label-color-hover: $primary-color
+  );
+  &.cleared {
+    @include label-radio-button (
+      $label-color: $primary-color,
+      $label-color-hover: $primary-color-very-dark
+    );
+  }
+  .collection_radio_buttons { width: 100%; }
+}
+
+.list-icon-box.radio-button-group {
+  li {
+    padding: 0 0.5rem 0.5rem 0;
+    @include label-status-button(
+      $bg-label-checked: $primary-color-light,
+      $bg-label-checked-hover: $primary-color-light,
+      $color-checked: white,
+      $color-hover: white
+    );
+    label {
+      @include radius(0.5rem);
+      @include size(100% auto);
+      @include box-icon ($background: $primary-color-dark, $background-hover: $primary-color-light, $color: $white-color-icon, $text-align: center, $vertical-align: middle);
+      border-color: transparent;
+      h5 {
+        text-align: center;
+        color: $white-color-icon;
+      }
+      i {
+        font-size: 1.5rem;
+        line-height: 2.5rem;
+        padding: 0;
+      }
+    }
+  }
+}
+
+.radio-button-group.toggle {
+  @include list-radio-toggle;
+}
+
+@mixin button-process ($bg-next: $third-color) {
+  .button {width: 100%;}
+  .next {
+    @include hover($bg: $bg-next, $bg-hover: darken($bg-next, 20%));
+  }
+  .back {
+    @include hover($bg: lighten($bg-next, 10%) , $bg-hover: $bg-next);
+  }
+}
+
+.button-process {
+  @include button-process;
+}

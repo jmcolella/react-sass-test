@@ -1,0 +1,290 @@
+/*=
+  file using add general css using for all page
+  set margin-top for survey-index page
+ */
+
+$text-color-like: #079E9F;
+$text-color-dislike: #155B20;
+
+footer { position: relative; }
+
+a.link {
+  text-decoration: underline;
+}
+
+.auto-center {
+  display: table;
+  margin: 0 auto;
+}
+
+.auto_landing,
+.pet_landing,
+.life_landing,
+.health_landing,
+.affiliates,
+.checkups,
+.products,
+.guides,
+.pages {
+  main section {
+    padding-bottom: 3.125rem;
+    padding-top: 3.125rem;
+  }
+
+  .like { color: $text-color-like; }
+  .dislike { color: $text-color-dislike; }
+}
+
+.survey {
+  main section {
+    padding-bottom: 4.375rem;
+    padding-top: 4.375rem;
+  }
+}
+
+.survey .title {
+  margin-bottom: 3.125rem;
+}
+
+#messages .alert-box {
+  margin-bottom: 0;
+}
+
+#fixed-messages .alert-box {
+  margin-bottom: 0;
+
+  .button {
+    margin-bottom: 0;
+    margin-left: rem-calc(20px);
+  }
+}
+
+.alert-box.browsehappy {
+
+  h2 {
+    color: $white-color;
+    font-weight: bold;
+  }
+
+  p {
+    font-size: 20px;
+  }
+
+  a {
+    color: $white-color;
+    text-decoration: underline;
+  }
+}
+
+input {
+  @include placeholder { color: $primary-color; }
+}
+
+// This is needed to prevent the page scrolling to the top when the off-canvas is shown
+.off-canvas-wrap.move-right,
+.off-canvas-wrap.move-left { height: auto !important; }
+
+.text-vertical-center {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+
+
+//quotes requests
+.quotes-request {
+  margin-top: 1.5rem;
+
+  h3 {
+    color: $white-color;
+    font-weight: 600;
+  }
+}
+
+
+
+// about page
+.about,
+.products,
+.insurance-101,
+.about h2,
+.about h4,
+.insurance-101 h2,
+.insurance-101 h4,
+.faq .content li,
+.contact .box p,
+.products .box p,
+.contact .box .ss-icon,
+.products .box .ss-icon,
+
+// university
+.insurance-wrap  p,
+.direction p,
+.individual .account p,
+.insurance-wrap h3,
+.block-grid-button h3,
+.search-insurer h3,
+.search-insurer h3 select,
+.individual-insurer h3,
+.direction h2,
+.define li,
+.insurer-table .table-header span {
+  color: $brown-color-text;
+}
+
+.hero-title {
+  margin-bottom: -30px;
+  padding-top: 30px;
+}
+
+//$primary-color-text color
+
+//advice
+.advice .quotes-request h2,
+.expert-contact .icon-box,
+.expert-contact .icon-box:hover,
+.todo-list label,
+.todo-follow-up li p,
+.todo-follow-up h3,
+.todo-follow-up label,
+.quotes-request h2,
+
+
+//about
+.citation cite,
+.about .banner h1,
+.products .banner h1,
+.about .banner p,
+.products .banner p,
+.team-list .member-label-name p,
+//university
+.hero-title,
+.hero-title h2,
+.overlay-menu a,
+.overlay-menu h5,
+.overlay-menu h6,
+.overlay-menu span,
+.overlay-menu p,
+.sub-guide-nav li:hover:before,
+.sub-guide-nav li.active:before,
+.video-insurance h2,
+.search-insurer .panel label {
+  color: $primary-color-text;
+}
+
+$spacers: (0, none),
+          (1rem, xsmall),
+          (2rem, small),
+          (3.5rem, medium),
+          (6rem, large),
+          (8rem, xlarge);
+
+@each $margin, $name in $spacers {
+  .spacer-#{$name} { margin-bottom: $margin; }
+}
+
+$headspaces: (0.5rem, xsmall),
+             (1.5rem, small),
+             (2.5rem, medium),
+             (3.125rem, large);
+
+@each $margin, $name in $spacers {
+  .headspace-#{$name} { margin-top: $margin; }
+}
+
+//about
+
+.faq dd span,
+//university
+.video-insurance h2 span,
+.hero-title h2 span {
+  font-size: 1rem;
+}
+
+//text-transform: uppercase
+
+//about
+.team-list .member-label-name span,
+//university
+.video-insurance h2 span,
+.hero-title h2 span {
+  text-transform: uppercase;
+}
+
+//transition-property(transform, .4s)
+
+//about
+.team-list .member,
+.team-list .member-info:hover .member {
+  @include transition-property(transform, 0.4s);
+}
+
+//display inline-block
+
+//university
+.individual-insurer .detail strong,
+.individual-insurer .list-icon-box li,
+.sub-guide-nav li.active:before,
+.sub-guide-nav li:hover:before,
+//about
+.faq dd span,
+.team-list .image-member,
+.team-list .member-label-name {
+  display: inline-block;
+}
+
+//margin-bottom
+
+.about h2,
+.about h4 strong,
+.products h4 strong,
+.insurance-101 h2,
+.insurance-101 h4 strong {
+  margin-bottom: 1.25rem;
+}
+
+//background transparent
+
+#extended-help-container .exit-off-canvas,
+mark {
+  background: $transparent;
+}
+
+//include radius 50%
+
+#extended-help-container .exit-off-canvas,
+.block-grid-box-icon li:not(:last-child):after,
+.circle,
+.action-icon,
+.horizontal-steps-nav .step-path,
+.horizontal-steps-nav .step-number,
+.pricing-table.has-after-content:after {
+  @include radius(50%);
+}
+
+// color $primary-color
+
+.advice .quotes-request h5,
+.advice .info-panel h1,
+.advice .info-panel h2,
+.advice .info-panel h3,
+.advice .info-panel h4,
+.advice .info-panel p,
+.todo-list h1, { color: $primary-color; }
+
+// text-align: left
+.advice .info-panel h1,
+.advice .info-panel h2,
+.advice .info-panel h3,
+.advice .info-panel h4,
+.advice .info-panel p,
+.advice .coverage-type h4,
+.detailed-todo-item .to-do_action,
+.detailed-todo-item .button.chevron,
+.insurance-advice h1,
+.insurance-advice  h2,
+.insurance-advice h3 {
+  text-align: left;
+}
+
+.expert-info li { line-height: 1.4rem;}

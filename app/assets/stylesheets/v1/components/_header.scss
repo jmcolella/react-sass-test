@@ -1,0 +1,62 @@
+.top-bar {
+  ul.semantic-navigation > li > a {
+    font-weight: 600;
+    height: $topbar-height;
+  }
+}
+
+.top-bar .divider {
+  margin: rem-calc(5px 0);
+
+  @media #{$medium-only} {
+    background-color: rgba($secondary-color, 0.5);
+  }
+}
+
+#nav-variant-b {
+  display: none;
+}
+
+#nav-variant-b a {
+  color: $white-color;
+
+  &:hover {
+    background: rgba(0, 0, 0, 0.1);
+  }
+}
+
+.top-bar > a .ss-icon {
+  font-size: 1rem;
+  margin-left: 0.25rem;
+  margin-right: 0;
+}
+
+.top-bar .toggle-topbar {
+  font-family: $sans-serif;
+}
+
+.top-bar {
+  .small-right { @media #{$small-only} { float: right !important; } }
+  @media #{$medium-only} {
+    .chat-item {
+      .ss-icon { margin-right: 0; }
+    }
+  }
+}
+
+header {
+  .sticky { transition: background-color 0ms linear; }
+  .fixed { transition: background-color 400ms linear; }
+}
+
+@media #{$medium-up} {
+  .pages header,
+  .guides header,
+  .products header,
+  .checkups header,
+  .advice.show header { padding-top: $topbar-margin-top; }
+
+  .f-topbar-fixed { padding-top: $topbar-height !important; }
+}
+
+.account-profile-action { margin-left: 1.5rem; }

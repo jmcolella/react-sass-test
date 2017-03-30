@@ -1,0 +1,98 @@
+.timeline-chart {
+  @include clearfix();
+
+  .timeline-chart-title {
+    margin: 0 0 rem-calc(15px) 30%;
+    text-align: center;
+    color: white;
+    font-family: $sans-serif;
+    font-weight: bold;
+  }
+
+  .labels-box, .chart-box { float: left; }
+
+  .labels-box {
+    padding: rem-calc(30px 0 0 0);
+    width: 30%;
+    text-align: right;
+    span {
+      font-family: $sans-serif;
+      padding-right: rem-calc(9px);
+      color: white;
+      display: block;
+    }
+    .main-label {
+      font-size: rem-calc(20px);
+      line-height: rem-calc(30px);
+    }
+    .sub-label { font-size: rem-calc(12px); }
+  }
+
+  .chart-box {
+    width: 70%;
+    position: relative;
+  }
+
+  .grid {
+    position: absolute;
+    bottom: 10%;
+    width: 100%;
+    height: 90%;
+    padding-bottom: rem-calc(20px);
+    .line {
+      height: 100%;
+      display: inline-block;
+      border-left: 2px dotted $primary-color-light;
+      position: relative;
+      &:first-of-type { border-left-style: solid; }
+      &:last-of-type { width: 0 !important; }
+      span {
+        display: inline-block;
+        position: absolute;
+        bottom: -18px;
+        width: 30px;
+        left: -15px;
+        text-align: center;
+      }
+    }
+  }
+  
+  .axis-label, .grid .line span {
+    font-family: $sans-serif;
+    color: $primary-color-light;
+    font-size: rem-calc(13px);
+  }
+
+  .axis-label {
+    padding: rem-calc(3px 9px 0 0);
+    font-size: rem-calc(12px);
+    line-height: rem-calc(17px);
+    text-align: right;
+  }
+
+  .data-row {
+    height: 60px;
+    overflow: hidden;
+  }
+
+  .data {
+    padding: rem-calc(30px) 0 10% 0;
+    position: relative;
+    border-right: 2px solid $yellow-highlight-color;
+    z-index: 2;
+    .arrow {
+      $noozle-size: 16px;
+      @include size($noozle-size);
+      position: absolute;
+      bottom: rem-calc(-$noozle-size / 2 - 1px);
+      right: rem-calc(-$noozle-size / 2 - 1px);
+      border: $noozle-size / 2 solid transparent;
+      border-top-color: $yellow-highlight-color;
+    }
+    .bar {
+      background: $primary-color-very-light;
+      height: rem-calc(30px);
+      display: block;
+    }
+  }
+}

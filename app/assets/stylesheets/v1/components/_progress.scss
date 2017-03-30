@@ -1,0 +1,58 @@
+/*doc
+---
+title: Form - Progress Bar
+name: 3_form-progress
+category: V1-Components
+---
+
+Form - Progress Bar is used to indicate level of completition.
+
+### Contents:
+* [Layout](#form-progress)
+
+<div id="form-progress"></div>
+#### Basic Progress Bar
+
+```slim_example
+.row
+  .progress.thin
+    span.meter style="width: 50%"
+```
+*/
+
+// Sizing
+$text-size-small: rem-calc(12px);
+$text-size-large: rem-calc(20px);
+
+$progress-size: rem-calc(2.5px);
+
+$padding-inner: rem-calc(15px);
+$margin-outer: rem-calc(20px);
+
+.progress {
+  background-color: darken($light-gray, 5%);
+  border: none;
+  margin-bottom: $margin-outer;
+  padding: 0;
+
+  &:last-of-type {
+    margin-bottom: 0;
+  }
+
+  &.thin {
+    height: $progress-size;
+  }
+
+  &.thick {
+    height: ($progress-size * 3);
+  }
+
+  .meter {
+    @include transition(width 0.25s linear);
+    background-color: $primary-color-light;
+
+    &.slow {
+      @include transition(width 13s linear);
+    }
+  }
+}

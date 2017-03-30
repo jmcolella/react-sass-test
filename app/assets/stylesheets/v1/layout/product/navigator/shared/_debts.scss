@@ -1,0 +1,47 @@
+.debt-links i {
+  @include size(1rem);
+  font-size: rem-calc(12px);
+  position: relative;
+  top: rem-calc(-1px);
+  line-height: 1rem;
+}
+
+.debt-group {
+  li { padding: 17px 10px 35px 10px; }
+  margin-bottom: rem-calc(17px);
+  .divider {
+    margin: rem-calc(28px 10px);
+    height: 1px;
+    display: block;
+    border-top: 1px solid $primary-color-light;
+    clear: both;
+  }
+  h5 { color: white; }
+  a {
+    color: white;
+    font-size: rem-calc(14px);
+  }
+  .marker { text-decoration: none; }
+  label { margin: 0 0 0 5px; }
+}
+
+.sum-up-box {
+  margin-bottom: rem-calc($rem-base);
+  padding: rem-calc(8px 0 7px 0);
+  background: $primary-color-dark;
+  border-radius: $global-radius;
+  h5, p {
+    text-align: center;
+    font-weight: bold;
+  }
+  h5 {
+    font-size: rem-calc(12px);
+    margin: rem-calc(5px) auto 0 auto;
+    color: white;
+  }
+  p {
+    margin-bottom: rem-calc(5px);
+    color: $primary-color-light;
+    font-size: rem-calc(18px);
+  }
+}

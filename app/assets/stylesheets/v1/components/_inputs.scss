@@ -1,0 +1,42 @@
+/*doc
+---
+title: Form - Input
+name: 3b_form-input
+category: V1-Components
+---
+
+Form - Input
+
+### Contents:
+* [Layout](#form-input)
+
+<div id="form-input"></div>
+#### Basic Input
+
+```slim_example
+.row
+  .small-6.small-centered.columns
+    form
+      .row.collapse.collapse-input
+        .small-8.columns
+          input.weight.required.radius.border type="number" value="0" name="weight" aria-labelledby="pounds"
+        .small-4.columns
+          span.postfix.primary.radius#pounds lbs.
+
+```
+*/
+
+// Colors
+$input-bg: #009596;
+
+.postfix {
+  &.primary {
+    background-color: $input-bg;
+    border-color: $input-bg;
+    color: $primary-color-extra-light;
+  }
+}
+
+input.border {
+  border: 1px solid;
+}

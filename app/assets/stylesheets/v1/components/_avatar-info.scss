@@ -1,0 +1,57 @@
+$avatar-size: rem-calc(123);
+$avatar-background: $third-color;
+$avatar-radius: 50%;
+$avatar-display: inline-block;
+$img-margin-top: rem-calc(-18);
+
+$info-margin-top: rem-calc(20);
+$info-line-height: rem-calc(20);
+$caption-font-size: rem-calc(14);
+$caption-font: $sans-serif;
+
+$account-color: $third-color;
+$account-text-align: center;
+$account-hover-color: $secondary-color;
+$account-avatar-hover-bg: $secondary-color;
+
+@mixin avatar {
+  @include size($avatar-size);
+  @include radius($avatar-radius);
+	background: $avatar-background;
+	display: inline-block;
+	img {
+		margin-top: $img-margin-top;
+	}
+}
+
+@mixin info {
+	margin-top: $info-margin-top;
+	p {
+		line-height: $info-line-height;
+	}
+	.caption {
+		display: block;
+		font-size: $caption-font-size;
+		font-family: $caption-font;
+	}
+}
+
+
+@mixin account {
+	color: $account-color;
+	text-align: $account-text-align;
+
+	&:hover {
+		color: $account-hover-color;
+		.avatar {
+			background: $account-avatar-hover-bg;
+		}
+	}
+}
+
+
+.account {
+	@include account;
+	.avatar { @include avatar; }
+	.info { @include info; }
+}

@@ -1,0 +1,93 @@
+.product-policies {
+  .reveal-modal, .reveal-modal .wrapper {
+    background-color: $primary-color;
+  }
+  .reveal-modal.primary {
+    background-color: $white-color;
+  }
+  h2 {
+    margin: 1.875rem auto 1.5625rem auto;
+    color: $primary-color;
+    font-size: rem-calc(26px);
+  }
+  .reveal-modal h2 {
+    margin-top: 0;
+    color: white;
+  }
+}
+
+.product-policies__sidebar {
+  margin: 35px 0;
+  color: darken($primary-gray, 6%);
+
+  $basic-tags: p, ul, li, label, input, select, h4;
+  #{$basic-tags}, h3 { color: inherit; }
+  #{$basic-tags} {
+    font-family: $sans-serif;
+    font-size: rem-calc(12px);
+  }
+  p { line-height: 1.5; }
+  h4 { text-transform: uppercase; }
+  h3 {
+    font-size: rem-calc(15px);
+    font-weight: bold;
+  }
+  select {
+    height: auto;
+    line-height: 1;
+    background: lighten($primary-gray, 10%) url("/images/drop-arrow-gray.png") 97% center no-repeat;
+  }
+
+  .edit-details {
+    color: darken($primary-gray, 15%);
+    border-bottom: 1px dotted darken($primary-gray, 15%);
+    float: right;
+  }
+
+  .line { @include clearfix(); }
+  .border {
+    border-top: 1px solid lighten($primary-gray, 3%);
+    margin: 16px 0;
+  }
+
+  .inline-select {
+    .input.select, .input.grouped_select {
+      height: 18px;
+      margin-bottom: 5px;
+      clear: both;
+    }
+    .label-row {
+      float: left;
+      @media #{$medium-only} { float: none; }
+    }
+    select {
+      height: 18px;
+      @media #{$medium-only} { width: 100%; }
+    }
+  }
+
+  .sidebar-save-quotes {
+    color: $primary-color-dark;
+    p { margin: -3px 0 6px 0; }
+  }
+
+  .fix-labels {
+    .checkbox {
+      margin: rem-calc(-3px 0 0 0);
+      position: relative;
+      width: 100%;
+      .collection_check_boxes {
+        color: darken($primary-gray, 9%);
+        width: 100%;
+      }
+      label::before { border-color: #e6e6e6; }
+    }
+    &.animated-checkbox {
+      input[type="checkbox"], input[type="radio"], label:before, svg {
+        @include size(14px);
+        top: 7px;
+      }
+      label { padding-left: 13px; }
+    }
+  }
+}

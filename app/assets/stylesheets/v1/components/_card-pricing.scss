@@ -1,0 +1,877 @@
+@import "card";
+
+/*doc
+---
+title: Cards
+name: 4_cards
+category: V1-Components
+---
+<sub>Extends [Card Component](#card-basic)</sub>
+
+Card - Pricing Card is used to describe and highlight prices from our quoting engine.
+### Contents:
+* [Pricing Card](#card-pricing)
+* [Insurer card](#card-insurer)
+
+<div id="card-pricing"></div>
+#### Basic Pricing Card
+
+```slim_example
+  .card-container.row
+    .medium-6.columns
+      .card-pricing.active
+        .card-inner
+          .header
+            .header-item.small-8.columns
+              .header-item.price
+                span.currency-sign $
+                span.dollars 530
+                span.cents .55
+                abbr.header-abbr.abbreviation.full title="Monthly" Monthly
+            a.header-item.small-4.columns.action.js-details
+              i.header-icon.icon-plus +
+              | Details
+          .body
+            .insurer
+              img.insurer-logo src="https://placeholdit.imgix.net/~text?txtsize=30&bg=88ff88&txtclr=ffffff&txt=banner&w=150&h=100&txttrack=1"
+              a.sub-link href="#" Tell me more
+            dl.body-term
+              dt.term-title RATINGS
+              dd.term-definition
+                span.term-rating A+
+                |  A.M. Best
+              dd.term-definition
+                span.term-rating A+
+                |  Better Business Bureau
+            span.sub-link.has-tip.tip-bottom title="This is a tooltip." data-tooltip="" What are these?
+          .footer
+            span.footer-inset-arrow
+            .footer-inner
+              .footer-row.row
+                .medium-6.columns
+                  h6.term-title Coverage
+                  p.footer-term-description.term-description.highlight $500,000
+                .medium-6.columns
+                  h6.term-title Term
+                  p.footer-term-description.term-description.highlight 20 Years
+              .footer-row.row
+                .medium-12.columns
+                  h6.term-title Underwriting Class
+                  p.term-description Preferred Best non-tobacco
+              .footer-row.row
+                .medium-12.columns
+                  h6.term-title Plan Name
+                  p.term-description SI - Trendsetter Express 20 (Choice/Std)
+              .footer-row.row
+                .medium-12.columns
+                  h6.term-title Turnaround
+                  p.term-description 3-5 Weeks (average)
+              .highlight-row.footer-row.row
+                .medium-2.columns
+                  i.ss-icon.ss-openbook.highlight-icon
+                .medium-10.columns
+                  h6.term-title We've done the research
+                  a.link Read more about this policy & Lincoln Financial
+          a.card-submit.button.action Apply Now
+        .card-outer.text-center
+          a.sub-link Save for Later
+
+    .medium-6.columns
+      .card-pricing.visible
+        .card-inner
+          .header
+            .header-item.small-8.columns
+              .header-item.price
+                span.currency-sign $
+                span.dollars 530
+                span.cents .55
+                abbr.header-abbr.abbreviation.full title="Monthly" Monthly
+            a.header-item.small-4.columns.action.js-details
+              i.header-icon.icon-plus +
+              | Details
+          .body
+            .insurer
+              img.insurer-logo src="https://placeholdit.imgix.net/~text?txtsize=30&bg=88ff88&txtclr=ffffff&txt=banner&w=150&h=100&txttrack=1"
+              a.sub-link href="#" Tell me more
+            dl.body-term
+              dt.term-title RATINGS
+              dd.term-definition
+                span.term-rating A+
+                |  A.M. Best
+              dd.term-definition
+                span.term-rating A+
+                |  Better Business Bureau
+            span.sub-link.has-tip.tip-bottom title="This is a tooltip." data-tooltip="" What are these?
+          .footer
+            span.footer-inset-arrow
+            .footer-inner
+              .footer-row.row
+                .medium-6.columns
+                  h6.term-title Coverage
+                  p.footer-term-description.term-description.highlight.price $500,000
+                .medium-6.columns
+                  h6.term-title Term
+                  p.footer-term-description.term-description.highlight.price 20 Years
+              .footer-row.row
+                .medium-12.columns
+                  h6.term-title Underwriting Class
+                  p.term-description Preferred Best non-tobacco
+              .footer-row.row
+                .medium-12.columns
+                  h6.term-title Plan Name
+                  p.term-description SI - Trendsetter Express 20 (Choice/Std)
+              .footer-row.row
+                .medium-12.columns
+                  h6.term-title Turnaround
+                  p.term-description 3-5 Weeks (average)
+              .highlight-row.footer-row.row
+                .medium-2.columns
+                  i.ss-icon.ss-openbook.highlight-icon
+                .medium-10.columns
+                  h6.term-title We've done the research
+                  a.link Read more about this policy & Lincoln Financial
+          a.card-submit.button.action Apply Now
+        .card-outer.text-center
+          a.sub-link Save for Later
+
+```
+
+<div id="card-insurer"></div>
+#### Insurer Card
+
+```slim_example
+.card-insurer.row
+    .medium-12.columns
+      .row.has-border.bottom
+        .medium-12.columns.card-column.highlight
+          .medium-3.columns
+            .insurer
+              img.insurer-logo src="https://placeholdit.imgix.net/~text?txtsize=30&bg=88ff88&txtclr=ffffff&txt=banner&w=150&h=100&txttrack=1"
+          .medium-3.columns.text-center
+            .price
+              h6.term-title Cost
+              span.currency-sign $
+              span.dollars 530
+              span.cents .55
+              span.abbreviation.full Monthly
+          .medium-2.columns.text-center
+            h6.term-title Coverage
+            p.term-description.large $500,000
+          .medium-2.columns.text-center
+            h6.term-title Term
+            p.term-description.large 20 Years
+          .medium-2.columns.text-center
+            a.button.chunky.action-secondary.radius.insurer-button.expand Apply Now
+      .row.has-border.bottom
+        .medium-6.columns.card-column
+          h4.term-description Basics & Ratings
+        .medium-6.columns.card-column.text-right
+          p.term-heading
+            i.ss-icon.ss-alert
+            | We only sell policies that we would recommend.
+      .row.has-border.bottom
+        .medium-2.columns.text-center.card-column
+          h6.term-title Founded
+          p.term-description.large 1868
+        .medium-3.columns.text-center.card-column
+          h6.term-title PolcyHolders
+          p.term-description.large 6.5 Million
+          a.sub-link href="#" What's this?
+        .medium-2.columns.text-center.card-column
+          h6.term-title A.M. Best Rating
+          p.term-description.large A+
+          a.sub-link href="#" What's this?
+        .medium-2.columns.text-center.card-column
+          h6.term-title BBB Rating
+          p.term-description.large A-
+          a.sub-link href="#" What's this?
+        .medium-3.columns.text-center.card-column
+          h6.term-title JD Power
+          p.term-description.large 3 out of 5
+          a.sub-link href="#" What's this?
+      .row.has-border.bottom
+        .medium-12.columns.card-column
+          h4.term-description PolicyGenius Research
+      .row.has-border.bottom
+        .medium-7.columns.card-column
+          h6.term-title When Applying
+          p.term-description How's the application process?
+          br
+            .slider.gradient.round.is-disabled
+              .range-slider data-slider="" data-options="display_selector: #term-value;"
+                span.range-slider-handle role="slider" tabindex="0" aria-labelledby="term-label"
+                  span.range-rating Below Average
+                span.range-slider-active-segment
+        .medium-5.columns.card-column
+          p.term-heading Why this rating?
+          ul.no-bullet.card-list.small.no-spacing.subtle
+            li PROS
+            li + Electronic application
+            li + Turnaround time: 18 days (better than average)
+            li + Fast-track process for issue-free medical history
+            li + Policy delivery by email
+          ul.no-bullet.card-list.small.no-spacing.subtle
+            li CONS
+            li - Application form longer than average
+            li - Extra phone interview with underwriter required
+      .row.has-border.bottom
+        .medium-7.columns.card-column
+          h6.term-title After you're a customer
+          p.term-description How modernized are their services?
+          br
+            .slider.gradient.round.is-disabled
+              .range-slider data-slider="" data-options="display_selector: #term-value;"
+                span.range-slider-handle role="slider" tabindex="0" aria-labelledby="term-label"
+                  span.range-rating Below Average
+                span.range-slider-active-segment
+        .medium-5.columns.card-column
+          p.term-heading Why this rating?
+          ul.no-bullet.card-list.small.no-spacing.subtle
+            li WHAT'S DIGITAL/ONLINE?
+            li Changing Address
+            li Changing payment info
+          ul.no-bullet.card-list.small.no-spacing.subtle
+            li WHAT'S PAPER/FAX BASED
+            li Updating beneficiaries
+      .row.has-border.bottom
+        .medium-7.columns
+          .row
+            .medium-12.columns.card-column.has-border.bottom
+              h4.term-description Common features
+            .medium-12.columns.card-column.has-border.bottom
+              p.term-lead This policy, like all term life policies offered on our site, provides life coverage for a specific period of time (the term). The key features of this policy are standard across all the term policies we offer:
+              ul.define.it-is.card-list.small.subtle
+                li
+                  b.term-heading Level premium
+                  |  - which means the cost of the policy (the premium you pay) is fixed for the entire term of the policy. It will not icnrease during the term of the policy.
+                li
+                  b.term-heading Good value
+                  |  - which means the cost of the policy (the premium you pay) is fixed for the entire term of the policy. It will not icnrease during the term of the policy.
+                li
+                  b.term-heading Regulated
+                  |  - which means the cost of the policy (the premium you pay) is fixed for the entire term of the policy. It will not icnrease during the term of the policy.
+                li
+                  b.term-heading No-risk obligation for you
+                  |  - which means the cost of the policy (the premium you pay) is fixed for the entire term of the policy. It will not icnrease during the term of the policy.
+                li
+                  b.term-heading No exclusions
+                  |  - which means the cost of the policy (the premium you pay) is fixed for the entire term of the policy. It will not icnrease during the term of the policy.
+                li
+                  b.term-heading Terminal illness benefit
+                  |  - which means the cost of the policy (the premium you pay) is fixed for the entire term of the policy. It will not icnrease during the term of the policy.
+                li
+                  b.term-heading Convertible
+                  |  - which means the cost of the policy (the premium you pay) is fixed for the entire term of the policy. It will not icnrease during the term of the policy.
+            .medium-12.columns.card-column.has-border.bottom
+              ul.no-bullet.card-list.small.subtle
+                li.term-heading
+                  h4.term-description Sample Policy
+            .medium-12.columns.card-column
+              p
+                a href="#" Click here
+                |  to download a pdf sample of a typical policy.
+        .medium-5.columns.has-border.left
+          .row
+            .medium-12.columns.card-column.has-border.bottom
+              h4.term-description Unique features
+            .medium-12.columns.card-column.has-border.bottom
+              ul.no-bullet.card-list.small.subtle
+                li Very competitive underwriting
+            .medium-12.columns.card-column.has-border.bottom
+              ul.no-bullet.card-list.small.subtle
+                li.term-heading
+                  h4.term-description Details
+            .medium-12.columns.card-column
+              ul.no-bullet.card-list.small.subtle
+                li.term-heading Unique features
+                li Very competitive underwriting
+                li.term-heading Minimum amount available
+                li  $100,000
+                li.term-heading Terms available
+                li  10, 15, 20, 30
+                li.term-heading Discount for paying annually versus monthly
+                li 8%
+                li.term-heading Payment methods available
+                li Check, Auto bank draft, No credit cards accepted.
+                li.term-heading Is coverage available without a medical exam?
+                li No
+                li.term-heading Is temporary coverage during underwriting available?
+                li Yes, up to $1 million max
+                li.term-heading What is the rule for accelerating the death benefit?
+                li You may accelerate all, or a portion, of the death benefit if you are diagnosed with a qualifying terminal illness (12, or 24 months in some states, max life expectancy).
+                li.term-heading What is the rule for converting the policy?
+                li If issued before age 65, the policy is convertible until the earlier of the end of the term period or on the age 70 policy anniversary.
+      .row
+        .medium-12.columns.text-right.card-column
+          p.term-lead.large.end
+            | Your MetLife policy is just
+            b  $34/MO. &nbsp;
+            a.button.chunky.action-secondary.radius.insurer-button.expand Apply Now
+
+
+```
+*/
+
+$outer-border-color: lighten($primary-gray, 10%);
+$tab-background-color: #EFEFEF;
+
+.card-container {
+  margin-bottom: rem-calc(60px);
+}
+
+@media #{$small-only} {
+  .card-inner,
+  .card-insurer {
+    .pg-tooltip:hover {
+      border-bottom: 0;
+
+      .pg-tooltip-popup {
+        border: 0;
+        padding: 0 rem-calc(20px) 0 0;
+      }
+    }
+  }
+}
+
+// Extends Card Component
+.card-pricing,
+.card-insurer,
+.card-table {
+  @extend %card-base;
+
+  @media #{$small-only} {
+    margin-bottom: rem-calc(30px);
+  }
+
+  &.visible {
+    .footer {
+      max-height: 400px;
+    }
+
+    .footer-inner {
+      opacity: 1;
+    }
+
+    .footer-inset-arrow {
+      opacity: 1;
+    }
+
+    .icon-plus::before {
+      @include transform(scaleY(0));
+    }
+
+    .icon-plus::after {
+      @include transform(rotate(360deg));
+    }
+  }
+
+  .card-column {
+    padding: 30px;
+  }
+
+  .card-column.highlight {
+    background-color: $header-bg-color;
+  }
+
+  .card-list {
+    font-family: $sans-serif;
+    margin-bottom: rem-calc(15px);
+
+    li {
+      line-height: lh($medium-font-size);
+      margin-bottom: rem-calc(15px);
+    }
+
+    &:last-of-type,
+    li:last-of-type {
+      margin: 0;
+    }
+
+    &.small {
+      font-size: $medium-font-size;
+    }
+  }
+
+  .card-list.subtle {
+    color: $neutral-link-color;
+
+    li {
+      color: $black-color-text;
+    }
+  }
+
+  .card-list.no-spacing {
+    li {
+      margin-bottom: 0;
+    }
+  }
+
+  .icon-plus:before,
+  .icon-plus:after {
+    background-color: $header-item-color-primary;
+  }
+
+  &.active,
+  &:hover {
+    .header { background-color: $highlight-card-bg-color; }
+
+    .header-item.price,
+    .header-item.action {
+      color: $white-color;
+    }
+
+    .header-item .term-title {
+      color: $white-color;
+    }
+
+    .card-submit.button.action {
+      background-color: $highlight-card-bg-color;
+      border-bottom-color: darken($highlight-card-bg-color, 10%);
+      color: $white-color;
+    }
+
+    .header-item.action { background-color: $header-item-active-bg-color; }
+
+    .icon-plus:before,
+    .icon-plus:after {
+      background-color: $white-color;
+    }
+  }
+
+  .card-content-group {
+    margin-bottom: rem-calc(20px);
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      margin-bottom: 0;
+    }
+  }
+
+  .card-inner {
+    border: 1px solid $card-pricing-border-color;
+    border-radius: $global-radius;
+    margin-bottom: rem-calc(10px);
+  }
+
+  .card-submit.button.action {
+    @extend %font-bold;
+    @include transition(none);
+    background-color: $header-bg-color-primary;
+    border-bottom-color: darken($header-bg-color-primary, 10%);
+    border-bottom-left-radius: $global-radius;
+    border-bottom-right-radius: $global-radius;
+    color: $header-item-color-primary;
+    font-size: $large-font-size;
+    margin: 0;
+    padding: rem-calc(15px 0);
+    width: 100%;
+
+    &:hover {
+      background-color: $link-hover-bg-color;
+      border-bottom-color: darken($link-hover-bg-color, 10%);
+      text-decoration: none;
+    }
+  }
+
+  .highlight-icon {
+    color: $icon-highlight-color;
+    font-size: $icon-font-size;
+  }
+
+  .highlight-row {
+    background-color: $highlight-row-bg-color;
+    margin-left: rem-calc(-20px);
+    margin-right: rem-calc(-20px);
+    padding: rem-calc(15px 0);
+  }
+
+  .sub-link,
+  .header-item.action,
+  .pg-tooltip {
+    color: $neutral-link-color;
+    font-size: $small-font-size;
+  }
+
+  .sub-link,
+  .pg-tooltip {
+    &:hover {
+      color: $brown-color-text;
+    }
+  }
+
+  .term-title,
+  .header-item-title {
+    color: $label-color;
+    font-size: $small-font-size;
+    .quote-unavailable {
+      color: $primary-color-text;
+    }
+  }
+
+  .quote-unavailable {
+    color: $primary-color-text;
+    font-size: $small-font-size;
+    font-family: $sans-serif;
+  }
+
+  .sub-link.has-tip {
+    text-decoration: none;
+  }
+
+  .header-item.columns {
+    float: none;
+  }
+
+  .header-item.inline {
+    margin-left: -4px;
+  }
+
+  .header {
+    background-color: $header-bg-color-primary;
+    border-top-left-radius: $global-radius;
+    border-top-right-radius: $global-radius;
+  }
+
+  .header-abbr.abbreviation {
+    font-family: $sans-serif;
+    font-size: $small-font-size;
+    text-shadow: none;
+    text-transform: uppercase;
+  }
+
+  .header-icon.icon-plus {
+    margin-bottom: rem-calc(5px);
+  }
+
+  .header-item.price,
+  .header-item.action {
+    color: $header-item-color-primary;
+  }
+
+  .header-item.price {
+    font-size: $x-large-font-size;
+    margin: 0;
+    text-shadow: 1px 1px 0 $header-item-text-shadow-color-inactive;
+    padding: rem-calc(20px 0 15px 0);
+  }
+
+  .header-item.action {
+    background-color: $header-item-inactive-bg-color-primary;
+    border-top-right-radius: $global-radius;
+    font-family: $sans-serif;
+    text-transform: uppercase;
+    padding: rem-calc(24px) 0;
+
+    &:hover {
+      background: $link-hover-bg-color;
+      text-decoration: none;
+    }
+  }
+
+  .body {
+    background: $white-color;
+  }
+
+  .insurer {
+    margin-bottom: rem-calc(30px);
+  }
+
+  .insurer-logo {
+    display: block;
+  }
+
+  .body-term {
+    line-height: 1.5;
+    margin: rem-calc(0 0 5px 0);
+
+    &.tight {
+      line-height: 1;
+    }
+
+    &.tight h4 {
+      line-height: 0.9em;
+    }
+
+    &.tight .term-title {
+      margin-top: 1.2rem;
+    }
+  }
+
+  .term-definition,
+  .term-description {
+    font-family: $sans-serif;
+    margin: 0;
+  }
+
+  .term-heading,
+  .card-list li.term-heading {
+    @extend %font-bold;
+    color: $black-gray;
+    font-family: $sans-serif;
+    font-size: $medium-font-size;
+    margin-bottom: 0;
+  }
+
+  .term-description.large {
+    font-size: $large-font-size;
+  }
+
+  .footer {
+    @include transition(all 0.25s ease-in-out);
+    background: $white-color;
+    max-height: 0;
+    overflow: hidden;
+    padding: rem-calc(0 20px);
+  }
+
+  .footer-inner {
+    @include transition(all 0.25s ease-in-out);
+    opacity: 0;
+  }
+
+  .footer-inset-arrow {
+    left: -20px;
+    margin-top: rem-calc(25px);
+    opacity: 0;
+    position: absolute;
+  }
+
+  /* Required for left Triangle */
+  .footer-inset-arrow::before,
+  .footer-inset-arrow::after {
+    border-bottom-width: 20px;
+    border-color: transparent;
+    border-left-width: 10px;
+    border-style: solid;
+    border-top-width: 20px;
+    content: "";
+    height: 0;
+    position: absolute;
+    width: 0;
+  }
+
+  /* Stroke */
+  .footer-inset-arrow::before {
+    border-bottom-width: 21px;
+    border-left-color: $card-pricing-border-color;
+    border-top-width: 21px;
+    bottom: -18px;
+    left: 21px;
+  }
+
+  /* Fill */
+  .footer-inset-arrow::after {
+    border-bottom-color: transparent;
+    border-left-color: $white-color;
+    border-top-color: transparent;
+    bottom: -17px;
+    left: 20px;
+  }
+
+  .footer-row.row {
+    margin-bottom: rem-calc(15px);
+
+    @media #{$small-only} {
+      .columns {
+        margin-bottom: rem-calc(15px);
+      }
+
+      .columns:last-child {
+        margin-bottom: rem-calc(0);
+      }
+    }
+
+    &:last-of-type {
+      margin-bottom: 0;
+    }
+  }
+
+  .footer-term-description.term-description {
+    font-size: $large-font-size;
+  }
+
+  .tabs-content {
+    margin-bottom: 0;
+
+    .content {
+      padding: 0;
+    }
+  }
+
+  .tabs {
+    background-color: $tab-background-color;
+  }
+
+  .tabs .tab-title {
+    :focus {
+      outline: none;
+    }
+  }
+}
+
+.card-policy > .card-pricing {
+  margin: 0 auto;
+}
+
+.card-pricing .header-item.price .term-title {
+  font-size: rem-calc(10px);
+}
+
+.card-pricing .header-item.price.small {
+  line-height: 11px;
+}
+
+.card-policy:first-of-type > .card-pricing {
+  margin-left: auto;
+  margin-right: initial;
+
+  @media #{$medium-bottom} {
+    margin: 0 auto;
+  }
+}
+
+.card-pricing,
+.card-table {
+  .card-header-super {
+    min-height: 50px;
+  }
+
+  .tag-line {
+    margin-bottom: 0;
+  }
+}
+
+.card-pricing {
+  margin: auto;
+  max-width: 300px;
+
+  .term-definition {
+    font-size: $medium-font-size;
+  }
+
+  @media #{$small-only} {
+    max-width: 275px;
+  }
+}
+
+.card-table {
+  max-width: 300px;
+
+  @media #{$medium-only} {
+    max-width: none;
+  }
+
+  @media #{$small-only} {
+    margin: auto;
+    max-width: 275px;
+  }
+
+  .card-table-recommendation {
+    font-size: $text-size-small;
+  }
+
+  .card-table-icon {
+    width: 10px;
+    height: 10px;
+    border-radius: 2px;
+    display: inline-block;
+    margin: 0 rem-calc(5px);
+  }
+
+  .card-table-icon.primary {
+    background: $primary-color-very-light;
+  }
+
+  .card-table-icon.secondary {
+    background: $secondary-color-extra-light;
+  }
+}
+
+.price .price .term-title {
+  color: $black-gray;
+  font-weight: bold;
+}
+
+.card-insurer {
+  border: 1px solid $header-item-inactive-bg-color;
+  border-radius: $global-radius;
+  background-color: $white-color;
+
+  .card-column {
+    @media #{$medium-bottom} {
+      .medium-12,
+      .medium-6 {
+        margin-bottom: rem-calc(20px);
+      }
+    }
+  }
+
+  .term-description {
+    color: $black-gray;
+  }
+
+  .pg-tooltip {
+    margin-bottom: rem-calc(10px);
+  }
+
+  .term-title {
+    margin-bottom: rem-calc(5px);
+  }
+
+  .insurer {
+    margin-bottom: 0;
+  }
+
+  .insurer-logo {
+    margin: rem-calc(10px) auto;
+    max-height: 60px;
+
+    @media #{$medium-bottom} {
+      margin: 0 auto;
+    }
+  }
+
+  .price {
+    margin: 0;
+  }
+
+  .insurer-button {
+    margin: rem-calc(12px) 0 0 rem-calc(20px);
+
+    @media #{$medium-bottom} {
+      margin-left: 0;
+      margin-right: 0;
+      width: 100%;
+    }
+  }
+}
+
+.card-hero {
+  background: $primary-color;
+  padding-top: 2em;
+  .card-insurer {
+    background-color: $header-bg-color;
+  }
+}
+
+.card-insurer.header-only {
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.card-insurer.no-header {
+  border-top-width: 0;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+
+.header-item.price.small {
+  .term-title {
+    font-color: $primary-color-text !important;
+  }
+}

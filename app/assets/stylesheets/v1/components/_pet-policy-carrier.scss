@@ -1,0 +1,144 @@
+.pet-carrier-page {
+  background: WHITE;
+  padding-top: 2rem;
+
+  span.ss-icon.ss-delete {
+    color: #FF7777;
+  }
+
+  span.ss-icon.ss-check {
+    color: $primary-color;
+  }
+
+  span.ss-icon.ss-help {
+    margin-right: 0;
+  }
+
+  .price-title {
+    font-size: .75rem;
+    font-weight: 900;
+
+
+    span:first-child {
+      padding-right: .25rem;
+    }
+  }
+
+  .pg-tooltip-sub {
+    white-space: pre-wrap;
+  }
+
+  .carrier-header-price {
+    .price-bottom-label {
+      margin: 0;
+    }
+  }
+
+  .reimbursement-limits {
+    .label {
+      white-space: pre-line;
+    }
+  }
+
+  .wellness-options .price {
+    p {
+      font-size: .7rem;
+      font-weight: 900;
+      margin-bottom: .5rem;
+    }
+
+    .currency-sign {
+      font-size: 1rem;
+    }
+
+    .dollars {
+      font-size: 2rem;
+    }
+
+    .price-bottom-label {
+      margin: 0;
+      font-size: .9rem;
+      font-weight: 900;
+    }
+  }
+
+  span.pg-tooltip {
+    border-bottom: none;
+    font-size: 1rem;
+    color: $primary-gray;
+  }
+
+  .no-wellness-options {
+    display: flex;
+    align-items: center;
+
+    .i-delete {
+      color: $primary-gray;
+      font-size: 2rem;
+    }
+  }
+
+  .wellness-options .info {
+    a {
+      padding-top: .2rem;
+      text-decoration: underline;
+    }
+  }
+
+  .rtl {
+    white-space: nowrap !important;
+    direction: rtl;
+  }
+
+  .label {
+    font-size: 1rem;
+  }
+
+  .behavioral-treatments,
+  .waiting-periods {
+    .label {
+      white-space: pre-line;
+    }
+  }
+
+  .plan-exclusions {
+    .label {
+      white-space: pre-wrap;
+    }
+  }
+
+  .limit {
+    padding-bottom: 1rem;
+  }
+
+  .rating,
+  .limit {
+     * {
+       font-weight: 900;
+     }
+
+    .label {
+      background-color: WHITE;
+      color: $primary-gray;
+
+      p > span:first-child {
+        margin-right: .2rem;
+      }
+
+      span:last-child {
+        margin-right: .2rem;
+      }
+    }
+
+    .score {
+      p {
+        font-size: 1.75rem;
+      }
+
+      .scale {
+        color: $primary-gray;
+      }
+    }
+
+  }
+}

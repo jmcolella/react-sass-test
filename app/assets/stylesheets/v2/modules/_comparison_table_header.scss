@@ -1,0 +1,124 @@
+// scss-lint:disable all
+/*doc
+---
+title: Comparison Table Header
+name: comparison-table-header
+category: Modules - Comparison Table Header
+---
+
+## Usage notes:
+You can hide columns/sections on small using the `.col-hide-for-medium-only` class.
+However, note that you will need to add the class to the corrisponding [card](cards_-_comparison_card.html) column/section if there is one.
+
+## Without compare column
+```slim_example
+.mod-comparison-table-header
+  .section.plan-col
+    | Phasellus
+    span.i-directup
+  .section
+    | Nullam metus
+    span.i-dropdown
+  .section.col-hide-hide-for-medium-only
+    | Aenean sit
+    span.i-dropdown
+  .section
+    | Aliquam
+    span.i-dropdown
+  .section
+    | Sollicitudin
+    span.i-dropdown
+```
+
+## With compare column
+```slim_example
+.mod-comparison-table-header
+  .compare-col-spacer
+  .section.plan-col
+    | Phasellus
+    span.i-directup
+  .section
+    | Nullam metus
+    span.i-dropdown
+  .section.col-hide-hide-for-medium-only
+    | Aenean sit
+    span.i-dropdown
+  .section
+    | Aliquam
+    span.i-dropdown
+  .section.cta-col
+    | Sollicitudin
+    span.i-dropdown
+```
+*/
+// scss-lint:enable all
+
+$table-header-border-color: $neutral-4;
+
+.mod-comparison-table-header {
+  font-family: $font-family-sans-serif;
+  display: flex;
+  padding: ru(1);
+  background: $neutral-6;
+  border-bottom: 1px solid $table-header-border-color;
+  color: $neutral-2;
+
+  .section {
+    @include g-unit(3);
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+
+    span:first-child {
+      margin: .2rem;
+      width: rem-calc(10);
+    }
+
+    .i-directup,
+    .i-dropdown {
+      margin-left: ru(.2);
+      font-size: .8rem;
+      margin-top: .15rem;
+    }
+  }
+
+  .compare-col-spacer {
+    @include g-unit(2);
+  }
+
+  &.light {
+    background: $neutral-7;
+  }
+
+  &.bordered {
+    border-top: 1px solid $neutral-5;
+  }
+
+  // Tech Debt:
+  // Hiding this element should be the job of its parent
+  @media #{$small-only} {
+    display: none;
+  }
+
+  @media #{$medium-only} {
+    .col-hide-for-medium-only {
+      display: none;
+    }
+  }
+
+  @media #{$large-up} {
+    .section {
+      @include g-unit(2);
+    }
+
+    .plan-col {
+      @include g-unit(3);
+    }
+
+    .compare-col-spacer {
+      @include g-unit(1);
+    }
+  }
+}

@@ -1,0 +1,8 @@
+.life_coverage_navigator {
+  .child-row, &.debts {
+    .marker {
+      border: $primary-color 3px solid;
+      background: $primary-color-light;
+    }
+  }
+}

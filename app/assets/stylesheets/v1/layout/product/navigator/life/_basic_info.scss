@@ -1,0 +1,6 @@
+.basic_info,
+.family {
+  .sidebar__total-estimation { @include opacity(.2); }
+}
+
+.life_coverage_navigator .extended-help { display: none; }

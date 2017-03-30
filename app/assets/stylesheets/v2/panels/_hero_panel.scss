@@ -1,0 +1,502 @@
+// scss-lint:disable all
+/*doc
+---
+title: Hero Panel
+name: hero-panel
+category: Panels - Hero Panel
+---
+```slim_example
+.mod-hero-panel style='background-image: url(images/career-board-hero-image.jpg)'
+  .breadcrumb-wrapper
+    img src='holder.js/100px24?text="breadcrumb container"'
+  .layout-container
+    .main-container
+      .text-wrapper
+        h1
+          | Curabitur ex nibh, pharetra eget aliquam congue
+        h2
+          | Pharetra eget aliquam congue
+      .form-wrapper
+        .selectfield
+            .field
+              label for='select2' Coverage
+              .selectbox
+                select id='select2'
+                  option Life insurance
+                  option Renters insurance
+                  option Long-term disability insurance
+            .field
+              label for='select3' Term
+              .selectbox
+                select id='select3'
+                  option Life insurance
+                  option Renters insurance
+                  option Long-term disability insurance
+      .cta
+        a.button.action href='#' Phasellus in laoreet quam
+        small
+          a href='#' Suspendisse
+          '* molestie vel sapien
+    .ad-container-wrapper
+      .ad-container
+        .content
+          header
+            | Phasellus in laoreet quam
+          .logo-wrapper
+            .logo
+              img src='holder.js/400x400?auto=yes'
+            .logo
+              img src='holder.js/80x100?auto=yes'
+            .logo
+              img src='holder.js/50x50?auto=yes'
+            .logo
+              img src='holder.js/400x80?auto=yes'
+            .logo.wide
+              img src='holder.js/400x400?auto=yes'
+        figure
+          img src='holder.js/400x282?auto=yes'
+```
+
+## Affiliate
+```slim_example
+.mod-hero-panel style='background-image: url(images/career-board-hero-image.jpg)'
+  .breadcrumb-wrapper
+    img src='holder.js/100px24?text="breadcrumb container"'
+  .layout-container.centered
+    .main-container
+      .text-wrapper
+        h1
+          | Curabitur ex nibh, pharetra eget aliquam congue
+        h2
+          | Pharetra eget aliquam congue
+      .form-wrapper
+        .selectfield
+            .field
+              label for='select2' Coverage
+              .selectbox
+                select id='select2'
+                  option Life insurance
+                  option Renters insurance
+                  option Long-term disability insurance
+            .field
+              label for='select3' Term
+              .selectbox
+                select id='select3'
+                  option Life insurance
+                  option Renters insurance
+                  option Long-term disability insurance
+      .cta
+        a.button.action href='#' Phasellus in laoreet quam
+      .affiliate-bottom
+        img src='holder.js/400x400'
+        p.text
+          | Nullam metus velit, efficitur commodo elementum
+```
+
+```slim_example
+.mod-hero-panel style='background-image: url(images/career-board-hero-image.jpg)'
+  .breadcrumb-wrapper
+    img src='holder.js/100px24?text="breadcrumb container"'
+  .layout-container.affiliate
+    .main-container
+      .text-wrapper
+        h1
+          | Curabitur ex nibh, pharetra eget aliquam congue
+        h2
+          | Pharetra eget aliquam congue
+      .form-wrapper
+        .selectfield
+            .field
+              label for='select2' Coverage
+              .selectbox
+                select id='select2'
+                  option Life insurance
+                  option Renters insurance
+                  option Long-term disability insurance
+            .field
+              label for='select3' Term
+              .selectbox
+                select id='select3'
+                  option Life insurance
+                  option Renters insurance
+                  option Long-term disability insurance
+      .cta
+        a.button.action href='#' Phasellus in laoreet quam
+        small
+          a href='#' Suspendisse
+          '* molestie vel sapien
+    .ad-container-wrapper.ad-container-wrapper-affiliate
+      .ad-container.full
+        p.paragraph
+          | "Etiam malesuada quis augue vitae dapibus. Sed non tortor id neque posuere luctus ac vel sapien. Nullam metus velit, efficitur commodo elementum vitae, porttitor id tortor."
+        .bottom
+          span.text Fusce sagittis nec
+          .image-wrapper
+            .image-container
+              img.ad-container-logo src='holder.js/170x58?auto=yes'
+    .image-wrapper.overlapping
+      .image-container
+        img.image-bottom src='holder.js/290x254?auto=yes'
+```
+
+## Affiliate - no CTA
+```slim_example
+.mod-hero-panel.no-cta style='background-image: url(images/career-board-hero-image.jpg)'
+  .breadcrumb-wrapper
+    img src='holder.js/100px24?text="breadcrumb container"'
+  .layout-container
+    .main-container
+      .text-wrapper
+        h1
+          | Curabitur ex nibh, pharetra eget aliquam congue
+        h2
+          | Pharetra eget aliquam congue
+```
+
+*/
+// scss-lint:enable all
+$hero-panel-background-color:                   $brand-2;
+$hero-panel-text-shadow-color:                  rgba(0, 0, 0, .15);
+$hero-panel-text-shadow:                        1px 0 1px $hero-panel-text-shadow-color;
+$hero-panel-font-color:                         $neutral-8;
+$hero-panel-padding-bottom:                     rem-calc(18px);
+$hero-panel-ad-container-margin:                rem-calc(30px);
+$hero-panel-ad-container-wrapper-border-width:  1px;
+$hero-panel-figure-margin-bottom:               -4.875rem;
+$overlapping-image-margin-top-mobile:           -.667rem;
+
+.mod-hero-panel {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: $hero-panel-font-color;
+  background: {
+    position: 90% 50%;
+    size: cover;
+    repeat: no-repeat;
+    color: $hero-panel-background-color;
+  }
+
+
+  h1 {
+    @include typography-1;
+    font-weight: 600;
+    color: inherit;
+  }
+
+  h2 {
+    @include typography-3;
+    color: inherit;
+  }
+
+  a {
+    color: inherit;
+  }
+
+  .breadcrumb-wrapper {
+    width: 100%;
+    display: none;
+  }
+
+  .layout-container {
+    @extend %layout-container;
+    min-height: ru(23.5);
+    padding-bottom: $hero-panel-padding-bottom;
+    padding-top: ru(3);
+    margin: 0 ru(1);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    &.affiliate {
+      position: relative;
+      align-items: flex-end;
+    }
+  }
+
+  .text-wrapper {
+    margin-bottom: ru(2);
+  }
+
+  .cta {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+
+    small {
+      @include typography-7;
+    }
+  }
+
+  &.no-cta {
+    .layout-container {
+      justify-content: center;
+      min-height: 0;
+    }
+
+    .main-container {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+  }
+
+  .ad-container-wrapper {
+    border: $hero-panel-ad-container-wrapper-border-width solid;
+    border-radius: .375rem;
+    display: flex;
+    max-width: 100%;
+    justify-content: center;
+    margin: $hero-panel-ad-container-margin;
+  }
+
+  .ad-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: ru(1.25) 0;
+
+    .paragraph {
+      @include typography-5;
+      margin-bottom: ru(1);
+      max-width: 100%;
+    }
+
+    .bottom {
+      display: flex;
+      flex-direction: column;
+      align-self: flex-start;
+    }
+
+    .text {
+      @include typography-6;
+      margin-top: 0;
+      display: block;
+      font-weight: 300;
+      font-style: italic;
+    }
+  }
+
+  .image-wrapper {
+    display: flex;
+    justify-content: flex-end;
+
+    .image-container {
+      display: flex;
+      flex-basis: 100%;
+    }
+
+    .ad-container-logo {
+      max-width: rem-calc(170px);
+      max-height: rem-calc(80px);
+      width: 100%;
+      height: 100%;
+    }
+
+    .image-bottom {
+      max-width: rem-calc(290px);
+      max-height: rem-calc(254px);
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  .main-container {
+    max-width: 100%;
+  }
+
+  .content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+
+    header {
+      @include typography-7;
+      font-style: italic;
+      text-align: center;
+    }
+  }
+
+  .logo-wrapper {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    margin-left: -ru(.5);
+    margin-right: -ru(.5);
+    width: 100%;
+  }
+
+  .logo {
+    flex: 1 1 auto;
+    margin-bottom: ru(.5);
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: rem-calc(322px);
+    padding-left: ru(.5);
+    padding-right: ru(.5);
+
+    img {
+      max-height: rem-calc(100px);
+    }
+  }
+
+  figure {
+    @extend %reset;
+    margin-bottom: calc(#{$hero-panel-figure-margin-bottom} - #{$hero-panel-ad-container-wrapper-border-width});
+    margin-top: ru(1);
+    padding-right: ru(.5);
+    padding-left: ru(.5);
+    width: 100%;
+
+    img {
+      display: block;
+      margin: auto;
+      width: 100%;
+      max-width: rem-calc(322px);
+    }
+  }
+
+  .overlapping {
+    position: absolute;
+    bottom: 0;
+    right: 1.7rem;
+  }
+
+  .affiliate-bottom {
+    display: flex;
+    max-width: rem-calc(350px);
+    margin: rem-calc(30px) auto 0;
+
+    img {
+      max-width: rem-calc(150px);
+      max-height: rem-calc(40px);
+    }
+
+    .text {
+      @include typography-7;
+      margin-left: 20px;
+      margin-bottom: 0;
+      line-height: 18px;
+      font-weight: 700;
+      font-style: italic;
+    }
+  }
+
+  @media #{$small-and-medium-only} {
+    .ad-container {
+      width: 100%;
+      padding: ru(1.25);
+
+      .bottom {
+        order: -1;
+        align-self: center;
+        text-align: center;
+        margin-bottom: ru(1);
+      }
+
+      .paragraph {
+        margin-bottom: 0;
+      }
+    }
+
+    .overlapping {
+      position: relative;
+      right: auto;
+      bottom: auto;
+      margin: $overlapping-image-margin-top-mobile auto 0;
+      max-width: rem-calc(145px);
+      max-height: rem-calc(127px);
+    }
+  }
+
+  @media #{$large-up} {
+    min-height: ru(19);
+
+    &.no-cta {
+      min-height: ru(12.5);
+
+      .main-container {
+        text-align: center;
+      }
+    }
+
+    .breadcrumb-wrapper {
+      display: block;
+    }
+
+    .layout-container {
+      flex-direction: row;
+    }
+
+    .centered {
+      justify-content: center;
+
+      .text-wrapper {
+        text-align: center;
+      }
+    }
+
+    .main-container {
+      @include g-unit(5);
+    }
+
+    .ad-container-wrapper {
+      @include g-unit(6);
+    }
+
+    .ad-container-wrapper-affiliate {
+      margin-bottom: rem-calc(123px);
+    }
+
+    .ad-container {
+      @include g-unit(4, 6);
+
+      &.full {
+        padding: ru(1.25);
+        width: 100%;
+        margin: 0;
+      }
+    }
+
+    .logo {
+      flex-basis: 40%;
+      width: auto;
+      max-width: 100%;
+
+      img {
+        width: auto;
+        max-width: 99%;
+      }
+
+      &.wide {
+        flex-basis: 100%;
+        width: 100%;
+      }
+    }
+
+    figure {
+      img {
+        max-width: none;
+      }
+    }
+
+    .logo-wrapper {
+      flex-direction: row;
+      flex-wrap: wrap;
+    }
+
+    .layout-cta {
+      .button {
+        padding-left: ru(1);
+        padding-right: ru(1);
+      }
+    }
+  }
+}
+

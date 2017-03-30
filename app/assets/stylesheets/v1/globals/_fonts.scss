@@ -1,0 +1,71 @@
+$units: (12px, 14px, 16px, 20px, 24px, 30px, 36px, 42px);
+$tShirtSizes: (n, s, m, l, xl, xxl, xxxl, xxxxl);
+
+@for $i from 1 through length($units) {
+
+  $tShirtSize: nth($tShirtSizes, $i);
+
+  .text-#{$tShirtSize} {
+    font-size: nth($units, $i) !important;
+  }
+}
+
+*,
+*:before,
+*:after {
+  @extend .antialiased;
+}
+
+html { font-family: $serif; }
+
+h1,
+h2,
+h3,
+h4,
+p { font-family: $serif; }
+
+h6,
+.sans-thin { font-family: $sans-serif;}
+
+button,
+.button { font-family: $sans-serif; text-transform: capitalize; }
+
+//about page
+.citation,
+.contact .box p,
+.products .box p,
+.new_contact_form input[type='text'],
+.new_contact_form  input[type='email'],
+.new_contact_form  textarea,
+.team-list .mood p,
+.team-list .mood strong,
+.team-list .member-label-name span,
+//university page
+.overlay-menu ,
+.breadcrumbs a,
+.hero-title span,
+.overlay-menu p,
+.direction p,
+.video-insurance span,
+.individual-insurer p,
+.breadcrumbs-text h3,
+.definition-and-explanation h3,
+.real-stories h3,
+.insurer-table .table-header span,
+.breadcrumbs-text ul,
+.search-insurer select,
+//advice page
+.advice .icon-box p,
+.advice .chart-panel p.title,
+.expert-contact .social-bar p,
+.advice .callout-panel h5 {
+  font-family: $sans-serif;
+}
+
+.about .side-nav em,
+.products .side-nav em,
+.faq dd .detail,
+.detailed-todo-item .button,
+.primary-footer h4 {
+  font-family: $serif;
+}

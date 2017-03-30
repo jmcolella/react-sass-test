@@ -1,0 +1,27 @@
+// Fonts
+$serif: "adelle", Georgia, serif;
+$sans-serif: "adelle-sans", Helvetica, Arial, sans-serif;
+$system-font: Helvetica, Arial, sans-serif;
+$skippy-sharp: "skippy-sharp", serif;
+
+// Line heights
+$lh-browser-default: 24px;
+$lh-ratio: 1.5;
+
+// Taming z-index
+$index-1:   100;
+$index-2:   200;
+$index-3:   300;
+$index-4:   400;
+$index-5:   500;
+$index-6:   600;
+$index-7:   700;
+$index-8:   800;
+$index-9:   900;
+$index-10: 1000;
+
+// z-index applications
+$index-steps: $index-1;
+$index-tooltip: $index-2;
+$index-modal: $index-10;
+

@@ -1,0 +1,177 @@
+/*doc
+---
+title: Layout - Breadcrumb Progress
+name: 9_layout-breadcrumb-progress
+category: V1-Components
+---
+
+Layout - Breadcrumb progress bar to indicate user progression.
+
+### Contents:
+* [Layout](#breadcrumb-progress)
+ * Use the foundation grid to size the list elements `.small-4.columns` etc...
+
+<div id="breadcrumb-progress"></div>
+#### Breadcrumb Progress Bar
+
+```slim_example
+.row
+  .small-12.columns
+    .breadcrumb
+      ul.breadcrumb-progress
+        li.breadcrumb-progress-item.is-complete
+          a href="#"
+            span.breadcrumb-progress-step 1
+            |  Select a policy
+        li.breadcrumb-progress-item.is-active
+          a href="#"
+            span.breadcrumb-progress-step 2
+            |  Apply with PolicyGenius
+        li.breadcrumb-progress-item
+          a.is-disabled href="#"
+            span.breadcrumb-progress-step 3
+            |  Get approved & covered
+        li.breadcrumb-progress-item
+          a href="#"
+            i.ss-icon.ss-user
+            |  Account
+```
+*/
+
+.breadcrumb {
+  .breadcrumb-progress {
+    margin: 0;
+    max-width: none;
+    padding: 0;
+  }
+
+  .has-dropdown > a {
+    color: $black-color-text;
+  }
+
+  .has-dropdown .dropdown {
+    text-align: left;
+  }
+
+  .breadcrumb-progress-item {
+    background-color: $light-gray;
+    display: inline-block;
+    font-family: $sans-serif;
+    font-size: rem-calc(13px);
+    position: relative;
+    text-align: center;
+    white-space: nowrap;
+    width: 28%;
+
+    > a {
+      color: $black-color-text;
+      display: block;
+      padding: rem-calc(10px 5px);
+    }
+
+    @media #{$medium-up} {
+      &:last-of-type:not(.is-active) {
+        border-left: 2px solid $white-color;
+        padding-left: rem-calc(20px);
+        width: 16%;
+      }
+    }
+
+    .ss-icon {
+      line-height: 1;
+    }
+
+    &:before,
+    &:after {
+      content: "";
+      position: absolute;
+      z-index: 1;
+    }
+
+    &:before {
+      @include transform(rotate(45deg));
+      background-color: $light-gray;
+      border-right: 2px solid $white-color;
+      border-top: 2px solid $white-color;
+      border-top-right-radius: 5px;
+      height: 35px;
+      right: -19px;
+      top: 7px;
+      width: 36px;
+    }
+
+    &:after {
+      background-color: $light-gray;
+      bottom: 0;
+      right: 0;
+      top: 0;
+      width: 5px;
+    }
+
+    &:not(.tracker-phase) {
+      &:last-of-type:before,
+      &:last-of-type:after,
+      &:nth-last-child(2):before,
+      &:nth-last-child(2):after {
+        display: none;
+      }
+    }
+
+    &:last-of-type:before,
+    &:last-of-type:after {
+      display: none;
+    }
+
+    &.long {
+      width: 40%;
+    }
+
+    &.long.is-hidden:last-of-type {
+      width: 44%;
+    }
+  }
+
+  .breadcrumb-progress-item.is-active {
+    @extend %font-bold;
+    background-color: $third-color-kinda-light;
+    color: $white-color;
+
+    &:before {
+      background-color: $third-color-kinda-light;
+    }
+
+    &:after {
+      background-color: $third-color-kinda-light;
+    }
+
+    > a {
+      color: $white-color;
+    }
+
+    .breadcrumb-progress-step {
+      border-color: $white-color;
+    }
+  }
+
+  .breadcrumb-progress-item.is-complete {
+    background-color: $third-color-light;
+    color: $black-color-text;
+
+    &:before {
+      background-color: $third-color-light;
+    }
+
+    &:after {
+      background-color: $third-color-light;
+    }
+  }
+
+  .breadcrumb-progress-step {
+    border: 1px solid $black-color-text;
+    border-radius: 50%;
+    display: inline-block;
+    line-height: 1;
+    margin-right: rem-calc(5px);
+    padding: rem-calc(2px 6px);
+  }
+}

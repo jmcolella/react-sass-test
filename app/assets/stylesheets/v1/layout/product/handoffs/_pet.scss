@@ -1,0 +1,129 @@
+.handoffs-banner {
+  background: $primary-color;
+  .logo { margin-top: rem-calc(22px); }
+  h5, p { color: white; }
+  h5 {
+    margin: 0;
+    line-height: 1.3;
+    font-weight: bold;
+  }
+  p { font-size: rem-calc(14px); }
+  h4 {
+    margin-bottom: 0;
+    color: $primary-color-light;
+    text-transform: uppercase;
+    font-size: rem-calc(12px);
+    font-family: $sans-serif;
+  }
+  .double-check {
+    padding-right: rem-calc(40px);
+    p { margin: rem-calc(-4px 0 12px 0); }
+    h5 { margin-top: rem-calc(16px); }
+  }
+  .handoffs-policy-details-wrapper {
+    position: relative;
+    @media #{$small-only} {
+      margin: rem-calc(0 -15px);
+    }
+  }
+
+  .handoffs-policy-arrow {
+    @include absolute(top 20px left -60px);
+    @include transform(rotate(110deg));
+    img {
+      width: 50%;
+      height: auto;
+    }
+  }
+
+  .handoffs-policy-details {
+    width: 100%;
+    bottom: rem-calc(-90px);
+    @media #{$medium-up} {
+      position: absolute;
+      .left-part {
+        @include centered-verticaly;
+      }
+    }
+  }
+  .social {
+    padding-top: 10px;
+    position: relative;
+  }
+  .box-icon {
+    background: $primary-color-light;
+    &:hover { background: $primary-color-dark; }
+  }
+  .social-icons {
+    position: absolute;
+    left: 0;
+    bottom: rem-calc(-39px);
+  }
+}
+
+.handoffs-policy-details {
+  padding: rem-calc(8px 16px);
+  background: $tertiary-color;
+  p { font-family: $sans-serif; }
+  .line {
+    @include clearfix;
+    margin: 0;
+    font-size: rem-calc(12px);
+    line-height: 1.7;
+    white-space: nowrap;
+    span:last-of-type { float: right; }
+    span:first-of-type { float: left; }
+    &:first-of-type { font-weight: bold; }
+  }
+  .price {
+    margin: rem-calc(10px 0 0 0);
+    text-align: center;
+    line-height: 1;
+  }
+  @media #{$small-only} {
+    .insurer-logo { text-align: center; }
+  }
+}
+
+.handoffs.new .reveal-modal {
+  background: $primary-color;
+  li { margin-bottom: rem-calc(5px); }
+  .close-reveal-modal {
+    position: static;
+    font-size: rem-calc(16px);
+  }
+  .handoffs-policy-details {
+    @include transform(rotate(7deg));
+    position: relative;
+    top: rem-calc(38px);
+  }
+  .button {
+    background: $primary-color-light;
+    &:hover { background: lighten($primary-color-light, 15%); }
+  }
+}
+
+.pet_handoffs footer,
+.pet_old_handoffs footer {
+  display: none !important;
+}
+
+.outside {
+
+  @media #{$medium-up} {
+    @include absolute(top -50px);
+  }
+  @media #{$medium-only} {
+    left: -10%;
+  }
+  @media #{$small-only} {
+    display: none;
+  }
+}
+
+.rotate {
+  @media #{$medium-up} {
+    @include transform(rotate(5deg));
+    margin-top: 1.5rem
+  }
+}

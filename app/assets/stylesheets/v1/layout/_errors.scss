@@ -1,0 +1,64 @@
+.errors {
+  @include theme(
+    'tiger',
+    $secondary-color,
+    $secondary-color-light,
+    $secondary-color-extra-light,
+    url("/images/banner-bg-squares.png")
+  );
+  main {
+    background: 0;
+    padding: 5% 0;
+  }
+  .logo { padding-bottom: 60px; }
+
+  label {color: $white-color;}
+}
+
+.error {
+
+  &-text,
+  &-subheader { font-weight: bold; }
+
+  &-text,
+  &-hashtags {
+    color: white;
+    line-height: 1.4;
+    @media #{$medium-up} {
+      font-size: rem-calc(27px);
+    }
+  }
+
+  &-subheader {
+    color: white;
+    @media #{$medium-up} {
+      font-size: rem-calc(17px);
+    }
+  }
+
+  &-frame {
+    margin-bottom: rem-calc(15px);
+    padding: rem-calc(5px);
+    border-radius: 5px;
+    background: white;
+    img { width: 100%; }
+
+  }
+
+  &-actions {
+    margin-top: rem-calc(30px);
+    color: white;
+    a {
+      color: white;
+      text-decoration: underline;
+      &:hover { @include opacity(.8); }
+    }
+  }
+
+  small.error + span.hint {
+    margin-top: -1rem;
+  }
+
+}
+
+.UX-animation img {width: 85%; outline: #999999 solid 2px; margin-bottom: 3rem;}

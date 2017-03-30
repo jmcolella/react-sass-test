@@ -1,0 +1,42 @@
+.loader {
+  &__curtain {
+    @include size(100%);
+    @include fixed(top 0 left 0);
+    background: $reveal-overlay-bg;
+    display: none;
+    z-index: $index-modal;
+
+    .busy & { display: block; }
+  }
+
+  &__box {
+    @include size(370px 190px);
+    @include absolute(top 0 left 0 right 0 bottom 0);
+    background: $white-color;
+    border-radius: 10px;
+    margin: auto;
+    overflow: auto;
+
+    @media #{$small-only} {
+      width: 90%;
+    }
+  }
+
+  &__img {
+    @include size(60px);
+    margin: rem-calc(29px 0 7px 0);
+  }
+
+  &__title { font-weight: bold; }
+
+  &__title,
+  &__slogan {
+    color: $brown-color-text;
+    font-family: $sans-serif;
+  }
+
+  &__slogan {
+    font-size: rem-calc(14px);
+    margin-top: rem-calc(14px);
+  }
+}

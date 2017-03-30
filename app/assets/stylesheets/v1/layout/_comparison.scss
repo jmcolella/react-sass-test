@@ -1,0 +1,286 @@
+$margin-outer: rem-calc(20px);
+$text-size-normal: rem-calc(16px);
+
+.pet-policy-comparisons-show,
+.life-policy-comparisons-show,
+.life_applications,
+.disability-applications-new,
+.disability-applications-create,
+.disability-policy-comparisons-show {
+  // temporary for dev
+  header {
+    display: none;
+  }
+
+  header nav.fixed {
+    position: relative;
+  }
+
+  main {
+    overflow: hidden;
+    position: relative;
+  }
+
+  footer {
+    left: 300px;
+    position: absolute;
+    right: 0;
+
+    @media #{$small-only} {
+      left: auto;
+      position: relative;
+      right: auto;
+    }
+
+    @media #{$medium-only} {
+      left: 240px;
+    }
+  }
+
+  .card-container .openByClickOn {
+    display: inline-block;
+  }
+
+  .breadcrumb {
+    margin-bottom: rem-calc(50px);
+    margin-left: 300px;
+
+    @media #{$small-only} {
+      display: none;
+    }
+
+    @media #{$medium-only} {
+      margin-left: 240px;
+    }
+
+    .top-bar {
+      background-color: transparent;
+      height: auto;
+      line-height: 1;
+    }
+
+    .right.semantic-navigation {
+      background-color: transparent;
+      width: 100%;
+    }
+
+    .right.semantic-navigation:hover {
+      > li > a {
+        background-color: transparent;
+        color: $secondary-color;
+      }
+    }
+
+    .breadcrumb-progress-item {
+      height: 3rem;
+    }
+
+    .breadcrumb-progress-item.is-hidden {
+      @media #{$medium-bottom} {
+        display: none;
+      }
+    }
+
+    .breadcrumb-progress-item:first-of-type {
+      width: 16%;
+
+      @media #{$medium-up} {
+        left: 84%;
+        right: auto;
+      }
+
+      @media #{$medium-bottom} {
+        display: none;
+      }
+    }
+
+    .breadcrumb-progress-item:not(:first-of-type) {
+      @media #{$medium-up} {
+        left: auto;
+        right: 16%;
+      }
+
+      @media #{$medium-bottom} {
+        right: auto;
+        width: 50%;
+      }
+
+      @media #{$small-only} {
+        text-align: left;
+        width: 100%;
+      }
+    }
+
+    .breadcrumb-progress-item:last-of-type {
+      border-left: 0;
+      border-right: 2px solid $white-color;
+      width: 28%;
+    }
+
+    @media #{$medium-bottom} {
+      .breadcrumb-progress-item:last-of-type.is-active {
+        width: 50%;
+      }
+    }
+
+    @media #{$small-only} {
+      .breadcrumb-progress-item:last-of-type.is-active {
+        width: 100%;
+      }
+    }
+
+    .breadcrumb-progress-item:last-of-type:before,
+    .breadcrumb-progress-item:last-of-type:after {
+      display: none;
+    }
+
+    .breadcrumb-progress-item:nth-last-child(2):before,
+    .breadcrumb-progress-item:nth-last-child(2):after {
+      display: block;
+    }
+  }
+
+  .top-bar.nav {
+    background: $secondary-color;
+
+    .toggle-topbar {
+      margin-top: auto;
+      position: relative;
+      text-align: right;
+      top: initial;
+    }
+
+    img {
+      float: left;
+      margin: rem-calc(10px 0 0 10px);
+    }
+
+    &:not(.is-open) {
+      @media #{$small-only} {
+        margin-bottom: rem-calc(20px);
+      }
+    }
+
+    &.is-open {
+      @media #{$small-only} {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+
+  .table-results .link {
+    border-bottom: 0;
+  }
+
+  .toggle-topbar.menu-icon a {
+    height: 50px;
+    line-height: 50px;
+    padding: rem-calc(0 10px);
+  }
+
+  .toggle-nav.close {
+    display: none;
+  }
+
+  #toggle-nav-progress:target ~ .breadcrumb {
+    display: block;
+    margin-bottom: initial;
+    margin-left: initial;
+  }
+
+  #toggle-nav-progress:target .top-bar.nav {
+    margin-bottom: 0;
+  }
+
+  .sidebar-layout.is-open,
+  #toggle-nav-progress ~ .sidebar-layout {
+    @media #{$small-only} {
+      margin-top: 25px;
+    }
+  }
+
+  .sidebar-layout.is-open {
+    @media #{$small-only} {
+      margin-top: 0;
+
+      .panel-filter {
+        margin-bottom: 25px;
+      }
+    }
+  }
+
+  .top-bar.nav.is-open,
+  #toggle-nav-progress:target {
+    .toggle-nav.open {
+      display: none;
+    }
+
+    .toggle-nav.close {
+      display: block;
+    }
+  }
+
+  .sidebar-layout.is-open .panel-filter {
+    display: block;
+    padding: 20px 0;
+  }
+
+  @media #{$small-only} {
+    .panel-filter {
+      display: none;
+    }
+  }
+
+  .sidebar-layout-content.subtle {
+    .pg-tooltip.has-tip {
+      border-color: $white-color;
+      color: $white-color;
+    }
+  }
+}
+
+.breadcrumb-top-bar {
+  .semantic-navigation > li {
+    float: none;
+  }
+
+  li.has-dropdown > a:not(.button) {
+    height: auto;
+    line-height: inherit;
+    padding: rem-calc(10px 5px);
+  }
+
+  .dropdown a,
+  li > a {
+    color: $brown-color-text;
+  }
+}
+
+.top-bar-section.breadcrumb-top-bar-section {
+  .semantic-navigation > li > a:not(.button),
+  .dropdown > a {
+    color: $brown-color-text;
+  }
+}
+
+.life-policy-comparisons-show.f-topbar-fixed {
+  padding-top: 0 !important;
+}
+
+.disability-policy-comparisons-show {
+  .primary-footer {
+    display: none;
+  }
+
+  .secure-info-box {
+    display: none;
+  }
+}
+
+.life-policy-comparisons-show,
+.life_applications {
+  footer {
+    margin-top: 0 !important;
+  }
+}

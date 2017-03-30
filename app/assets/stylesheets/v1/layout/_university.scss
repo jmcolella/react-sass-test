@@ -1,0 +1,407 @@
+$button-stories-bg: #E6E6E6;
+$button-stories-color: #222;
+$button-font-med: rem-calc(19);
+
+.insurance-wrap h2,
+.breadcrumbs a:hover,
+.insurance-questions ul a:hover ,
+.odds-calculator label,
+.odds-calculator .odds-details b,
+.real-stories .info p {
+  color: $tertiary-color;
+}
+
+.insurance-wrap h2,
+.breadcrumbs-text h3,
+.real-stories h3 {
+  font-weight: 600;
+}
+
+.individual-insurer .detail strong,
+.insurance-wrap h2 {
+  margin-bottom: 1rem;
+}
+
+.breadcrumbs,
+.overlay-menu p,
+.panel.insurance .button,
+.video-insurance span,
+.galore,
+.search-insurer select,
+.individual-insurer ul.define {
+  margin-bottom: 0;
+}
+
+.end-of-page-nav {margin-top:-50px; margin-bottom:-2.5rem;}
+.galore {
+  margin-top: 0;
+}
+
+.label-panel {
+  input { @include input ($placeholder-color: $brown-color-text, $bg-input: $primary-color-text, $border-input-color: $brown-color-text, $input-color: $brown-color-text, $height: rem-calc(41));}
+}
+
+.guides .hero {margin: 1.5rem 0 2rem 0rem;}
+
+.hero-title {
+  .ss-icon { margin-top: 2rem;}
+  h2 {
+    line-height: rem-calc(37);
+    // margin-left: 2.25rem;
+  }
+}
+
+.breadcrumbs-text {
+  ul,
+  h3 {
+    line-height: 1.25rem;
+  }
+
+  h3 {
+    color: #b3b3b3;
+    margin-bottom: 2rem;
+  }
+}
+
+.breadcrumbs {
+  padding: 0;
+
+  a {
+    color: $primary-gray;
+    &:hover {
+      text-decoration: none;
+    }
+  }
+}
+
+.overlay-menu {
+  background: #f9b350;
+  padding-top: 1rem;
+
+  a,
+  h6 {
+    font-size: 14px;
+  }
+
+  li {
+    line-height: 1rem;
+  }
+
+  input {
+    background: #FDEBD3;
+    border-color: $tertiary-color;
+    @include placeholder { color: $tertiary-color; }
+  }
+
+  p {
+    margin-top: 1.4rem;
+    opacity: .5;
+  }
+
+  .button {
+    @include hover-button ($bg: $tertiary-color, $bg-hover: $tertiary-color-dark, $color: #FDD9A7, $color-hover: #FDD9A7);
+    .ss-icon {
+      margin-top: -1.75rem;
+    }
+  }
+
+  .share-social {
+    margin-bottom: 1.25rem;
+
+    span {
+      display: inline-flex;
+      margin-top: 4px;
+    }
+  }
+}
+
+.social-icons {
+  width: 100%;
+  position: relative;
+  margin: 0;
+  .twitter {
+    @include box-icon($background: #FBC67C, $background-hover: #63CDF1, $color: $primary-color-text, $display: false, $font-family: $sans-serif,$color-hover: $primary-color-box-icon, $text-align: false, $vertical-align: false)
+  }
+
+  .facebook {
+    @include box-icon($background: #FBC67C, $background-hover: #5779b9, $color: $primary-color-text, $display: false, $font-family: $sans-serif,$color-hover: $primary-color-box-icon, $text-align: false, $vertical-align: false)
+  }
+
+  .linked-in {
+    @include box-icon($background: #FBC67C, $background-hover: #8dcbe2, $color: $primary-color-text, $display: false, $font-family: $sans-serif,$color-hover: $primary-color-box-icon, $text-align: false, $vertical-align: false)
+  }
+
+  .google-plus {
+    @include box-icon($background: #FBC67C, $background-hover: #d94833, $color: $primary-color-text, $display: false, $font-family: $sans-serif,$color-hover: $primary-color-box-icon, $text-align: false, $vertical-align: false)
+  }
+
+  .email {
+    @include box-icon($background: #FBC67C, $background-hover: #F1682F, $color: $primary-color-text, $display: false, $font-family: $sans-serif,$color-hover: $primary-color-box-icon, $text-align: false, $vertical-align: false);
+    .ss-icon { padding: 0; }
+  }
+
+  img {
+    position: relative;
+    top: -2px;
+    left: 0;
+  }
+}
+
+.sub-guide-nav {
+  li {
+    &.active,
+    &:hover {
+      &:before {
+        content: '▹';
+        font-family: "SSPika";
+        font-size: 14px;
+        margin-left: -1rem;
+        margin-top: 3px;
+        position: absolute;
+      }
+    }
+  }
+}
+
+.guide-sidebar {
+  .label-panel {
+    @include transition(opacity .4s);
+    opacity: .5;
+    &:hover {
+      opacity: 1;
+    }
+  }
+
+  .social-icons {
+    a { background: #b3b3b3; }
+  }
+}
+
+.direction {
+  i {
+    @include font-style($font-size: 4.75rem, $line-height: normal, $padding: 1rem 0);
+    color: #e6e6e6;
+  }
+}
+
+.panel.insurance {
+  background: #cef4ee;
+  margin-bottom: 3rem;
+  margin-top: rem-calc(30);
+  h3 { font-size: rem-calc(27);}
+  h3,
+  h5 {
+    color: $teal-color;
+  }
+
+  h3 {
+    padding-top: rem-calc(5);
+  }
+
+  .ss-icon {
+    padding: 0;
+  }
+
+  .button {
+    @include hover ($bg: $teal-color, $bg-hover: $teal-color);
+  }
+}
+
+.video-insurance {
+  border: 1px solid rgba(255, 255, 255, .5);
+  margin-top: rem-calc(60px);
+  @include radius(6px);
+
+  .icon-video {
+    font-size: 4rem;
+    position: relative;
+    top: rem-calc(-20px);
+  }
+
+  h2 {
+    line-height: 37px;
+    padding-bottom: 2.5rem;
+    padding-top: 1.5rem;
+  }
+
+  .circle {
+    border: 1px solid;
+    margin-top: 30px;
+    @include hover($bg: transparent, $bg-hover: transparent);
+  }
+}
+
+.insurance-questions {
+  .label-panel {
+    margin-bottom: rem-calc(12);
+    .panel {
+      margin-top: rem-calc(36);
+    }
+  }
+
+  ul a { color: #666;}
+
+  li {
+    line-height: 2rem;
+  }
+}
+
+
+.label-panel .ss-icon.large { padding-bottom: 0;}
+
+.search-insurer {
+  .panel {
+    @include radius($global-radius);
+    margin-top: 20px;
+    background: $tertiary-color;
+
+    label {
+      font-size: rem-calc(14);
+      margin-bottom: 3px;
+    }
+  }
+
+  .show-all {
+    margin-top: 20px;
+    background: #FBC67C;
+    .button {
+      margin-bottom: 2px;
+      @include hover($bg: $tertiary-color, $bg-hover: $tertiary-color-dark);
+    }
+  }
+
+  select {
+    background-color: $primary-color-text;
+    height: 38px;
+    padding: 5px 10px;
+  }
+}
+
+.insurer-table {
+  .table-header {
+    span {
+      font-size: rem-calc(14);
+      font-weight: bold;
+    }
+  }
+}
+
+.odds-calculator {
+  label {
+    font-size: rem-calc(18);
+  }
+
+  input {
+    @include input ($placeholder-color: $brown-color-text, $bg-input: $primary-color-text, $border-input-color: $tertiary-color, $input-color: $tertiary-color, $height: rem-calc(41px));
+  }
+
+  .button {
+    @include button-style($bg:$tertiary-color, $radius:true, $disabled:false);
+  }
+
+  .radio-button-group.toggle {
+    @include list-radio-toggle($width-toogle: 50%);
+
+    li {
+      border: 1px solid $tertiary-color;
+      margin-bottom: rem-calc(19);
+
+      &:first-child {
+        border-right: 0;
+      }
+
+      &:last-child {
+        border-left: 0;
+      }
+    }
+  }
+
+  .radio-button-group {
+    @include li-list-style($radius-first-button: 4px 0 0 4px, $radius-last-button: 0 4px 4px 0, $padding: .5rem);
+    @include label-status-button ( $even:3, $bg-label-checked: $tertiary-color, $bg-label-checked-hover: $tertiary-color, $color-checked: $primary-color-text, $color-hover: $primary-color-text);
+    @include label-radio-button ($bg-label: $white-color, $label-color: $tertiary-color, $text-align: center, $label-color-hover: $primary-color-text, $bg-label-color-hover: $tertiary-color);
+  }
+
+  .odds-details {
+    border-left: 1px solid #B3B3B3;
+
+    .notice { margin: rem-calc(30) 0 0; }
+    p { font-family: $serif; }
+  }
+}
+
+
+.real-stories {
+  .define {
+    margin-left: 0;
+  }
+
+  h6,
+  h3 { color: #B3B3B3; }
+
+  .button.tiny {
+    @include hover ($bg: $button-stories-bg, $bg-hover: $button-stories-bg);
+    color: $button-stories-color;
+  }
+
+  .button-process {
+    margin-top: 2.75rem;
+  }
+
+}
+
+.individual-insurer {
+  $margin-image-panel: .5rem;
+  .detail {
+    strong {
+      padding-left: 2.125rem;
+    }
+
+    li {
+      @include font-style($font-size: rem-calc(14), $line-height: rem-calc(25), $padding: 0 0 rem-calc(4) 0);
+      text-transform: capitalize;
+    }
+
+    img { margin-left: 2rem; }
+  }
+
+  .define {
+    li {
+      padding-left: 2.125rem;
+    }
+
+    &.it-is {
+      @include define-before($width-icon: 2.125rem, $color: $color-icon-it-is, $content: '✓', $font-size: rem-calc(14));
+    }
+  }
+
+  .list-icon-box {
+    margin-left: -0.8rem;
+    text-align: center;
+    li {
+      list-style: none;
+      margin-left: 0.7rem;
+    }
+  }
+
+  .box-icon {
+    @include box-icon($background: #B3B3B3, $display: table-cell, $vertical-align: middle, $background-hover: false, $font-family: $serif, $text-align: left, $span-display: inline-block);
+    @include size(rem-calc(230) rem-calc(70));
+    line-height: rem-calc(25);
+  }
+
+  // mixin in file box-icon
+  @include effect-icon($bg-color: $third-color, $opacity: 1);
+
+  .box-icon-effect .button {
+    border: 1px solid #fff;
+    @include hover-button ($bg: $third-color, $bg-hover: $white-color-icon, $color: $primary-color-text, $color-hover: $third-color);
+  }
+
+}
+
+.insurer-info {
+  ul {
+    margin-top: -20px;
+  }
+}

@@ -1,0 +1,41 @@
+// @import 'configuration';
+
+/* First level of nav */
+.nav-tree {
+  ul, li {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+  }
+
+  /* All levels of nav */
+  .nav > li > a {
+    display: block;
+    padding: 5px 0px;
+  }
+  .nav > li > a:hover,
+  .nav > li > a:focus {
+    background-color: transparent;
+    color: #462d6c;
+    border-right: 1px solid #dbd8e0;
+    text-decoration: underline;
+  }
+  .nav > .active > a,
+  .nav > .active:hover > a,
+  .nav > .active:focus > a {
+    font-weight: bold;
+    color: #563d7c;
+    background-color: transparent;
+  }
+
+  /* Nav: second level (shown on .active) */
+
+  .nav .nav > li > a {
+    padding-top:    3px;
+    padding-bottom: 3px;
+    padding-left: 10px;
+    font-size: 90%;
+  }
+}
+
+

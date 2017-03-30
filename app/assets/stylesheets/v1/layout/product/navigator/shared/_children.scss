@@ -1,0 +1,30 @@
+.children-fields {
+  margin-top: 13px;
+  .fields { margin-bottom: 2rem; }
+  .field_with_hint {
+    .radius {
+      @include radius($global-radius $global-radius 0 0);
+      margin: 0;
+    }
+    .hint {
+      @include font-style ($font-size: rem-calc(11px), $line-height: 1rem, $padding: 0);
+      @include radius(0 0 $global-radius $global-radius);
+      padding: 0.5rem;
+      background-color: $primary-color-very-light;
+      color: $primary-color;
+      text-transform: uppercase;
+      display: block;
+    }
+  }
+  .child-row {
+    padding: 0 33px 0 71px;
+    position: relative;
+    
+    @media #{$small-only} {
+      padding: 0;
+    }
+  }
+  .ss-user { @include absolute(top 18px left 16px); }
+  .remove_nested_fields { @include absolute(top 24px right 0); }
+  a { color: white; }
+}

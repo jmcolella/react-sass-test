@@ -1,0 +1,87 @@
+@mixin box-shadow ($top, $left, $blur, $spread, $color, $inset: true) {
+  @if $inset {
+    -webkit-box-shadow:inset $top $left $blur $spread $color;
+    -moz-box-shadow:inset $top $left $blur $spread $color;
+    box-shadow:inset $top $left $blur $spread $color;
+  } @else {
+    -webkit-box-shadow: $top $left $blur $spread $color;
+    -moz-box-shadow: $top $left $blur $spread $color;
+    box-shadow: $top $left $blur $spread $color;
+  }
+}
+
+/* tooltip */
+@mixin tooltip($bg-tooltip: $primary-color-very-light, $margin: 0px 0 0 -28px, $padding: 5px 20px) {
+  @include radius($global-radius);
+  background-color: $bg-tooltip;
+  cursor: default;
+  display: none;
+  margin: $margin;
+  padding: $padding;
+  position: absolute;
+  z-index: 9;
+}
+
+// box-style
+@mixin box-style($border-color:$primary-color, $text-color:$primary-color) {
+  border-color: $border-color;
+  color: $text-color;
+}
+
+// mixin hover
+@mixin hover ($bg, $bg-hover) {
+  background: $bg;
+  &:hover { background: $bg-hover; }
+}
+
+@mixin indicator($size, $offset, $color, $position) {
+  @include square($size);
+  margin-top: $offset;
+  content: ' ';
+  display: block;
+  position: absolute;
+  #{$position}: -$column-gutter;
+  background: $color;
+  @include transform(rotate(45deg));
+}
+
+@mixin circle-generator($size) {
+  line-height: $size;
+  width: $size;
+  height: $size;
+  -webkit-border-radius: ($size / 2);
+  -moz-border-radius: ($size / 2);
+  border-radius: ($size / 2);
+}
+
+@mixin circle-generator-color($bg-color: transparent, $border: null) {
+  border: $border;
+  background-color: $bg-color;
+}
+
+@mixin label-generator($size) {
+  line-height: ($size / 4);
+  width: percentage($size / ($size * 2.5));
+  padding: 0;
+
+  &:before {
+    content: ' ';
+    position: absolute;
+    left: (-$size / 5);
+    top: 0;
+    width: 0;
+    height: 0;
+    border-top: ($size / 4) solid transparent;
+    border-bottom: 0 solid transparent;
+    border-right: ($size / 5) solid;
+  }
+}
+
+@mixin label-generator-color($bg-color: transparent) {
+  background-color: $bg-color;
+
+  &:before {
+    border-right-color:  darken($bg-color, 10%);
+  }
+}
+

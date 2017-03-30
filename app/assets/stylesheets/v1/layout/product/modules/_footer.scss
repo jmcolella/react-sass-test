@@ -1,0 +1,35 @@
+.product__subfooter {
+  padding: 40px 0;
+  background: $primary-color-very-light;
+  &__panel {
+    position: relative;
+    padding-left: 104px;
+    h4 {
+      color: $primary-color-dark;
+      font-weight: bold;
+    }
+    img { @include absolute(top 0 left 0); }
+  }
+}
+
+.product__footer {
+  color: white;
+  &__tech-logo {
+    @media #{$medium-up} {
+      margin-right: 20px;
+      float: left;
+    }
+    @media #{$small-only} {
+      margin: 0 5px;
+      float: none;
+    }
+  }
+  &__panel--bordered {
+    border-right: 1px solid $primary-color-light;
+    @media #{$small-only} {
+      border: none;
+      margin-bottom: 10px;
+    }
+  }
+  &.sub-footer p { font-size: rem-calc(12px); }
+}

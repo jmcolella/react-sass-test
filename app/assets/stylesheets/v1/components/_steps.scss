@@ -1,0 +1,386 @@
+/*doc
+---
+title: Layout - Steps
+name: 9_layout-steps
+category: V1-Components
+---
+
+Steps - Used to indicate user progression / multiple steps
+
+### Contents:
+* [Vertical Steps](#vertical-steps)
+* [Numbered Steps](#numbered-steps)
+
+<div id="vertical-steps"></div>
+#### Vertical Steps
+- Default is vertical
+- Available classes:
+ - `no-bullet`: removes the step bullet (useful for divisions in the steps for headings etc)
+ - `steps-item.active`: attach to a steps item to indicate the step is either completed or active
+ - `steps-heading`: attach to a heading element to describe the steps
+ - `steps-lead`: used for text in the steps
+ - `steps-divider`: remove this for the last item in the steps
+ - `steps-divider.dotted`: change the style of the divider to dotted
+
+
+```slim_example
+.row
+  .small-6.small-centered.columns
+    ul.steps
+      li.steps-item.no-bullet
+        p.steps-heading.small.subtle.text-uppercase The online application
+      li.steps-item.active
+        span.steps-bullet
+        span.steps-divider
+        p.steps-lead Your policy
+      li.steps-item
+        span.steps-bullet
+        span.steps-divider
+        p.steps-lead Basics
+      li.steps-item
+        span.steps-bullet
+        span.steps-divider
+        p.steps-lead Financial info
+      li.steps-item
+        span.steps-bullet
+        span.steps-divider
+        p.steps-lead Confirm health
+      li.steps-item
+        span.steps-bullet
+        span.steps-divider
+        p.steps-lead Activities & Beneficiaries
+      li.steps-item
+        span.steps-bullet
+        span.steps-divider
+        p.steps-lead Policy questions
+      li.steps-item
+        span.steps-bullet
+        p.steps-lead Submit for review
+```
+
+<div id="numbered-steps"></div>
+#### Steps with numbers
+
+```slim_example
+.row
+  .small-6.small-centered.columns
+    ul.steps.has-number
+      li.steps-item.no-bullet
+        p.steps-heading.small.subtle.text-uppercase The online application
+      li.steps-item.active
+        span.steps-divider
+        .steps-item-header
+          span.steps-bullet 1
+          p.steps-lead Your policy
+        .steps-item-body.row
+          .medium-6.columns
+            | Content goes here.
+      li.steps-item
+        span.steps-divider
+        .steps-item-header
+          span.steps-bullet 2
+          p.steps-lead Your policy
+        .steps-item-body.row
+          .medium-6.columns
+            | Content goes here.
+      li.steps-item
+        span.steps-divider
+        .steps-item-header
+          span.steps-bullet 3
+          p.steps-lead Your policy
+        .steps-item-body.row
+          .medium-6.columns
+            | Content goes here.
+      li.steps-item
+        span.steps-divider
+        .steps-item-header
+          span.steps-bullet 4
+          p.steps-lead Your policy
+        .steps-item-body.row
+          .medium-6.columns
+            | Content goes here.
+      li.steps-item
+        span.steps-divider
+        .steps-item-header
+          span.steps-bullet 5
+          p.steps-lead Your policy
+        .steps-item-body.row
+          .medium-6.columns
+            | Content goes here.
+      li.steps-item
+        span.steps-divider
+        .steps-item-header
+          span.steps-bullet 6
+          p.steps-lead Your policy
+        .steps-item-body.row
+          .medium-6.columns
+            | Content goes here.
+      li.steps-item
+        .steps-item-header
+          span.steps-bullet 7
+          p.steps-lead Your policy
+        .steps-item-body.row
+          .medium-6.columns
+            | Content goes here.
+```
+*/
+
+.steps {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  .steps-heading {
+    font-family: $sans-serif;
+    margin-bottom: rem-calc(5px);
+
+    &.small {
+      font-size: rem-calc(12px);
+    }
+
+    &.subtle {
+      color: $gray-color;
+    }
+
+    .ss-icon {
+      margin-right: 0;
+    }
+  }
+
+  .steps-lead {
+    color: $brown-color-text;
+    margin-bottom: 0;
+  }
+
+  .steps-item {
+    padding-bottom: rem-calc(15px);
+    padding-left: rem-calc(30px);
+    position: relative;
+  }
+
+  .steps-item.end {
+    svg.steps-divider.bottom {
+      top: rem-calc(130px);
+    }
+  }
+
+  .steps-item-header,
+  .steps-item-body {
+    padding-left: rem-calc(30px);
+  }
+
+  .steps-item-header {
+    margin-bottom: rem-calc(30px);
+  }
+
+  .steps-bullet {
+    @include circle(rem-calc(15px));
+    background: $very-light-gray;
+    border: 1px solid darken($light-gray, 10%);
+    bottom: 0;
+    left: 0;
+    margin: auto;
+    position: absolute;
+    top: rem-calc(-15px);
+    z-index: $index-steps;
+
+    &.normal {
+      font-size: rem-calc(16px);
+    }
+  }
+
+  &.small-number-bullets .steps-bullet {
+    height: 20px;
+    line-height: 1;
+    overflow: hidden;
+    text-align: center;
+    width: 20px;
+  }
+
+  .steps-item.active {
+    .steps-bullet {
+      background: $yellow-highlight-color;
+      border-color: darken($yellow-highlight-color, 10%);
+      color: $white-color;
+    }
+  }
+
+  .steps-item.no-bullet {
+    padding-bottom: 0;
+    padding-left: 0;
+
+    &:before {
+      display: none;
+    }
+  }
+
+  .steps-divider {
+    border-left: 1px solid darken($light-gray, 10%);
+    height: 100%;
+    left: rem-calc(7px);
+    position: absolute;
+    top: rem-calc(10px);
+  }
+
+  svg.steps-divider {
+    border-left: none;
+    height: rem-calc(30px);
+    left: auto;
+    margin: 0 auto;
+    position: relative;
+    top: auto;
+    width: 3px;
+  }
+
+  .steps-divider.dotted {
+    border-left: 2px dotted darken($light-gray, 10%);
+    left: rem-calc(6px);
+  }
+}
+
+.steps.has-number.subtle {
+  .steps-heading,
+  .steps-item-body,
+  .steps-bullet,
+  input:not(.button),
+  select,
+  .prefix,
+  .radio-button-group.cleared label,
+  h6,
+  p,
+  .add-link {
+    border-color: darken($light-gray, 10%);
+    color: darken($light-gray, 10%);
+  }
+}
+
+.steps.has-number {
+  .steps-item {
+    padding-bottom: rem-calc(60px);
+    padding-left: 0;
+
+    ol.small {
+      font-size: rem-calc(14px);
+    }
+
+    ul.ul-circle {
+      list-style-type: circle;
+    }
+  }
+
+  .steps-item.end {
+    padding-bottom: 0;
+  }
+
+  .steps-item-header {
+    padding-left: rem-calc(40px);
+  }
+
+  .steps-item-body {
+    padding-left: rem-calc(41px);
+  }
+
+  .steps-item-header,
+  .steps-item-body {
+    position: relative;
+
+    .steps-bullet {
+      left: 0;
+      top: 0;
+    }
+  }
+
+  input:not(.button),
+  select {
+    background-color: $transparent;
+  }
+
+  .steps-item.active,
+  &.active {
+    .steps-heading,
+    .steps-item-body,
+    .steps-bullet,
+    .steps-lead,
+    select {
+      color: $brown-color-text;
+    }
+
+    .prefix,
+    select,
+    input:not(.button) {
+      border-color: $primary-color-dark;
+      color: $primary-color-dark;
+    }
+
+    .steps-bullet {
+      background: $white-color;
+      border-color: $black-color;
+    }
+  }
+
+  .steps-bullet {
+    @include circle(rem-calc(30px));
+    line-height: 1.6;
+    text-align: center;
+  }
+
+  .steps-lead {
+    color: darken($light-gray, 20%);
+  }
+
+  .steps-divider {
+    left: rem-calc(15px);
+  }
+}
+
+svg.steps-divider {
+  display: block;
+  position: relative;
+  width: 3px;
+
+  .line {
+    fill: none;
+    stroke: darken($light-gray, 10%);
+    stroke-dasharray: 11 5;
+    stroke-width: 4px;
+  }
+
+  &.large {
+    height: rem-calc(130px);
+  }
+}
+
+svg.steps-divider.horizontal {
+  height: 4px;
+  width: rem-calc(30px);
+}
+
+svg.steps-divider.vertical {
+  top: 0;
+}
+
+svg.steps-divider.horizontal.extend {
+  width: 100%;
+}
+
+svg.steps-divider.vertical.extend {
+  height: 100%;
+}
+
+svg.steps-divider.right,
+svg.steps-divider.left,
+svg.steps-divider.bottom {
+  position: absolute;
+}
+
+svg.steps-divider.right {
+  right: 0;
+}
+
+svg.steps-divider.left {
+  left: 0;
+}
+
+svg.steps-divider.bottom {
+  bottom: 0;
+  left: 0;
+}

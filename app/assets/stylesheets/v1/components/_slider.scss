@@ -1,0 +1,216 @@
+/*doc
+---
+title: Form - Sliders
+name: 3a_form-sliders
+category: V1-Components
+---
+
+Form - Sliders is used to control a range of values.
+
+### Contents:
+* [Range Slider](#form-slider)
+* [Gradient Slider](#form-gradient-slider)
+
+<div id="form-slider"></div>
+#### Range Slider
+
+```slim_example
+.row
+  .small-6.small-centered.columns
+    .slider.round
+      label.slider-heading id="term-label" Term
+      span#term-value.slider-value 20 Years
+      .range-slider data-slider="" data-options="display_selector: #term-value;"
+        span.range-slider-handle role="slider" tabindex="0" aria-labelledby="term-label"
+        span.range-slider-active-segment
+```
+
+<div id="form-gradient-slider"></div>
+#### Gradient Slider
+
+```slim_example
+.row
+  .small-12.small-centered.columns
+    .slider.gradient.round
+      .range-slider data-slider="" data-options="display_selector: #term-value;"
+        span.range-slider-handle role="slider" tabindex="0" aria-labelledby="term-label"
+          span.range-rating Below Average
+        span.range-slider-active-segment
+```
+*/
+
+// Colors
+$bg-hover: rgba($teal-color-light, 0.25);
+$gradient-start: #F0D9A9;
+$gradient-end: #9DE8DC;
+
+// Sizing
+$text-size-small: rem-calc(12px);
+$text-size-large: rem-calc(20px);
+
+$slider-scale: 4;
+$slider-size: 5px;
+$slider-size-handle: ($slider-size * $slider-scale);
+
+$padding-inner: rem-calc(15px);
+$margin-outer: rem-calc(20px);
+
+$slider-disabled-color: #C6C6C6;
+$slider-primary-color: #77D8D5;
+$slider-secondary-color: #FAFAFA;
+
+.slider {
+  margin-bottom: $margin-outer;
+  text-align: start;
+
+  .range-slider,
+  .range-slider-active-segment {
+    height: $slider-size;
+    margin: 0;
+  }
+
+  .range-slider-active-segment {
+    background-color: $teal-color-light;
+  }
+
+  .range-slider-handle {
+    @include transition(box-shadow 0.25s ease);
+    height: $slider-size-handle;
+    top: ($slider-size - $slider-size-handle) / 2;
+    width: $slider-size-handle;
+
+    &:hover,
+    &:active {
+      box-shadow: 0 0 1px 10px $bg-hover;
+    }
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  .slider-heading {
+    font-size: $text-size-small;
+    font-weight: 300;
+    text-transform: uppercase;
+  }
+
+  .slider-heading,
+  .slider-value {
+    display: inline-block;
+    font-family: $sans-serif;
+    margin-bottom: $margin-outer;
+  }
+
+  .slider-value {
+    @extend %font-bold;
+    color: $primary-color;
+    float: right;
+    font-size: $text-size-large;
+    line-height: 1;
+  }
+}
+
+.disabled .slider {
+  .range-slider-active-segment,
+  .range-slider-handle {
+    background-color: $slider-disabled-color;
+  }
+
+  .slider-value,
+  .panel-heading,
+  .slider-heading {
+    color: $slider-disabled-color;
+  }
+}
+
+.slider.round {
+  .range-slider-handle {
+    border-radius: 50%;
+  }
+}
+
+.slider.is-disabled {
+  pointer-events: none;
+
+  .range-slider {
+    pointer-events: none;
+  }
+}
+
+.slider.gradient {
+  .range-slider {
+    @include background(linear-gradient(90deg, $gradient-start 0%, $gradient-end 100%));
+    border-radius: rem-calc(10px);
+    filter: progid:DXImageTransform.Microsoft.gradient(GradientType=1,startColorstr=#{$gradient-start}, endColorstr=#{$gradient-end});
+    height: 20px;
+  }
+
+  .range-rating {
+    left: 50%;
+    margin-left: -75px;
+    position: absolute;
+    text-align: center;
+    top: 15px;
+    width: 150px;
+  }
+
+  .range-slider-handle {
+    background: $transparent;
+    border-bottom: 12px solid $black-color;
+    border-left: 7px solid $transparent;
+    border-radius: 0;
+    border-right: 7px solid $transparent;
+    height: 0;
+    top: 10px;
+    width: 0;
+
+    &:hover,
+    &:active {
+      box-shadow: none;
+    }
+  }
+
+  .range-slider-active-segment {
+    display: none;
+  }
+}
+
+.no-border .slider .range-slider {
+  border: 0;
+}
+
+.teal .slider {
+  .range-slider-active-segment {
+    background-color: $slider-secondary-color;
+  }
+
+  .range-slider {
+    background: rgba($primary-color-dark, .3);
+  }
+
+  .range-slider-handle {
+    background: $primary-color-dark;
+  }
+}
+
+.hidden-label .slider {
+  width: 90%;
+  margin: auto;
+
+  .slider-value {
+    color: white;
+    display: block;
+    font: inherit;
+    font-size: rem-calc(33px);
+    float: none;
+    padding-bottom: 10px;
+    text-align: center;
+  }
+
+  .slider-heading {
+    display: none;
+  }
+}
+
+

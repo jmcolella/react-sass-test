@@ -1,0 +1,121 @@
+@mixin nav-horizontal-colors(
+  $unvisited-color:       $primary-color-light,
+  $unvisited-text-color:  white,
+  $active-color:          $primary-color-dark,
+  $active-text-color:     white,
+  $done-color:            $primary-color,
+  $done-text-color:       $primary-color-very-light,
+  $bg-color:              white,
+  $icon-color:            white,
+  $text-color:            $black-color-text
+) {
+
+  .step {
+
+    i {
+      color: $unvisited-color;
+      background: $bg-color;
+    }
+
+    .number {
+      background: $unvisited-color;
+      color: $unvisited-text-color;
+    }
+
+    .border { border-top: 2px dotted $unvisited-color; }
+    .bullet { background: $unvisited-color; }
+    .name { color: $unvisited-color; }
+
+    &.active {
+      i { color: $active-color; }
+      .number {
+        background: $active-color;
+        color: $active-text-color;
+      }
+      .bullet.left { background: $done-color; }
+      .border.left { border: 1px solid $done-color; }
+      .name { color: $active-color; }
+    }
+
+    &.done {
+      i { color: $done-color; }
+      .number {
+        background: $done-color;
+        color: $done-text-color;
+      }
+      .bullet { background: $done-color; }
+      .border { border: 1px solid $done-color; }
+      .name { color: $done-color; }
+    }
+  }
+}
+
+.nav-horizintal-steps {
+  $marker-size: rem-calc(26px);
+  @include nav-horizontal-colors();
+
+  @include clearfix();
+  margin: 0;
+  list-style: none;
+  font-family: $sans-serif;
+
+  .step {
+    padding-bottom: 35px;
+    text-align: center;
+    overflow: hidden;
+    position: relative;
+    float: left;
+
+    span { display: block; }
+
+    i { margin: 0; }
+
+    .border {
+      width: 50%;
+      top: rem-calc(13px);
+      position: absolute;
+      &.right { right: 0; }
+    }
+
+    .number {
+      @include circle($marker-size);
+      margin: 0 auto;
+      line-height: $marker-size - rem-calc(1px);
+      text-align: center;
+      font-weight: bold;
+      font-size: rem-calc(14px);
+    }
+
+    i, .number {
+      position: relative;
+      z-index: 2;
+    }
+
+    .name {
+      width: 100%;
+      top: rem-calc(33px);
+      position: absolute;
+      font-size: rem-calc(12px);
+      font-weight: lighter;
+      line-height: 1.25;
+    }
+
+    .bullet {
+      width: rem-calc(3px);
+      height: rem-calc(7px);
+      position: absolute;
+      top: rem-calc(10px);
+      &.left { left: 0; }
+      &.right { right: 0; }
+    }
+
+    &:first-of-type {
+      .bullet.left, .border.left { display: none; }
+    }
+
+    &:last-of-type {
+      .bullet.right, .border.right { display: none; }
+    }
+
+  }
+}

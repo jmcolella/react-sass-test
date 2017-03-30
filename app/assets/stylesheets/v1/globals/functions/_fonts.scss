@@ -1,0 +1,18 @@
+@mixin headline($a: 1, $b: 6) {
+  @for $i from $a through $b {
+    h#{$i} {
+      @content;
+    }
+  }
+}
+
+@mixin font-style ($font-size, $line-height, $padding) {
+  font-size: $font-size;
+  line-height: $line-height;
+  padding: $padding;
+}
+
+@mixin font-size($size) {
+  font-size: $size;
+  font-size: rem-calc($size);
+}

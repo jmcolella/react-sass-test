@@ -1,0 +1,92 @@
+.product__sidebar__bg {
+  @include absolute(top 0 left 0);
+  @include size(10000px);
+  @media #{$xlarge-up} { width: 100%; }
+  background: $primary-color-very-dark;
+}
+
+.product__sidebar__top-data {
+  position: relative;
+  > i {
+    font-size: rem-calc(45px);
+    position: absolute;
+    color: $primary-color;
+  }
+  p {
+    color: $primary-color;
+    span, strong { display: block; }
+  }
+  .sidebar-panel p { color: $primary-color-light; }
+  span {
+    font-size: rem-calc(13px);
+    line-height: 1.5;
+  }
+  strong { line-height: 1.2; }
+}
+
+
+.product__sidebar {
+  .inner { padding: 40px 20px; }
+  .hint-box { @include hint-box-color-scheme($primary-color-very-dark, white); }
+  position: relative;
+  z-index: 3;
+  section {
+    margin-bottom: rem-calc(32px);
+    opacity: .2;
+    &.highlighted, &.active { opacity: 1; }
+    &.active {
+      h4:before { @include indicator(rem-calc(22px), rem-calc(3px), $primary-color-dark, left); }
+      p { color: white; }
+    }
+    h4, p {
+      color: $primary-color-light;
+      font-family: $sans-serif;
+    }
+    h4 {
+      text-transform: uppercase;
+      font-size: rem-calc(14px);
+    }
+    p {
+      margin: 0;
+      min-height: rem-calc(28px);
+      font-size: rem-calc(15px);
+      font-weight: lighter;
+      line-height: 1.4;
+      span:last-of-type { float: right; }
+      span:first-of-type { float: left; }
+      i {
+        margin: 0;
+        float: right;
+      }
+      @include clearfix();
+      &.active {
+        color: white;
+        &.with-arrow:before { @include indicator(rem-calc(22px), rem-calc(3px), $primary-color-dark, left); }
+      }
+    }
+    .ss-check { color: $primary-color-greened; }
+  }
+}
+
+.product__sidebar--intro {
+  .step {
+    padding: rem-calc(0 0 30px 55px);
+    position: relative;
+    &__id, &__title { margin-bottom: rem-calc(4px); }
+    &__id, &__title, &__description, &__icon {
+      display: block;
+      color: $primary-color-light;
+    }
+    &__id, &__description {
+      font-family: $sans-serif;
+      font-size: rem-calc(12px);
+    }
+    &__id { text-transform: uppercase; }
+    &__title { font-weight: bold; }
+    &__description { line-height: 1.6; text-align: left; }
+    &__icon {
+      @include absolute(top 6px left 0);
+      font-size: rem-calc(35px);
+    }
+  }
+}

@@ -1,0 +1,25 @@
+.select2-container {
+  width: 100%;
+  .select2-choice {
+    padding: rem-calc(0 0 0 11px);
+    height: 2.78125rem;
+    line-height: 2.78125rem;
+    border-radius: 6px;
+    border: 0;
+    color: $primary-color !important;
+    font-family: $system-font;
+    background: $primary-color-extra-light url("/images/drop-arrow.png") no-repeat 97% center;
+    .select2-arrow { display: none; }
+  }
+}
+
+.select2-search-choice-close { display: none !important; }
+
+.select2-results .select2-highlighted { background: $primary-color; }
+
+.select2-dropdown-open, .select2-container-active {
+  .select2-choice, .select2-choice {
+    background: white url("/images/drop-arrow.png") no-repeat 97% center;
+    box-shadow: none;
+  }
+}

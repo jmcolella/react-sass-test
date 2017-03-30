@@ -1,0 +1,144 @@
+/*doc
+---
+title: Panel - Table Panel
+name: 1c_panel-table
+category: V1-Components
+---
+
+Panel - Table Panel is used to display tabular data inside of a panel.
+
+### Contents:
+* [Layout](#panel-table)
+
+<div id="panel-table"></div>
+#### Basic Table Panel
+
+```slim_example
+  .row
+    .small-4.small-centered.columns
+      .panel.panel-table.radius.end
+        .panel-table-header.text-center
+          img.panel-section-logo src="http://i.imgur.com/hyXZsI7.png" width="170" alt="PolicyGenius"
+          h4.panel-heading.text-center Price Finder
+        .row
+          .small-12.columns
+            .progress.thin
+              span.meter style="width: 50%"
+        .row
+          .small-12.columns
+            p.panel-heading.text-center Dynamic Message Goes Here
+        hr.panel-divider
+        .row
+          .small-12.columns
+            table.table.table-center
+              thead
+                tr
+                  th.table-heading width="35%"
+                    i.table-heading-sub Prices are Yearly
+                  th.table-heading
+                    | 15
+                    h6.table-heading-sub Years
+                  th.table-heading
+                    | 20
+                    h6.table-heading-sub Years
+                  th.table-heading
+                    | 25
+                    h6.table-heading-sub Years
+              tbody
+                tr
+                  th.table-heading
+                    | 4
+                    h6.table-heading-sub Million
+                  td.table-item ---
+                  td.table-item ---
+                  td.table-item
+                    a.table-link href="#"
+                      .table-item-fill $285
+                tr
+                  th.table-heading
+                    | 4.5
+                    h6.table-heading-sub Million
+                  td.table-item
+                    a.table-link href="#"
+                      .table-item-fill $285
+                  td.table-item.active
+                    a.table-link href="#"
+                      .table-item-fill $285
+                  td.table-item ---
+                tr
+                  th.table-heading
+                    | 5
+                    h6.table-heading-sub Million
+                  td.table-item
+                    a.table-link href="#"
+                      .table-item-fill $285
+                  td.table-item.featured
+                    a.table-link href="#"
+                      .table-item-fill $285
+                  td.table-item
+                    a.table-link href="#"
+                      .table-item-fill $285
+```
+*/
+
+// Sizing
+$text-size-large: rem-calc(20px);
+$text-size-medium: rem-calc(16px);
+$text-size-normal: rem-calc(14px);
+$text-size-small: rem-calc(12px);
+$text-size-xsmall: rem-calc(10px);
+
+$progress-size: rem-calc(5px);
+
+$padding-inner: rem-calc(15px);
+$margin-outer: rem-calc(20px);
+
+.panel-table {
+  background-color: $white-color;
+  border: 1px solid $light-gray;
+  overflow: hidden;
+  padding: 0;
+
+  .panel-table-header {
+    background-color: $light-gray;
+    padding: $padding-inner;
+  }
+
+  .panel-section-logo {
+    margin-bottom: ($margin-outer / 3);
+  }
+
+  p.panel-heading {
+    font-size: $text-size-small;
+    line-height: lh($text-size-small);
+    padding: rem-calc(10px);
+  }
+
+  .panel-heading {
+    font-weight: 300;
+    line-height: 1;
+    margin-bottom: 0;
+  }
+
+  .table-heading-sub {
+    font-size: $text-size-small;
+  }
+
+  .table-heading {
+    line-height: 1;
+  }
+
+  .table-link {
+    text-decoration: underline;
+  }
+
+  .table-item.active {
+    background-color: $secondary-color-extra-light;
+  }
+
+  .table-item.featured {
+    background-color: $primary-color-extra-light;
+  }
+
+
+}

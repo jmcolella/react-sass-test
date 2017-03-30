@@ -1,0 +1,149 @@
+$accordion-label-bg: #FFECD3;
+$accordion-label-dark: #F79A24;
+$label-accordion-padding: 1.25rem 2rem 0;
+$button-accordion-bg: #fff;
+$button-accordion-hover-bg: #e6e6e6;
+$button-hover-color: #222;
+
+@mixin label-accordion($padding: $label-accordion-padding, $bg-content: $transparent, $font-size-title: 1rem) {
+  .label-accordion {
+    padding: $padding;
+
+    .content.active {
+      background: $bg-content;
+    }
+
+    h4 {
+      font-size: $font-size-title;
+      line-height: 1.9rem;
+    }
+  }
+}
+
+@mixin button-accordion ($font-family: $sans-serif, $position: absolute, $margin: 0.55rem, $bg: $button-accordion-bg, $bg-hover: $button-accordion-hover-bg) {
+  .label-accordion {
+    .button {
+      font-family: $font-family;
+      position: $position;
+      margin-top: $margin;
+      right: rem-calc(85px);
+      padding: .2rem 1rem;
+    }
+
+    dd.active .button {
+      @include hover($bg, $bg-hover);
+      color: #222;
+    }
+  }
+}
+
+@mixin accordion ($padding-each-accordion: 0 0 rem-calc(2px), $padding-detail: 0.5rem 1rem, $margin-title: 0) {
+  .accordion {
+
+    dd {
+      padding: $padding-each-accordion;
+      > a {
+        padding: $padding-detail;
+      }
+    }
+    .block-content {
+      h3 {
+        margin: $margin-title;
+      }
+    }
+  }
+
+}
+
+@mixin icon-accordion ($icon-accordion-bg: #f2f2f2, $accordion-hover-bg: $accordion-label-dark, $color-label-active: $primary-color-text, $color-label: #808080, $color-content: $black-color-text, $margin: 0, $line-height: 27px) {
+  margin-bottom: 3rem;
+  dd > a {
+    background: $icon-accordion-bg;
+  }
+  dd.active > a,
+  dd > a:hover {
+    background: $accordion-hover-bg;
+    @include headline {
+      color: $color-label-active;
+    }
+  }
+
+  @include headline {
+    color: $color-label;
+    margin: $margin;
+    line-height: $line-height;
+  }
+
+  .time { font-size: 19px; }
+
+  .content {
+    h3 {
+      color: $color-content;
+      font-family: $sans-serif;
+      margin-bottom: rem-calc(20px);
+    }
+  }
+}
+
+// content before of each content accordion example faq accordion
+@mixin content-before-accordion ($width-content: 1.875rem, $font-size: 1rem) {
+  .detail {
+    padding-left: $width-content;
+    &:before {
+      display: inline-block;
+      margin-left: -$width-content;
+      width: $width-content;
+    }
+
+    li { list-style: inherit; }
+  }
+
+  .detail {
+    font-size: $font-size;
+
+    ul,
+    ol,
+    p {
+      font-size: inherit;
+    }
+  }
+}
+
+@include label-accordion;
+@include button-accordion;
+@include accordion;
+
+.accordion {
+
+  @include content-before-accordion;
+
+  &.icon-accordion {
+    @include icon-accordion;
+    dd.active > a,
+    dd > a:hover {
+      background: $accordion-label-dark;
+      .box-icon {
+        @include box-icon($background: $white-color, $background-hover: $white-color, $color: $accordion-label-dark, $color-hover: $accordion-label-dark );
+      }
+    }
+  }
+
+  .content p {
+    font-family: $serif;
+  }
+
+  .box-icon {
+    @include box-icon($background: #b3b3b3, $background-hover: $accordion-label-dark);
+  }
+
+  //define content for faq accordion
+  //.question:before for question
+  //.answer:before for answer
+  .question:before {
+    content: 'Q.';
+  }
+
+  .answer:before {
+    content: 'A.';
+  }
+}

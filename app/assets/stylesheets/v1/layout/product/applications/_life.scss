@@ -1,0 +1,42 @@
+$beneficiary-container-border-color: #DDD;
+
+.life_applications {
+  background: $white-color;
+
+  .apply-later__box {
+    padding-left: 85px;
+    position: relative;
+    .agent-img { @include absolute(top 0 left 0); }
+  }
+
+  .beneficiary-container {
+    border-bottom: 1px dotted $beneficiary-container-border-color;
+    margin-bottom: rem-calc(20px);
+    position: relative;
+
+    .remove_nested_fields {
+      @media #{$medium-up} { @include absolute(top 1px right -30px); }
+      @media #{$small-only} { margin-bottom: rem-calc(10px); }
+      @include circle(27px);
+      background: $secondary-color;
+      color: $white-color;
+      display: block;
+      line-height: rem-calc(32px);
+      padding-left: 1px;
+      text-align: center;
+      z-index: 1000;
+    }
+
+    .remove_nested_fields:hover {
+      @include opacity(0.8);
+    }
+  }
+
+  .heads-up { margin-bottom: 30px; }
+
+  .form-section { margin-bottom: rem-calc(75px); }
+
+  .optional-fields { margin-top: rem-calc(75px); }
+
+  .tabs-content { margin-bottom: 60px; }
+}

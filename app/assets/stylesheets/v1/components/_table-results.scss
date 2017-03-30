@@ -1,0 +1,566 @@
+/*doc
+---
+title: Table - Results Table
+name: 2a_table-results
+category: V1-Components
+---
+<sub>Extends [Card Component](#4_card-pricing)</sub>
+
+Table - Results Table is used to describe and highlight prices from our quoting engine in tabular formatting.
+
+### Contents:
+* [Layout](#table-results)
+
+<div id="table-results"></div>
+#### Basic Results Table
+
+```slim_example
+  .row
+    .table-results
+      .row
+        .medium-12.columns
+          .table-head
+            h5.table-cell.table-title
+              | Our Advice
+              i.table-icon.ss-icon.ss-dropdown
+            h5.table-cell.table-title
+              | Price
+              i.table-icon.ss-icon.ss-dropdown
+            h5.table-cell.table-title
+              | Insurer
+              i.table-icon.ss-icon.ss-dropdown
+            h5.table-cell.table-title
+              | Financial Strength
+              i.table-icon.ss-icon.ss-dropdown
+            h5.table-cell.table-title
+              | Customer Satisfaction
+              i.table-icon.ss-icon.ss-dropdown
+      .row
+        .medium-12.columns
+          .table-row.visible
+            .table-cell.term-description.highlight
+              p.term-lead Best Price
+              sub.term-sub-description.has-tip.tip-bottom title="This is a tooltip." data-tooltip="" What's this'?
+            .table-cell.table-price.price
+              span.currency-sign $
+              span.dollars 530
+              span.cents .55
+              abbr.abbreviation.full title="Monthly" Monthly
+            .table-cell.term-description
+              img src="https://placeholdit.imgix.net/~text?txtsize=30&bg=88ff88&txtclr=ffffff&txt=banner&w=150&h=100&txttrack=1"
+            .table-cell.term-rating
+              | A+
+              sub.term-sub-description A.M. Best
+            .table-cell.term-rating
+              | A+
+              sub.term-sub-description BBB Rating
+            .table-cell.term-description
+              a.table-submit.button.action href="" Apply Now
+            .table-cell.small.term-description
+              a.table-details href=""
+                i.icon-plus +
+          .table-row.details
+            .table-cell.large
+              h6.term-title PolicyGenius Promise
+              ul.table-list.define.it-is
+                li No annoying calls/emails
+                li Based on unbiased research
+                li With you from start to covered!
+            .table-cell.medium.shift-1.divider
+              .medium-12.columns
+                h6.term-title Coverage
+                p.term-description.price $500,000
+              .medium-12.columns
+                h6.term-title Term
+                p.term-description.price 20 Years
+            .table-cell.large.term-description
+              .medium-12.columns
+                ul.table-list.clear-list
+                  li
+                    h6.term-title Underwriting Class
+                    | Preferred Best non-tobacco
+                  li
+                    h6.term-title Plan Name
+                    | SI - Trendsetter Express 20 (Choice/Std)
+                  li
+                    h6.term-title Turnaround
+                    | 3-5 Weeks (average)
+            .table-cell.large.term-description
+              .medium-2.columns
+                i.ss-icon.ss-openbook.highlight-icon
+              .medium-10.columns
+                h6.term-title We've done the research
+                a.link Read more about this policy & Lincoln Financial
+          .table-row
+            .table-cell
+            .table-cell
+              span.term-sub-title Quote available from a PolicyGenius expert
+            .table-cell.term-description
+              img src="https://placeholdit.imgix.net/~text?txtsize=30&bg=88ff88&txtclr=ffffff&txt=banner&w=150&h=100&txttrack=1"
+            .table-cell.term-rating
+              | A+
+              sub.term-sub-description A.M. Best
+            .table-cell.term-rating
+              | A+
+              sub.term-sub-description BBB Rating
+            .table-cell.term-description
+              a.table-submit.button.action href="" Apply Now
+            .table-cell.small.term-description
+              a.table-details href=""
+                i.icon-plus +
+```
+*/
+// Colors
+$table-bg-color: #F7F7F7;
+$table-text-color: #808080;
+$table-text-highlight-color: #4B4B4B;
+$table-row-bg-color: $white-color;
+$table-border-color: #DADADA;
+$table-border-active-color: darken($table-border-color, 5%);
+$table-inactive-color: #B3B3B3;
+$table-button-color: $primary-color-light;
+$table-button-hover: #FFB35B;
+$table-active-color: #FCFCFC;
+$table-hover-color: darken($table-active-color, 10%);
+$table-row-hover-color: lighten($third-color-light, 2%);
+$highlight-color: #FFC683;
+// Sizing
+$small-font-size: rem-calc(10px);
+$medium-font-size: rem-calc(12px);
+$base-font-size: rem-calc(15px);
+$large-font-size: rem-calc(20px);
+$icon-font-size: rem-calc(26px);
+
+// Extends Card Component
+.table-results {
+  @extend %card-base;
+  @include perspective(800px);
+  @include backface-visibility(hidden);
+  width: 100%;
+
+  .icon-price-match {
+    @extend %font-bold;
+    background-color: $table-row-bg-color;
+    border-radius: 5px;
+    color: $table-inactive-color;
+    display: block;
+    font-size: $small-font-size;
+    padding: rem-calc(5px 0 5px 20px);
+    position: relative;
+    text-transform: uppercase;
+
+    .ss-icon {
+      background-color: $table-row-bg-color;
+      border-radius: 50%;
+      font-size: rem-calc(16px);
+      left: 0;
+      margin-left: -20px;
+      margin-top: -8px;
+      padding: rem-calc(10px);
+      position: absolute;
+    }
+  }
+
+  .highlight-icon {
+    color: $highlight-color;
+    font-size: $icon-font-size;
+    padding-top: rem-calc(4px);
+  }
+
+  .link {
+    font-size: $medium-font-size;
+    line-height: 1;
+  }
+
+  .table-head {
+    @include clearfix;
+    background-color: $table-bg-color;
+    border: 1px solid $table-border-color;
+    font-size: $base-font-size;
+    padding: 0;
+  }
+
+  .table-cell {
+    display: inline-block;
+    padding: rem-calc(15px 10px);
+    position: relative;
+    vertical-align: middle;
+    width: 18%;
+
+    .header-item.price {
+      line-height: rem-calc(12px);
+      margin: 0;
+    }
+  }
+
+  .divider {
+    border-left: 1px solid $table-border-color;
+    padding-right: 0;
+
+    @media #{$medium-bottom} {
+      border-left: 0;
+    }
+
+    &:before,
+    &:after {
+      border-bottom: 0;
+      border-color: transparent;
+      border-style: solid;
+      content: "";
+      height: 0;
+      position: absolute;
+      width: 0;
+    }
+
+    // Stroke
+    &:before {
+      border-top-color: $table-active-color;
+      border-width: 9px;
+      left: -9px;
+      top: 0;
+    }
+
+    // Fill
+    &:after {
+      border-top-color: $table-bg-color;
+      border-width: 9px;
+      left: -9px;
+      top: -1px;
+    }
+  }
+
+  .table-cell.shift-1 {
+    margin-left: 5.5%;
+  }
+
+  .table-cell.large {
+    padding-left: rem-calc(30px);
+    width: 25%;
+
+    @media #{$small-only} {
+      width: 50%;
+    }
+  }
+
+  .table-cell.medium {
+    width: 15%;
+
+    @media #{$small-only} {
+      padding-left: rem-calc(35px);
+      width: 33%;
+    }
+  }
+
+  .table-cell.small {
+    width: 10%;
+  }
+
+  .table-icon.ss-icon {
+    @include centered-verticaly;
+    display: inline-block;
+    font-size: $small-font-size;
+    margin-left: 5px;
+    margin-top: 1px;
+    position: absolute;
+  }
+
+  .table-list {
+    font-size: $medium-font-size;
+    line-height: rem-calc(14px);
+    margin: 0;
+    padding: 0;
+    text-align: left;
+
+    li {
+      margin-bottom: rem-calc(10px);
+      padding-left: rem-calc(20px);
+    }
+
+    li::before {
+      font-size: $medium-font-size;
+      margin-left: -(rem-calc(20px));
+      top: 0;
+    }
+  }
+
+  .clear-list {
+    li {
+      line-height: 1;
+      list-style: none;
+      margin-bottom: rem-calc(15px);
+      padding-left: 0;
+    }
+
+    li:last-of-type {
+      margin-bottom: 0;
+    }
+  }
+
+  .table-row {
+    @include transition(all 0.2s ease);
+    @include clearfix;
+    background-color: $table-row-bg-color;
+    padding: 0;
+    margin-bottom: -2px;
+    border-top: 1px solid $table-border-color;
+
+    border {
+      bottom: 1px solid transparent;
+      left: 1px solid $table-border-color;
+      right: 1px solid $table-border-color;
+      top: 1px solid $table-border-color;
+    }
+
+    &:hover {
+      background-color: $table-row-hover-color;
+      cursor: pointer;
+
+      .table-submit {
+        background-color: $table-button-hover;
+        border-bottom-color: darken($table-button-hover, 10%);
+      }
+    }
+
+  }
+
+  .table-row.visible + .table-row.details {
+    @include transform(rotateX(0) translateY(0));
+    background-color: $table-row-bg-color;
+    max-height: 220px;
+    opacity: 1;
+    overflow: visible;
+
+    border {
+      bottom: 4px solid $table-border-color;
+      left: 1px solid $table-border-color;
+      right: 1px solid $table-border-color;
+    }
+
+    @media #{$small-only} {
+      max-height: 300px;
+    }
+  }
+
+  .table-row.visible {
+    background-color: $table-active-color;
+    margin-bottom: 0;
+
+    .term-description,
+    .table-price.price {
+      color: darken($table-text-color, 20%);
+    }
+
+    .icon-plus:before,
+    .icon-plus:after {
+      @include transform(rotate(135deg));
+    }
+  }
+
+  .table-row.details {
+    @include transform(rotateX(-120deg) translateY(120px));
+    border-bottom: 4px solid $table-border-color;
+    border-top: 1px solid $table-border-color;
+    font-family: $sans-serif;
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+
+    .table-cell {
+      padding: rem-calc(25px 10px);
+      text-align: left;
+      vertical-align: top;
+
+      @media #{$small-only} {
+        padding-bottom: 0;
+      }
+    }
+
+    .divider {
+      padding-left: 0;
+      padding-right: 0;
+    }
+
+    .term-description {
+      line-height: 1;
+      text-align: left;
+    }
+
+    .term-description.price,
+    .table-list {
+      color: darken($table-text-color, 20%);
+    }
+
+  }
+
+  .table-submit.button {
+    background-color: $table-button-color;
+    border-bottom: 3px solid darken($table-button-color, 10%);
+    border-radius: 3px;
+    font-size: $medium-font-size;
+    font-weight: bold;
+    margin: 0;
+    padding: rem-calc(10px 0);
+
+    &:hover {
+      background-color: $table-button-hover;
+      border-bottom-color: darken($table-button-hover, 10%);
+      border-bottom-width: 6px;
+      cursor: pointer;
+      margin-top: -3px;
+      text-decoration: none;
+    }
+  }
+
+  .table-details {
+    color: $table-inactive-color;
+
+    &:hover {
+      color: $table-hover-color;
+      text-decoration: none;
+    }
+  }
+
+  .icon-plus:before {
+    background: $table-inactive-color;
+  }
+
+  .icon-plus:after {
+    background: $table-inactive-color;
+  }
+
+  .term-description,
+  .table-price.price {
+    color: $table-text-color;
+    font-weight: 900;
+    line-height: 1.25;
+    margin: 0;
+    text-align: center;
+  }
+
+  .term-description.highlight {
+    font-size: $base-font-size;
+    line-height: 0.75;
+    text-transform: uppercase;
+  }
+
+  .term-description.price {
+    @extend %font-bold;
+    font-size: $large-font-size;
+    margin-bottom: rem-calc(16px);
+  }
+
+  .term-sub-description {
+    color: $table-inactive-color;
+    display: block;
+    font-family: $sans-serif;
+    font-size: $small-font-size;
+    line-height: 1;
+    text-transform: uppercase;
+  }
+
+  .term-sub-description.has-tip {
+    display: inline-block;
+  }
+
+  .term-title {
+    color: $table-inactive-color;
+    font-size: $small-font-size;
+    font-weight: 900;
+    margin-bottom: rem-calc(6px);
+  }
+
+  .term-sub-title {
+    font-size: $medium-font-size;
+  }
+
+  .table-title {
+    @extend %font-bold;
+    color: $table-inactive-color;
+    cursor: pointer;
+    font-family: $sans-serif;
+    margin: 0;
+    position: relative;
+    text-align: center;
+    word-wrap: break-word;
+
+    &:hover {
+      color: $table-hover-color;
+    }
+  }
+
+  .term-lead {
+    @extend %font-bold;
+    font-family: $sans-serif;
+    font-size: $base-font-size;
+    line-height: 1;
+    margin-bottom: 0;
+  }
+
+  @media #{$small-only} {
+    .table-cell {
+      width: 33%;
+    }
+
+    .table-cell.small {
+      display: none;
+    }
+
+    .table-cell.shift-1 {
+      margin: 0;
+    }
+
+    .table-cell.large,
+    .table-cell.medium {
+      width: 50%;
+    }
+
+    .table-row.details .table-cell.medium {
+      padding-left: rem-calc(30px);
+    }
+
+    .table-cell.is-hidden-medium-bottom {
+      display: none;
+    }
+
+    .table-row.details .table-cell.insurer-link {
+      padding: rem-calc(30px);
+      width: 100%;
+    }
+  }
+
+  @media #{$medium-up} {
+    .table-row.details .table-cell.large:first-child {
+      padding-left: rem-calc(40px);
+    }
+  }
+
+  @media #{$medium-only} {
+    .table-row.details .divider {
+      padding-left: rem-calc(15px);
+    }
+
+    .table-cell {
+      width: 30%;
+    }
+
+    .table-cell.shift-1 {
+      margin-left: 0;
+    }
+
+    .table-cell.large {
+      width: 50%;
+    }
+
+    .table-cell.medium {
+      width: 50%;
+    }
+
+    .table-cell.medium-bottom {
+      width: 33%;
+    }
+
+    .table-cell.is-hidden-medium-bottom {
+      display: none;
+    }
+  }
+}

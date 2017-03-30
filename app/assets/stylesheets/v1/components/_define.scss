@@ -1,0 +1,91 @@
+$color-icon-it-is: $teal-color;
+$color-icon-it-is-not: $tertiary-color;
+$top-pos: 4px;
+// @mixin define($float: false, $margin: 0, $color-text: $brown-color-text, $font-family: $sans-serif) {
+@mixin define {
+  li  {
+    list-style: none !important;
+    position: relative;
+    margin-bottom:.3rem;
+    &:before {
+      display: inline-block;
+      font-family: "SSPika";
+      position: absolute;
+      top: $top-pos;
+    }
+  }
+}
+
+@mixin define-before($width-icon, $color, $content, $font-size, $top: $top-pos, $font-weight: normal) {
+  li  {
+    padding-left: $width-icon;
+    font-weight: $font-weight;
+    &:before {
+      color: $color;
+      content: $content;
+      font-size: $font-size;
+      margin-left: -$width-icon;
+      width: $width-icon;
+      top: $top;
+    }
+  }
+}
+
+.define {
+//@include define($float: right);
+  @include define;
+
+  &.it-is-v2 {
+    @include define-before($width-icon: 2.5rem, $color: $color-icon-it-is, $content: '✓', $font-size: rem-calc(24));
+  }
+
+  &.it-is-not-v2 {
+    @include define-before($width-icon: 2.5rem, $color: $secondary-color, $content: '␡', $font-size: rem-calc(24));
+  }
+
+  &.it-is {
+    @include define-before($width-icon: 2.4rem, $color: $color-icon-it-is, $content: '✓', $font-size: rem-calc(17));
+  }
+
+  &.it-is-not {
+    @include define-before($width-icon: 2.4rem, $color: $color-icon-it-is-not, $content: '␡', $font-size: rem-calc(17));
+  }
+
+  &.arrow {
+    @include define-before($width-icon: 1.25rem, $color: $brown-color-text, $content: '▹', $font-size: rem-calc(14));
+  }
+
+  &.small-arrow {
+    @include define-before($width-icon: 1rem, $color: $brown-color-text, $content: '▹', $font-size: rem-calc(10));
+  }
+
+  &.lock {
+    @include define-before($width-icon: 3.125rem, $color: $color-icon-it-is, $content: '', $font-size: rem-calc(27));
+  }
+
+  &.ban {
+    @include define-before($width-icon: 3.125rem, $color: $color-icon-it-is-not, $content: '', $font-size: rem-calc(27));
+  }
+
+  &.money-bag {
+    @include define-before($width-icon: 3.125rem, $color: $color-icon-it-is-not, $content: '', $font-size: rem-calc(27));
+  }
+
+  &.yoga {
+    @include define-before($width-icon: 3.125rem, $color: $white-color, $content: '', $font-size: rem-calc(27));
+  }
+
+  &.carrot {
+    @include define-before($width-icon: 3.125rem, $color: $white-color, $content: '', $font-size: rem-calc(27));
+  }
+
+  &.info-icon {
+    @include define-before($width-icon: 1.75rem, $color: $primary-color-light, $content: 'ℹ', $font-size: rem-calc(14));
+  }
+
+  &.pen {
+    @include define-before($width-icon: 2.75rem, $color: $primary-color-light, $content: '✎', $font-size: rem-calc(30), $top: 13px);
+  }
+   
+}
+

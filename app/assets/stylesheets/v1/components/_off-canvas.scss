@@ -1,0 +1,14 @@
+.right-off-canvas-menu {
+  div { padding: 0 30px; }
+  .exit-off-canvas {
+    @include relative(left 50%);
+    @include circle(30px);
+    margin-left: -15px;
+    border: 1px solid $primary-color-text;
+    color: $primary-color-text;
+    display: inline-block;
+    i { margin: 0.3rem 0 0 0; }
+  }
+  h3 { color: white; }
+  p { @include font-style($font-size: 1rem, $line-height: 2rem, $padding: 0); }
+}

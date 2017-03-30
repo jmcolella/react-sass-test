@@ -1,0 +1,25 @@
+.side-nav.lightweight {
+  line-height: 1.5rem;
+  padding-top: 7.75rem;
+
+  label {
+    color: $bg-panel-view-common;
+  }
+
+  a {
+    text-transform: uppercase;
+  }
+
+  a:not(.button) { padding: 0px; }
+}
+
+.side-nav {
+  label {
+    font-family: $serif;
+    font-style: italic;
+  }
+
+  &.semantic-navigation > li > a {
+    height: auto;
+  }
+}

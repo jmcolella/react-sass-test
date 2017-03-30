@@ -1,0 +1,67 @@
+
+// result feedback
+
+$result-border-color: #FFDE88;
+$result-text-color:  #FFC62E;
+
+
+@mixin result-feedback($border: $result-border-color 1px solid, $padding: 0.75rem, $font-size: 1.3rem, $font-style: italic, $margin: 1.5rem 0, $color: $result-text-color) {
+  @include radius($global-radius);
+  border: $border;
+  padding: $padding;
+  font-size: $font-size;
+  font-style: $font-style;
+  margin: $margin;
+  color: $color;
+}
+
+@mixin small-todo-list($border-color: $teal-color-light, $text-color: $teal-color-light, $color-content: $teal-color-light, $font-size: 1.1875rem, $text-align: left, $bg-btn: $teal-color-light) {
+
+  h1 {
+    @include box-style($border-color, $text-color);
+  }
+
+  h4 {
+    color: $color-content;
+    font-size: $font-size;
+    text-align: $text-align;
+  }
+
+  .button { @include button-style($bg: $bg-btn) }
+}
+
+.todo-list.neutral {
+  .todo {
+    border-bottom: 0;
+    color: $black-color-text;
+  }
+
+  .to-do_feedback {
+    border-color: $gray-color;
+    color: $gray-color;
+  }
+
+  .todo-item-heading {
+    @extend %font-bold;
+    border-bottom: 0;
+    color: $gray-color;
+  }
+
+  .todo-item-heading.secondary {
+    color: $secondary-color;
+  }
+
+  .todo-item-heading.primary {
+    color: $primary-color-light;
+  }
+
+  .no-need_feedback,
+  .your-covered_feedback {
+    margin-bottom: rem-calc(20px);
+    margin-top: 0;
+  }
+
+  .has-caption.action {
+    background: $secondary-color-light;
+  }
+}

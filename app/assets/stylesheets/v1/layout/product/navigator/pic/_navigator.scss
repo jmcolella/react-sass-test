@@ -1,0 +1,88 @@
+.product-navigator.survey {
+  color: white;
+  .hint-box { @include hint-box-color-scheme($primary-color-dark, white); }
+  .form-headline {
+    color: inherit;
+    font-weight: bold;
+    font-size: rem-calc(21px);
+  }
+  .label-row > label { font-weight: bold; }
+  .section-title { padding-top: 0; }
+  .basics-norton-teal { margin: 0 10px; }
+  .radio-button-group { margin-left: 0; }
+  .money-debt { @include absolute(top -26px right -121px); }
+  .insurance-umbrella { @include absolute(top -30px right -80px); }
+  .abs-img { z-index: 3; }
+  .form-actions .button { margin-bottom: 5px; }
+  .product-navigator__survey a { color: inherit; }
+  .debt-group .prefix {
+    background: $primary-color-light;
+    border: $primary-color-light;
+    color: $primary-color-dark;
+  }
+  .narrow-input {
+    @media #{$large-up} { width: 50%; }
+  }
+}
+
+.survey.finances .plain { margin: 40px 0 8px 0; }
+
+.survey.debts {
+  .marker { border-color: $primary-color-dark; }
+  .sum-up-box {
+    margin: 0 0 14px 0;
+    background: $primary-color-very-dark;
+  }
+  .form-actions { margin-top: 2px; }
+}
+
+.debts-panel {
+  margin: 15px 0 3px 0;
+  position: relative;
+  .collapse-input { margin-bottom: 5px; }
+  .marker {
+    @include absolute(top -12px right -12px);
+    &:after { @include relative(top -4px); }
+  }
+  .label-row { margin-top: 3px; }
+}
+
+.debt-box h5 { font-size: rem-calc(17px); }
+
+.child-row .marker {
+  @include absolute(top -10px);
+  i {
+    @include relative(top -2px);
+    margin: 0;
+  }
+}
+
+.debts-panel, .child-row {
+  .marker {
+    @include circle(24px);
+    margin: 0;
+    text-align: center;
+    background: $primary-color;
+    border: 3px solid $primary-color-dark;
+    &:after, i { font-size: rem-calc(12px); }
+  }
+}
+
+.points-list,
+.points-list__header {
+  font-family: $sans-serif;
+  font-size: rem-calc(14px);
+  color: white;
+}
+.points-list {
+  margin-bottom: 30px;
+  line-height: 1.4;
+  li { margin-bottom: 9px; }
+}
+.points-list__header {
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.survey-edit-modal { background: $primary-color; }
+.survey.accident_and_health_insurance .input.select { margin-bottom: 0; }

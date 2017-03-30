@@ -1,0 +1,307 @@
+$button-bg-primary: #FEECD4;
+$button-bg-image: #B3B3B3;
+$button-bg-info: #E6E6E6;
+$button-bg-contact: #F2F2F2;
+$button-bg-insurer: #F2F2F2;
+$button-bg-transparent: rgba($black-color, 0.15);
+$button-bg-transparent-hover: rgba($black-color, 0.25);
+$text-color-caption: #888;
+
+// mixin to hover button,
+// hover will be change color and background
+@mixin hover-button($bg, $bg-hover, $color, $color-hover) {
+  background: $bg;
+  color: $color;
+
+  span {
+    color: inherit;
+  }
+
+  &:hover,
+  &:focus {
+    background: $bg-hover;
+    color: $color-hover;
+  }
+}
+
+@mixin button-has-caption($padding: 1px, $bg-caption: $white-color, $caption-color: $text-color-caption, $font-size: 1.2rem, $bg-hover: darken($bg-caption, 5%)) {
+  padding: $padding;
+
+  .caption {
+    background: $bg-caption;
+    color: $caption-color;
+    font-size: $font-size;
+    text-transform: none;
+  }
+
+  &:hover .caption {
+    background: $bg-hover;
+  }
+
+  &.radius .caption {
+    border-radius: 0 0 ($global-radius - 1) ($global-radius - 1);
+  }
+}
+
+%ribbon-bottom-left {
+  border-bottom: 0.75rem solid $transparent;
+  border-right: 0.65rem solid;
+  border-right-color: darken($third-color, 20%);
+  border-top: 0 solid $transparent;
+}
+
+.button.subtle {
+  background-color: transparent;
+  border-color: transparent;
+  color: inherit;
+  text-decoration: underline;
+
+  &:hover {
+    background-color: transparent;
+  }
+}
+
+.button.transparent {
+  background-color: $button-bg-transparent;
+
+  &:hover {
+    background-color: $button-bg-transparent-hover;
+  }
+}
+
+.button.multiline {
+  white-space: initial;
+}
+
+.icon.large {
+  font-size: 2rem;
+}
+
+.icon.extra-large {
+  font-size: 3.1875rem;
+  margin-top: rem-calc(18);
+}
+
+.action-icon {
+  background-color: $primary-color-light;
+  color: $primary-color-extra-light;
+  font-size: 0.9rem;
+  height: 1.5rem;
+  line-height: 1.5rem;
+  padding-top: 0.1rem;
+  text-align: center;
+  width: 1.5rem;
+}
+
+:hover > .action-icon {
+  background-color: $secondary-color-light;
+  color: $secondary-color-extra-light;
+}
+
+// using for scale image  explicit max-height
+
+.button-image {
+  @include hover($bg: $button-bg-image, $bg-hover: $tertiary-color);
+  padding: 0.75rem 0.5rem;
+  width: 100%;
+
+  .wrap-img {
+    height: rem-calc(30);
+    text-align: center;
+
+    img {
+      max-height: 100%;
+      max-width: 100%;
+      vertical-align: top;
+    }
+  }
+}
+
+.collapse-button {
+  .columns {
+    text-align: center;
+  }
+
+  .button {
+    width: 90%;
+  }
+}
+
+a.button,
+.button,
+button {
+  @include button-style($bg: $primary-color-light, $bg-hover: $primary-color-mid-dark);
+  color: $white-color;
+  font-size: rem-calc(15px);
+  padding: 0.25rem 1rem 0.3125rem;
+  white-space: normal;
+
+  &.chunky {
+    border-bottom: 3px darken($primary-color-light, 15%);
+    border-style: solid;
+
+    &:hover {
+      border-color: darken($primary-color-light, 15%);
+    }
+  }
+
+  &.action {
+    @include button-style($bg: $secondary-color);
+
+    &.chunky {
+      border-bottom: 3px $secondary-color;
+      border-style: solid;
+    }
+
+    &.chunky:hover {
+      border-color: $secondary-color;
+    }
+  }
+
+  &.neutral {
+    @include button-style($bg: $gray-6);
+    color: $gray-11;
+
+
+    &:hover {
+      background-color: $gray-5;
+    }
+  }
+
+  &.action-secondary {
+    @include button-style($bg: $tertiary-color);
+
+    &.chunky {
+      border-bottom: 3px darken($tertiary-color, 15%);
+      border-style: solid;
+    }
+
+    &.chunky:hover {
+      border-color: darken($tertiary-color, 15%);
+    }
+  }
+
+  &.small {
+    padding: 0.1875rem 0.8rem 0.25rem;
+  }
+
+  &.large {
+    padding: 0.625rem 1.7rem 0.6875rem;
+  }
+
+  &.tiny {
+    padding: 0.125rem 0.5rem 0.1875rem;
+  }
+
+  &.wide {
+    padding-left: 5rem;
+    padding-right: 5rem;
+  }
+
+
+  @media #{$large-up} {
+    white-space: nowrap;
+  }
+
+  .ss-icon,
+  span {
+    vertical-align: middle;
+  }
+
+  .ss-icon {
+    margin: 0.3rem 0.25rem 0;
+    padding: 0;
+    width: auto;
+  }
+
+  span {
+    display: inline-block;
+    margin: 0 0.25rem;
+    white-space: normal;
+  }
+
+  &.icon-drop {
+    span {
+      display: block;
+    }
+  }
+
+  &.info {
+    @include hover-button($bg: $button-bg-info, $bg-hover: $yellow-white-color, $color: $black-gray, $color-hover: $third-color);
+  }
+
+  &.contact {
+    @include hover-button($bg: $button-bg-contact, $bg-hover: $bg-icon-box, $color: $brown-color-text, $color-hover: $secondary-color)
+  }
+
+  &.insurer {
+    @include hover-button($bg: $button-bg-insurer, $bg-hover: $primary-gray, $color: $brown-color-text, $color-hover: $brown-color-text);
+    border-color: $primary-gray;
+
+    &:hover {
+      border-color: $gray-color;
+    }
+  }
+
+  &.has-caption {
+    @include button-has-caption;
+    > span {
+      display: block;
+      margin: 0;
+      padding: 5px;
+    }
+  }
+
+  &.chevron {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+  }
+
+  &.expand-out {
+    left: rem-calc(-20px);
+    padding: 0.55rem 1rem 0.6125rem;
+    position: relative;
+    width: 120%;
+
+    @media #{$small-only} {
+      width: 110%;
+    }
+  }
+
+  &.has-ribbon {
+    &:before {
+      @extend %ribbon-bottom-left;
+      bottom: rem-calc(-12px);
+      content: " ";
+      height: 0;
+      left: 0;
+      position: absolute;
+      width: 0;
+    }
+  }
+
+  &.has-icon {
+    font-weight: 300;
+    line-height: 1;
+    margin-bottom: rem-calc(10px);
+    padding: rem-calc(10px) rem-calc(15px);
+    text-align: left;
+
+    .ss-icon {
+      margin-bottom: 0;
+      margin-right: rem-calc(10px);
+      margin-top: 0;
+    }
+
+    &.center {
+      text-align: center;
+    }
+  }
+}
+
+
+a.button {
+  &:hover {
+    text-decoration: none;
+  }
+}

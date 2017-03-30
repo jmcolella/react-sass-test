@@ -1,0 +1,125 @@
+@include footer-scheme(#005c5c, #00a4a5, #66c8c9, #00a4a5, #99dadb, 'teal');
+
+.team-footer {
+  margin: 25px 0 5px 0;
+  padding: 0 30px;
+}
+
+.primary-footer {
+  padding-top: 1rem;
+
+  h1 { text-align: left; }
+
+  p {
+    font-family: $sans-serif;
+    font-size: .8rem;
+    line-height: 1.2rem;
+  }
+
+  .contact-info-list {
+    margin-top: 1.7rem;
+    margin-bottom: 1.5rem;
+
+    a {
+      font-size: 0.7rem;
+      font-family: $sans-serif;
+      text-transform: uppercase;
+    }
+
+    > li {
+      padding-bottom: 1.25rem;
+    }
+  }
+
+  .contact-info {
+    li {
+      line-height: 1.2rem;
+      a {
+        color: inherit;
+        &:hover { color: white; }
+      }
+    }
+  }
+
+  .logo-link {
+    @include size(117px 22px);
+    margin: 29px auto 0 auto;
+    @media #{$medium-up} { margin: 29px 0 0 0; }
+    display: block;
+    text-indent: -9999px;
+    background-size: cover;
+  }
+
+  h4 {
+    color: inherit;
+    font-size: 0.875rem;
+    font-weight: 600;
+    margin: 0 0 0.625rem 0;
+    text-transform: capitalize;
+  }
+
+}
+
+.sub-footer {
+  $logo-width: 180px;
+  @include box-shadow(0px, 27px, 25px, -40px, #000);
+  -webkit-box-shadow: inset 0 50px 14px -55px #000;
+  padding: 2.1875rem 0;
+  position: relative;
+  .logo {
+    @include absolute(top 39px left 50%);
+    margin-left: $logo-width / -2;
+    width: $logo-width;
+    text-align: center;
+  }
+  .logo-link {
+    @include size(165px 31px);
+    display: block;
+    text-indent: -9999px;
+    margin: auto;
+  }
+  p {
+    margin-bottom: 0;
+    font-size: 11px;
+    font-family: $sans-serif;
+    line-height: 1.6;
+    color: inherit;
+    a {
+      color: white;
+      font-weight: bold;
+      &:hover { text-decoration: underline; }
+    }
+  }
+  .left { margin-right: $logo-width / 2; }
+  .right { margin-left: $logo-width / 2; }
+  address { color: inherit; }
+}
+
+address {
+  font-size: .75rem;
+  margin-top: .2rem;
+  text-transform: capitalize;
+}
+
+.secure-info-box {
+  display: flex;
+  width: 100%;
+  background: $very-light-gray;
+  .digicert { @include relative(top -4px); }
+  .headline { margin-top: 42px; }
+}
+
+
+.secure-logos { text-align: center; }
+
+footer {
+  .bbb-seal { margin-top: rem-calc(40px); }
+  .digicert-seal { margin-top: 2rem; }
+  .norton-seal {
+    border: darkgrey solid 1px;
+    background-color: white;
+    margin: 1.5rem auto 0 auto;
+    padding: 5px;
+    width: 65%;
+  }
+}

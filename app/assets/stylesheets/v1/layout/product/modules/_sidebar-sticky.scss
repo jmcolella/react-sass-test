@@ -1,0 +1,51 @@
+.product__sidebar {
+  &__sticky-box {
+    @include absolute(top 0 left (-$column-gutter / 2));
+    z-index: 4;
+    background: $primary-color-very-dark;
+    color: white;
+
+    .data {
+      padding: 15px;
+      span { @media #{$large-up} { display: block; } }
+    }
+    .estimation {
+      @include centered-verticaly;
+      padding: 15px 0;
+      margin-left: -$column-gutter / 2;
+      span { font-size: rem-calc(12px); }
+    }
+
+    .data, .estimation { height: 100%; }
+
+    .header {
+      margin-bottom: 3px;
+      font-family: $sans-serif;
+      text-transform: uppercase;
+      font-size: rem-calc(12px);
+    }
+
+    p {
+      margin: 0;
+      line-height: 1.2;
+    }
+
+    .value {
+      @include opacity(.7);
+      font-size: rem-calc(18px);
+    }
+    .data .value { font-size: rem-calc(14px); }
+  }
+
+}
+
+// sticky-box adjusts
+.pet-quotes-show,
+.pet-old-quotes-show,
+.disability-survey-show,
+.disability-health-navigator-show {
+  &.product-navigator .section-title {
+    margin-top: 50px;
+    @media #{$large-up} { margin-top: 0; }
+  }
+}

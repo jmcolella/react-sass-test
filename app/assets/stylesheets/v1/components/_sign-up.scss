@@ -1,0 +1,86 @@
+@mixin sign-up($h3-color: $brown-color-text, $h3-direction: right, $learn-more-color: #F7A482) {
+  h3 {
+    color: $h3-color;
+    float: $h3-direction;
+    font-family: $serif;
+  }
+  .learn-more {
+    font-family: $sans-serif;
+    clear: both;
+    color: $learn-more-color;
+    font-size: 0.75rem;
+    margin-top: 0.3125rem;
+    text-align: center;
+    a {
+      color: inherit;
+      text-decoration: underline;
+    };
+  }
+}
+
+.input-group {
+  padding: 0 0.9375rem;
+  .lable-input {
+    @include radius (0.3125rem 0.3125rem 0 0);
+    padding: 1.15625rem 0 0.625rem;
+    text-align: center;
+    vertical-align: middle;
+    .ss-icon {
+      display: block;
+      font-size: 3.125rem;
+      padding-top: 0.625rem;
+      margin-right: 0px;
+      text-align: center;
+    }
+  }
+  form {
+    margin-top: 5px;
+    >.columns {
+      margin-bottom :1.1875rem;
+      padding: 0;
+    }
+  }
+  .list-input {
+    @include radius(0 0 0.3125rem 0.3125rem);
+    .columns.name {
+      @include radius(0.375rem);
+    }
+    .button {
+      font-family: $sans-serif;
+    }
+  }
+  @include error-message;
+  input,
+  button,
+  small.error {
+    margin-bottom: 0px;
+  }
+}
+
+.input-group {
+  @include label-input;
+  @include list-input;
+  @include sign-up;
+}
+
+@media #{$medium-up} { 
+  .input-group {
+    display: table;
+    .lable-input,
+    .list-input {
+      display: table-cell;
+      float: none;
+    }
+    .lable-input {
+      @include radius(0.3125rem 0 0 0.3125rem);
+      padding: 0;
+      width: percent(123,852);
+    }
+    .list-input {
+      @include radius( 0 0.3125rem 0.3125rem 0);
+      .columns.name {padding: 0 1.1875rem 0 0;}
+      .email { margin-bottom: 0;}
+      .button { margin-top: 0;}
+    }
+  }
+}

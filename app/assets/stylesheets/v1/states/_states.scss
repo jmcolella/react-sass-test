@@ -1,0 +1,22 @@
+// Global States for links + buttons + inputs
+
+a.is-disabled,
+input.is-disabled
+button.is-disabled {
+  cursor: default;
+  pointer-events: none;
+}
+
+a.is-disabled:hover {
+  border-bottom: 0;
+}
+
+// Global States for showing hiding
+
+.is-open {
+  display: block;
+}
+
+.no-scroll {
+  overflow: hidden;
+}

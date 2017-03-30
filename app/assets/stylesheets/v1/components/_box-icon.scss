@@ -1,0 +1,198 @@
+$padding-box-icon-tiny: 1px 5px;
+$padding-box-icon-small: 4px 8px;
+$padding-box-icon-medium: 5px 10px;
+$padding-box-icon-large: 8px 16px;
+
+$font-size-box-icon-tiny: 14px;
+$font-size-box-icon-small: 16px;
+$font-size-box-icon-medium: 19px;
+$font-size-box-icon-large: 27px;
+
+$line-height-box-icon-tiny: $font-size-box-icon-tiny;
+$line-height-box-icon-small: $font-size-box-icon-small;
+$line-height-box-icon-medium: $font-size-box-icon-medium;
+$line-height-box-icon-large: $font-size-box-icon-large;
+
+$size-circle-icon-tiny: 2rem;
+$size-circle-icon-small: 2.5rem;
+$size-circle-icon-medium: 3.25rem;
+$size-circle-icon-large: 4rem;
+
+$line-height-circle-tiny: 2.06rem;
+$line-height-circle-small: $size-circle-icon-small;
+$line-height-circle-medium: $size-circle-icon-medium;
+$line-height-circle-large: $size-circle-icon-medium;
+
+$primary-color-box-icon: #fff;
+$primary-bg-box-icon: #66c8c9;
+$primary-bg-hover-box-icon: #007B7B;
+
+$padding-icon-default: 0.625rem;
+
+@mixin box-icon($background: $primary-bg-box-icon, $background-hover: $primary-bg-hover-box-icon, $color: $primary-color-box-icon, $display: false, $font-family: $sans-serif,$color-hover: $primary-color-box-icon, $text-align: false, $vertical-align: false, $span-display: block, $margin: 0 .5rem) {
+  background: $background;
+  color: $color;
+  display: $display;
+  font-family: $font-family;
+  text-align: $text-align;
+  vertical-align: $vertical-align;
+  position: relative;
+  @content;
+  &:hover,
+  &:focus {
+    background: $background-hover;
+    color: $color-hover;
+    text-decoration: none;
+  }
+  .ss-icon {
+    margin-right: 0;
+  }
+  span {
+    display: $span-display;
+    margin: $margin;
+  }
+}
+
+// $margin-box-effect: box-icon-default have padding-left 0.625rem, padding-right: 0.625rem
+// so when hover translate-x = 0.625rem(translate-x) + 0.625rem(padding-left) ==> translate-x = 1.25rem
+// to translate-x = 0.625rem will remove padding-left: 0.625rem bang cach su dung margin-left: -padding
+@mixin effect-icon ($bg-color: rgba(255, 255, 255, 0.9), $opacity: 0.9, $margin-box-effect: $padding-icon-default, $text-align: center) {
+  li { position: relative;}
+  .box-icon {
+    &:hover .box-icon-effect {
+      opacity: 1;
+    }
+  }
+
+  .box-icon-effect {
+    @include transition-property ('transform 0.3s,', opacity 0.3s);
+    @include opacity(0);
+    @include background-opacity($bg-color, $opacity);
+    margin-left: -$padding-icon-default;
+    position: absolute;
+    text-align: $text-align;
+    top: 0;
+    .button {
+      text-transform: uppercase;
+    }
+  }
+
+  @media #{$medium-up} {
+    .box-icon:hover .box-icon-effect {
+      @include transform(translate(10px, 10px));
+    }
+  }
+}
+
+@mixin content-box-icon-default($size: 123, $icon-display: inline-block) {
+  @include size($size);
+  .ss-icon {
+    display: $icon-display;
+  }
+  span {
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
+
+.box-icon {
+  @include box-icon($display: inline-block, $text-align: center);
+  @include font-style ( $padding: $padding-box-icon-medium, $font-size: $font-size-box-icon-medium, $line-height: $line-height-box-icon-medium);
+  cursor: pointer;
+  .ss-icon {margin-right: 0;}
+  span {
+    margin: 0;
+    white-space: normal;
+  }
+  &.non-clickable {
+    cursor: auto;
+  }
+}
+
+.box-icon-tiny {
+  @include font-style ( $padding: $padding-box-icon-tiny, $font-size: $font-size-box-icon-tiny, $line-height: $line-height-box-icon-tiny);
+}
+
+.box-icon-small {
+  @include font-style ( $padding: $padding-box-icon-small, $font-size: $font-size-box-icon-small, $line-height: $line-height-box-icon-small);
+}
+
+.box-icon-large {
+  @include font-style ( $padding: $padding-box-icon-large, $font-size: $font-size-box-icon-large, $line-height: $line-height-box-icon-large);
+}
+
+.box-icon-default {
+  @include font-style ( $padding: $padding-icon-default, $font-size: false, $line-height: false);
+  @include box-icon($display: table-cell, $vertical-align: middle, $background-hover: false);
+  @include content-box-icon-default;
+}
+
+.box-icon.expand {
+  width: 100%;
+}
+
+// .box-icon,
+.box-icon,
+.box-icon-default {
+  &.radius {
+    @include radius(0.5rem);
+  }
+}
+
+.circle {
+  // @include radius(50%);
+  @include size($size-circle-icon-medium);
+  @include font-style($font-size: $font-size-box-icon-medium, $line-height: $line-height-circle-medium, $padding: 0);
+}
+
+.circle-tiny {
+  @include size($size-circle-icon-tiny);
+  @include font-style($font-size: $font-size-box-icon-tiny, $line-height: $line-height-circle-tiny, $padding: 0);
+}
+
+.circle-small {
+  @include size($size-circle-icon-small);
+  @include font-style($font-size: $font-size-box-icon-small, $line-height: $line-height-circle-small, $padding: 0);
+}
+
+
+.circle-large {
+  @include size($size-circle-icon-large);
+  @include font-style($font-size: $font-size-box-icon-large, $line-height: $line-height-circle-large, $padding: 0);
+}
+
+.effect-icon-box {
+  @include effect-icon();
+}
+
+.block-grid-box-icon {
+  border-top: 1px solid #ffffff;
+  color: #ffffff;
+  .ss-icon { @include font-style($font-size: rem-calc(48), $line-height: 3.5rem, $padding: 10px 0 0); }
+  .box-icon {
+    @include size(100%);
+    @include box-icon($background: $transparent, $background-hover: $transparent, $font-family: $serif);
+    @include font-style($font-size: 1.2rem, $line-height: 1.5rem, $padding: 1rem 1.5rem);
+  }
+
+  li {
+    border-left: 1px solid #fff;
+    font-weight: 600;
+    height: 10rem;
+    padding: 0 !important;
+    position: relative;
+    &:nth-of-type(odd) {background: #3AD1BA;}
+    &:nth-of-type(even) {background: #6BDDCB;}
+    &:not(:last-child) {
+      @include after-tag($size: 30px, $content:' & ', $position: absolute, $top: 5%);
+      &:after {
+        @include after-tag-style;
+        font-size: 1.25rem;
+        padding: 0;
+        right: 0;
+        z-index: 9;
+      }
+    }
+  }
+}
+

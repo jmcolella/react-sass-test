@@ -1,0 +1,16 @@
+.life-comparison-index {
+  .insurer-line {
+    position: relative;
+    span {
+      margin: rem-calc(6px 0 2px 20px);
+      font-size: rem-calc(12px);
+      display: block;
+    }
+    i {
+      @include absolute(top 0 left 0);
+      color: $secondary-color;
+      &:hover { @include opacity(.7); }
+    }
+  }
+  .compulife_insurer_name select { margin: 0 0 3px 0; }
+}

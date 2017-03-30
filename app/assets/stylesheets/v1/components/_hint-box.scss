@@ -1,0 +1,88 @@
+$hint-box-large-padding: rem-calc(0 40px 40px 40px);
+
+@mixin hint-box-color-scheme($bg, $text) {
+  border: 1px solid $text;
+  p, ul, li, ol { color: $text; }
+  > i:first-of-type {
+    background: $bg;
+    color: $text;
+  }
+}
+
+.hint-box {
+  @include hint-box-color-scheme($primary-color, white);
+  margin-bottom: rem-calc($rem-base);
+  position: relative;
+
+  &.large {
+    padding: $hint-box-large-padding;
+
+    p {
+      margin: 0 0 rem-calc(10px) 0;
+    }
+  }
+
+  p { margin: rem-calc(8px 13px 10px 13px); }
+
+  p, ul {
+    font-family: $sans-serif;
+    font-weight: 300;
+    line-height: 1.6;
+    font-size: rem-calc(14px);
+  }
+
+  ul { margin-left: rem-calc(33px); }
+
+  > i:first-of-type {
+    $i-size: rem-calc(26px);
+    @extend .ss-icon;
+    @include square($i-size);
+    margin: 0;
+    position: absolute;
+    top: $i-size / -2;
+    left: $i-size / -2;
+    content: '&#x1F4AC';
+    line-height: $i-size;
+    text-align: center;
+  }
+
+  .reveal-modal-link {
+    margin-top: 8px;
+    display: block;
+    color: $primary-color-very-light;
+    font-style: italic;
+  }
+
+  .block { display: block; }
+
+  &.hoverable {
+    @include opacity(.4);
+    &:hover { opacity: 1; }
+  }
+
+  &.dark,
+  &.hint-box--dark { @include hint-box-color-scheme($primary-color-dark, white); }
+
+  &.hint-box--big {
+    margin-top: 1.5rem;
+    p { margin: rem-calc(14px 17px 16px 17px); }
+    li, p { font-size: rem-calc(14px); }
+    ul {
+      margin-top: 14px;
+      p { margin: 0 0 8px -17px; }
+    }
+  }
+}
+
+.with-hintbox {
+  padding-top: rem-calc(10px);
+  &:hover .hint-box.hoverable { opacity: 1; }
+  .radio.toggle { width: 50%; } // full-widh radio buttons
+
+  @media #{$small-only} {
+    .select,
+    .row.collapse-input {
+      margin-bottom: rem-calc(25px);
+    }
+  }
+}

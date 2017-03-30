@@ -1,0 +1,73 @@
+/*doc
+---
+title: Layout - No Results
+name: 9_layout-no-results
+category: V1-Components
+---
+
+Layout - No results page
+
+### Contents:
+* [Layout](#layout-no-results)
+
+<div id="layout-no-results></div>
+#### No Results
+
+```slim_example
+.row
+  .small-6.small-centered.columns.text-center.no-results
+    .no-results-content-group
+      h2.no-results-title
+        strong Hmmm... No policy matches
+      p.no-results-lead
+        | Try adjusting the
+        a.no-results-link href="#"
+          i  coverage & term
+        |  over there on the left.
+    .no-results-hero
+      img src="holder.js/250" width="250"
+    .no-results-content-group
+      p.no-results-lead
+        strong
+          i Still no luck?
+      p.no-results-lead
+        | Reach out to us at
+        a.no-results-link href="tel:1800-345-6783"  1-800-345-6783
+```
+*/
+
+// Sizing
+$margin-outer: rem-calc(25px);
+
+.no-results {
+  margin: ($margin-outer * 2) 0;
+
+  .no-results-hero,
+  .no-results-title,
+  .no-results-lead,
+  .no-results-content-group {
+    margin-bottom: $margin-outer;
+  }
+
+  .no-results-title {
+    font-family: $sans-serif;
+    margin-top: 0;
+    font-size: rem-calc(25px);
+  }
+
+  .no-results-link {
+    color: $primary-color;
+  }
+
+  .no-results-lead {
+    font-family: $sans-serif;
+    margin-top: 0;
+  }
+
+  .no-results-content-group {
+    .no-results-lead,
+    .no-results-title {
+      margin-bottom: 0;
+    }
+  }
+}

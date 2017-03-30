@@ -1,0 +1,367 @@
+/*doc
+---
+title: Panel - Call to Action
+name: 1a_panel-cta
+category: V1-Components
+---
+
+Panel - Call to Action are used to specify a **call to action**.
+
+### Contents:
+* [With Portrait](#portrait)
+ -  [Portrait Left](#portrait-left)
+ -  [Portrait Right](#portrait-right)
+* [With Label](#label)
+* [Sizing](#sizing)
+* [Styling](#styling)
+* [Extending](#extending)
+
+<div id="portrait"></div>
+#### With Portrait (centered by default)
+
+```slim_example
+    .panel-cta
+      .primary.text-center
+        .portrait
+        / portrait can be changed to label
+        h1.title Title Heading
+        span.supertitle Supertitle Description
+        h2.subtitle Subtitle Heading
+        span.divider or
+        / divider can be span text or horizontal rule
+        .button.action Chat With an Expert
+```
+
+<div id="portrait-left"></div>
+#### Portrait Left
+
+```slim_example
+    .panel-cta
+      .primary.text-center
+        .portrait.left
+        / portrait can be changed to label
+        h1.title Title Heading
+        span.supertitle Supertitle Description
+        h2.subtitle Subtitle Heading
+        span.divider or
+        / divider can be span text or horizontal rule
+        .button.action Chat With an Expert
+```
+
+<div id="portrait-right"></div>
+#### Portrait Right
+
+```slim_example
+    .panel-cta
+      .primary.text-center
+        .portrait.right
+        / portrait can be changed to label
+        h1.title Title Heading
+        span.supertitle Supertitle Description
+        h2.subtitle Subtitle Heading
+        span.divider or
+        / divider can be span text or horizontal rule
+        .button.action Chat With an Expert
+```
+
+<div id="label"></div>
+#### With Label
+
+```slim_example
+    .panel-cta
+      .primary.text-center
+        .label
+          | label
+        / label can be changed to portrait
+        h1.title Title Heading
+        span.supertitle Supertitle Description
+        h2.subtitle Subtitle Heading
+        span.divider or
+        / divider can be span text or horizontal rule
+        .button.action Chat With an Expert
+```
+
+<div id="sizing"></div>
+#### Sizing
+
+Adjust panel sizing using foundation columns.
+
+```slim_example
+  .row
+    .panel-cta.medium-6.columns.medium-centered
+      .primary.text-center
+        .label
+          | label
+        / label can be changed to portrait
+        h1.title Title Heading
+        span.supertitle Supertitle Description
+        h2.subtitle Subtitle Heading
+        hr.divider
+        / divider can be span text or horizontal rule
+        .button.action Chat With an Expert
+```
+
+<div id="styling"></div>
+#### Styling
+
+- Use ```.primary``` for the base styles
+- Use ```.secondary``` for the alternative styles
+
+```slim_example
+    .panel-cta
+      .secondary.text-center
+        .portrait
+        / portrait can be changed to label
+        h1.title Title Heading
+        span.supertitle Supertitle Description
+        h2.subtitle Subtitle Heading
+        span.divider or
+        / divider can be span text or horizontal rule
+        .button.action Chat With an Expert
+```
+
+<div id="extending"></div>
+#### Extending
+
+To extend our panel-cta with custom styling, we can introduce new styling classes inside the ```.panel-cta``` container class.
+We can adjust font colors and background colors or any other necessary styling adjustments.
+
+```
+    .panel-cta {
+
+       .NEW-STYLE {
+          @include panel-cta(PADDING-VALUE, NEW-COLOR);
+          .portrait {
+            @include panel-cta-callout(circle, PORTRAIT-SIZE, center);
+            @include panel-cta-callout-color(circle, PORTRAIT-BG-COLOR, 1px solid $panel-cta-portrait-border-color);
+          }
+          .label {
+            @include panel-cta-callout-color(label, $panel-cta-label-secondary-bg-color);
+            color: $panel-cta-label-primary-font-color;
+          }
+          .title {
+            color: $panel-cta-primary-font-color;
+          }
+          .subtitle{
+            color: $panel-cta-primary-font-color;
+          }
+          .supertitle {
+            color: $panel-cta-primary-font-color;
+          }
+          .divider {
+            color: $panel-cta-secondary-font-color;
+          }
+          hr {
+            &.divider {
+              border-color: $panel-cta-divider-secondary-color;
+            }
+          }
+        }
+    }
+```
+
+*/
+
+// Colors
+$panel-cta-portrait-border-color: $tertiary-color;
+$panel-cta-portrait-bg-color: $white-color;
+$panel-cta-portrait-default-bg-color: transparent;
+//  Primary
+$panel-cta-primary-bg-color: $third-color-light;
+$panel-cta-primary-font-color: $black-gray;
+$panel-cta-label-primary-font-color: $white-color;
+$panel-cta-label-primary-bg-color: $tertiary-color;
+$panel-cta-divider-primary-color: $tertiary-color;
+//  Secondary
+$panel-cta-secondary-color: $primary-color;
+$panel-cta-secondary-font-color: $white-color;
+$panel-cta-label-secondary-bg-color: $primary-color-very-dark;
+$panel-cta-divider-secondary-color: $white-color;
+// Sizes
+$panel-cta-title-margin: rem-calc(0 0 22px 0);
+$panel-cta-portrait-size: rem-calc(100px);
+$panel-cta-media-position: rem-calc(28px);
+$panel-cta-divider-margin: rem-calc(10px 0);
+$panel-cta-outer-padding: rem-calc(55px);
+$panel-cta-inner-padding: rem-calc(55px 60px 15px 60px);
+// Font Sizes
+$panel-cta-title-font-size: rem-calc(26px);
+$panel-cta-supertitle-font-size: rem-calc(18px);
+$panel-cta-label-font-size: rem-calc(18px);
+
+%panel-cta-base {
+  display: block;
+  padding-top: $panel-cta-outer-padding;
+  position: relative;
+
+  @media #{$small-only} {
+    margin-bottom: rem-calc(20px);
+    padding-top: ($panel-cta-outer-padding * 1.75);
+  }
+}
+
+@mixin panel-cta-callout ($type: circle,
+                          $size: 0,
+                          $position: center) {
+  @if $type == circle {
+    @if $position == left {
+      @include circle-generator($size);
+      left: 0;
+      margin-left: rem-calc(-15px);
+      position: absolute;
+      right: auto;
+      top: (-$size / 2);
+    } @else if $position == right {
+      @include circle-generator($size);
+      left: auto;
+      margin-left: auto;
+      margin-right: rem-calc(-15px);
+      position: absolute;
+      right: 0;
+      top: (-$size / 2);
+    } @else {
+      @include circle-generator($size);
+      left: 50%;
+      margin-left: (-$size / 2);
+      margin-right: auto;
+      position: absolute;
+      right: auto;
+      top: (-$size / 2);
+    }
+  } @else if $type == label{
+    @include label-generator($size);
+    left: 0;
+    margin: 0 auto;
+    position: absolute;
+    right: 0;
+    top: (-$size / 4);
+  }
+}
+
+@mixin panel-cta-callout-color ($type: circle,
+                                $bg-color: $panel-cta-portrait-default-bg-color,
+                                $border: null) {
+  @if $type == circle {
+    @include circle-generator-color($bg-color, $border);
+  } @else {
+    @include label-generator-color($bg-color);
+  }
+}
+
+@mixin panel-cta($padding, $bg-color) {
+  position: relative;
+  padding: $padding;
+  background-color: $bg-color;
+}
+
+.panel-cta {
+  @extend %panel-cta-base;
+
+  .portrait {
+    @include panel-cta-callout(circle, $panel-cta-portrait-size, center);
+    @include panel-cta-callout-color(circle, $panel-cta-portrait-bg-color, 1px solid $panel-cta-portrait-border-color);
+
+    .rounded-media {
+      border-radius: ($panel-cta-portrait-size / 2);
+      bottom: $panel-cta-media-position;
+      position: relative;
+      width: $panel-cta-portrait-size;
+    }
+
+    &.left {
+      @include panel-cta-callout(circle, $panel-cta-portrait-size, left);
+    }
+
+    &.center {
+      @include panel-cta-callout(circle, $panel-cta-portrait-size, center);
+    }
+
+    &.right {
+      @include panel-cta-callout(circle, $panel-cta-portrait-size, right);
+    }
+  }
+
+  .label {
+    @include panel-cta-callout(label, rem-calc(120px), center);
+    @include panel-cta-callout-color(label, $panel-cta-label-primary-bg-color);
+    font-size: $panel-cta-label-font-size;
+  }
+
+  .title {
+    @extend %font-bold;
+    font-size: $panel-cta-title-font-size;
+    margin: $panel-cta-title-margin;
+  }
+
+  .subtitle {
+    font-size: $panel-cta-title-font-size;
+    margin: 0;
+  }
+
+  .supertitle {
+    font-size: $panel-cta-supertitle-font-size;
+  }
+
+  .divider {
+    display: block;
+    margin: $panel-cta-divider-margin;
+  }
+
+  .primary {
+    @include panel-cta($panel-cta-inner-padding, $panel-cta-primary-bg-color);
+
+    .label {
+      color: $panel-cta-label-primary-font-color;
+    }
+
+
+    .title {
+      color: $panel-cta-primary-font-color;
+    }
+
+    .subtitle {
+      color: $panel-cta-primary-font-color;
+    }
+
+    .supertitle {
+      color: $panel-cta-primary-font-color;
+    }
+
+    .divider {
+      color: $panel-cta-primary-font-color;
+    }
+
+    hr.divider {
+      border-color: $panel-cta-divider-primary-color;
+    }
+  }
+
+  .secondary {
+    @include panel-cta($panel-cta-inner-padding, $panel-cta-secondary-color);
+
+    .label {
+      @include panel-cta-callout-color(label, $panel-cta-label-secondary-bg-color);
+      color: $panel-cta-secondary-font-color;
+    }
+
+    .title {
+      color: $panel-cta-secondary-font-color;
+    }
+
+    .subtitle {
+      color: $panel-cta-secondary-font-color;
+    }
+
+    .supertitle {
+      color: $panel-cta-secondary-font-color;
+    }
+
+    .divider {
+      color: $panel-cta-secondary-font-color;
+    }
+
+    hr.divider {
+      border-color: $panel-cta-divider-secondary-color;
+    }
+  }
+}

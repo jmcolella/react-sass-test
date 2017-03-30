@@ -1,0 +1,111 @@
+.searches-connect-modal {
+  color: $primary-color-text;
+  &__title {
+    margin: 0 0 20px 0;
+    color: inherit;
+    font: {
+      weight: bold;
+      size: rem-calc(30px);
+    }
+  }
+  &__subtitle {
+    font: {
+      weight: bold;
+      size: rem-calc(21px);
+    }
+  }
+  label {
+    color: inherit;
+    font-weight: bold;
+    abbr { display: none; }
+  }
+  &__contact-hints p {
+    margin: 0;
+    line-height: 1.2;
+    font-size: rem-calc(14px);
+    a:hover { text-decoration: underline; }
+  }
+  a { color: inherit; }
+
+  .button { color: $primary-color-text; }
+}
+
+.life-searches-modal {
+  &__title { font-weight: bold; }
+  &__intro { margin: 20px 0 30px 0; }
+  &__point {
+    padding-left: 70px;
+    position: relative;
+    i {
+      @include absolute(top 8px left 0);
+      font-size: rem-calc(55px);
+      line-height: 1;
+    }
+    h5 {
+      font-weight: bold;
+    }
+    p {
+      margin-bottom: 30px;
+      font-size: rem-calc(15px);
+      line-height: 1.4;
+    }
+  }
+  &__list {
+    margin: 0 0 30px 0;
+    list-style: none;
+  }
+}
+
+.output-modal {
+  padding-bottom: rem-calc(55px);
+  input[type="text"] { background: white; }
+  button {
+    background: $tertiary-color;
+    &:hover { background: $tertiary-color-dark; }
+  }
+  .coupon {
+    position: relative;
+    margin-top: rem-calc(25px);
+    padding: rem-calc(25px);
+    border: 2px dashed $primary-color-light;
+    background: darken($primary-color, 5%);
+    &__hint {
+      margin-top: rem-calc(5px);
+      color: $primary-color-very-light;
+      font-size: rem-calc(14px);
+    }
+  }
+  p, h4 {
+    margin: 0;
+    line-height: 1.4;
+  }
+  p { color: white; }
+  .notation {
+    color: $primary-color-very-light;
+    text-align: right;
+    font-family: sans-serif;
+    margin-bottom: rem-calc(15px);
+  }
+  h4 { font-weight: bold; }
+  .instant-savings { margin-bottom: rem-calc(40px); }
+  .bg-icon {
+    @include absolute(top 30px right 30px);
+    @include opacity(.2);
+    font-size: 150px;
+    color: $primary-color-very-dark;
+  }
+  .no-thanks {
+    font-size: rem-calc(14px);
+    font-weight: normal;
+  }
+  .save-for-later-img { margin-bottom: rem-calc(20px); }
+}
+
+.save-quotes-success {
+  p { color: white; }
+  strong, span {
+    display: block;
+    margin: 0 auto;
+  }
+  .button { margin-top: 10px; }
+}

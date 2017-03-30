@@ -1,0 +1,48 @@
+.payout-mix__calc-area {
+  .line {
+    margin-bottom: rem-calc(8px);
+    font-family: $serif;
+    color: $primary-color;
+    position: relative;
+    font-size: rem-calc(16px);
+    .input { margin-bottom: 0; }
+    &.editable {
+      color: $secondary-color;
+      select {
+        color: $secondary-color;
+        background: $secondary-color-extreme-light;
+        border-bottom-color: $secondary-color;
+      }
+      .i-abs { color: $primary-color; }
+    }
+    &.result { font-weight: bold; }
+    div {
+      display: inline-block;
+      padding-bottom: rem-calc(8px);
+      &.border { border-bottom: 1px solid $primary-color-light; }
+      &.num {
+        margin-right: rem-calc(10px);
+        text-align: right;
+        padding-left: rem-calc(20px);
+        width: rem-calc(80px);
+        font-size: rem-calc(17px);
+      }
+    }
+    .input.select {
+      margin-top: rem-calc(-8px);
+      width: 100%;
+    }
+    .i-abs { @include absolute(top 4px left 0); }
+  }
+}
+
+.customize-form-panel {
+  .button { margin-bottom: 0; }
+}
+
+.pet_quotes.payout_mix,
+.pet_old_quotes.payout_mix {
+  .side-by-side-buttons { margin-bottom: 10px; }
+  .payout-mix-notes { margin-top: rem-calc(30px); }
+}
+

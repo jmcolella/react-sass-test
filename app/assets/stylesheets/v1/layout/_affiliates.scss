@@ -1,0 +1,50 @@
+$heading-size: rem-calc(14px);
+$heading-color: lighten($primary-color-light, 20%);
+
+.affiliates .hero {
+  padding: 0;
+  position: relative;
+}
+
+.affiliates .survey-top-panel {
+  padding-bottom: 0;
+}
+
+.affiliates .affiliate-message {
+  h6 {
+    font-size: $heading-size;
+    color: $heading-color;
+    margin-bottom: rem-calc(10px);
+  }
+}
+
+.affiliates .affiliate-message {
+  max-width: 50%;
+  position: absolute;
+  left: 0;
+  text-align: left;
+}
+
+.affiliates .fixed-media {
+  img {
+    max-width: 60%;
+    position: relative;
+  }
+}
+
+@media #{$medium-bottom} {
+  .affiliates .affiliate-message {
+    padding: rem-calc(20px 0 25px 0);
+    max-width: initial;
+    position: relative;
+    text-align: center;
+    top: initial;
+  }
+  .affiliates .fixed-media {
+    text-align: center;
+    img {
+      max-width: 65%;
+      right: auto;
+    }
+  }
+}

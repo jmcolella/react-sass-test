@@ -1,0 +1,9 @@
+// Panel Mixins
+@mixin form-panel-padding ($padding) {
+  padding: $padding;
+}
+
+@mixin sidebar-panel-padding ($padding) {
+  padding: $padding;
+}
+

@@ -1,0 +1,60 @@
+@mixin tabs-colors(
+  $static-color,
+  $active-color,
+  $hover-color,
+  $static-text-color,
+  $active-text-color,
+  $hover-text-color) {
+  dd {
+    > a {
+      background: $static-color;
+      color: $static-text-color;
+      &:hover {
+        background: $hover-color;
+        color: $hover-text-color;
+      }
+    }
+    &.active a {
+      background: $active-color;
+      color: $active-text-color;
+    }
+  }
+}
+
+.tabs {
+  &--bordered {
+    @include tabs-colors(
+      $primary-color-extra-light,
+      white,
+      white,
+      $primary-color-very-dark,
+      $primary-color-very-dark,
+      $primary-color-very-dark
+    );
+    dd {
+      border-top: 1px solid $primary-color-very-light;
+      border-right: 1px solid $primary-color-very-light;
+      border-bottom: 1px solid $primary-color-very-dark;
+      padding: 10px 25px 13px 25px;
+      font-family: $sans-serif;
+      font-weight: lighter;
+      &:first-of-type {
+        border-right: none;
+        border-left: 1px solid $primary-color-very-light;
+      }
+      &.active {
+        background: $white-color;
+        border: 1px solid $primary-color-very-dark;
+        border-bottom: none;
+        z-index: 2;
+      }
+    }
+    &.tabs-content {
+      @include relative(top -1px);
+      padding: 10px 25px 5px;
+      background: white;
+      border: 1px solid $primary-color-very-dark;
+      margin-bottom: 1rem;
+    }
+  }
+}

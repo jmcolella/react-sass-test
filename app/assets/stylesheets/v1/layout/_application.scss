@@ -1,0 +1,378 @@
+/*doc
+---
+title: Layout - Application Page
+name: 9_application-page
+category: V1-Components
+---
+
+Layout - Application page
+
+### Contents:
+* [Layout](#application-page)
+
+<div id="application-page"></div>
+#### Application Page Layout
+
+```slim_example
+.row
+  .small-12.columns
+    .sidebar-layout
+      .sidebar-layout-content.application
+        .row.text-center
+          .sidebar-content-group
+            h2.sidebar-title.large
+              i Nice Choice!
+            p.sidebar-lead.subtle
+              i Not sure? No worries. We'll make sure it's the right fit.
+          .medium-4.medium-centered.columns
+            .card-container
+              .card-pricing.active.text-left
+                .card-pricing-inner
+                  .header
+                    .header-item.small-8.columns
+                      .header-item.price
+                        span.currency-sign $
+                        span.dollars 530
+                        span.cents .55
+                        abbr.header-abbr.abbreviation title="Monthly" Monthly
+                    a.header-item.small-4.columns.action.js-details
+                      i.header-icon.icon-plus +
+                      | Details
+                  .body
+                    .body-insurer
+                      img.body-insurer-logo src="https://placeholdit.imgix.net/~text?txtsize=30&bg=88ff88&txtclr=ffffff&txt=banner&w=150&h=100&txttrack=1"
+                      a.sub-link href="#" Tell me more
+                    dl.body-term
+                      dt.term-title RATINGS
+                      dd.term-definition
+                        span.term-rating A+
+                        |  A.M. Best
+                      dd.term-definition
+                        span.term-rating A+
+                        |  Better Business Bureau
+                    span.sub-link.has-tip.tip-bottom title="This is a tooltip." data-tooltip="" What are these?
+                  .footer
+                    span.footer-inset-arrow
+                    .footer-inner
+                      .footer-row.row
+                        .medium-6.columns
+                          h6.term-title Coverage
+                          p.footer-term-description.term-description.highlight $500,000
+                        .medium-6.columns
+                          h6.term-title Term
+                          p.footer-term-description.term-description.highlight 20 Years
+                      .footer-row.row
+                        .medium-12.columns
+                          h6.term-title Underwriting Class
+                          p.term-description Preferred Best non-tobacco
+                      .footer-row.row
+                        .medium-12.columns
+                          h6.term-title Plan Name
+                          p.term-description SI - Trendsetter Express 20 (Choice/Std)
+                      .footer-row.row
+                        .medium-12.columns
+                          h6.term-title Turnaround
+                          p.term-description 3-5 Weeks (average)
+                      .highlight-row.footer-row.row
+                        .medium-2.columns
+                          i.ss-icon.ss-openbook.highlight-icon
+                        .medium-10.columns
+                          h6.term-title We've done the research
+                          a.link Read more about this policy & Lincoln Financial
+                  a.card-submit.button.action Apply Now
+            .medium-12.medium-centered.columns
+              ul.steps
+                li.steps-item.no-bullet
+                  svg.steps-divider
+                    line.line x1="0" x2="0" y1="0" y2="100%"
+                li.steps-item.no-bullet
+                  p.steps-heading Continue
+                  p.steps-heading
+                    i.ss-icon.ss-navigatedown
+                li.steps-item.no-bullet
+                  svg.steps-divider.large
+                    line.line x1="0" x2="0" y1="0" y2="100%"
+          .medium-12.columns
+            .sidebar-content-group.row
+              .medium-12.columns
+                h2.sidebar-title.large
+                  i Why apply through PolicyGenius?
+              .medium-4.columns
+                img src="https://placeholdit.imgix.net/~text?txtsize=20&bg=88ff88&txtclr=ffffff&txt=lorem&w=292&h=292&txttrack=1" width="292"
+                p.sidebar-lead.large
+                  b Helpful experts avilable if you want them.
+              .medium-4.columns
+                img src="https://placeholdit.imgix.net/~text?txtsize=20&bg=8888ff&txtclr=ffffff&txt=lorem&w=292&h=292&txttrack=1" width="292"
+                p.sidebar-lead.large
+                  b No calls from agents.
+              .medium-4.columns
+                img src="https://placeholdit.imgix.net/~text?txtsize=20&bg=ff8888&txtclr=ffffff&txt=lorem&w=292&h=292&txttrack=1" width="292"
+                p.sidebar-lead.large
+                  b Don't get lost in paperwork.
+            .application-form.heading.row
+              svg.steps-divider.vertical.right.extend
+                line.line x1="0" x2="0" y1="0" y2="100%"
+              .medium-6.columns
+                h2.sidebar-title.large.text-left
+                  i First things first...
+                svg.steps-divider.horizontal.bottom.extend
+                  line.line x1="0" x2="100%" y1="0" y2="0"
+            .application-form.form-primary-dark.body.row
+              svg.steps-divider.vertical.left.extend
+                line.line x1="0" x2="0" y1="0" y2="100%"
+              .medium-6.columns
+                ul.steps.has-number.text-left
+                  li.steps-item.active
+                    .steps-item-header
+                      span.steps-bullet 1
+                      h5.steps-heading
+                        b Basics
+                    .steps-item-body.row
+                      .medium-6.columns
+                        .label-row
+                          label
+                            | First Name
+                            abbr title="required" *
+                        input.radius type="text"
+                      .medium-6.columns
+                        .label-row
+                          label
+                            | Last Name
+                            abbr title="required" *
+                        input.radius type="text"
+                      .medium-12.columns
+                        .label-row
+                          label
+                            | Email
+                            abbr title="required" *
+                        input.radius type="text"
+                  li.steps-item
+                    .steps-item-header
+                      span.steps-bullet 2
+                      h5.steps-heading
+                        b Contact Info
+                    .steps-item-body.row
+                      .medium-6.columns
+                        .label-row
+                          label
+                            | First Name
+                            abbr title="required" *
+                        input.radius type="text"
+                      .medium-6.columns
+                        .label-row
+                          label
+                            | Last Name
+                            abbr title="required" *
+                        input.radius type="text"
+
+```
+*/
+
+.sidebar-layout-content.application {
+  padding: rem-calc(0 25px);
+
+  .card-container {
+    margin-bottom: 0;
+  }
+
+  .hint-box,
+  .application-form a:not(.remove_nested_fields):not(.link),
+  .hint-box p,
+  .hint-box .ss-icon {
+    border-color: darken($light-gray, 10%);
+    color: darken($light-gray, 10%);
+  }
+
+  &.active .hint-box p,
+  &.active .application-form a:not(.remove_nested_fields),
+  &.active .hint-box,
+  &.active .hint-box .ss-icon {
+    border-color: $primary-color-dark;
+    color: $primary-color-dark;
+  }
+
+  &.active {
+    .steps-heading,
+    .steps-item-body,
+    .steps-bullet,
+    .steps-lead,
+    select,
+    p,
+    .add-link,
+    h6 {
+      color: $brown-color-text;
+    }
+
+    label.control-label {
+      color: $brown-color-text;
+    }
+
+    .radio-button-group.cleared label {
+      color: inherit;
+    }
+
+    .radio-button-group.cleared label:hover {
+      color: $white-color;
+    }
+
+    .prefix,
+    select,
+    input:not(.button) {
+      border-color: $primary-color-dark;
+      color: $primary-color-dark;
+    }
+
+    .steps-bullet {
+      background: $white-color;
+      border-color: $black-color;
+    }
+   }
+
+  .is-hidden {
+    display: none;
+  }
+
+  &.active .is-hidden {
+    display: block;
+  }
+
+  @media #{$medium-up} {
+    .beneficiary-container .remove_nested_fields {
+      right: 0;
+      top: -10px;
+    }
+  }
+}
+
+.sidebar-layout-content.application.is-disabled {
+  #full-application {
+    cursor: not-allowed;
+  }
+
+  #full-application input,
+  #full-application select,
+  #full-application label {
+    cursor: not-allowed;
+    pointer-events: none;
+  }
+}
+
+.bg-policy,
+.bg-male,
+.bg-female,
+.bg-desk-male {
+  background-position: center;
+  display: block;
+  position: absolute;
+}
+
+.bg-male,
+.bg-female,
+.bg-desk-male {
+  @media #{$medium-bottom} {
+    display: none;
+  }
+}
+
+.bg-policy {
+  background-image: url("/images/hero-bg-gradient.png");
+  background-repeat: repeat-x;
+  height: 181px;
+  left: 0;
+  right: 0;
+  top: 300px;
+
+  @media #{$medium-up} {
+    margin-left: 4px;
+  }
+}
+
+.bg-male {
+  background-image: url("/images/sign-guy-left@2x.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  height: 300px;
+  left: -142px;
+  top: 90px;
+  width: 170px;
+}
+
+.bg-female {
+  background-image: url("/images/sign-girl-right-w-writing@2x.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  height: 300px;
+  right: -290px;
+  top: 90px;
+  width: 269px;
+}
+
+.bg-desk-male {
+  background-image: url("/images/desk-dude@2x.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  bottom: 0;
+  height: 271px;
+  left: 420px;
+  width: 370px;
+
+  @media #{$medium-only} {
+    display: none;
+  }
+
+  &.hand-low {
+    background-image: url("/images/desk-dude.png");
+    height: 248px;
+  }
+}
+
+.application-form label {
+  font-weight: normal;
+}
+
+.application-form.heading {
+  padding-top: rem-calc(140px);
+  position: relative;
+
+  @media #{$small-only} {
+    .steps-divider.vertical {
+      max-height: 80%;
+    }
+
+    .steps-divider.horizontal {
+      max-width: 50%;
+    }
+  }
+
+  .steps-divider.horizontal {
+    padding-left: rem-calc(15px);
+  }
+
+  .steps-divider.right {
+    left: 0;
+    margin: rem-calc(-5px) auto 0;
+    position: absolute;
+    right: 0;
+  }
+}
+
+.application-form.body {
+  padding-top: rem-calc(45px);
+  position: relative;
+
+  .steps-divider.left {
+    left: rem-calc(15px);
+  }
+
+  .steps.has-number {
+    margin-left: rem-calc(-15px);
+
+    .steps.has-number {
+      margin-left: rem-calc(-41px);
+    }
+  }
+
+  .steps-bullet {
+    top: rem-calc(-50px);
+  }
+}

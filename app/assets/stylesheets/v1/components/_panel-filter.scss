@@ -1,0 +1,216 @@
+/*doc
+---
+title: Panel - Filter Panel
+name: 1b_panel-filter
+category: V1-Components
+---
+<sub>Extends [Panel Component](#1_panel)</sub>
+
+Panel - Filter Panel is used to adjust information being displayed on the page.
+
+### Contents:
+* [Layout](#panel-filter)
+
+<div id="panel-filter"></div>
+#### Basic Filter Panel
+
+```slim_example
+  .row
+    .small-4.columns.small-centered.panel.panel-filter
+      .row
+        .small-12.columns
+          section.panel-section.hero
+            .small-12.columns.text-center
+              img.panel-section-logo src="holder.js/170x50?auto=yes" width="170" alt="PolicyGenius"
+            .small-12.columns
+              img.panel-hero-img src="holder.js/200x200?auto=yes" width="200" alt="PolicyGenius Rep"
+              .panel-section.panel-hero-content
+                  h3.panel-heading-super Free & Friendly
+                  a.panel-heading.link href="tel:1-800-000-000" 1-800 000 0000
+                  a.button.primary.radius href="https://www.policygenius.com/"
+                    | Chat with an Expert
+          section.panel-section
+            .small-12.columns
+              a.button.primary.radius.expand.has-icon href="https://www.policygenius.com/"
+                span.ss-icon.ss-floppydisk
+                | Save your progress
+            .small-12.columns
+              a.button.primary.radius.expand.has-icon href="https://www.policygenius.com"
+                span.ss-icon.ss-help
+                | Why PolicyGenius?
+          hr.panel-divider
+          section.panel-section
+            .small-12.columns.slider
+              fieldset
+                legend
+                  h5.panel-heading Adjust your policy
+                .slider.round
+                  label#coverage-label.slider-heading Coverage
+                  span#coverage-value.slider-value $500,000
+                  .range-slider data-slider="" data-options="start:100000; end: 1000000; step: 50000; display_selector: #coverage-value;"
+                    span.range-slider-handle role="slider" tabindex="0" aria-labelledby="coverage-label"
+                    span.range-slider-active-segment
+                .slider.round
+                  label.slider-heading id="term" Term
+                  span#term.slider-value 20 Years
+                  .range-slider data-slider="" data-options="display_selector: #term;"
+                    span.range-slider-handle role="slider" tabindex="0" aria-labelledby="term"
+                    span.range-slider-active-segment
+            .small-12.columns
+              fieldset
+                legend.panel-input-heading Show Prices
+                ul.panel-input.radio-list
+                  .row
+                    .small-6.columns
+                      li.radio.animated-checkbox.primary.animated-checkbox-fill
+                        input.animated_radio.optional.radius type="radio" value="m" name="prices" id="m" checked="checked"
+                        label.collection_radio_buttons for="m" Monthly
+                    .small-6.columns
+                      li.radio.animated-checkbox.primary.animated-checkbox-fill
+                        input.animated_radio.optional.radius type="radio" value="a" name="prices" id="a"
+                        label.collection_radio_buttons for="a" Annually
+                        sub.panel-heading-sub
+                          | (Save up to 15%)
+          hr.panel-divider
+          section.panel-section
+            .small-12.columns
+              h5.panel-heading Edit your info
+              a.button.radius.expand.neutral.has-icon
+                span.ss-icon.ss-plus
+                | Edit Your Health
+              a.button.radius.expand.neutral.has-icon
+                span.ss-icon.ss-user
+                | Edit Your Basics
+              a.button.radius.expand.neutral.has-icon
+                span.ss-icon.ss-calculator
+                | Calculate Coverage & Term
+```
+*/
+
+// Colors
+$bg-button: $button-color;
+$bg-button-primary: $primary-color-light;
+
+$text-color: $white-color;
+$text-color-primary: $black-color-text;
+
+// Sizing
+$text-size-large: rem-calc(20px);
+$text-size-medium: rem-calc(16px);
+$text-size-normal: rem-calc(14px);
+$text-size-small: rem-calc(12px);
+$text-size-xsmall: rem-calc(10px);
+
+$padding-inner: rem-calc(15px);
+$padding-inner-small: rem-calc(15px);
+$margin-outer: rem-calc(10px);
+$margin-outer-large: rem-calc(20px);
+
+.panel-filter {
+  padding: 0;
+
+  legend {
+    background: $transparent;
+    font-family: $sans-serif;
+  }
+
+  .panel-section-logo {
+    margin-bottom: $margin-outer-large;
+  }
+
+  .panel-heading-sub {
+    margin-left: rem-calc(27px);
+  }
+
+  .panel-section.hero {
+    background-color: $primary-color;
+    overflow: hidden;
+    padding: $padding-inner-small;
+  }
+
+  .panel-hero-content {
+    display: inline-block;
+    left: 35%;
+    position: relative;
+    vertical-align: middle;
+    width: 65%;
+
+    &.full-width {
+      left: 0;
+      width: 100%;
+      margin-top: rem-calc(40px);
+      margin-bottom: rem-calc(40px);
+    }
+  }
+
+  .panel-hero-img {
+    bottom: rem-calc(-50px);
+    left: rem-calc(-20px);
+    position: absolute;
+    width: 45%;
+  }
+
+  .panel-sub-menu {
+    $delay: 0s;
+
+    @for $i from 1 through 3 {
+      .button:nth-of-type(#{$i}) {
+        transition-delay: $delay, $delay;
+      }
+
+      $delay: ($i * 0.15) + s;
+    }
+
+    .button {
+      opacity: 0;
+      transform: translateY(-10px);
+      transition: transform 0.25s linear, opacity 0.25s linear, visibility 0.25s;
+      visibility: hidden;
+    }
+  }
+
+  .panel-sub-menu.is-open {
+    $delay: 0s;
+
+    @for $i from 1 through 3 {
+      .button:nth-of-type(#{$i}) {
+        transition-delay: $delay, $delay;
+      }
+
+      $delay: ($i * 0.25) + s;
+    }
+
+    .button {
+      opacity: 1;
+      transform: translateY(0);
+      transition: transform 0.25s linear, opacity 0.25s linear;
+      visibility: visible;
+    }
+
+    .icon-plus:before {
+      transform: scaleY(0);
+    }
+
+    .icon-plus:after {
+      transform: rotate(360deg);
+    }
+  }
+
+  .panel-sub-menu-trigger {
+    display: block;
+  }
+
+  .panel-heading .icon-plus {
+    float: right;
+    text-indent: 0;
+    width: 20px;
+  }
+
+  .panel-heading .icon-plus:before {
+    background: $primary-color;
+  }
+
+  .panel-heading .icon-plus:after {
+    background: $primary-color;
+  }
+}

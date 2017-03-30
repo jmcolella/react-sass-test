@@ -1,0 +1,54 @@
+// scss-lint:disable all
+/*doc
+---
+title: Text Lockups
+name: text-lockups
+category: Components - Text Lockups
+---
+
+## Rate Lockup
+```slim_example_table
+.com-text-lockup--rate
+  .value
+    sup $
+    | 10
+    sup .10
+    small
+      | /non
+  .footer-text Proin aliquam tortor
+```
+*/
+// scss-lint:enable all
+
+.com-text-lockup--rate {
+  $com-text-lockup--rate-color:         $neutral-2;
+
+  display: inline-block;
+
+  .value {
+    @include typography-1(false);
+    font-weight: 600;
+    line-height: 1;
+    color: $com-text-lockup--rate-color;
+
+    small,
+    sup {
+      @include typography-5(false);
+      line-height: 1;
+    }
+
+    sup {
+      vertical-align: super;
+    }
+  }
+
+  .footer-text {
+    @include typography-7(false);
+    font-weight: 700;
+    color: $com-text-lockup--rate-color;
+  }
+
+  @media #{$small-only} {
+    .footer { display: none; }
+  }
+}

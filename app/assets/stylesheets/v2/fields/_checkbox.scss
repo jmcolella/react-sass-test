@@ -1,0 +1,213 @@
+// scss-lint:disable all
+/*doc
+---
+title: Checkbox
+name: checkbox
+category: Fields - Checkbox
+---
+
+## Isolated Checkbox
+_Use this for when you need just a checkbox element without text/padding.<br/>
+Note: the empty `span` is required_
+
+```slim_example_table
+.mod-example
+  label.checkbox.isolated
+    input type='checkbox' checked='checked'
+    span
+```
+
+## Checkbox List
+```slim_example_table
+.mod-example
+  label.checkbox
+    input type='checkbox' checked='checked'
+    span Pellentesque habitant morbi
+  label.checkbox
+    input type='checkbox'
+    span Nullam mollis turpis
+```
+
+## Checkbox List - Right Side (Flip) Variant
+```slim_example_table
+.mod-example style='display: inline-block'
+  label.checkbox.flip
+    input type='checkbox' checked='checked'
+    span Pellentesque habitant morbi
+```
+
+## Checkbox with tooltip
+```slim_example_table
+.mod-example
+  .checkbox-wrap
+    label.checkbox
+      input type='checkbox' checked='checked'
+      span Pellentesque habitant morbi
+    i.i-help
+```
+*/
+// scss-lint:enable all
+
+$checkbox-size:                   ru(1);
+$checkbox-gap:                    ru(.5);
+$checkbox-sign-width:             $checkbox-size / 3;
+$checkbox-sign-height:            $checkbox-size / 2;
+$checkbox-sign-color:             $neutral-2;
+$checkbox-label-color:            $neutral-3;
+$checkbox-label-selected-color:   $neutral-2;
+$checkbox-disabled-color:         $neutral-3;
+$checkbox-disabled-sign-color:    $neutral-3;
+$checkbox-background-color:       $neutral-8;
+$checkbox-border-color:           $neutral-5;
+$checkbox-help-icon-color:        $neutral-5;
+$checkbox-help-icon-hover-color:  $neutral-2;
+
+[class^='mod-'] {
+  .checkbox-wrap {
+    .checkbox {
+      display: inline-block;
+      vertical-align: middle;
+    }
+
+    [class^='i-'] {
+      margin-left: ru(.33);
+      display: inline-block;
+      vertical-align: middle;
+    }
+
+    .i-help {
+      cursor: help;
+
+      &:after {
+        font-size: rem-calc(12px);
+        color: $checkbox-help-icon-color;
+        transition: color 250ms ease;
+      }
+
+      &:hover {
+        &:after {
+          color: $checkbox-help-icon-hover-color;
+        }
+      }
+    }
+
+    + .checkbox-wrap {
+      margin-top: ru(.5);
+    }
+  }
+
+  .checkbox {
+    @include typography-6;
+    font-weight: 600;
+    margin: 0;
+    position: relative;
+    min-height: $checkbox-size;
+    padding-left: $checkbox-size + $checkbox-gap;
+    user-select: none;
+
+    + .checkbox {
+      margin-top: ru(.75);
+    }
+
+    &:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: $checkbox-size;
+      height: $checkbox-size;
+      border: 1px solid $checkbox-border-color;
+      background-color: $checkbox-background-color;
+      overflow: hidden;
+    }
+
+    span {
+      display: inline-block;
+      color: $checkbox-label-color;
+    }
+
+    span:after {
+      content: '';
+      opacity: 0;
+      position: absolute;
+      width: $checkbox-sign-width;
+      height: $checkbox-sign-height;
+      box-shadow: 2px 2px 0 0 $checkbox-sign-color;
+      transform: rotate(45deg);
+      transform-origin: right;
+      margin-left: rem-calc(1px);
+      top: $checkbox-sign-width / 2;
+      left: $checkbox-sign-height / 2;
+    }
+
+    input {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: $checkbox-size + $checkbox-gap;
+      height: $checkbox-size;
+      opacity: 0;
+      margin: 0;
+      cursor: pointer;
+    }
+
+    input:checked + span {
+      color: $checkbox-label-selected-color;
+    }
+
+    input:checked + span:after {
+      opacity: 1;
+    }
+
+    input:disabled,
+    input:disabled + span {
+      cursor: not-allowed;
+    }
+
+    input:disabled + span {
+      color: $checkbox-disabled-color;
+    }
+
+    input:disabled + span:after {
+      box-shadow: 2px 2px 0 0 $checkbox-disabled-sign-color;
+    }
+
+    &.isolated {
+      padding: 0;
+      width: ru(1);
+    }
+
+    &.flip {
+      padding-left: 0;
+      padding-right: $checkbox-size + $checkbox-gap;
+
+      &:before {
+        left: auto;
+        right: 0;
+      }
+
+      span:after {
+        left: auto;
+        right: $checkbox-sign-height / 2;
+        margin-left: 0;
+        margin-right: rem-calc(3px);
+      }
+
+      input {
+        left: auto;
+        right: 0;
+      }
+    }
+
+    @media #{$medium-up-to-xxlarge} {
+      @include typography-7;
+      font-weight: 600;
+      line-height: ru(.75);
+      margin: 0;
+
+      span {
+        margin-top: ru(.125);
+      }
+    }
+  }
+}

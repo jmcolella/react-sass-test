@@ -1,0 +1,246 @@
+$optz-form-hr-border-color: #53C3C3;
+
+.life_profiles,
+.product-navigator {
+  .extended-help {
+    font-size: rem-calc(12px);
+    margin-left: 4px;
+  }
+
+  main {
+    background-color: $primary-color-dark;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .process-time { color: $white-color; }
+
+  .inline-hint,
+  .plain {
+    font-size: rem-calc(14px);
+    line-height: 1.4;
+  }
+
+  .inline-hint {
+    color: $primary-color-light;
+    font-style: italic;
+  }
+
+  .form-actions {
+    margin-top: rem-calc(25px);
+
+    p {
+      color: $white-color;
+      font-size: rem-calc(13px);
+      line-height: 1.4;
+    }
+
+    .button.subtle {
+      color: $primary-color;
+    }
+
+    .button.subtle:hover { color: $primary-color-light; }
+  }
+
+  fieldset .button.subtle {
+    color: $primary-color-light;
+  }
+
+  fieldset .button.subtle:hover { color: $primary-color-very-light; }
+
+  .back-link {
+    color: $primary-color;
+    margin-right: rem-calc(10px);
+
+    &:hover { color: $primary-color-light; }
+  }
+
+  .section-title {
+    padding: rem-calc(57px 0 40px 0);
+
+    h1,
+    h4 {
+      margin: 0;
+    }
+
+    h1 {
+      color: $white-color;
+      font-size: rem-calc(27px);
+      font-weight: 700;
+      line-height: 1.1;
+      position: relative;
+    }
+
+    h4 {
+      color: $primary-color-very-light;
+      font-family: $sans-serif;
+      font-size: rem-calc(12px);
+      text-transform: uppercase;
+    }
+  }
+
+  .button { text-decoration: none; }
+
+  .input { margin-bottom: rem-calc(25px); }
+
+  abbr { display: none; }
+
+  .label-row {
+    margin-bottom: rem-calc($rem-ratio / 5);
+  }
+
+  .label-row label {
+    color: $white-color;
+    display: inline-block;
+    font-size: rem-calc($rem-base);
+    width: auto;
+  }
+
+  .animated-checkbox label {
+    font-size: rem-calc(14px);
+    margin-top: 0;
+  }
+
+  .debt-group label { font-size: rem-calc(14px); }
+
+  .big-hint {
+    color: inherit;
+    font-size: rem-calc(14px);
+  }
+
+  .is-hidden {
+    display: none;
+  }
+}
+
+.form-panel .form-actions .button.subtle { color: $primary-color-light; }
+
+.form-panel .form-actions .button.subtle:hover { color: $primary-color-very-light; }
+
+.product-navigator__survey {
+  padding-bottom: rem-calc(60px);
+
+  a { text-decoration: underline; }
+
+  &__subtitle { color: $white-color; }
+
+  &__intro { margin-bottom: rem-calc(40px); }
+
+  .modal-actions {
+    p,
+    a { color: $primary-color-very-light; }
+
+    p { margin-bottom: 3px; }
+  }
+
+
+}
+
+.product-navigator__form {
+  z-index: 4;
+
+  small {color: $primary-color-light; font-family: $sans-serif;}
+
+  small.error {
+    @extend %font-bold;
+    color: $white-color;
+  }
+
+  select, #{$input_types} {
+    background-color: $primary-color-extra-light;
+    color: $input-font-color;
+    font-family: $sans-serif;
+    margin-bottom: 0;
+
+    &:focus { background-color: $input-focus-bg-color; }
+  }
+
+  .radio-list {
+    margin-left: 0;
+
+    li { padding-bottom: rem-calc(5px); }
+
+    label { margin-top: rem-calc(6px); }
+  }
+
+  .label-adjust .label-row { padding-left: 16px; }
+
+  .radio-button-group { margin: rem-calc(0 0 15px 0); }
+
+  .form-panel {
+    @include form-panel-colors($primary-color, $primary-color-dark, $white-color, $white-color);
+    .form-panel-headline {
+      font-size: ($rem-base);
+    }
+
+    .form-panel-headline-hint {font-size: 14px; }
+
+    &.secondary {
+      @include form-panel-colors($white-color, $primary-color-dark, $white-color, $black-color-text);
+    }
+
+    &.secondary .value {
+      font-size: rem-calc(32px);
+    }
+  }
+
+  &.margin-medium {
+    .input {
+      margin-bottom: rem-calc(30px);
+    }
+  }
+}
+
+.product-navigator__form__intro {
+  padding-bottom: rem-calc(20px);
+  position: relative;
+
+  .block { display: block; }
+
+  h3,
+  p,
+  ul,
+  li { color: $white-color; }
+
+  p,
+  li {
+    font-size: rem-calc(15px);
+    font-weight: 300;
+  }
+
+  h3 {
+    font-size: rem-calc(20px);
+    font-weight: bold;
+  }
+
+  &.vs {
+    text-align: center;
+
+    li { text-align: left; }
+
+    .icon-box {
+      @include size(rem-calc(80px));
+      margin: 0 auto rem-calc(25px);
+      position: relative;
+    }
+
+    .icon-box.ss-icon { color: $primary-color-light; }
+
+    > .columns:first-of-type:after {
+      @include size(rem-calc(30px));
+      @include absolute(top 30px left 50%);
+      color: $primary-color;
+      content: "vs.";
+      font-size: rem-calc(40px);
+      margin-left: rem-calc(30px) / -2;
+      text-align: center;
+    }
+  }
+}
+
+.optz-form {
+  hr {
+    border: 1px solid $optz-form-hr-border-color;
+    margin: 25px 0;
+  }
+}

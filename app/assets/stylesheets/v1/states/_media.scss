@@ -1,0 +1,237 @@
+/* Header */
+@media #{$small-only} { // (0px, 640px)
+
+  //introduce-home page
+  .introduce-home {
+    .group-icon {
+      .button {
+        margin-right: 0.5rem;
+      }
+    }
+  }
+
+  // Block Grid component
+  .block-grid-button .btn-icon span { font-size: 1rem; }
+
+  // Panel
+  .panel { margin-top: 0; }
+
+  // Button tiny
+  .button.tiny { margin-bottom: rem-calc(30)};
+
+  //Footer
+  .contact {
+    margin-right: 0;
+    margin-left: 0;
+    >li {
+      display: block;
+      padding-bottom: 1.25rem;
+      width: 50%;
+    }
+    li:nth-of-type(2n+1) {
+      clear: both;
+      padding-left: 0;
+    }
+  }
+
+  //Guide menu
+  .overlay-menu {
+    .ss-icon.medium {
+      font-size: 2.5rem;
+    }
+  }
+
+  .hero-title {
+    h2 {
+      margin-left: rem-calc(10);
+    }
+  }
+
+  .pricing-table.has-after-content:after,
+  .block-grid-box-icon li:not(:last-child):after {
+    display: none;
+  }
+
+  ul.centered-inline-list li {
+    margin-right: 0;
+  }
+
+}
+
+// ----------------------------------------------
+
+@media #{$medium-only} { // (641px, 1024px)
+  // Footer
+  .primary-footer {
+    .button {width: 10.1875rem;}
+  }
+
+  .debt-group {
+    .animated-checkbox input[type="checkbox"],
+    .animated-checkbox label:before,
+    .animated-checkbox svg {
+      @include size(1rem);
+      top: 0.5rem;
+    }
+  }
+
+  //todo page
+  .detailed-todo-item .button {
+    span {
+      text-align: center;
+      font-size: rem-calc(17);
+    }
+
+    .ss-icon {
+      display: block;
+    }
+
+    &.chevron {
+      height: auto;
+      text-align: center;
+      padding-top: 0;
+      span {
+        text-align: center;
+        width: 100%;
+        margin-left: 0;
+      }
+    }
+
+    &.has-caption > span {
+      text-align: center;
+    }
+
+  }
+
+}
+
+// ----------------------------------------------
+
+// for 0 em to 64em
+$small-to-medium: "#{$screen} and (min-width:#{lower-bound($small-range)}) and (max-width:#{upper-bound($medium-range)})";
+@media #{$small-to-medium} {
+  //survey page
+  .household,
+  .debt-group {
+    select {
+      padding: 0.35rem;
+    }
+
+    &[class*="block-grid-"] {
+      & > li:nth-child(3n+1) {
+        padding-right: 0.5rem;
+      }
+
+      & > li:nth-child(3n) {
+        padding-left: 0.5rem
+      }
+
+      & > li:nth-child(3n+2) {
+        padding-left: 0.25rem;
+        padding-right: 0.25rem;
+      }
+    }
+  }
+
+  //todo list
+
+  .todo-list {
+    .chevron:after {
+      display: none;
+    }
+  }
+}
+
+// ----------------------------------------------
+
+/* Body */
+
+// Video for homepage
+// Custom media query for video homepage (0, 768px)
+@media #{$screen} and (max-width: 768px) {
+  .end-of-page-nav {
+    .button {
+      .ss-icon { margin: .3rem .25rem 0 0; }
+      span { margin: 0 .1rem; }
+    }
+  }
+
+  .questions {
+    .button {
+      font-size: rem-calc(15);
+    }
+  }
+}
+
+@media #{$large-up} { // (1025px, )
+  .individual-insurer {
+    .list-icon-box {
+      text-align: left;
+    }
+  }
+
+  .search-insurer {
+    .panel {
+      &:first-child {
+        @include radius($global-radius 0 0 $global-radius);
+      }
+
+      &:last-child {
+        @include radius( 0 $global-radius $global-radius 0);
+      }
+    }
+  }
+}
+
+// Buy Insurance section
+// Custom media query for (1024px, landscape)
+@media #{$landscape} and (min-width:#{upper-bound($medium-range)}) {
+  .buy-insurance .list-icon-box {
+    padding-right: 0;
+    li {
+      float: none;
+      padding: 0 0.6255rem 0.75rem;
+    }
+    ul { margin: 0 -0.625rem;}
+  }
+}
+
+// Home page and About pages
+@media #{$medium-up} { // (641px, )
+
+  // Home-page
+
+  .buy-insurance {
+    .detail {
+      float: right;
+      .ss-icon { margin-bottom: 25px; }
+    }
+  }
+
+  .start-checkup {
+    .wrap-img {
+      display: inline-block;
+      margin: 1.4375rem 0 0 1.25rem;
+      position: absolute;
+      z-index: 10;
+    }
+    .info {
+      margin: 0 0 0.75rem 4.375rem;
+    }
+  }
+
+
+  .contact .social-bar {
+    margin-top: 40px;
+    li {margin-bottom: 0;}
+  }
+
+  // Scroll animation guide-sidebar
+  .side-bar.fixed-nav {
+    // De-activate 'fly-away' for NOW
+    // @include transition-property(top, 0.9s);
+
+    position: fixed;
+    top: 70px;
+  }
+}

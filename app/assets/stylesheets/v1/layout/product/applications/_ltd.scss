@@ -1,0 +1,62 @@
+.disability_application {
+  .results-table {
+    height: 100%;
+    margin-bottom: 1.25rem;
+    background: lighten($tertiary-color, 7%);
+  }
+  .form-actions { margin-top: 30px; }
+  .details {
+    margin-bottom: 40px;
+    .section-title { margin-bottom: 30px; }
+  }
+}
+
+#learn-more {
+  border: 0;
+  border-spacing: 0px;
+
+  .padded-cell {
+    padding-left: 2%;
+    padding-right: 2%;
+  }
+
+  td {
+    border-right: $primary-gray 2px solid;
+    border-top: $primary-gray 2px solid;
+    font-weight: bold;
+
+    &:first-child {
+      border-left: $primary-gray 2px solid;
+    }
+
+    h3 {
+      color: $primary-gray;
+    }
+  }
+
+  tr:nth-of-type(even) {
+    background-color: $white-color;
+  }
+
+  tr.end {
+    td {
+      border-bottom: $primary-gray 2px solid;
+    }
+  }
+
+  th {
+    &.blue-background {
+      background-color: $primary-color-greened;
+      border-bottom: 2px solid $white-color;
+      border-right: 2px solid $white-color;
+    }
+
+    .white-color {
+      color: $white-color;
+    }
+
+    h4 {
+      font-weight: bold;
+    }
+  }
+}

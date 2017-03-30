@@ -1,0 +1,25 @@
+%visuallyhidden {
+  clip: rect(0, 0, 0, 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+
+@function percent($value1, $value2) {
+  @return percentage($value1 / $value2);
+}
+
+/* Line height function:
+   line-height: lh(font-size);
+*/
+
+@function lh($font-size: rem-calc(16px)) {
+  @return ($font-size * $lh-ratio);
+}
+
+@mixin transition-property($property, $value) {
+  @include transition($value);
+}

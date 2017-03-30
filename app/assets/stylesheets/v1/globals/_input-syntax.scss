@@ -1,0 +1,117 @@
+
+@mixin input ($placeholder-color, $bg-input, $border-input-color, $input-color, $height: 2.125rem) {
+  @include placeholder {color: $placeholder-color};
+  @include radius($global-radius);
+  background-color: $bg-input;
+  border:  1px solid $border-input-color;
+  color: $input-color;
+  height: $height;
+  padding: 0.3rem 0.5rem;
+}
+
+@mixin label-input ($bg-label-input: $black-color-text, $ss-icon-color: #808080) {
+  .lable-input {
+    background: $bg-label-input;
+    .ss-icon {
+      color: $ss-icon-color;
+    }
+  }
+}
+
+//=========== prefix-collapse========================
+
+@mixin collapse-input ($input-margin-bottom: 0, $columns-margin-bottom: 0 , $border-color: $transparent , $text-color: $primary-color-text) {
+  input {
+    margin-bottom: $input-margin-bottom;
+  }
+  .columns {
+    margin-bottom: $columns-margin-bottom;
+    &:first-child .radius {
+      @include side-radius($side: right, $radius: 0);
+      @include side-radius($side: left, $radius: $global-radius);
+    }
+    &:last-child .radius {
+      @include side-radius($side: right, $radius: $global-radius);
+      @include side-radius($side: left, $radius: 0);
+    }
+    .button {
+      @include box-style($border-color, $text-color);
+    }
+  }
+}
+
+@mixin collapse-input-for-small($radius: 0.5rem !important) {
+  @media #{$small-only} {
+    .columns {
+      margin-bottom: 0;
+      .radius { @include radius ($radius);}
+      .button {
+        margin-top: 1.1875rem;
+      }
+    }
+  }
+}
+
+@mixin prefix-collapse ($bg-prefix: $primary-color-extra-light, $border-prefix-color: $primary-color-extra-light, $color: $primary-color-very-light) {
+  .prefix {
+    background-color: $primary-color-mid-dark;
+    border-color: $primary-color-mid-dark;
+    color: $color;
+  }
+}
+
+@mixin list-input($placeholder-color: $secondary-color, $bg-input: #EFEFEF, $border-input-color: $secondary-color, $input-color: $secondary-color, $bg: $secondary-color, $bg-hover: $tertiary-color, $bg-list-input: #EFEFEF, $medium-width-list-input: 'percent(729,852)', $list-input-padding: 0.625rem 1.6875rem) {
+  input { @include input ($placeholder-color, $bg-input, $border-input-color, $input-color);}
+  .list-input {
+    background-color: $bg-list-input;
+    padding: $list-input-padding;
+  }
+  .button {
+    @include hover ($bg, $bg-hover);
+    height: 2.125rem;
+    padding: 0;
+    margin-bottom: 0;
+  }
+  @media #{$medium-up} {
+    .list-input { width: $medium-width-list-input;}
+  }
+}
+
+@mixin form-box-small ($placeholder-color:$primary-color, $bg-input: $white-color, $border-input-color: $primary-color-text, $input-color: $primary-color,$bg-button: $secondary-color, $bg-button-hover:#de4c0f, $bg-list-input: $primary-color-dark, $medium-width-list-input: 100%, $list-input-padding: 1.5625rem) {
+  @include list-input($placeholder-color, $bg-input, $border-input-color, $input-color, $bg-button, $bg-button-hover, $bg-list-input, $medium-width-list-input, $list-input-padding)
+}
+
+@mixin list-input-small ($list-input-margin: 2.5rem 0 0, $input-margin: 0.75rem 0 0 , $color-h3: $primary-color-text, $line-height-h3: 1.6875rem, $margin-top-h3: 0, $font-size-btn: 1.1875rem, $padding-btn: 0, $width-btn: 100%) {
+  .list-input {
+    @include radius ($global-radius);
+    margin: $list-input-margin;
+    .button {
+      font-family: $sans-serif;
+      width: $width-btn;
+    }
+  }
+  input { margin: $input-margin; }
+  h3 {
+    color: $color-h3;
+    line-height: $line-height-h3;
+    margin-top: $margin-top-h3;
+    text-align: left;
+  }
+}
+
+@mixin error-message($margin:0) {
+  [data-abide] .error small.error,
+  [data-abide] span.error,
+  [data-abide] small.error {
+    margin: $margin;
+  }
+}
+
+.collapse-input-for-small {
+  @include collapse-input-for-small;
+}
+
+.collapse-input {
+  @include collapse-input();
+  @include prefix-collapse;
+}

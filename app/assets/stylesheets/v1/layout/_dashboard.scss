@@ -1,0 +1,49 @@
+.users_dashboard, .users_resources {
+
+  .headline {
+    margin-top: 50px;
+    font-weight: bold;
+  }
+
+  .subheadline {
+    margin: -10px auto 40px auto;
+    font-size: rem-calc(14px);
+  }
+
+  h3 {
+    margin-bottom: 16px;
+    font-size: rem-calc(21px);
+    font-weight: bold;
+  }
+
+  .insurance-checkup { color: $primary-color-greened; }
+  .your-quotes { color: $primary-color; }
+  .our-guides { color: $tertiary-color; }
+
+  .section {
+    margin-bottom: 25px;
+    &__title {
+      margin-bottom: 0;
+      font-weight: bold;
+    }
+    &__subtitle {
+      margin: -5px 0 6px 0;
+      font-size: rem-calc(14px);
+
+    }
+    ul, li {
+      margin: 0;
+      list-style: none;
+    }
+    li { margin-top: 2px; }
+    a {
+      font-size: rem-calc(14px);
+      text-decoration: underline;
+      color: $black-color-text;
+      &:hover { color: $primary-color; }
+    }
+  }
+
+  .full-list { padding-bottom: 10px; }
+
+}

@@ -1,0 +1,311 @@
+$animated-checkbox-size: rem-calc(19);
+$animated-checkbox-sml: rem-calc(16);
+$animated-checkbox-bg-color: #FFF;
+$animated-checkbox-border-color: darken($animated-checkbox-bg-color, 10%);
+$animated-checkbox-label-color: $primary-color-very-light;
+$animated-checkbox-checked-marker-color: $secondary-color-light;
+$animated-checkbox-checked-border-color: $animated-checkbox-checked-marker-color;
+$animated-checkbox-checked-label-color: #FFF;
+$animated-checkbox-border-width: 2px;
+$animated-checkbox-disabled-color: #C6C6C6;
+
+
+.risk-profile .animated-checkbox-line { margin: 4rem 0; }
+
+// label animation
+@mixin label-animation ($value-transition: color 0.3s, $padding: 0 0 0 1.75rem) {
+  @include transition($value-transition);
+  cursor: pointer;
+  padding: $padding;
+}
+
+// status of label before and after chosen
+@mixin state-input-lable-animation ($color: $primary-color-light, $padding: 0 0 0 1.75rem, $color-checked: $animated-checkbox-checked-label-color, $padding-checked: 0 0 0 1.75rem) {
+  input[type="checkbox"] + label,
+  input[type="radio"] + label {
+    color: $color;
+    padding: $padding;
+  }
+
+  input[type="checkbox"]:checked + label,
+  input[type="radio"]:checked + label {
+    color: $color-checked;
+    padding: $padding-checked;
+  }
+}
+
+//checkbox-line
+@mixin checkbox-line ($width: 80%, $margin: 2*$animated-checkbox-size 0 0 10%, $border-top-width:$animated-checkbox-border-width, $border-top-style: solid, $border-top-color: $animated-checkbox-bg-color) {
+  &:before {
+    border-top: $border-top-width;
+    border-top-color: $border-top-color;
+    border-top-style: $border-top-style;
+    content: " ";
+    margin: $margin;
+    width: $width;
+  }
+}
+
+// animated-checkbox-line
+@mixin animated-checkbox-line ($per-row: 5, $spacing: 0, $base-style: true) {
+  @include block-grid($per-row, $spacing, $base-style);
+  // Hide all of the labels except for the first, third, and last
+  li:first-child label,
+  li:nth-child(3) label,
+  li:last-child label {
+    text-indent: 0;
+  }
+
+  li label {
+    text-indent: -9999px;
+  }
+}
+
+//animation checkbox
+@mixin animated-checkbox ($size: $animated-checkbox-size, $left: 50%, $top: 0, $margin: -($animated-checkbox-size / 2) 0 0 0, $position: absolute, $display:block) {
+  input[type="checkbox"],
+  input[type="radio"],
+  label:before,
+  svg {
+    @include size($size);
+    cursor: pointer;
+    display: $display;
+    left: $left;
+    margin: $margin;
+    position: $position;
+    top: $top;
+  }
+}
+
+//label or animation checkbox line
+@mixin label-animation-checkbox-line ($text-align: center, $width-label: 100%, $padding: $animated-checkbox-size 0 0 0) {
+  label {
+    padding: $padding;
+    text-align: $text-align;
+    width: $width-label;
+  }
+}
+
+//style for input-label-before
+@mixin input-label-before($border-width: $animated-checkbox-border-width, $border-style: solid, $border-color: $animated-checkbox-border-color, $bg: $animated-checkbox-bg-color) {
+  &:before {
+    background: $bg;
+    border: $border-width $border-style $border-color;
+    content: "";
+  }
+}
+
+//style for marker input-label-checked-before
+@mixin marker-checked ($bg: darken($animated-checkbox-bg-color, 5%), $border-color: $animated-checkbox-checked-border-color) {
+  input[type="checkbox"]:checked + label::before,
+  input[type="radio"]:checked + label::before {
+    background: $bg;
+    border-color: $border-color;
+  }
+}
+
+
+
+.animated-checkbox-line {
+
+  li { list-style: none; }
+
+  @media #{$medium-up} {
+    @include block-grid($per-row: 5, $spacing: 0, $base-style: true);
+
+    &:before {
+      border-top: $animated-checkbox-border-width solid $animated-checkbox-bg-color;
+      content: " ";
+      margin-left: 10%;
+      margin-top: 2*$animated-checkbox-size;
+      width: 80%;
+    }
+
+    // Hide all of the labels except for the first, third, and last
+    li:first-child label,
+    li:nth-child(3) label,
+    li:last-child label {
+      text-indent: 0;
+    }
+
+    li label {
+      text-indent: -9999px;
+    }
+
+    .animated-checkbox {
+      // Center the svg checkboxes and place them on the line
+      input[type="checkbox"],
+      input[type="radio"],
+      label:before,
+      svg {
+        left: 50%;
+        margin: -($animated-checkbox-size / 2) 0 0;
+        top: 0;
+      }
+
+      // Center and lower the labels
+      label {
+        font-family: $sans-serif;
+        font-weight: bold;
+        padding-left: 0;
+        padding-top: $animated-checkbox-size;
+        text-align: center;
+        width: 100%;
+      }
+    }
+  }
+}
+
+/* http://tympanus.net/codrops/2013/10/15/animated-checkboxes-and-radio-buttons-with-svg/ */
+.animated-checkbox {
+  list-style: none;
+  position: relative;
+
+  &.primary {
+    line-height: 1;
+
+    input[type="checkbox"]:checked + label,
+    input[type="radio"]:checked + label {
+      @extend %font-bold;
+      color: $primary-color;
+    }
+
+    input[type="checkbox"]:checked + label:before,
+    input[type="radio"]:checked + label:before {
+      border-color: $primary-color;
+      top: 0;
+    }
+
+    svg path {
+      stroke: $primary-color;
+    }
+
+    .animated-radio,
+    svg,
+    input[type="checkbox"] + label:before,
+    input[type="radio"] + label:before {
+      top: 0;
+    }
+
+    .collection_radio_buttons {
+      color: $black-color-text;
+    }
+
+    .collection_radio_buttons:before {
+      border-color: $gray-color;
+    }
+  }
+
+  &.disabled {
+    line-height: 1;
+
+    input[type="checkbox"]:checked + label,
+    input[type="radio"]:checked + label {
+      @extend %font-bold;
+      color: $animated-checkbox-disabled-color;
+    }
+
+    input[type="checkbox"]:checked + label:before,
+    input[type="radio"]:checked + label:before {
+      border-color: $animated-checkbox-disabled-color;
+      top: 0;
+    }
+
+    svg path {
+      stroke: $animated-checkbox-disabled-color;
+    }
+
+    .animated-radio,
+    svg,
+    input[type="checkbox"] + label:before,
+    input[type="radio"] + label:before {
+      top: 0;
+    }
+
+    .collection_radio_buttons {
+      color: $animated-checkbox-disabled-color;
+    }
+
+    .collection_radio_buttons:before {
+      border-color: $animated-checkbox-disabled-color;
+    }
+  }
+
+  input[type="checkbox"],
+  input[type="radio"],
+  label:before,
+  svg {
+    cursor: pointer;
+    display: block;
+    height: $animated-checkbox-size;
+    left: 0;
+    position: absolute;
+    top: 5px;
+    width: $animated-checkbox-size;
+  }
+
+  input[type="radio"] + label:before {
+    @include radius($radius: 50%);
+  }
+
+  input[type="checkbox"],
+  input[type="radio"] {
+    @include opacity(0);
+    -webkit-appearance: none;
+    display: inline-block;
+    vertical-align: top;
+    z-index: 100;
+  }
+
+  // Label Text
+  label {
+    @include transition(color 0.3s);
+    color: $animated-checkbox-label-color;
+    cursor: pointer;
+    line-height: $animated-checkbox-size;
+    padding-left: $animated-checkbox-size;
+  }
+
+  // Label Text when checked
+  input[type="checkbox"]:checked + label,
+  input[type="radio"]:checked + label {
+    color: $animated-checkbox-checked-label-color;
+  }
+
+  // Circle marker
+  label:before {
+    background: $animated-checkbox-bg-color;
+    border: $animated-checkbox-border-width solid $animated-checkbox-border-color;
+    content: "";
+  }
+
+  // Circle marker when checked
+  input[type="checkbox"]:checked + label::before,
+  input[type="radio"]:checked + label::before {
+    background: darken($animated-checkbox-bg-color, 5%);
+    border-color: $animated-checkbox-checked-border-color;
+  }
+
+  svg {
+    padding: $animated-checkbox-border-width;
+    pointer-events: none;
+  }
+
+  svg path {
+    fill: none;
+    stroke: $animated-checkbox-checked-marker-color;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-width: 13px;
+  }
+
+  &.animated-checkbox-sml {
+    input[type="checkbox"],
+    input[type="radio"],
+    label:before,
+    svg {
+      height: $animated-checkbox-sml;
+      width: $animated-checkbox-sml;
+    }
+  }
+}

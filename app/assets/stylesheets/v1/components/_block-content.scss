@@ -1,0 +1,62 @@
+/* using for block content have responsive have same height in all block */
+
+
+$width-space-cell-tiny: 2%;
+$width-space-cell-small: 3%;
+$width-space-cell-default: 4%;
+
+
+$amount-block-content: 12;
+
+//block-content
+@mixin block-content ($row-display: table, $width: 100%, $cell-display: table-cell, $float: none !important, $vertical-align: middle) {
+  display: $row-display;
+  width: $width;
+  .block-cell {
+    display:  $cell-display;
+    float: $float;
+    vertical-align: $vertical-align;
+  }
+}
+
+.block-content {
+  @include block-content;
+}
+
+@mixin block-content-class($amount-block, $width-space-cell) {
+  $amount-block-content: $amount-block;
+  $amount-cell: $amount-block - 1;
+  $sum-width-cell: $width-space-cell*$amount-cell;
+  $width-each-block: (100% -  $sum-width-cell) / $amount-block-content;
+  .callout-panel {
+    width: $width-each-block;
+  }
+  .space-cell {
+    width: $width-space-cell;
+  }
+}
+
+@media #{$small-only} { 
+  .marker-section {
+    .callout-panel { margin-bottom: 1.25rem;}
+  }
+}
+
+@media #{$medium-up} {
+  .main-needs-list {
+    li:not(:last-child){
+      @include after-tag($size: 30px, $content:' & ', $position: absolute, $top: 25%);
+      &:after {
+        @include after-tag-style;
+        @include radius(50%);
+        @include font-style($font-size: 1.25rem, $line-height: 1.875rem, $padding:0);
+        right: 0;
+        z-index: 9;
+      }
+    }
+  }
+  .marker-section {
+    @include block-content;
+    @include block-content-class($amount-block: 3, $width-space-cell: $width-space-cell-default);
+  }
+}

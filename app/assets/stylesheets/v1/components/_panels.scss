@@ -1,0 +1,489 @@
+/*doc
+---
+title: Panel - Basic
+name: 1_panel
+category: V1-Components
+---
+
+Panel - Wrap content with a panel. Used to describe content that should stand out.
+
+### Contents:
+* [Basic](#panel-basic)
+* [Form Panel with Icon](#panel-basic-icon)
+* [Stacked Sidebar Panel](#panel-basic-stacked)
+* [Sizing](#panel-basic-sizing)
+* [Styling](#panel-basic-styling)
+* [Extending](#panel-basic-extending)
+
+<div id="panel-basic"></div>
+#### Basic Panel
+
+```slim_example
+  .row
+    .small-5.columns.small-centered.panel.small.radius
+      .row
+        .small-5.columns.small-text-center
+          i.ss-pricetag.ss-icon.medium
+        .small-7.columns
+          p Ready to shop? We've got you covered.
+        .small-12.columns
+          a.button.action.radius.expand href="https://www.policygenius.com"
+            | Get Quotes
+```
+
+<div id="panel-basic-icon"></div>
+#### Form Panel with Icon
+
+```slim_example
+  .row
+    .small-5.columns.small-centered.form-panel.small.radius
+      span.form-panel-icon
+        i.ss-write.ss-icon
+      .row
+        .small-5.columns.small-text-center
+          i.ss-pricetag.ss-icon.medium
+        .small-7.columns
+          p Ready to shop? We've got you covered.
+        .small-12.columns
+          a.button.action.radius.expand href="https://www.policygenius.com"
+            | Get Quotes
+```
+
+<div id="panel-basic-stacked"></div>
+#### Stacked Sidebar Panel
+
+```slim_example
+  .row
+    .small-5.columns.small-centered.sidebar-panel
+      .row.multi-cols
+        .small-6.columns
+          p.header Coverage
+          p.value $20,000
+        .small-6.columns
+          p.header Term
+          p.value 30 years
+    .small-5.columns.small-centered.sidebar-panel.primary
+      .row.multi-cols
+        .small-12.columns
+          p.header Monthly Estimate
+          p.value $56
+```
+
+<div id="panel-basic-sizing"></div>
+#### Sizing Panels
+Adjust panel sizing using foundation columns.
+
+```slim_example
+  .row
+    .small-12.columns.small-centered.panel.detail.small.radius
+      .row
+        .small-4.columns
+          p Content
+        .small-4.columns
+          p Ready to shop? We've got you covered.
+        .small-4.columns
+          a.button.action.radius.expand href="https://www.policygenius.com"
+            | Get Quotes
+```
+
+<div id="panel-basic-styling"></div>
+#### Styling Panels
+- Change **panels** by appending one of the following classes to the panel:
+  - `.detail`
+  - `.correct`
+  - `.process`
+
+- Change **sidebar panels** by appending one of the following classes to the panel:
+    - `.primary`
+    - `.secondary`
+
+```slim_example
+  .row
+    .small-6.columns.panel.detail.small.radius
+      .row
+        .small-5.columns.small-text-center
+          i.ss-pricetag.ss-icon.medium
+        .small-7.columns
+          p Ready to shop? We've got you covered.
+        .small-12.columns
+          a.button.action.radius.expand href="https://www.policygenius.com"
+            | Get Quotes
+    /
+    .small-6.columns
+      .row
+        .small-10.columns.small-centered.sidebar-panel
+          .row.multi-cols
+            .small-6.columns
+              p.header Coverage
+              p.value $20,000
+            .small-6.columns
+              p.header Term
+              p.value 30 years
+        .small-10.columns.small-centered.sidebar-panel.primary
+          .row.multi-cols
+            .small-12.columns
+              p.header Monthly Estimate
+              p.value $56
+```
+*/
+$panel-color: #666666;
+$panel-disabled-color: #C6C6C6;
+$panel-navigation-bg-color: #FFE6DB;
+$panel-navigation-back-color: #F7A482;
+$callout-panel-link-color: #F7A482;
+$detail-panel-primary: #FEECD3;
+$correct-panel-primary: #CDEAEB;
+$process-panel-primary: #CEF4EE;
+$margin-image-panel: 2.5rem;
+$notice-font-content: rem-calc(14);
+$notice-font-title: rem-calc(19);
+
+// Sizing
+$text-size-large: rem-calc(20px);
+$text-size-medium: rem-calc(16px);
+$text-size-normal: rem-calc(14px);
+$text-size-small: rem-calc(12px);
+$text-size-xsmall: rem-calc(10px);
+
+$padding-inner: rem-calc(15px);
+$padding-inner-small: rem-calc(15px);
+$margin-outer: rem-calc(10px);
+$margin-outer-large: rem-calc(20px);
+
+/* panel has image */
+
+@mixin panel-has-img-over ($margin) {
+  img {
+    margin: $margin;
+  }
+}
+
+@mixin text-in-panel-has-img-over ($margin: 0 0 -8.5rem, $width: 60%) {
+  margin: $margin;
+  width: $width;
+}
+
+@mixin form-panel-colors($background: $primary-color, $body-backgound: $white-color, $icon-color: $primary-color, $text-color: $white-color) {
+  background: $background;
+  color: $text-color;
+
+  p { color: $text-color;}
+
+  .form-panel-icon {
+    background: $body-backgound;
+    color: $icon-color;
+
+    .ss-icon { color: $icon-color; }
+  }
+}
+
+@mixin panel-with-marker($marker-size: 1rem, $bg: $primary-color, $font-color: $primary-color-text, $border-color: $primary-color-text) {
+  @include radius($global-radius);
+  background: $bg;
+  color: $font-color;
+  text-align: center;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  position: relative;
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5 { color: $font-color; }
+
+  &.large { padding: 5.5rem; }
+
+  .marker {
+    @include radius(50%);
+    @include size($marker-size $marker-size);
+    background: $bg;
+    border: 0.3rem solid $border-color;
+    font-size: $marker-size / 2;
+    font-weight: bold;
+    left: 50%; // Align the step number marker in the center
+    line-height: $marker-size  - 0.3rem;
+    margin: (-$marker-size/2) 0 0 (-$marker-size/2);
+    position: absolute;
+    text-align: center;
+    top: 0;
+  }
+
+  @media #{$medium-up} {
+    // Align the step number marker on the left
+    .marker { left: 0; right: 0; }
+    .marker.right {
+      left: auto;
+      margin-left: 0;
+      margin-right: -($marker-size/2);
+      right: 0%;
+    }
+  }
+}
+
+.panel {
+  border-width: 0;
+  color: $panel-color;
+
+  &.end {
+    margin-bottom: 0;
+  }
+
+  .panel-section {
+    @include clearfix;
+    margin-bottom: $margin-outer;
+
+    &:last-of-type {
+      margin: 0;
+    }
+  }
+
+  .panel-section.disabled {
+    color: $panel-disabled-color;
+    cursor: not-allowed;
+    pointer-events: none;
+
+    .panel-heading-sub {
+      color: $panel-disabled-color;
+    }
+  }
+
+  .panel-divider {
+    margin-bottom: $margin-outer;
+    margin-top: 0;
+  }
+
+  .panel-heading {
+    @extend %font-bold;
+    color: $black-color-text;
+    font-family: $sans-serif;
+    margin-bottom: $margin-outer;
+    margin-top: 0;
+  }
+
+  .panel-heading-super {
+    font-size: $text-size-medium;
+    font-style: italic;
+    font-weight: 300;
+    margin-bottom: 0;
+    margin-top: 0;
+  }
+
+  .panel-heading-sub {
+    display: block;
+    font-size: $text-size-xsmall;
+    line-height: 1;
+  }
+
+  .panel-heading.link {
+    color: $white-color;
+    display: block;
+    font-size: $text-size-large;
+    font-weight: bold;
+    margin-bottom: $margin-outer;
+  }
+
+  .panel-input {
+    margin: 0;
+    padding: 0;
+  }
+
+  .panel-input-heading {
+    font-size: $text-size-small;
+    font-weight: 300;
+    margin-bottom: $margin-outer;
+    margin-top: 0;
+    text-transform: uppercase;
+  }
+
+  .button {
+    margin-bottom: 0;
+    text-decoration: none;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5 {
+    line-height: 1.4;
+    text-align: left;
+  }
+
+  .header { font-family: $sans-serif; }
+
+  dt {
+    font-family: $serif;
+    font-weight: bold;
+  }
+
+  &.has-image {
+    @include headline { line-height: 1.7; }
+    .button {
+      @include hover($bg: $third-color, $bg-hover: $third-color);
+      margin-bottom: 0;
+    }
+  }
+
+  &.detail {
+    background: $detail-panel-primary;
+  }
+
+  &.correct {
+    background: $correct-panel-primary;
+  }
+
+  &.shop {
+    background: $very-light-gray;
+  }
+
+  &.process {
+    background: $process-panel-primary;
+  }
+
+  &.notice {
+    h4 { font-size: $notice-font-title; }
+
+    p {
+      font-size: $notice-font-content;
+      line-height: $notice-font-content *2;
+    }
+  }
+
+  @media #{$small-only} {
+    .wrap-img {
+      text-align: center;
+    }
+  }
+
+  @media #{$medium-up} {
+    &.over-top-boder {
+      @include panel-has-img-over($margin: -$margin-image-panel 0 0);
+    }
+
+    &.spill-vertical {
+      @include panel-has-img-over($margin: -$margin-image-panel 0);
+    }
+
+    &.over-bottom-border {
+      @include panel-has-img-over($margin: ($margin-image-panel)  0  (-$margin-image-panel*2));
+    }
+
+    &.big-over-left-border {
+      @include headline {
+        @include text-in-panel-has-img-over;
+        padding-bottom: 1rem;
+      }
+
+      &.small {
+        @include headline {
+          margin: 0 0 -11.5rem;
+        }
+      }
+
+      img {
+        @include panel-has-img-over($margin: 0 0 -10.7rem);
+        float: right;
+      }
+    }
+
+    &.over-right-border {
+      @include panel-has-img-over($margin: 0 (-$margin-image-panel*1.5) 0 ($margin-image-panel*1.5));
+    }
+  }
+
+
+  &.none-space {
+    margin: 0;
+  }
+}
+
+.info-panel {
+  @include panel($bg: $primary-color-dark);
+  @include radius($global-radius);
+  border-width: 0;
+}
+
+.callout-panel {
+  @include panel-with-marker($marker-size: rem-calc(36), $bg: $primary-color-light, $border-color: $primary-color-text);
+  a {
+    color: $callout-panel-link-color;
+  }
+
+  &.action {
+    background: $bg-icon-box;
+    color: $orange-color-list;
+    @include headline($a: 1, $b: 5) { color: $orange-color-list; }
+  }
+}
+
+.panel-navigation {
+  @include panel($bg: $panel-navigation-bg-color);
+  border-color: transparent;
+  text-align: center;
+
+  &.inline h2 {margin-bottom: 0;}
+
+  .back-btn {
+    color: $panel-navigation-back-color;
+    display: inline-block;
+    margin: 1.25rem 0;
+    text-decoration: underline;
+  }
+
+  .button.large {
+    display: block;
+    margin: 0 auto;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+}
+
+.form-panel {
+  @include form-panel-colors();
+  min-height: 5rem;
+  padding: 2rem;
+  position: relative;
+
+  .button { margin-bottom: 0; }
+
+  .header { font-family: $sans-serif; }
+
+  &.primary {
+    @include form-panel-colors($primary-color, $primary-color-dark, $white-color, $white-color);
+  }
+
+  &.secondary {
+    @include form-panel-colors($white-color, $primary-color-dark, $white-color, $black-color-text);
+    .value {
+      font-size: rem-calc(32px);
+    }
+  }
+
+  .form-panel-icon {
+    @include circle(2rem);
+    @include absolute(top 1.5rem left -1rem);
+    background: $white-color;
+    font-size: 1.25rem;
+    padding-top: 0.1rem;
+    text-align: center;
+    z-index: 4;
+  }
+
+
+  .form-panel-headline {
+    color: inherit;
+    font-weight: bold;
+    margin-top: 0;
+  }
+
+  .form-panel-headline-hint { color: inherit; }
+
+  .multi-cols {
+    @media #{$small-only} {
+      .columns:first-of-type { margin-bottom: rem-calc(30px); }
+      .columns:last-of-type { margin-bottom: 0; }
+    }
+  }
+}

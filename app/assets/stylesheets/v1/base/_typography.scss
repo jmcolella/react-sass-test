@@ -1,0 +1,107 @@
+.type-neutral-1 { color: $gray-1 !important; }
+.type-neutral-2 { color: $gray-2 !important; }
+.type-neutral-3 { color: $gray-3 !important; }
+.type-neutral-4 { color: $gray-4 !important; }
+.type-neutral-5 { color: $gray-5 !important; }
+.type-neutral-6 { color: $gray-6 !important; }
+.type-neutral-7 { color: $gray-7 !important; }
+.type-neutral-8 { color: $gray-8 !important; }
+.type-neutral-9 { color: $gray-9 !important; }
+.type-neutral-10 { color: $gray-10 !important; }
+.type-neutral-11 { color: $gray-11 !important; }
+
+.unstyled {
+  margin-left: 0;
+  li {
+    list-style-type: none;
+    margin-bottom: .5rem;
+    padding-bottom: 0;
+  }
+}
+
+
+// Font Styling
+%font-bold {
+  font-weight: 900;
+}
+%font-normal {
+  font-weight: 400;
+}
+
+.no-margin { margin: 0 !important; }
+
+.uppercased {
+  text-transform: uppercase;
+  font-family: $sans-serif;
+}
+
+mark { color: inherit; }
+
+dl.inline-list
+  dt { display: inline-block; margin-right: 1rem; }
+  dd { display: inline; }
+  dd:after { display: block; content: ' '}
+
+.extended-help { cursor: pointer; }
+
+ul.centered-inline-list {
+  list-style-type: none;
+  li { display: inline-block; margin-left: 0.25rem; margin-right: 0.25rem; }
+}
+
+.text-capitalize {
+  text-transform: capitalize;
+}
+
+.text-uppercase {
+  text-transform: uppercase;
+}
+
+.text-normal {
+  font-weight: normal;
+  text-transform: none;
+}
+
+.text-strong {
+  font-weight: 600;
+}
+
+// Used to drop the baseline for Pika fonts, which require different drops depending on context //
+.drop-baseline-1 {
+  margin-bottom: -.10rem;
+}
+
+.drop-baseline-2 {
+  margin-bottom: -.25rem;
+}
+
+.drop-baseline-3 {
+  margin-bottom: -.5rem;
+}
+
+.drop-baseline-4 {
+  margin-bottom: -.75rem;
+}
+
+.drop-baseline-5 {
+  margin-bottom: -1rem;
+}
+
+.drop-baseline-6 {
+  margin-bottom: -1.5rem;
+}
+
+.drop-baseline-7 {
+  margin-bottom: -2rem;
+}
+
+hr {
+  &.divider{
+    margin: rem-calc(28px 10px);
+    height: 1px;
+    display: block;
+    border-top: 1px solid $primary-color-light;
+    clear: both;
+  }
+}
+

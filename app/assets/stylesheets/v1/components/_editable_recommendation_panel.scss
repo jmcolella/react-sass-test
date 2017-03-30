@@ -1,0 +1,62 @@
+.editable-panel {
+  @extend .form-panel;
+  margin-bottom: 30px;
+  padding: 0;
+  min-height: 0;
+  color: white;
+  &__left {
+    height: 100%;
+    padding: 2rem;
+    border-right: solid 2px $primary-color-dark;
+    background: $primary-color-greened;
+    text-align: center;
+    .header {
+      margin: 10px 0 15px 0;
+      font-size: rem-calc(14px);
+      display: block;
+    }
+    .click-to-edit {
+      font-size: rem-calc(12px);
+      display: block;
+    }
+    .placeholder {
+      padding-bottom: 4px;
+      margin-bottom: 10px;
+      border-bottom: 1px dotted white;
+      font-size: rem-calc(33px);
+      display: inline-block;
+    }
+    .large {
+      font-size: rem-calc(33px);
+    }
+  }
+  &__right {
+    @media #{$small-only} { text-align: center; }
+    padding: 7px 16px 16px 4px;
+    h3 {
+      margin: rem-calc(27px 0 13px 0);
+      font-family: $sans-serif;
+      font-size: rem-calc(18px);
+      color: inherit;
+    }
+    .pg-logo {
+      margin-right: 6px;
+      width: 100px;
+    }
+    p {
+      line-height: 1.4;
+      font-size: rem-calc(14px);
+      font-family: $sans-serif;
+    }
+    @media #{$medium-up} {
+      &:before {
+        @include size(55px 22px);
+        @include absolute(left -29px);
+        background: url("/images/modules/editable-panel-arrow.png");
+        background-size: cover;
+        content: ' ';
+        display: block;
+      }
+    }
+  }
+}

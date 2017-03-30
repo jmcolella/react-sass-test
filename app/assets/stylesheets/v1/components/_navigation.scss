@@ -1,0 +1,37 @@
+.sidebar {
+  padding: 0;
+
+  .semantic-navigation.expandable.side-nav  {
+    a {
+      padding: 0 $column-gutter / 2;
+    }
+
+    > .active > a:not(.button) {
+      background-color: white;
+      color: $gray-3;
+    }
+
+    .has-dropdown {
+      > a {
+        cursor: default;
+      }
+    }
+
+    .dropdown {
+      @extend .unstyled;
+
+      margin-top: 5px;
+
+      margin-left: 26px;
+      li a {
+        color: $gray-4;
+      }
+    }
+
+    .dropdown .active {
+      a {
+        color: $secondary-color;
+      }
+    }
+  }
+}

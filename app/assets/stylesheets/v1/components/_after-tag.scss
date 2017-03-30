@@ -1,0 +1,42 @@
+/* content of after tag */
+@mixin after-tag ($size: 0, $content:' " " ', $position: absolute, $top: 0, $vertical-align: top) {
+  &:after {
+    @include size($size);
+    content: $content;
+    position: $position;
+    line-height: $size;
+    top: $top;
+    vertical-align: $vertical-align;
+  }
+}
+
+/* style content of after tag if have */
+@mixin after-tag-style ($background: #CEF4EE, $color: #6BDDCB, $display: inline-block, $margin: 2.5rem -0.9375rem 0 0, $text-align: center) {
+  background: $background;
+  color: $color;
+  display: $display;
+  margin: $margin;
+  text-align: $text-align;
+}
+
+/* inline list after tag */
+@mixin inline-list-has-after-tag ($font-weight: 600) {
+  li {
+    @include font-style ($font-size: 2rem, $line-height: auto, $padding: 0.5rem 1rem);
+    font-weight: $font-weight;
+    display: inline-block;
+  }
+}
+
+
+.inline-list-has-after-tag {
+  @include inline-list-has-after-tag;
+  margin: 1rem 0;
+  li {
+    &:not(:last-child):after {
+      @include font-style($font-size: 3rem, $line-height: auto, $padding: 1rem 0rem 0rem 2rem);
+      content: '+';
+      vertical-align: top;
+    }
+  }
+}

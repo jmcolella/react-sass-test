@@ -1,0 +1,165 @@
+$team-list-margin: 2.25rem 0;
+$member-contact-max-width: rem-calc(270);
+$mood-padding: 1.25rem 0;
+// color for conner top: rgba(0,123,123, 0.5), right: $advice-update-background,  bottom: $advice-update-background left: rgba(0,123,123, 0.5;
+$conner-blend-color: rgba(0,123,123, 0.5) $advice-update-background $advice-update-background rgba(0,123,123, 0.5);
+$member-label-name-bg: $primary-color;
+$label-name-hover-bg: $tertiary-color;
+/* about-team */
+.team-list .member-label-name:before,
+.member-social {
+  position: absolute;
+}
+
+.team-list .member-info,
+.team-list .image-member,
+.team-list .member-label-name,
+.team-list .member {
+  position: relative;
+}
+
+.member-label-name,
+.member {
+  z-index: 10;
+}
+
+@mixin team-list($margin: $team-list-margin, $max-width: $member-contact-max-width, $padding: $mood-padding, $radius: 0.375rem 0.375rem 0 0) {
+  //margin of team-list
+  margin: $margin;
+  .member-contact {
+    //can change max-width of member-contact
+    max-width: $max-width;
+    width: auto;
+  }
+
+  .mood {
+    // can change padding of .mood (detail of each member)
+    padding: $padding;
+    p {
+      line-height: rem-calc(25);
+    }
+  }
+
+  .member-info,
+  .member,
+  .image-member {
+    @include size(100%);
+  }
+
+  .image-member,
+  img { 
+    @include radius($radius);
+  }
+
+  .image-member {
+    @include transition (all 2.0s ease-out);
+  }
+}
+
+@mixin corner-bend($radius: $global-radius 0 $global-radius 0, $color: $conner-blend-color, $width: 1rem) {
+  @include radius($radius);
+  content: "";
+  bottom: 0;
+  border-color: $color;
+  border-style: solid;
+  border-width: $width;
+  display: block;
+  right: 0;
+  width: 0;
+}
+
+
+@mixin member-label-name($radius: 0 0 0.625rem 0.5rem, $background: $member-label-name-bg, $padding: 0.6125rem 0, $color-span: $primary-color-very-light) {
+  @include radius($radius);
+  background: $background;
+  padding: $padding;
+  width: 100%;
+  p {
+    line-height: 20px;
+    margin: 0;
+  }
+
+  span {
+    color: $color-span;
+    display: block;
+    font-size: 10px;
+    font-weight: normal;
+  }
+}
+
+@mixin member-social($size: 100% 60px, $radius: 0 0 0.375rem 0.375rem, $background: $advice-update-background, $color: $tertiary-color, $font-size: rem-calc(13), $padding: rem-calc(10)) {
+  @include size($size);
+  @include radius($radius);
+  background: $background;
+  bottom: 0;
+  cursor: pointer;
+  color: $tertiary-color;
+  font-size: $font-size;
+  padding: $padding;
+  z-index: 1;
+}
+
+@mixin member-info($radius: rem-calc(6), $background: $advice-update-background, $background-hover: $label-name-hover-bg, $color-span-hover: #F4F7DC, $translate-y: rem-calc(-60)) {
+  @include radius ($radius);
+  background: $background;
+  &:hover {
+    .member-label-name {
+      //background of member-label-name when hover
+      background: $background-hover;
+      span { color: $color-span-hover; }
+      &:before {
+        //remove corner bend when hover
+        border-width: 0;
+      }
+    }
+
+    .member {
+      @include transform(translateY($translate-y));
+    }
+
+    .no-hover {
+      @include transform(none);
+      .member-label-name {
+        background: $member-label-name-bg;
+      }
+    }
+  }
+
+  .no-hover {
+    .member-label-name {
+      &:before {
+        //remove corner bend when hover
+        border-width: 0;
+      }
+    }
+  }
+}
+
+
+.team-list {
+  @include team-list;
+}
+
+.member-label-name {
+  @include member-label-name;
+  //page-panel
+  &:before {
+    @include corner-bend;
+  }
+}
+
+.member-social {
+  @include member-social;
+}
+
+.member-info {
+  @include member-info;
+}
+
+@media #{$medium-up} {
+  .team-list .member-contact { margin: 0;}
+}
+
+@media #{$small-only} {
+  .team-list .member-contact { margin: 0 auto; }
+}

@@ -1,0 +1,25 @@
+@mixin centered-verticaly {
+  @include transform(translateY(-50%));
+  position: relative;
+  top: 50%;
+  display: block;
+}
+
+@mixin center-horizontal {
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  position: absolute;
+}
+
+@mixin center-box($margin:0 auto) {
+  display: table;
+  margin: $margin;
+  text-align: center;
+}
+
+@mixin center-block-icon {
+  display: inline-block;
+  float: none;
+  width: auto;
+}

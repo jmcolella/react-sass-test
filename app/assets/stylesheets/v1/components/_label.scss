@@ -1,0 +1,164 @@
+
+$primary-label-tag-panel: #F9A024;
+$primary-arrow-panel: #BB781B;
+$primary-label-correct-color: #09c6a9;
+$secondary-label-correct-color: #CEF4EE;
+$primary-arrow-correct-panel:#079E9F;
+$primary-label-arrow-panel: #67C8C9;
+$size-arrow: 0.9375rem;
+$top-label-tag-panel: -$size-arrow;
+$primary-label-process: #09c6a9;
+$button-process-color: $primary-label-process;
+$border-process-color: $primary-label-process;
+$color-title-process: $primary-label-process;
+$error-color: #E46737;
+
+//$direction: up, down, left, right, up-right, up-left, down-right, down-left;
+
+/* Label banner */
+
+@mixin label-tag-panel ($margin: 0) {
+	margin: $margin;
+	position: absolute;
+}
+
+@mixin position-label-tag-panel ($top: $top-label-tag-panel, $right: false, $bottom: false, $left: false) {
+	bottom: $bottom;
+	left: $left;
+	top: $top;
+	right: $right;
+}
+
+@mixin arrow-label ($size: $size-arrow, $color: $primary-arrow-panel, $direction: 'down-right', $float: left) {
+	@include triangle ($size, $color, $direction);
+	float: $float;
+}
+
+@mixin label-style ($bg: $primary-label-tag-panel, $color: $primary-color-text, $float: left, $font-size: false,$padding: 0.625rem 1.25rem, $width: auto, $margin: rem-calc(15) ) {
+	background: $bg;
+	color: $color;
+	margin-left: $margin;
+	font-size: $font-size;
+	padding: $padding;
+	width: $width;
+}
+
+@mixin border ($border-color:false, $border-width: false, $border-style: solid) {
+	border-color: $border-color;
+	border-width: $border-width;
+	border-style: $border-style;
+}
+
+@mixin label-content($padding-icon: 1rem 0, $color: $brown-color-text, $line-height: rem-calc(25), $font-size: false) {
+	.ss-icon {
+		padding: $padding-icon;
+	}
+	p {
+		color: $color;
+		line-height: $line-height;
+		font-size: $font-size;
+	}
+}
+.label-panel {
+	@include label-content;
+	margin-bottom: 2.5rem;
+	&.panel {
+		.button {
+			margin-bottom: rem-calc(10);
+		}
+	}
+
+	&.small {
+		@include label-content($font-size: 1rem);
+	}
+
+	.button {
+		@include hover ($bg: $brown-color-text, $bg-hover: $tertiary-color);
+		.ss-icon {
+			padding: 0;
+		}
+	}
+	&.process {
+		.button-process { @include button-process ( $bg-next: $button-process-color); }
+		h4 {
+			color: $color-title-process;
+			margin-bottom: 1.65rem;
+			line-height: 1.8rem;
+		}
+	}
+	&.process.has-border {
+		@include border($border-color: $border-process-color);
+
+	}
+}
+
+.label-tag-panel {
+	@include label-tag-panel;
+	.arrow { @include arrow-label;}
+	.label-content { @include label-style; }
+	&.correct {
+		.arrow { @include arrow-label($color: $primary-arrow-correct-panel); }
+		.label-content { @include label-style($bg: $primary-label-arrow-panel); }
+	}
+}
+
+.has-border {
+	@include border($border-color: $brown-color-text, $border-width: 0.5rem 0 0 0);
+}
+
+.has-label-tag-panel {
+	margin-top: 3rem;
+	position: relative;
+	.label-tag-panel { @include position-label-tag-panel;}
+}
+
+%label-position-top {
+  position: absolute;
+  top: rem-calc(-12px);
+  left: 0;
+  right: 0;
+  z-index: 1;
+  max-width: 50%;
+  padding: rem-calc(4px);
+  margin: 0 auto;
+
+  &:before {
+    content: ' ';
+    position: absolute;
+    left: rem-calc(-12px);
+    top: 0;
+    width: 0;
+    height: 0;
+  }
+}
+
+%label-visual-top-orange {
+  border-top: rem-calc(12px) solid transparent;
+  border-bottom: 0 solid transparent;
+  border-right: rem-calc(12px) solid;
+  border-right-color:  darken($third-color, 20%);
+}
+
+.label-callout-top-orange{
+  @extend %label-position-top;
+  background: $third-color;
+  color: $white-color;
+  font-weight: bold;
+  font-size: rem-calc(12px);
+
+  &:before {
+    @extend %label-visual-top-orange;
+  }
+}
+
+.application {
+  label.required {
+    font-weight: bold;
+
+    &:after {
+      color: $error-color;
+      content: " *";
+      display: inline;
+    }
+  }
+}

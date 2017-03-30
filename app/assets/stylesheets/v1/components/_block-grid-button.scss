@@ -1,0 +1,14 @@
+$button-primary-bg: #B3B3B3;
+$button-primary-bg-hover: #F9A024;
+
+.block-grid-button {
+	.button {
+		@include hover($bg: $button-primary-bg, $bg-hover: $button-primary-bg-hover);
+		font-family: $serif;
+		text-align: left;
+		width: 100%;
+	}
+	> li {
+		padding-bottom: 0;
+	}
+}

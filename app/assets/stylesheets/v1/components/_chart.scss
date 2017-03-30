@@ -1,0 +1,63 @@
+.chart {
+  border-left: 1px solid $brown-color-text;
+  padding-top: 0.5rem;
+  text-align: left;
+
+  .meter {
+    vertical-align: top;
+    display: inline-block;
+    background: $secondary-color;
+    height: 2.5rem;
+    @include radius(0 $global-radius $global-radius 0);
+    margin-right: 0.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .value {
+    @include font-style ($font-size: 1rem, $line-height: 1.25rem, $padding: 0);
+    margin: 0;
+    display: inline-block;
+    dt, dd {
+      color: #A09997;
+      margin: 0;
+    }
+    dt {
+      font-family: $serif;
+      font-weight: bold;
+    }
+  }
+
+  .secondary {
+    .meter { background: #D3C7C4; }
+    .value {
+      dt, dd {
+        color: #A09997;
+      }
+    .has-tip {color: $black-color-text;}
+    }
+  }
+  .success {
+    .meter {
+      background: $primary-color;
+    }
+    .value {
+      dt,
+      dd { color: $primary-color;}
+    }
+  }
+
+  .warning {
+    .meter {
+      background: $secondary-color;
+    }
+    .value {
+      dt,
+      dd { color: $secondary-color;}
+    }
+  }
+}
+
+.hint { 
+  margin: 0;
+  font-size: rem-calc(11px); 
+}

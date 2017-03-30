@@ -1,0 +1,121 @@
+.life-coverage-estimation-show {
+  color: white;
+  p, h2, h3, h4, h5 { color: inherit; }
+  .tabs {
+    @include tabs-colors(
+      $primary-color, $primary-color-very-dark, $primary-color-very-light,
+      $primary-color-light, white, white
+    );
+    dd a {
+      font-weight: bold;
+      font-family: $sans-serif;
+      height: 100%;
+    }
+    .columns:first-of-type { padding-right: 0; }
+    .columns:nth-of-type(2) { padding-left: 0; }
+    @media #{$small-only} {
+      .columns { padding: 0; }
+    }
+  }
+
+  .form-actions .button.subtle.close-link {
+    color: $primary-color-light;
+    &:hover { color: $primary-color-very-light; }
+  }
+
+  .recommendation { margin-bottom: 55px; }
+
+  .worksheet-tabs .content {
+    padding: 45px 0;
+    background: $primary-color-very-dark;
+  }
+  .tabs-content { margin: 0; }
+
+  .stats {
+    padding: 2rem;
+    .form-panel-icon { background-color: $primary-color-dark; }
+    .header { margin-bottom: 6px; }
+    .value {
+      color: white;
+      margin-bottom: 17px;
+      font-size: rem-calc(30px);
+      border-bottom: 1px dashed white;
+      display: inline-block;
+    }
+    .hint { text-transform: uppercase; }
+  }
+
+  .child-row, .debts-panel {
+    .marker {
+      border: 3px solid $primary-color;
+      background: $primary-color-light;
+    }
+  }
+
+  .almost-there {
+    h3 {
+      font-weight: bold;
+      line-height: 1;
+      margin: 0 0 9px 0;
+    }
+    p {
+      margin-bottom: 7px;
+      line-height: 1.6;
+      font-size: rem-calc(15px);
+    }
+  }
+
+  .chart-description {
+    .inner { padding-left: rem-calc(60px); }
+    margin: 0 0 0 30%;
+    p {
+      margin-bottom: 0;
+      font-family: $sans-serif;
+      color: white;
+      &.highlight { color: $yellow-highlight-color; }
+    }
+  }
+
+  .terms-description {
+    h3 { font-weight: bold; }
+    > p { margin-bottom: rem-calc(25px); }
+    .hint-box { @include hint-box-color-scheme($primary-color-very-dark, white); }
+  }
+
+  .worksheet-edit-form {
+    .product-navigator__survey {
+      padding: rem-calc(29px 40px 20px 40px);
+      background: $primary-color;
+      > h4 {
+        font-weight: bold;
+        color: $primary-color-very-light;
+      }
+      .extended-help { display: none; }
+    }
+    .form-panel-headline, .hint-box { display: none; }
+  }
+
+  .has-tip { color: white; }
+  .bracket { @include absolute(left -5px bottom -30px); }
+  .product__sidebar section { @include opacity(1); }
+  .edit-form-panel-link {
+    @include relative(top 3px);
+    text-transform: uppercase;
+    font-size: rem-calc(14px);
+    font-family: $sans-serif;
+    @media #{$small-only} { display: none; }
+  }
+
+  .worksheet-hint {
+    @media #{$small-only} { display: none; }
+    margin-top: rem-calc(150px);
+    position: relative;
+    img { @include absolute(left -50px top -40px) }
+    ul {
+      > li { color: $primary-color-very-light; }
+      p { margin: 0 }
+    }
+  }
+
+  .coverage-not-needed h5 { font-weight: bold; }
+}

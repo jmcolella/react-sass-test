@@ -1,0 +1,92 @@
+
+.our_story .sub-content li,
+.faq .content li,
+.privacy .content li,
+.licenses .content li
+ {
+  font-size: 1.05rem;
+}
+
+.team-list .linkedin-icon:hover,
+.team-list .instagram-icon {
+  background-position-x: -112px;
+}
+
+.citation {
+  border: none;
+  clear: both;
+  cite {
+    font-size: .9rem;
+  }
+}
+
+.about .banner{
+  padding-left: 0.9375rem;
+  padding-right: 0.9375rem;
+}
+
+/* story page */
+.our_story {
+  .wrap-img {
+    margin: 0.5rem 0;
+    &.right { padding-left: 20px; }
+    &.left {
+      margin-left: -40px;
+      padding-right: 20px;
+    }
+    @media #{$medium-up} {
+      width: auto;
+    }
+  }
+
+  .move-img {
+    @media #{$medium-up} {
+      margin-right: rem-calc(-60px);
+      right: rem-calc(75px);
+    }
+  }
+}
+
+/* contact */
+.contact,
+.products {
+  textarea,
+  .button {
+    @include radius(6px);
+  }
+
+  .contact_form_message textarea {
+    height: 123px;
+    resize: none;
+  }
+
+  .grid-icon {
+    @include size(5.625rem);
+    @include radius (50%);
+  }
+
+  .social-bar { margin-top: 40px; }
+}
+
+.new_contact_form {
+  input,
+  .error {
+    @include radius(6px);
+    margin-bottom: 1.1875rem;
+  }
+
+  input[type='text'],
+  input[type='email'],
+  textarea {
+    @include input ($primary-color, $primary-color-text, #6cc9ca, $primary-color);
+  }
+
+}
+
+/* press */
+.press {
+  .download { background-color: $button-advice-color; }
+
+  .content li { font-size: 1.0625rem;}
+}
+

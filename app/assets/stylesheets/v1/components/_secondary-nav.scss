@@ -1,0 +1,21 @@
+nav.secondary {
+  background: $primary-color-extra-light;
+  color: $primary-color;
+  text-align: center;
+  li {
+    font-size: rem-calc(13);
+    font-family: $sans-serif;
+    display: inline-block;
+    margin: 0.5rem 1rem;
+    &.active {
+      font-weight: bold;
+      position: relative;
+      a { color: $primary-color-dark !important; }
+      &::before {
+        @include absolute(top 28px left 50%);
+        @include underline-triangle-up(8px, white); 
+        margin-left: -8px;
+      }
+    }
+  }
+}

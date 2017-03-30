@@ -1,0 +1,240 @@
+$trustpilot-logo-width:                   rem-calc(189px);
+$trustpilot-logo-height:                  rem-calc(24px);
+
+.home .hero { padding-bottom: 0; }
+
+.ls-section-title {
+  font: {
+    weight: lighter;
+    family: $sans-serif;
+    size: rem-calc(30px);
+  }
+  line-height: 1.25;
+  .marker {
+    @include relative(top 7px);
+    font-size: rem-calc(42px);
+  }
+  small {
+    @include relative(left 60px top -4px);
+    display: block;
+    font-size: rem-calc(12px);
+  }
+}
+
+.ls-title-with-divider {
+  border-top: 1px solid $gray-color;
+  text-align: center;
+  .ls-section-title {
+    @include relative(top -21px);
+    font-size: rem-calc(24px);
+    padding: 0 15px;
+    background: white;
+    display: inline-block;
+  }
+}
+
+.ls-introduce-checks {
+  background-image: url("/images/banner-bg-squares.png");
+  background-color: $secondary-color;
+  color: white;
+  &-list {
+    list-style: none;
+    margin-bottom: 70px;
+    font: {
+      family: $sans-serif;
+      size: rem-calc(21px);
+      weight: lighter;
+    }
+    line-height: 1.8;
+    img {
+      @include relative(top -7px);
+      margin-right: 6px;
+    }
+  }
+}
+
+.ls-introduce-photo {
+  background: url("/images/home/pg-laptop-photo.jpg");
+  background-size: cover;
+  position: relative;
+  p {
+    font-family: $sans-serif;
+    margin-bottom: 100px;
+    font-size: rme-calc(18px);
+  }
+  &__arrow { @include absolute(bottom 15px); }
+  ul {
+    margin-left: 0;
+    color: white;
+  }
+}
+
+.ls-introduce-title {
+  margin: 95px auto 40px auto;
+  font-weight: bold;
+  font-size: rem-calc(62px);
+  line-height: 1.25;
+}
+
+.ls-cta {
+  background: $primary-color;
+  color: white;
+  h3 {
+    margin: 20px 0 5px 0;
+    @media #{$medium-up} { margin: 25px 0 24px 0; }
+    color: inherit;
+    font-weight: bold;
+  }
+  select {
+    margin-bottom: 5px;
+    border-radius: $global-radius;
+    padding: 8px 13px;
+    height: 44px;
+  }
+  &-form {
+    padding-top: 10px;
+    @media #{$medium-up} { padding-top: 22px; }
+  }
+  &__hint {
+    @media #{$medium-up} {
+      margin-bottom: 15px;
+      display: block;
+    }
+    color: $primary-color-very-light;
+    font-style: italic;
+    &:hover {
+      color: $primary-color-very-light;
+      text-decoration: underline;
+    }
+  }
+}
+
+.ls-points {
+  padding: 20px 0 10px 0;
+  @media #{$medium-up} { padding: 90px 0 40px 0; }
+  &__title {
+    margin: 6px auto 30px auto;
+    max-width: 70%;
+    font-weight: bold;
+    font-size: rem-calc(21px);
+  }
+  @media #{$medium-up} {
+    img {
+      @include centered-verticaly;
+      margin: 0 auto;
+    }
+  }
+}
+
+.ls-as-seen-on {
+  background: #505050;
+  background-image: url("/images/banner-bg-key.png");
+  &__title {
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-family: $sans-serif;
+    color: $primary-gray;
+  }
+}
+
+.ls-get-started {
+  padding: 40px 0 0 0;
+  &__cta {
+    margin-top: 35px;
+    font-size: rem-calc(25px);
+    line-height: 1.4;
+  }
+  select {
+    border-radius: $global-radius;
+    border: solid 1px $black-gray;
+    color: $black-gray;
+    padding: 8px 13px;
+    height: 44px;
+  }
+  .jennifer-headshot {
+    @include absolute(right 75px bottom 0);
+    @media #{$medium-only} { @include absolute(right 0 top auto); }
+  }
+  .button { margin-bottom: 35px; }
+}
+
+.people-say {
+  background-color: $primary-color;
+
+  h3, p { color: $primary-color-text; }
+
+  .info-people {
+    line-height: 1.5;
+    margin-bottom: 0.75rem;
+    text-transform: capitalize;
+    span { display: block; }
+    font-family: "adelle-sans", helvetica, arial, sans-serif;
+    font-weight: 400;
+  }
+
+  .introduce {
+    font-size: rem-calc(14);
+    line-height: rem-calc(28);
+    font-family: "adelle-sans", helvetica, arial, sans-serif;
+    font-weight: 300;
+  }
+
+  .ls-section-title {
+    margin-bottom: 60px;
+  }
+
+  .trustpilot-logo {
+    display: inline-block;
+    width: $trustpilot-logo-width;
+    height: $trustpilot-logo-height;
+    background: url(/images/trust-pilot-logo-light@2x.png) no-repeat;
+    background-size: 100% auto;
+  }
+
+  .row { margin-bottom: 50px; }
+
+  h2, p {
+    display: inline-block;
+    color: white;
+    font-family: "adelle-sans", Helvetica, Arial, sans-serif;
+    font-weight: 600;
+    margin: 5px;
+  }
+}
+
+.ls-reasons {
+  .ls-section-title {
+    top: -32px;
+    .marker {
+      font-size: 35px;
+      height: 57px;
+    }
+  }
+}
+
+.ls-reason {
+  margin: 30px auto 80px auto;
+  &__data {
+    @media #{$medium-up} { @include centered-verticaly; }
+  }
+  &__id {
+    @include absolute(top 0 left -50px);
+    @include circle(35px, inline-block);
+    text-align: center;
+    line-height: 32px;
+    border: 1px solid $gray-color;
+    color: $gray-color;
+    font: {
+      family: $sans-serif;
+      size: rem-calc(21px);
+      weight: lighter;
+    }
+  }
+  &__title {
+    margin: 15px 0;
+    @media #{$medium-up} { margin: 0 0 15px 0; }
+    font-size: rem-calc(21px);
+    font-weight: bold;
+  }
+}

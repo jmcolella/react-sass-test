@@ -1,0 +1,20 @@
+.pet_searches,
+.pet_old_searches {
+  .discounts {
+    .ss-icon { margin-right: 3px; }
+    p, ul { margin: 0; }
+  }
+
+  .pet-data,
+  .pet-old-data {
+    .ss-icon {
+      margin: rem-calc(0 0 0 11px);
+      font-size: rem-calc(55px);
+    }
+    strong, span, i {
+      display: block;
+      line-height: 1.2;
+    }
+    .edit-details { float: none; }
+  }
+}

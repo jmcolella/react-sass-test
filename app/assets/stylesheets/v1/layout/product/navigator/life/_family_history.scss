@@ -1,0 +1,12 @@
+.family_history {
+  .remove-family-member {
+    @include absolute(top 20px right 20px);
+    font-size: rem-calc(40px);
+    color: white;
+    text-decoration: none;
+  }
+  .add-family-member i {
+    margin: 0 7px 0 0;
+    font-size: rem-calc(14px);
+  }
+}

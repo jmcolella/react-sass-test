@@ -1,0 +1,967 @@
+// scss-lint:disable all
+/*doc
+---
+title: Side by side comparison
+name: side_by_side_comparison
+category: Pages - Side by side Comparison
+---
+## Plans compare
+```slim_example
+.plan-comparison
+  .mod-vertical-card
+    table.plan-comparison-table
+      tr.plan-comparison-row
+        td.plan-comparison-col
+          .mod-vertical-card-header.connected-bottom
+            h2.mod-vertical-card-title Oscar Health Insurance
+        td.plan-comparison-col
+          .mod-vertical-card-header.connected-bottom
+            h2.mod-vertical-card-title Oscar Health Insurance Oscar Health Insurance
+        td.plan-comparison-col
+          .mod-vertical-card-header.connected-bottom
+            h2.mod-vertical-card-title Oscar Health Insurance Oscar Health Insurance Oscar Health Insurance
+      tr.plan-comparison-row.clear
+        td.plan-comparison-col
+          .mod-vertical-card-header.connected-top
+            .mod-vertical-card-details
+              .mod-vertical-card-stars
+                .com-rating.compact.narrow
+                  .stars
+                    .i-star.active
+                    .i-star.active
+                    .i-star.active
+                    .i-star
+                    .i-star
+                .i-help
+              .mod-vertical-card-tier
+                strong
+                  | Bronze Plan
+                  i.i-help
+            .mod-vertical-card-actions
+              a.button.action.full-width.i-clock href='#' Quick Enroll
+              a.button.outline.full-width.mini href='#' View Details
+              a.mod-vertical-card-hint href="#" What is a Quick Enroll plan?
+        td.plan-comparison-col
+          .mod-vertical-card-header.connected-top
+            .mod-vertical-card-details
+              .mod-vertical-card-stars
+                .com-rating.compact.narrow
+                  .stars
+                    .i-star.active
+                    .i-star.active
+                    .i-star.active
+                    .i-star
+                    .i-star
+                .i-help
+              .mod-vertical-card-tier
+                strong
+                  | Bronze Plan
+                  i.i-help
+            .mod-vertical-card-actions
+              a.button.action.full-width.i-clock href='#' Quick Enroll
+              a.button.outline.full-width.mini href='#' View Details
+              a.mod-vertical-card-hint href="#" What is a Quick Enroll plan?
+        td.plan-comparison-col
+          .mod-vertical-card-header.connected-top
+            .mod-vertical-card-details
+              .mod-vertical-card-stars
+                .com-rating.compact.narrow
+                  .stars
+                    .i-star.active
+                    .i-star.active
+                    .i-star.active
+                    .i-star
+                    .i-star
+                .i-help
+              .mod-vertical-card-tier
+                strong
+                  | Bronze Plan
+                  i.i-help
+            .mod-vertical-card-actions
+              a.button.action.full-width.i-clock href='#' Quick Enroll
+              a.button.outline.full-width.mini href='#' View Details
+              a.mod-vertical-card-hint href="#" What is a Quick Enroll plan?
+      tr.plan-comparison-row
+        td.plan-comparison-col
+          .mod-vertical-card-section
+            .mod-vertical-card-caption
+              | On Exchange Plan
+              i.i-help
+            .mod-vertical-card-tier
+              strong Classic Bronze D
+        td.plan-comparison-col
+          .mod-vertical-card-section
+            .mod-vertical-card-caption
+              | On Exchange Plan
+              i.i-help
+            .mod-vertical-card-tier
+              strong Classic Bronze Dep29 Classi9
+        td.plan-comparison-col
+          .mod-vertical-card-section
+            .mod-vertical-card-caption
+              | On Exchange Plan
+              i.i-help
+            .mod-vertical-card-tier
+              strong Classic nze Dep29 Classic Bronze Dep29
+      tr.plan-comparison-row
+        td.plan-comparison-col
+          .mod-vertical-card-section
+            .mod-vertical-card-caption
+              | Monthly Premium
+              i.i-help
+            .mod-vertical-card-price
+              .sign-vertical
+                .icon-discount-white
+              span.mod-vertical-card-price-value $125
+              small.mod-vertical-card-price-period
+                '  /month
+            ul.mod-icon-list.condensed
+              li.icon-checkmark Under $200
+        td.plan-comparison-col
+          .mod-vertical-card-section
+            .mod-vertical-card-caption
+              | Monthly Premium
+              i.i-help
+            .mod-vertical-card-price
+              span.mod-vertical-card-price-value $125
+              small.mod-vertical-card-price-period
+                '  /month
+            ul.mod-icon-list.condensed
+              li.icon-checkmark Under $200
+        td.plan-comparison-col
+          .mod-vertical-card-section
+            .mod-vertical-card-caption
+              | Monthly Premium
+              i.i-help
+            .mod-vertical-card-price
+              span.mod-vertical-card-price-value $125
+              small.mod-vertical-card-price-period
+                '  /month
+            ul.mod-icon-list.condensed
+              li.icon-checkmark Under $200
+      tr.plan-comparison-row
+        td.plan-comparison-col
+          .mod-vertical-card-section
+            .mod-vertical-card-caption
+              | Deductible
+              i.i-help
+            .mod-vertical-card-price
+              strong.mod-vertical-card-price-value.small $3,500
+              span.mod-vertical-card-price-period.small
+                '  /year
+            ul.mod-icon-list.condensed
+              li.icon-checkmark Under $4,000
+            a.mod-vertical-card-hint href="#" No per person deductible
+        td.plan-comparison-col
+          .mod-vertical-card-section
+            .mod-vertical-card-caption
+              | Deductible
+              i.i-help
+            .mod-vertical-card-price
+              strong.mod-vertical-card-price-value.small $3,500
+              span.mod-vertical-card-price-period.small
+                '  /year
+            ul.mod-icon-list.condensed
+              li.icon-checkmark Under $4,000
+            a.mod-vertical-card-hint href="#" No per person deductible
+        td.plan-comparison-col
+          .mod-vertical-card-section
+            .mod-vertical-card-caption
+              | Deductible
+              i.i-help
+            .mod-vertical-card-price
+              strong.mod-vertical-card-price-value.small $3,500
+              span.mod-vertical-card-price-period.small
+                '  /year
+            ul.mod-icon-list.condensed
+              li.icon-checkmark Under $4,000
+            a.mod-vertical-card-hint href="#" No per person deductible
+      tr.plan-comparison-row
+        td.plan-comparison-col
+          .mod-vertical-card-section
+            .mod-vertical-card-caption
+              | Max Out of Pocket
+              i.i-help
+            .mod-vertical-card-price
+              strong.mod-vertical-card-price-value.small $5,400
+              span.mod-vertical-card-price-period.small
+                '  /year
+        td.plan-comparison-col
+          .mod-vertical-card-section
+            .mod-vertical-card-caption
+              | Max Out of Pocket
+              i.i-help
+            .mod-vertical-card-price
+              strong.mod-vertical-card-price-value.small $5,400
+              span.mod-vertical-card-price-period.small
+                '  /year
+        td.plan-comparison-col
+          .mod-vertical-card-section
+            .mod-vertical-card-caption
+              | Max Out of Pocket
+              i.i-help
+            .mod-vertical-card-price
+              strong.mod-vertical-card-price-value.small $5,400
+              span.mod-vertical-card-price-period.small
+                '  /year
+      tr.plan-comparison-row.clear
+        td.plan-comparison-col
+          .mod-vertical-card-section
+            .mod-vertical-card-caption
+              | Your Prescriptions
+              i.i-help
+            div.mod-vertical-card-description-item
+              b $2,700/person &nbsp;
+              span
+                | plan deductible &nbsp;
+                i.i-help
+            div.mod-vertical-card-description-item
+              b $13000/family &nbsp;
+              span
+                | plan deductible &nbsp;
+                i.i-help
+        td.plan-comparison-col
+          .mod-vertical-card-section
+            .mod-vertical-card-caption
+              | Your Prescriptions
+              i.i-help
+            div.mod-vertical-card-description-item
+              b $2,700/person &nbsp;
+              span
+                | plan deductible &nbsp;
+                i.i-help
+            div.mod-vertical-card-description-item
+              b $13000/family &nbsp;
+              span
+                | plan deductible &nbsp;
+                i.i-help
+        td.plan-comparison-col
+          .mod-vertical-card-section
+            .mod-vertical-card-caption
+              | Your Prescriptions
+              i.i-help
+            div.mod-vertical-card-description-item
+              b $2,700/person &nbsp;
+              span
+                | plan deductible &nbsp;
+                i.i-help
+            div.mod-vertical-card-description-item
+              b $13000/family &nbsp;
+              span
+                | plan deductible &nbsp;
+                i.i-help
+      tr.plan-comparison-row.clear
+        td.plan-comparison-col
+          .mod-vertical-card-section
+            ul.mod-icon-list.condensed
+              li.icon-checkmark
+                .list-truncation
+                  span.truncate Prozac
+        td.plan-comparison-col
+          .mod-vertical-card-section
+            ul.mod-icon-list.condensed
+              li.icon-checkmark
+                .list-truncation
+                  span.truncate Prozac
+            .spacer-xs
+            span Primary Visit
+            div.mod-vertical-card-description-item
+              b Full price &nbsp;
+              span before deductible
+            div.mod-vertical-card-description-item
+              b 10$ &nbsp;
+              span after deductible
+            .spacer-s
+            span Specialist Visit
+            div.mod-vertical-card-description-item
+              b 30$ &nbsp;
+              span after deductible
+            div.mod-vertical-card-description-item
+              b 10$ &nbsp;
+              span after deductible
+        td.plan-comparison-col
+          .mod-vertical-card-section
+            ul.mod-icon-list.condensed
+              li.icon-checkmark
+                .list-truncation
+                  span.truncate Prozac
+      tr.plan-comparison-row.clear
+        td.plan-comparison-col
+          .mod-vertical-card-section
+            ul.mod-icon-list.condensed
+              li.icon-checkmark
+                .list-truncation
+                  span.truncate Cipro
+        td.plan-comparison-col
+          .mod-vertical-card-section
+            ul.mod-icon-list.condensed
+              li.icon-checkmark
+                .list-truncation
+                  span.truncate Cipro
+            .spacer-xs
+            span Primary Visit
+            div.mod-vertical-card-description-item
+              b Full price &nbsp;
+              span before deductible
+            div.mod-vertical-card-description-item
+              b 10$ &nbsp;
+              span after deductible
+            .spacer-s
+            span Specialist Visit
+            div.mod-vertical-card-description-item
+              b 30$ &nbsp;
+              span after deductible
+            div.mod-vertical-card-description-item
+              b 10$ &nbsp;
+              span after deductible
+        td.plan-comparison-col
+          .mod-vertical-card-section
+            ul.mod-icon-list.condensed
+              li.icon-checkmark
+                .list-truncation
+                  span.truncate Cipro
+      tr.plan-comparison-row.clear
+        td.plan-comparison-col
+          .mod-vertical-card-section
+            .mod-vertical-card-section-intro
+                | The plan has a tiered provider network. That means you'll have access to two levels of coverage.
+        td.plan-comparison-col
+          .mod-vertical-card-section
+            .mod-vertical-card-section-intro
+                | The plan has a tiered provider network. That means you'll have access to two levels of coverage.
+        td.plan-comparison-col
+          .mod-vertical-card-section
+            .mod-vertical-card-section-intro
+                | The plan has a tiered provider network. That means you'll have access to two levels of coverage.
+      tr.plan-comparison-row
+        td.plan-comparison-col
+          .mod-vertical-card-section
+            .mod-vertical-card-caption
+              | Doctors in Network
+              i.i-help
+            ul.mod-icon-list.condensed
+              li.icon-checkmark
+                .text-truncation
+                  .truncate Dr. Jones Frankenstein Frankenstein Frankenstein
+              li.icon-checkmark
+                .text-truncation
+                  .truncate Dr. Smith
+        td.plan-comparison-col
+          .mod-vertical-card-section
+            .mod-vertical-card-caption
+              | Doctors in Network
+              i.i-help
+            ul.mod-icon-list.condensed
+              li.icon-checkmark
+                .text-truncation
+                  .truncate Dr. Jones Jones Jones Jones
+              li.icon-checkmark
+                .text-truncation
+                  .truncate Dr. Frankenstein Frankenstein
+        td.plan-comparison-col
+          .mod-vertical-card-section
+            .mod-vertical-card-caption
+              | Doctors in Network
+              i.i-help
+            ul.mod-icon-list.condensed
+              li.icon-checkmark
+                .text-truncation Dr. Jones
+              li.icon-checkmark
+                .text-truncation Dr. Smith
+      tr.plan-comparison-row
+        td.plan-comparison-col
+          .mod-vertical-card-section
+            .mod-vertical-card-caption
+              | Benefits
+              i.i-help
+            h4.mod-vertical-card-underlined Doctor visits
+            h5.mod-vertical-card-minititle Generic
+            div.mod-vertical-card-description-item
+              b Always free
+            h5.mod-vertical-card-minititle Primary Visit
+            div.mod-vertical-card-description-item
+              b Full price &nbsp;
+              span before deductible
+            div.mod-vertical-card-description-item
+              b 10$ &nbsp;
+              span after deductible
+            h5.mod-vertical-card-minititle Specialist Visit
+            div.mod-vertical-card-description-item
+              b 30$ &nbsp;
+              span after deductible
+            div.mod-vertical-card-description-item
+              b 10$ &nbsp;
+              span after deductible
+        td.plan-comparison-col
+          .mod-vertical-card-section
+            .mod-vertical-card-caption
+              | Benefits
+              i.i-help
+            h4.mod-vertical-card-underlined Doctor visits
+            h5.mod-vertical-card-minititle Generic
+            div.mod-vertical-card-description-item
+              b Always free
+            h5.mod-vertical-card-minititle Primary Visit
+            div.mod-vertical-card-description-item
+              b Full price &nbsp;
+              span before deductible
+            div.mod-vertical-card-description-item
+              b 10$ &nbsp;
+              span after deductible
+            h5.mod-vertical-card-minititle Specialist Visit
+            div.mod-vertical-card-description-item
+              b 30$ &nbsp;
+              span after deductible
+            div.mod-vertical-card-description-item
+              b 10$ &nbsp;
+              span after deductible
+        td.plan-comparison-col
+          .mod-vertical-card-section
+            .mod-vertical-card-caption
+              | Benefits
+              i.i-help
+            h4.mod-vertical-card-underlined Doctor visits
+            h5.mod-vertical-card-minititle Generic
+            div.mod-vertical-card-description-item
+              b Always free
+            h5.mod-vertical-card-minititle Primary Visit
+            div.mod-vertical-card-description-item
+              b Full price &nbsp;
+              span before deductible
+            div.mod-vertical-card-description-item
+              b 10$ &nbsp;
+              span after deductible
+            h5.mod-vertical-card-minititle Specialist Visit
+            div.mod-vertical-card-description-item
+              b 30$ &nbsp;
+              span after deductible
+            div.mod-vertical-card-description-item
+              b 10$ &nbsp;
+              span after deductible
+      tr.plan-comparison-row.clear
+        td.plan-comparison-col
+         .mod-vertical-card-section
+            h4.mod-vertical-card-underlined Prescriptions
+            h5.mod-vertical-card-minititle Primary Visit
+            div.mod-vertical-card-description-item
+              b Full price &nbsp;
+              span before deductible
+            div.mod-vertical-card-description-item
+              b 10$ &nbsp;
+              span after deductible
+            h5.mod-vertical-card-minititle Specialist Visit
+            div.mod-vertical-card-description-item
+              b 30$ &nbsp;
+              span after deductible
+            div.mod-vertical-card-description-item
+              b 10$ &nbsp;
+              span after deductible
+        td.plan-comparison-col
+         .mod-vertical-card-section
+            h4.mod-vertical-card-underlined Prescriptions
+            h5.mod-vertical-card-minititle Primary Visit
+            div.mod-vertical-card-description-item
+              b Full price &nbsp;
+              span before deductible
+            div.mod-vertical-card-description-item
+              b 10$ &nbsp;
+              span after deductible
+            h5.mod-vertical-card-minititle Specialist Visit
+            div.mod-vertical-card-description-item
+              b 30$ &nbsp;
+              span after deductible
+            div.mod-vertical-card-description-item
+              b 10$ &nbsp;
+              span after deductible
+        td.plan-comparison-col
+         .mod-vertical-card-section
+            h4.mod-vertical-card-underlined Prescriptions
+            h5.mod-vertical-card-minititle Primary Visit
+            div.mod-vertical-card-description-item
+              b Full price &nbsp;
+              span before deductible
+            div.mod-vertical-card-description-item
+              b 10$ &nbsp;
+              span after deductible
+            h5.mod-vertical-card-minititle Specialist Visit
+            div.mod-vertical-card-description-item
+              b 30$ &nbsp;
+              span after deductible
+            div.mod-vertical-card-description-item
+              b 10$ &nbsp;
+              span after deductible
+      tr.plan-comparison-row
+        td.plan-comparison-col
+          .mod-vertical-card-section
+            .mod-vertical-card-caption
+              | Estimated Annual Cost
+              i.i-help
+            .mod-vertical-card-price
+              span.mod-vertical-card-price-value $1,746
+              small.mod-vertical-card-price-period
+                '  /year
+        td.plan-comparison-col
+          .mod-vertical-card-section
+            .mod-vertical-card-caption
+              | Estimated Annual Cost
+              i.i-help
+            .mod-vertical-card-price
+              span.mod-vertical-card-price-value $1,746
+              small.mod-vertical-card-price-period
+                '  /year
+        td.plan-comparison-col
+          .mod-vertical-card-section
+            .mod-vertical-card-caption
+              | Estimated Annual Cost
+              i.i-help
+            .mod-vertical-card-price
+              span.mod-vertical-card-price-value $1,746
+              small.mod-vertical-card-price-period
+                '  /year
+      tr.plan-comparison-row
+        td.plan-comparison-col
+          .mod-vertical-card-section
+            .mod-vertical-card-caption
+              | Network Type
+              i.i-help
+            h2.mod-vertical-card-title EPO
+            ul.mod-icon-list.condensed
+              li.icon-checkmark No referral needed to see a specialist
+        td.plan-comparison-col
+          .mod-vertical-card-section
+            .mod-vertical-card-caption
+              | Network Type
+              i.i-help
+            h2.mod-vertical-card-title EPO
+            ul.mod-icon-list.condensed
+              li.icon-checkmark No referral needed to see a specialist
+        td.plan-comparison-col
+          .mod-vertical-card-section
+            .mod-vertical-card-caption
+              | Network Type
+              i.i-help
+            h2.mod-vertical-card-title EPO
+            ul.mod-icon-list.condensed
+              li.icon-checkmark No referral needed to see a specialist
+      tr.plan-comparison-row
+        td.plan-comparison-col
+          .mod-vertical-card-section
+            .mod-vertical-card-caption
+              | Network Size
+              i.i-help
+            .mod-vertical-card-dl
+              .mod-vertical-card-dl-row
+                .mod-vertical-card-dt 50K
+                .mod-vertical-card-dd Primary care doctors
+              .mod-vertical-card-dl-row
+                .mod-vertical-card-dt 84K
+                .mod-vertical-card-dd Specialists
+              .mod-vertical-card-dl-row
+                .mod-vertical-card-dt 16
+                .mod-vertical-card-dd Hospitals/Medical Centers
+              .mod-vertical-card-dl-row
+                .mod-vertical-card-dt 56
+                .mod-vertical-card-dd Urgent Care Centers
+        td.plan-comparison-col
+          .mod-vertical-card-section
+            .mod-vertical-card-caption
+              | Network Size
+              i.i-help
+            .mod-vertical-card-dl
+              .mod-vertical-card-dl-row
+                .mod-vertical-card-dt 50K
+                .mod-vertical-card-dd Primary care doctors
+              .mod-vertical-card-dl-row
+                .mod-vertical-card-dt 84K
+                .mod-vertical-card-dd Specialists
+              .mod-vertical-card-dl-row
+                .mod-vertical-card-dt 16
+                .mod-vertical-card-dd Hospitals/Medical Centers
+              .mod-vertical-card-dl-row
+                .mod-vertical-card-dt 56
+                .mod-vertical-card-dd Urgent Care Centers
+        td.plan-comparison-col
+          .mod-vertical-card-section
+            .mod-vertical-card-caption
+              | Network Size
+              i.i-help
+            .mod-vertical-card-dl
+              .mod-vertical-card-dl-row
+                .mod-vertical-card-dt 50K
+                .mod-vertical-card-dd Primary care doctors
+              .mod-vertical-card-dl-row
+                .mod-vertical-card-dt 84K
+                .mod-vertical-card-dd Specialists
+              .mod-vertical-card-dl-row
+                .mod-vertical-card-dt 16
+                .mod-vertical-card-dd Hospitals/Medical Centers
+              .mod-vertical-card-dl-row
+                .mod-vertical-card-dt 56
+                .mod-vertical-card-dd Urgent Care Centers
+      tr.plan-comparison-row
+        td.plan-comparison-col
+          .mod-vertical-card-section
+            h2.mod-vertical-card-title Provider Map
+            .mod-card-form.filter
+              label.teal
+                .checkbox.flip
+                  input type='checkbox'
+                  span.truncate Oscar Blue Cross Blue
+                p MegaClassis Gold Silver Bronze
+        td.plan-comparison-col
+          .mod-vertical-card-section
+            h2.mod-vertical-card-title &nbsp;
+            .mod-card-form.filter
+              label.pink
+                .checkbox.flip
+                  input type='checkbox'
+                  span.truncate Oscar Blue Cross Blue
+                p MegaClassis Gold Silver Bronze
+        td.plan-comparison-col
+          .mod-vertical-card-section
+            h2.mod-vertical-card-title &nbsp;
+            .mod-card-form.filter
+              label.blue
+                .checkbox.flip
+                  input type='checkbox'
+                  span.truncate Oscar Blue Cross Blue
+                p MegaClassis Gold Silver Bronze
+```
+## Compare 2 plans at the same time (without switching back & forth)
+```slim_example
+.plan-comparison
+  .mod-vertical-card.vertical
+    table.plan-comparison-table
+      tr.plan-comparison-row
+        td.plan-comparison-col
+          .mod-vertical-card-header.connected-bottom
+            h2.mod-vertical-card-title Oscar Health Insurance
+        td.plan-comparison-col
+          .mod-vertical-card-header.connected-bottom
+            h2.mod-vertical-card-title Oscar Health Insurance
+      tr.plan-comparison-row.clear
+        td.plan-comparison-col
+          .mod-vertical-card-header.connected-top
+            .mod-vertical-card-details
+              .mod-vertical-card-stars
+                .com-rating.compact.narrow
+                  .stars
+                    .i-star.active
+                    .i-star.active
+                    .i-star.active
+                    .i-star
+                    .i-star
+                .i-help
+              .mod-vertical-card-tier
+                strong
+                  | Bronze Plan
+                  i.i-help
+            .mod-vertical-card-actions
+              a.button.action.full-width.i-clock href='#' Quick Enroll
+              a.button.outline.full-width.mini href='#' View Details
+              a.mod-vertical-card-hint href="#" What is a Quick Enroll plan?
+        td.plan-comparison-col
+          .mod-vertical-card-header.connected-top
+            .mod-vertical-card-details
+              .mod-vertical-card-stars
+                .com-rating.compact.narrow
+                  .stars
+                    .i-star.active
+                    .i-star.active
+                    .i-star.active
+                    .i-star
+                    .i-star
+                .i-help
+              .mod-vertical-card-tier
+                strong
+                  | Bronze Plan
+                  i.i-help
+            .mod-vertical-card-actions
+              a.button.action.full-width.i-clock href='#' Quick Enroll
+              a.button.outline.full-width.mini href='#' View Details
+              a.mod-vertical-card-hint href="#" What is a Quick Enroll plan?
+      tr.plan-comparison-row
+        td.plan-comparison-col
+          .mod-vertical-card-section
+            .mod-vertical-card-caption
+              | On Exchange Plan
+              i.i-help
+            .mod-vertical-card-tier
+              strong Classic Bronze Dep29 Classi9
+        td.plan-comparison-col
+          .mod-vertical-card-section
+            .mod-vertical-card-caption
+              | On Exchange Plan
+              i.i-help
+            .mod-vertical-card-tier
+              strong Classic nze Dep29 Classic Bronze Dep29
+      tr.plan-comparison-row
+        td.plan-comparison-col
+          .mod-vertical-card-section
+            .mod-vertical-card-caption
+              | Monthly Premium
+              i.i-help
+            .mod-vertical-card-price
+              .sign-vertical
+                .icon-discount-white
+              span.mod-vertical-card-price-value $125
+              small.mod-vertical-card-price-period
+                '  /month
+            ul.mod-icon-list.condensed
+              li.icon-checkmark Under $200
+        td.plan-comparison-col
+          .mod-vertical-card-section
+            .mod-vertical-card-caption
+              | Monthly Premium
+              i.i-help
+            .mod-vertical-card-price
+              .sign-vertical
+                .icon-discount-white
+              span.mod-vertical-card-price-value $125
+              small.mod-vertical-card-price-period
+                '  /month
+            ul.mod-icon-list.condensed
+              li.icon-checkmark Under $200
+      tr.plan-comparison-row
+        td.plan-comparison-col
+          .mod-vertical-card-section
+            .mod-vertical-card-caption
+              | Deductible
+              i.i-help
+            .mod-vertical-card-price
+              strong.mod-vertical-card-price-value.small $3,500
+              span.mod-vertical-card-price-period.small
+                '  /year
+            ul.mod-icon-list.condensed
+              li.icon-checkmark Under $4,000
+        td.plan-comparison-col
+          .mod-vertical-card-section
+            .mod-vertical-card-caption
+              | Deductible
+              i.i-help
+            .mod-vertical-card-price
+              strong.mod-vertical-card-price-value.small $3,500
+              span.mod-vertical-card-price-period.small
+                '  /year
+            ul.mod-icon-list.condensed
+              li.icon-checkmark Under $4,000
+      tr.plan-comparison-row
+        td.plan-comparison-col
+          .mod-vertical-card-section
+            .mod-vertical-card-caption
+              | Max Out of Pocket
+              i.i-help
+            .mod-vertical-card-price
+              strong.mod-vertical-card-price-value.small $5,400
+              span.mod-vertical-card-price-period.small
+                '  /year
+        td.plan-comparison-col
+          .mod-vertical-card-section
+            .mod-vertical-card-caption
+              | Max Out of Pocket
+              i.i-help
+            .mod-vertical-card-price
+              strong.mod-vertical-card-price-value.small $5,400
+              span.mod-vertical-card-price-period.small
+                '  /year
+      tr.plan-comparison-row
+        td.plan-comparison-col
+          .mod-vertical-card-section
+            .mod-vertical-card-caption
+              | Your Prescriptions
+              i.i-help
+            div.mod-vertical-card-description-item
+              b Full price &nbsp;
+              span
+                | before deductible &nbsp;
+                i.i-help
+            div.mod-vertical-card-description-item
+              b $10 &nbsp;
+              span
+                | after deductible &nbsp;
+                i.i-help
+            ul.mod-icon-list.condensed
+              li.icon-close-accent
+                 span.bold Prozac
+        td.plan-comparison-col
+          .mod-vertical-card-section
+            .mod-vertical-card-caption
+              | Your Prescriptions
+              i.i-help
+            div.mod-vertical-card-description-item
+              b Full price &nbsp;
+              span
+                | before deductible &nbsp;
+                i.i-help
+            div.mod-vertical-card-description-item
+              b $10 &nbsp;
+              span
+                | after deductible &nbsp;
+                i.i-help
+      tr.plan-comparison-row
+        td.plan-comparison-col
+          .mod-vertical-card-section
+            .mod-vertical-card-caption
+              | Doctors in Network
+              i.i-help
+            ul.mod-icon-list.condensed
+              li.icon-checkmark
+                .text-truncation
+                  .truncate Dr. Jones Frankenstein Frankenstein Frankenstein
+              li.icon-checkmark
+                .text-truncation
+                  .truncate Dr. Smith
+        td.plan-comparison-col
+          .mod-vertical-card-section
+            .mod-vertical-card-caption
+              | Doctors in Network
+              i.i-help
+            ul.mod-icon-list.condensed
+              li.icon-checkmark
+                .text-truncation
+                  .truncate Dr. Jones Jones Jones Jones
+              li.icon-checkmark
+                .text-truncation
+                  .truncate Dr. Frankenstein Frankenstein
+      tr.plan-comparison-row
+        td.plan-comparison-col
+          .mod-vertical-card-section
+            .mod-vertical-card-caption
+              | Benefits
+              i.i-help
+            h4.mod-vertical-card-underlined Doctor visits
+            h5.mod-vertical-card-minititle Generic
+            div.mod-vertical-card-description-item
+              b Always free
+            h5.mod-vertical-card-minititle Primary Visit
+            div.mod-vertical-card-description-item
+              b Full price &nbsp;
+              span before deductible
+            div.mod-vertical-card-description-item
+              b 10$ &nbsp;
+              span after deductible
+            h5.mod-vertical-card-minititle Specialist Visit
+            div.mod-vertical-card-description-item
+              b 30$ &nbsp;
+              span after deductible
+            div.mod-vertical-card-description-item
+              b 10$ &nbsp;
+              span after deductible
+        td.plan-comparison-col
+          .mod-vertical-card-section
+            .mod-vertical-card-caption
+              | Benefits
+              i.i-help
+            h4.mod-vertical-card-underlined Doctor visits
+            h5.mod-vertical-card-minititle Generic
+            div.mod-vertical-card-description-item
+              b Always free
+            h5.mod-vertical-card-minititle Primary Visit
+            div.mod-vertical-card-description-item
+              b Full price &nbsp;
+              span before deductible
+            div.mod-vertical-card-description-item
+              b 10$ &nbsp;
+              span after deductible
+            h5.mod-vertical-card-minititle Specialist Visit
+            div.mod-vertical-card-description-item
+              b 30$ &nbsp;
+              span after deductible
+            div.mod-vertical-card-description-item
+              b 10$ &nbsp;
+              span after deductible
+      tr.plan-comparison-row
+        td.plan-comparison-col
+          .mod-vertical-card-section
+            .mod-vertical-card-caption
+              | Estimated Annual Cost
+              i.i-help
+            .mod-vertical-card-price
+              span.mod-vertical-card-price-value $1,746
+              small.mod-vertical-card-price-period
+                '  /year
+        td.plan-comparison-col
+          .mod-vertical-card-section
+            .mod-vertical-card-caption
+              | Estimated Annual Cost
+              i.i-help
+            .mod-vertical-card-price
+              span.mod-vertical-card-price-value $1,746
+              small.mod-vertical-card-price-period
+                '  /year
+      tr.plan-comparison-row
+        td.plan-comparison-col
+          .mod-vertical-card-section
+            .mod-vertical-card-caption
+              | Network Type
+              i.i-help
+            h2.mod-vertical-card-title EPO
+            ul.mod-icon-list.condensed
+              li.icon-checkmark No referral needed to see a specialist
+        td.plan-comparison-col
+          .mod-vertical-card-section
+            .mod-vertical-card-caption
+              | Network Type
+              i.i-help
+            h2.mod-vertical-card-title EPO
+            ul.mod-icon-list.condensed
+              li.icon-checkmark No referral needed to see a specialist
+      tr.plan-comparison-row
+        td.plan-comparison-col
+          .mod-vertical-card-section
+            .mod-vertical-card-caption
+              | Network Size
+              i.i-help
+            .mod-vertical-card-dl
+              .mod-vertical-card-dl-row
+                .mod-vertical-card-dt 50K
+                .mod-vertical-card-dd Primary care doctors
+              .mod-vertical-card-dl-row
+                .mod-vertical-card-dt 84K
+                .mod-vertical-card-dd Specialists
+              .mod-vertical-card-dl-row
+                .mod-vertical-card-dt 16
+                .mod-vertical-card-dd Hospitals/Medical Centers
+              .mod-vertical-card-dl-row
+                .mod-vertical-card-dt 56
+                .mod-vertical-card-dd Urgent Care Centers
+        td.plan-comparison-col
+          .mod-vertical-card-section
+            .mod-vertical-card-caption
+              | Network Size
+              i.i-help
+            .mod-vertical-card-dl
+              .mod-vertical-card-dl-row
+                .mod-vertical-card-dt 50K
+                .mod-vertical-card-dd Primary care doctors
+              .mod-vertical-card-dl-row
+                .mod-vertical-card-dt 84K
+                .mod-vertical-card-dd Specialists
+              .mod-vertical-card-dl-row
+                .mod-vertical-card-dt 16
+                .mod-vertical-card-dd Hospitals/Medical Centers
+              .mod-vertical-card-dl-row
+                .mod-vertical-card-dt 56
+                .mod-vertical-card-dd Urgent Care Centers
+      tr.plan-comparison-row
+        td.plan-comparison-col
+          .mod-vertical-card-section
+            h2.mod-vertical-card-title Provider Map
+            .mod-card-form.filter
+              label.teal
+                .checkbox.flip
+                  input type='checkbox'
+                  span.truncate Oscar Blue Cross Blue
+                p MegaClassis Gold Silver Bronze
+        td.plan-comparison-col
+          .mod-vertical-card-section
+            h2.mod-vertical-card-title &nbsp;
+            .mod-card-form.filter
+              label.pink
+                .checkbox.flip
+                  input type='checkbox'
+                  span.truncate Oscar Blue Cross Blue
+                p MegaClassis Gold Silver Bronze
+```
+*/
+// scss-lint:enable all

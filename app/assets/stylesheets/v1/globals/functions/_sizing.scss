@@ -1,0 +1,20 @@
+@mixin square($size, $display: block) {
+  width: $size;
+  height: $size;
+  display: $display;
+  overflow: hidden;
+}
+
+@mixin circle($size, $display: block) {
+  @include square($size, $display);
+  border-radius: $size;
+}
+
+@mixin underline-triangle-up($size, $color) {
+  width: 0;
+  height: 0;
+  border-left: $size solid transparent;
+  border-right: $size solid transparent;
+  border-bottom: $size solid $color;
+  content: ' ';
+}

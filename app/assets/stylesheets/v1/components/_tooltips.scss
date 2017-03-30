@@ -1,0 +1,118 @@
+/*doc
+---
+title: Tooltip - Basic
+name: 9a_form-slider
+category: V1-Components
+---
+
+Tooltip - shows hidden content on hover.
+
+### Contents:
+* [Layout](#tooltip)
+
+<div id="tooltip"></div>
+#### Basic Tooltip
+
+```slim_example
+.row
+  .small-12.columns.small-centered
+    .pg-tooltip aria-haspopup="true" aria-hidden="true"
+      | What are these?
+      .pg-tooltip-popup.primary role="tooltip"
+        span.pg-tooltip-sub Some content goes here.
+```
+*/
+
+// Sizing
+$text-size-small: rem-calc(11px);
+
+.pg-tooltip {
+  border-bottom: 1px dotted $black-color;
+  cursor: help;
+  display: inline-block;
+  position: relative;
+  text-decoration: none;
+
+  &:hover {
+    .pg-tooltip-popup {
+      opacity: 1;
+      pointer-events: auto;
+      visibility: visible;
+
+      @media #{$small-only} {
+        margin-top: rem-calc(10px);
+        position: relative;
+      }
+    }
+  }
+
+  &:after {
+    bottom: -15px;
+    content: "";
+    height: 15px;
+    left: 0;
+    position: absolute;
+    right: 0;
+  }
+}
+
+.pg-tooltip-sub {
+  font-family: $sans-serif;
+  font-size: $text-size-small;
+}
+
+.pg-tooltip-popup {
+  @include transition(opacity 0.15s ease-out);
+  @include transform(translateY(15px) translateX(-50%));
+  border: 1px solid $primary-gray;
+  border-bottom-width: 3px;
+  left: 50%;
+  line-height: lh($text-size-small);
+  opacity: 0;
+  padding: rem-calc(15px);
+  pointer-events: none;
+  position: absolute;
+  top: 100%;
+  visibility: hidden;
+  width: 250px;
+  z-index: $index-tooltip;
+
+  @media #{$small-only} {
+    left: 0;
+    top: auto;
+    transform: translateY(0) translateX(0);
+  }
+}
+
+.pg-tooltip-popup.primary {
+  background-color: $white-color;
+  color: $brown-color-text;
+
+  &:before,
+  &:after {
+    border: solid $transparent;
+    bottom: 100%;
+    content: "";
+    display: inline-block;
+    height: 0;
+    left: 0;
+    margin: 0 auto;
+    position: absolute;
+    right: 0;
+    width: 0;
+
+    @media #{$small-only} {
+      display: none;
+    }
+  }
+
+  &:before {
+    border-bottom-color: $primary-gray;
+    border-width: 10px;
+  }
+
+  &:after {
+    border-bottom-color: $white-color;
+    border-width: 8px;
+  }
+}

@@ -1,0 +1,30 @@
+.tell-the-world {
+  .header {
+    margin-bottom: 5px;
+    color: $secondary-color;
+  }
+  &__title {
+    margin-bottom: 0;
+    font-weight: bold;
+  }
+  &__box {
+    margin-bottom: 47px;
+    padding: 16px;
+    background: $light-gray;
+    border-radius: $global-radius;
+    position: relative;
+  }
+  a {
+    font-size: rem-calc(14px);
+    text-decoration: underline;
+    color: $black-color-text;
+    &:hover { color: $primary-color; }
+  }
+  &__owl {
+    @include absolute(right 0 bottom -39px);
+    z-index: 5;
+  }
+  &__nozzle {
+    @include absolute(right 10px bottom -23px);
+  }
+}

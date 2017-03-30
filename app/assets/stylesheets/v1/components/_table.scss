@@ -1,0 +1,260 @@
+/*doc
+---
+title: Table - Basic
+name: 2_table
+category: V1-Components
+---
+
+Table - Table is used to describe and highlight prices from our quoting engine in tabular formatting.
+
+### Contents:
+* [Layout](#table)
+
+<div id="table"></div>
+#### Basic Table
+
+```slim_example
+  .row
+    .small-12.columns
+      table.table.table-center
+        thead
+          tr
+            th.table-heading Prices are Yearly
+            th.table-heading
+              | 15
+              h6.table-heading-sub Years
+            th.table-heading
+              | 20
+              h6.table-heading-sub Years
+            th.table-heading
+              | 25
+              h6.table-heading-sub Years
+        tbody
+          tr
+            th.table-heading
+              | 4
+              h6.table-heading-sub Million
+            td.table-item ---
+            td.table-item ---
+            td.table-item
+              a.table-link href="#"
+                .table-item-fill $285
+          tr
+            th.table-heading
+              | 4.5
+              h6.table-heading-sub Million
+            td.table-item
+              a.table-link href="#"
+                .table-item-fill $285
+            td.table-item
+              a.table-link href="#"
+                .table-item-fill $285
+            td.table-item ---
+          tr
+            th.table-heading
+              | 5
+              h6.table-heading-sub Million
+            td.table-item
+              a.table-link href="#"
+                .table-item-fill $285
+            td.table-item
+              a.table-link href="#"
+                .table-item-fill $285
+            td.table-item
+              a.table-link href="#"
+                .table-item-fill $285
+```
+*/
+
+$padding-content: rem-calc(10);
+$line-height-content: rem-calc(20);
+$button-bg: #B3B3B3;
+$button-color: $primary-color-text;
+$table-row-hover-background: #FFF5E8;
+$point-color: $black-color;
+$font-size-point: 2rem;
+$font-size-table-header: rem-calc(14);
+$button-margin-bottom: 0;
+$color-ss-icon-header: $third-color;
+
+.table-header {
+  .table-cell {
+    @include border($border-color: $third-color, $border-width: 0 0 rem-calc(4) 0, $border-style: solid);
+    @include size(100%);
+    display: table;
+  }
+
+  span {
+    @include font-style($font-size: $font-size-table-header, $line-height: $line-height-content, $padding: 0 0 $padding-content);
+    display: table-cell;
+    vertical-align: middle;
+  }
+
+  .ss-icon {
+    color: $color-ss-icon-header;
+    margin-left: 0.3rem;
+    margin-right: 0;
+  }
+}
+
+@mixin point-rating ($point-color: $point-color, $font-size-point: $font-size-point, $vertical-align: sub) {
+  .point {
+    font-size: $font-size-point;
+
+    a {
+      color: $point-color;
+      font-family: $skippy-sharp;
+    }
+
+    span {
+      vertical-align: $vertical-align;
+    }
+  }
+}
+
+@mixin logo-rating ($height-logo: rem-calc(30), $margin-top: rem-calc(8)) {
+  .wrap-img {
+    height: $height-logo;
+    margin-top: $margin-top;
+
+    img {
+      max-height: 100%;
+    }
+  }
+}
+
+@mixin table-cell($text-align: center, $padding-cell-has-button: 0 $padding-content*3) {
+  text-align: $text-align;
+
+  &.has-button {
+    padding: $padding-cell-has-button;
+  }
+}
+
+@mixin table-row($bg: $transparent, $padding: $padding-content*2 0, $bg-hover: $table-row-hover-background, $color-hover: $third-color, $button-hover: $third-color) {
+  background: $bg;
+  padding: $padding;
+
+  &:hover {
+    background: $bg-hover;
+
+    .point {
+      a {
+        color: $color-hover;
+      }
+    }
+
+    .button {
+      background: $button-hover;
+    }
+  }
+}
+
+.table-cell {
+  @include point-rating;
+  @include table-cell;
+  @include logo-rating;
+
+  .button {
+    @include button-style($bg: $button-bg, $radius: 0.5rem, $disabled:false);
+    color: $button-color;
+    margin-bottom: 0;
+    margin-top: 0.5rem;
+    width: 100%;
+
+    &:hover {
+      color: $button-color;
+    }
+  }
+
+  .abbreviation {
+    padding-top: 0.3rem;
+  }
+}
+
+.table-row {
+  @include table-row;
+}
+
+.fancy-table {
+  border: 0;
+  font-family: $sans-serif;
+  width: 100%;
+
+  th,
+  td {
+    border: 0;
+    border-right: 2px solid $transparent;
+    padding: rem-calc(13px 9px);
+    text-align: center;
+
+    &:last-of-type { border-left: 0; }
+  }
+
+  th {
+    background: $primary-color-greened;
+    border-bottom: 4px solid rgba($gray-color, 0);
+    color: $white-color;
+    font-size: rem-calc(17px);
+
+    &:first-of-type { background: darken($gray-color, 5%); }
+  }
+
+  td {
+    background: $primary-color-extra-light;
+    font-weight: lighter;
+
+    &:first-of-type {
+      background: $light-gray;
+      font-weight: normal;
+    }
+  }
+}
+
+.table {
+  border: none;
+  border-collapse: collapse;
+  font-family: $sans-serif;
+  width: 100%;
+
+  tr:nth-of-type(even) {
+    background-color: $white-color;
+  }
+
+  &:last-of-type {
+    margin-bottom: 0;
+  }
+
+  &.table-center {
+    td,
+    th {
+      text-align: center;
+    }
+  }
+
+  .table-heading {
+    @extend %font-normal;
+    background-color: $white-color;
+    color: $black-color-text;
+  }
+
+  .table-heading-sub {
+    font-weight: 300;
+    margin: 0;
+  }
+
+  .table-item {
+    background-color: $light-gray;
+    border: 1px solid $white-color;
+    cursor: pointer;
+    position: relative;
+
+    &:last-of-type {
+      border-right: none;
+    }
+  }
+
+  .table-link {
+    color: $black-color-text;
+  }
+}

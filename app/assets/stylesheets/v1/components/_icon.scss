@@ -1,0 +1,123 @@
+$font-size-box-icon-tiny: 6px;
+$font-size-box-icon-small: 1.6875rem;
+$font-size-box-icon-medium: 3.25rem;
+$font-size-box-icon-large: 4.5rem;
+
+.ss-icon {
+  display: inline-block;
+  margin-right: 8px;
+  vertical-align: middle;
+
+  &.tiny {font-size: $font-size-box-icon-tiny;}
+
+  &.small {font-size: $font-size-box-icon-small;}
+
+  &.medium {font-size: $font-size-box-icon-medium;}
+
+  &.large {font-size: $font-size-box-icon-large;}
+}
+
+//icon css sprite
+.grid-icon {
+  // background: url("/assets/grid-icon.png");
+  background-image: url("/images/grid-icon.png");
+  display: inline-block;
+  vertical-align: sub;
+}
+
+.social-bar {
+  .facebook-icon {
+    background-position: -256px 0;
+
+    &:hover {background-position: -352px 0;}
+  }
+
+  .twitter-icon {
+    background-position: -256px -92px;
+
+    &:hover {background-position: -352px -92px;}
+  }
+
+  .linkedin-icon {
+    background-position: -256px -187px;
+
+    &:hover { background-position: -352px -187px; }
+  }
+
+  .google-icon {
+    background-position: -256px -279px;
+
+    &:hover { background-position: -350px -279px;}
+  }
+}
+
+.secondary-twitter-icon,
+.secondary-linkedin-icon,
+.secondary-instagram-icon {
+  @include size(39px);
+  // @include radius(50%);
+  // background-color: $primary-color-text;
+  margin: 0 10px;
+}
+
+.secondary-twitter-icon {
+  background-position: -56px 127px;
+
+  &:hover {
+    background-position-x: 0;
+  }
+}
+
+.secondary-linkedin-icon {
+  background-position: -167px 127px;
+}
+
+.secondary-instagram-icon {
+  background-position: -167px 78px;
+}
+
+.secondary-linkedin-icon:hover,
+.secondary-instagram-icon:hover {
+  background-position-x: -112px;
+}
+
+%icon-plus {
+  display: block;
+  height: 20px;
+  margin-bottom: rem-calc(10px);
+  overflow: hidden;
+  position: relative;
+  text-align: center;
+  text-indent: 100%;
+  white-space: nowrap;
+}
+
+%icon-plus::before {
+  @include center-horizontal;
+  @include transition(transform 0.25s linear);
+  background: $white-color;
+  border-radius: 2px;
+  content: "";
+  display: block;
+  height: 15px;
+  margin-top: -7px;
+  top: 50%;
+  width: 5px;
+}
+
+%icon-plus::after {
+  @include center-horizontal;
+  @include transition(transform 0.25s linear);
+  background: $white-color;
+  border-radius: 2px;
+  content: "";
+  display: block;
+  height: 5px;
+  margin-top: -2px;
+  top: 50%;
+  width: 15px;
+}
+
+.icon-plus {
+  @extend %icon-plus;
+}

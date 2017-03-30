@@ -1,0 +1,149 @@
+$input_types: 'input[type="text"],
+              input[type="password"],
+              input[type="date"],
+              input[type="datetime"],
+              input[type="datetime-local"],
+              input[type="month"],
+              input[type="week"],
+              input[type="email"],
+              input[type="number"],
+              input[type="search"],
+              input[type="tel"],
+              input[type="time"],
+              input[type="url"]';
+
+select:focus,
+input {
+  box-shadow: none;
+  outline: none;
+}
+
+#{$input_types},
+select,
+textarea {
+  color: $primary-color;
+  font-family: $sans-serif;
+}
+
+label em {
+  font-weight: bold;
+}
+
+fieldset {
+  &.primary {
+    h5,
+    h4,
+    h3,
+    .form-panel-headline {
+      color: $white-color;
+      font-weight: bold;
+    }
+  }
+
+  &:last-of-type {
+    margin-bottom: 0;
+  }
+}
+
+.inline-select .input.select select,
+.inline-select .input.grouped_select select {
+  background: none;
+  border-bottom: 2px dotted $primary-color;
+  border-radius: 0;
+  color: $primary-color-dark;
+  direction: rtl;
+  height: rem-calc(28px);
+  margin: 0;
+  padding: 0;
+  width: auto;
+
+  &:hover { background: $light-gray; }
+
+}
+
+.inline-select .input.select option,
+.inline-select .input.select option {
+  direction: ltr;
+}
+
+.auto-submit input[type='submit'] { display: none !important; }
+
+.form-primary-dark {
+  color: $primary-color-very-dark;
+
+  .animated-checkbox input[type="checkbox"]:checked + label,
+  .animated-checkbox input[type="radio"]:checked + label {
+    color: $gray-color;
+  }
+
+  .collapse-input .prefix {
+    background-color: $light-gray;
+    border-color: $primary-color-dark;
+    color: inherit;
+  }
+
+  #{$input_types}, select, textarea {
+    background-color: $light-gray;
+    border: 1px solid $primary-color-dark;
+    color: inherit;
+    margin-bottom: 1rem;
+  }
+
+  label {
+    color: inherit;
+    font-weight: bold;
+    padding-bottom: rem-calc(5px);
+
+    abbr { display: none; }
+  }
+
+  .radio-button-group {
+    margin-bottom: 1rem;
+
+    label {
+      background: $light-gray;
+      color: $primary-gray;
+    }
+  }
+
+  .radio-button-group label:hover,
+  .radio-button-group.cleared label:hover {
+    background: $primary-color-very-dark;
+    color: $white-color;
+  }
+
+  .radio-button-group.cleared label {
+    background: $light-gray;
+    color: $primary-color-very-dark;
+  }
+
+  .animated-checkbox {
+    padding-bottom: rem-calc(18px);
+    label { padding: rem-calc(5px 0 0 15px); }
+
+    .control-label {
+      font-family: $serif;
+      font-size: rem-calc(14px);
+      font-weight: bold;
+    }
+  }
+
+  .animated-checkbox.animated-checkbox-sml {
+    label {
+      padding: rem-calc(4px 0 0 10px);
+    }
+  }
+
+  .input .hint {
+    display: block;
+    margin: -13px 0 13px;
+  }
+
+  input[type="checkbox"] + label,
+  input[type="radio"] + label {
+    margin: 0;
+  }
+
+  .input-row { padding-bottom: rem-calc(13px); }
+
+}

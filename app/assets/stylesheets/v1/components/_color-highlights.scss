@@ -1,0 +1,13 @@
+%color-highlight {
+  @include size(56px);
+  margin: 0;
+  text-align: center;
+  display: inline-block;
+}
+
+@each $color in 'turqoise', 'dark-turqoise', 'tiger', 'tang' {
+  .color-highlight--#{$color} {
+    @extend %color-highlight;
+    background: url("/images/shared/color-highlight/#{$color}.png")
+  }
+}

@@ -1,0 +1,58 @@
+// inspired by http://styleguide.cfapps.io/utilities.html#whitespace
+// copied from https://github.com/pivotal-cf/pivotal-ui/blob/master/src/oocss/whitespace/_whitespace.scss
+
+$whitespace-keys: (p padding, m margin, a '', v -top -bottom, h -left -right, t -top, r -right, b -bottom, l -left);
+
+@function expand-whitespace-key($k) {
+  @each $pair in $whitespace-keys {
+    $short: nth($pair, 1);
+    $long: nth($pair, 2);
+    // v and h need to pass in 2 parameters
+    @if (length($pair) == 3) {
+      $long: (nth($pair, 2) nth($pair, 3));
+    }
+    @if $short == $k {
+      @return $long;
+    }
+  }
+  @warn "Couldn't expand #{$k}";
+  @return $k;
+}
+
+$tShirtSizes: (n, s, m, l, xl, xxl, xxxl, xxxxl);
+$types: (p, m);
+$locations: (a, v, h, t, r, b, l);
+$screens: (small, medium, large, xlarge, xxlarge);
+$screen-sizes: (
+  small: $small-only,
+  medium: $medium-only,
+  large: $large-only,
+  xlarge: $xlarge-only,
+  xxlarge: $xxlarge-only
+);
+
+$units: (0, 7px, 10px, 20px, 40px, 120px, 140px);
+@for $i from 1 through length($units) {
+
+  $tShirtSize: nth($tShirtSizes, $i);
+
+  @each $location in $locations {
+    @each $type in $types {
+      .#{$type}#{$location}#{$tShirtSize} {
+        @each $whitespace-location in expand-whitespace-key($location) {
+          #{expand-whitespace-key($type)}#{$whitespace-location}: nth($units, $i) !important;
+        }
+      }
+
+      @each $screen in $screens {
+        .#{$screen}-only-#{$type}#{$location}#{$tShirtSize} {
+          @media #{map-get($screen-sizes, $screen)} {
+            @each $whitespace-location in expand-whitespace-key($location) {
+              #{expand-whitespace-key($type)}#{$whitespace-location}: nth($units, $i) !important;
+            }
+          }
+        }
+      }
+    }
+  }
+}

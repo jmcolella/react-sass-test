@@ -1,0 +1,22 @@
+//= depend_on_asset "ss-pika2.eot"
+//= depend_on_asset "ss-pika2.woff"
+//= depend_on_asset "ss-pika2.ttf"
+//= depend_on_asset "ss-pika2.svg"
+@charset "UTF-8";
+
+@font-face {
+  font-family: "SSPika2";
+  src: url('/ss-pika2.eot');
+  src: url('/ss-pika2.eot?#iefix') format('embedded-opentype'),
+       url('/ss-pika2.woff') format('woff'),
+       url('/ss-pika2.ttf')  format('truetype'),
+       url('/ss-pika2.svg#SSPika2') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.ss-dog:before,.ss-dog.right:after{font-family: "SSPika2"; content:''}
+.ss-cat:before,.ss-cat.right:after{font-family: "SSPika2"; content:''}
+.ss-tooth:before,.ss-tooth.right:after{font-family: "SSPika2"; content:''}
+.ss-paw:before,.ss-paw.right:after{font-family: "SSPika2"; content:''}
+

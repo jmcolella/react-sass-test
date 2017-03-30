@@ -1,0 +1,160 @@
+$pricing-font-tiny: rem-calc(11);
+$pricing-font-small: rem-calc(16);
+$pricing-font-medium: rem-calc(19);
+$pricing-font-large: rem-calc(27);
+
+$price-bg: #FEECD4;
+$price-color: #F16930;
+$price-primary-color: #F89A24;
+
+
+$price-primary-score-color: #09c6a9;
+$price-secondary-score-color: #CEF4EE;
+
+$price-primary-instability-bg-color: #E6E6E6;
+$price-instability-title-bg-color: #ccc;
+$price-primary-instability-color: #554A4A;
+$price-instability-color: #9C9393;
+
+$background-pricing-table: $price-bg;
+$background-instability-table: $price-primary-instability-bg-color;
+
+$margin-label-tag-panel: rem-calc(50);
+
+// We use this to create the container element for the pricing tables
+@mixin pricing-table-container($price-table-border: $price-table-border, $margin: $margin) {
+  border: $price-table-border;
+  margin: $margin;
+}
+
+//change font size for caption of table
+@mixin pricing-caption ($caption-size: inherit, $caption-margin: 0 8px, $caption-color: $price-secondary-score-color) {
+  color: $caption-color;
+  font-size: $caption-size;
+  margin: $caption-margin;
+}
+
+// We use this mixin to create the pricing table row styles
+// define for each row of pricing tabel
+@mixin pricing-table ($bg: $price-bg, $align: center, $padding: 0.5375rem 1rem,$color: $price-color, $weight: 600, $size: 1.6875rem, $font-family: $sans-serif) {
+  background-color: $bg;
+  color: $color;
+  font-weight: $weight;
+  font-size: $size;
+  font-family: $font-family;
+  padding: $padding;
+  text-align: $align;
+}
+
+.pricing-table {
+
+  background: $background-pricing-table;
+  @include pricing-table-container($price-table-border: $transparent ,$margin: 0 0 2.5rem);
+  &.radius { @include radius; }
+  .title { 
+    @include pricing-table( $bg: darken( $price-bg, 12% ), $padding: 0.5375rem 1rem);
+    .ss-icon {
+      @include pricing-caption;
+    }
+  }
+
+  .price {
+    @include pricing-table($color: $price-primary-color, $size: 1.375rem);
+    .caption { 
+      @include pricing-caption ($caption-size: 0.875rem, $caption-margin: 10px 0, $caption-color: $price-color); 
+      font-family: $sans-serif;
+      font-weight: 600;
+    }
+  }
+
+  &.score {
+    background: $price-secondary-score-color;
+    .title { 
+      @include pricing-table( $bg: $price-primary-score-color, $size: 1.1875rem, $color: $primary-color-text);
+      @include radius( 0.5rem 0.5rem 0 0);
+    }
+    .point {
+      @include pricing-table( $bg: $price-secondary-score-color, $size: 3.125rem, $color: $price-primary-score-color, $font-family: $skippy-sharp); 
+      @include radius ( 0 0 0.5rem 0.5rem);
+      span {
+        vertical-align: sub;
+      }
+      padding: 0rem 1rem .9rem 1rem;
+    }
+  }
+  
+  &.cost {
+    @include pricing-table-container($price-table-border: $transparent ,$margin: 2.5rem 0);
+    background: #cceded;
+    .title {
+      @include pricing-table ($bg: $primary-color, $color: $primary-color-text, $font-family: $serif);
+    }
+
+    .detail {
+      @include pricing-table ($bg: $primary-color-extra-light, $align: left, $padding: 1.5rem, $weight: normal, $color: $brown-color-text, $font-family: $serif);
+      line-height: 1.3;
+    }
+    &.actual-cost {
+      background: #CEF4EE;
+      .title {
+        background: $teal-color;
+      }
+
+      .detail {
+        background: #CEF4EE;
+      }
+    }
+    &.has-after-content:after {
+      top: 17%;
+    }
+  }
+
+
+  &.instability {
+    background: $background-instability-table;
+    .title { @include pricing-table( $bg: $price-instability-title-bg-color, $color: $price-primary-instability-color, $padding: 0.5375rem 1rem); }
+    .price {
+      @include pricing-table($bg: $price-primary-instability-bg-color, $color: #9C9292);
+      .caption { 
+        @include pricing-caption ($caption-size: false, $caption-margin: false, $caption-color: $price-primary-instability-color); 
+      }
+    }
+  }
+
+  //mixin has-after-content have wrote in module/after-tag
+  &.has-after-content {
+    $width-content: 3.95rem;
+    $margin-content: -$width-content / 2;
+    @include after-tag ($size: $width-content, $content:' VS.', $position: absolute, $top: 35%, $vertical-align: middle);
+    &:after {
+      // @include radius(50%);
+      @include font-style($font-size: rem-calc(33), $line-height: 3.85rem, $padding: false);
+      background: #fff;
+      color: $brown-color-text;
+      margin-right: $margin-content;
+      text-align: center;
+      right: 0;
+      z-index: 9;
+    }
+  }
+  &.has-label-tag-panel {
+    .title {
+      text-align: left;
+      span {
+        margin-left: $margin-label-tag-panel/2;
+      }
+    }
+  }
+  .label-tag-panel {
+    margin-right: $margin-label-tag-panel;
+    right: 0;
+    .arrow {
+      @include arrow-label ($color: $secondary-color-dark);
+    }
+    .label-content {
+      @include label-style ($bg: $secondary-color, $float: false , $font-size: 0.75rem, $padding: 0.625rem, $width: 5rem );
+      font-family: $sans-serif;
+      line-height: 1rem;
+    }
+  }
+}

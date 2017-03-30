@@ -1,0 +1,23 @@
+//set background for page, header and content page
+.passwords,
+.confirmations,
+.invitations,
+.sessions {
+  header { background-color: $primary-color; }
+  background-color: $primary-color;
+}
+
+.sign-in {
+	@include form-box-small;
+	@include list-input-small;
+	a,
+	h2,
+	h3,
+	h4,
+	h5 { color: inherit; }
+	h3 { line-height: 2.5rem; }
+	strong {font-family: $serif;}
+	> .row { padding: 7.5rem 0;}
+	.list-input { color: white; }
+	color: white;
+}

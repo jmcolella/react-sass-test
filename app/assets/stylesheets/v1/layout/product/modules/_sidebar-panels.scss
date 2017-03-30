@@ -1,0 +1,125 @@
+$sidebar-panel-padding: 1.25rem 1.5rem;
+$sidebar-panel-header-padding: 0.2rem;
+$sidebar-panel-grouped-padding: 1.25rem;
+
+.sidebar-panel {
+  @include form-panel-colors($primary-color, $primary-color-very-dark,
+                             $primary-color-light, $white-color);
+  @include sidebar-panel-padding($sidebar-panel-padding);
+  .header {
+    font-family: $sans-serif;
+    font-size: rem-calc(12px);
+    text-transform: uppercase;
+  }
+
+  .value {
+    @extend %font-bold;
+    font-family: $serif;
+    font-size: rem-calc(26px);
+  }
+
+  p {
+    color: inherit;
+    line-height: 1;
+    margin: 0;
+    text-align: center;
+  }
+
+  &.primary {
+    @include form-panel-colors($primary-color-greened, $primary-color-very-dark, $white-color, $white-color);
+    @include sidebar-panel-padding($sidebar-panel-padding);
+
+    .header {
+      padding-bottom: $sidebar-panel-header-padding;
+    }
+  }
+
+  &.secondary {
+    @include form-panel-colors($white-color, $primary-color-dark, $white-color, $black-color-text);
+    @include form-panel-padding($sidebar-panel-padding);
+  }
+
+  &.small {
+    min-height: 3rem;
+    padding: 0.7rem 1rem;
+
+    .value {
+      font-size: rem-calc(20px);
+      line-height: 1;
+    }
+
+    .form-panel-icon { top: 0.95rem; }
+
+    .form-panel-icon i { @include relative(top -4px); }
+  }
+
+  @media #{$medium-bottom} {
+    .medium-12:first-child {
+      margin-bottom: rem-calc(15px);
+    }
+  }
+}
+
+.sidebar-panel.border-left {
+  background: $transparent;
+  border-left: 2px solid $primary-gray;
+  color: $brown-color-text;
+  opacity: 0;
+  padding: 0 0 0 rem-calc(10px);
+  position: absolute;
+  transition: opacity 0.25s linear, visibility 0.25s;
+  transition-delay: 0s, 0.25s;
+  visibility: hidden;
+
+  .button {
+    margin-bottom: 0;
+  }
+
+  @media #{$medium-bottom} {
+    border-left: 0;
+    border-top: 1px solid $primary-gray;
+    padding-top: rem-calc(20px);
+  }
+
+  &.is-visible {
+    opacity: 1;
+    position: relative;
+    transition: opacity 0.25s linear;
+    visibility: visible;
+  }
+}
+
+.sidebar-panel-title {
+  color: $primary-color;
+  font-size: rem-calc(21px);
+  font-weight: bold;
+  margin-bottom: 7px;
+  position: relative;
+  text-align: center;
+
+  &.primary { color: $primary-color-greened; }
+}
+
+.product__sidebar-grouped {
+  margin-bottom: $sidebar-panel-grouped-padding;
+
+  .form-panel,
+  .sidebar-panel {
+    margin-bottom: 0;
+  }
+
+  &.primary {
+    .form-panel {
+      background: $primary-color-light;
+    }
+
+    .sidebar-panel {
+      background: $primary-color-light;
+
+    }
+
+    .sidebar-panel.secondary {
+      background: $white-color;
+    }
+  }
+}

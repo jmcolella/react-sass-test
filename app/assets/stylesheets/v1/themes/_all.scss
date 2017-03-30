@@ -1,0 +1,255 @@
+@mixin footer-scheme($primary-bg, $sub-bg, $primary-headline, $primary-color, $sub-color, $name) {
+  .primary-footer {
+    background: $primary-bg;
+    color: $primary-color;
+    .logo-link {
+      @include retina("/images/pg-footer-logo-#{$name}.png", cover);
+    }
+    h4 { color: $primary-headline; }
+  }
+
+  .sub-footer {
+    color: $sub-color;
+    background: $sub-bg;
+    .logo-link {
+      @include retina("/images/pg-footer-logo-#{$name}.png", 166px 31px);
+    }
+  }
+
+  .team-footer { border-bottom: 2px solid $primary-color; }
+}
+
+@mixin theme($name, $color, $color-light, $color-very-light, $background-image) {
+
+  background-color: $color;
+  background-image: $background-image;
+  background-repeat: repeat;
+
+  main {
+    background: white;
+    display: block;
+  }
+
+  // Color the sidebar links
+  .side-nav li {
+
+    &.active a,
+    a:hover {
+      color: $color;
+    }
+    a:not(.button) {padding: 0px;}
+  }
+
+  // Color the topbar
+  .top-bar, header .fixed {
+    background-color: darken($color, 3%);
+    .emphasized {
+      background-color: lighten($color,7%);
+      margin-right: 1px;
+    }
+  }
+  .top-bar .top-bar-section > ul > li {
+    // First level topnav links
+    a { color: $color-very-light; }
+    &:hover > a,
+    a:hover,
+    &.active > a,
+    &.active > a:hover {
+      color: $color-very-light;
+      background-color: darken($color, 10%);
+    }
+    // Second level topnav links
+    .dropdown li {
+      a { color: $black-color-text; }
+      &.active a,
+      a:hover {
+        color: $color;
+        background-color: transparent;
+      }
+    }
+  }
+  // Top bar for small screens
+  .top-bar.expanded {
+    .toggle-topbar a { color: $color-very-light; }
+    .top-bar-section > ul > li .dropdown {
+      a, label { color: $color-very-light; }
+      a:hover,
+      li.active a {
+        color: $color-very-light;
+        background: darken($color, 10%);
+      }
+    }
+  }
+
+
+  // Color the subnav pills
+  .sub-nav {
+    li a {
+      color: $color-light;
+      border: 1px solid $color-light;
+      border-radius: $sub-nav-border-radius;
+    }
+    li.active a, li a:hover {
+      color: white;
+      background: $color-light;
+    }
+  }
+}
+
+%theme-teal {
+  @include theme(
+    'teal',
+    $primary-color,
+    $primary-color-light,
+    $primary-color-extra-light,
+    url("/images/banner-bg-key.png")
+  );
+
+  @include footer-scheme(#005c5c, #00a4a5, #66c8c9, #00a4a5, #99dadb, 'teal');
+}
+
+%theme-tiger {
+  @include theme(
+    'tiger',
+    $secondary-color,
+    $secondary-color-light,
+    $secondary-color-extra-light,
+    url("/images/banner-bg-squares.png")
+  );
+  @include footer-scheme(#b54e23, #f1682f, #f7a482, #f48659, #f7a482, 'tiger');
+}
+
+%theme-tang {
+  @include theme(
+    'tang',
+    $tertiary-color,
+    $tertiary-color-light,
+    $tertiary-color-very-light,
+    url("/images/banner-bg-triangles.png")
+  );
+  @include footer-scheme(#d87600, #f9a024, #fbc67c, #f9a024, #fbc67c, 'tang');
+}
+
+%theme-turquoise {
+  @include theme(
+    'turqoise',
+    $quaternary-color,
+    $quaternary-color-light,
+    $quaternary-color-very-light,
+    url("/images/banner-bg-trefoil.png")
+  );
+  @include footer-scheme(#07957f, #09c6a9, #9de8dd, #3ad1ba, #6bddcb, 'turqoise');
+}
+
+%theme-teal-stripe {
+  @extend %theme-teal;
+  background-image: none;
+  @include linear-gradient(25deg, darken($primary-color, 1%) 50%, $primary-color 50%, $fallback: $primary-color);
+}
+
+%theme-uac {
+  @include theme(
+    'uac',
+    $secondary-color,
+    $secondary-color-light,
+    $secondary-color-extra-light,
+    'none'
+  );
+  background-color: white;
+}
+
+.affiliates,
+.products,
+.life_landing,
+.health_landing,
+.pet_landing,
+.auto_landing,
+.pet_pre_application,
+.carriers,
+.life_carriers,
+.product,
+.life_profiles,
+.users_registrations,
+.product-navigator
+.product-policies,
+.product-applications,
+.partner_landings,
+.advice,
+.users_dashboard,
+.users_dashboard,
+.users_secure_messages,
+.secure_files,
+.users_accounts,
+.sign-in,
+.admin_applications {
+  @extend %theme-teal;
+}
+
+.accounts_disguises,
+.devise_confirmations,
+.devise_invitations,
+.devise_passwords,
+.devise_sessions,
+.disability_application,
+.life_applications,
+.life_insurance_quotes.new,
+.life_pdf_applications.confirmation,
+.pages.careers,
+.pages.thanks,
+.pages.thanks_contact,
+.pages.waiting_list_confirmation,
+.quote_requests,
+.quotes,
+.users_invitations,
+.users-passwords-new {
+  @extend %theme-teal-stripe;
+}
+
+.pages.home,
+.about {
+  @extend %theme-tiger;
+}
+
+.uac {
+  @extend %theme-uac;
+}
+
+.guides,
+.faqs,
+.companies,
+.glossary {
+  @extend %theme-teal;
+}
+
+.advice.show,
+.checkups,
+.survey.index  {
+  @extend %theme-turquoise;
+}
+
+.advice {
+  background-image: none;
+  &.show {
+    background-image: url("/images/banner-bg-trefoil.png");
+  }
+}
+
+.survey.index .insurance-overview {
+  background: white;
+}
+
+.waiting_list_confirmation .hero li {
+  color: white;
+
+  a {
+    color: white;
+    text-decoration: underline;
+  }
+}
+
+.disability .reveal-modal {
+  a {
+    color: white;
+    text-decoration: underline;
+  }
+}
