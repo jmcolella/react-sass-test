@@ -1,0 +1,270 @@
+// scss-lint:disable all
+/*doc
+---
+title: Choice Cards
+name: choice-cards
+category: Fields - Choice Cards
+---
+```slim_example
+.mod-choice-cards
+  input type='radio' id='choice1' name='choice' value='1' checked='checked'
+  label.card for='choice1'
+    .radio.single
+      span
+    .content
+      h4 Phasellus nisi
+      p Sed lobortis et quam at rhoncus
+    img src='images/Apply-online.png'
+
+  input type='radio' id='choice2' name='choice' value='2'
+  label.card for='choice2'
+    .radio.single
+      span
+    .content
+      h4 Donec lobortis dui
+      p Mauris tristique efficitur enim
+    img src='images/Call-an-expert.png'
+
+  input type='radio' id='choice3' name='choice' value='3'
+  label.card for='choice3'
+    .radio.single
+      span
+    .content
+      h4 Donec finibus convallis
+      p Nam metus massa, tempor vel tortor
+    img src='images/We-call-you.png'
+
+css:
+  .mod-choice-cards {
+    max-width: 720px;
+    padding: 36px;
+    background: #FBFBFB;
+  }
+```
+
+```slim_example
+.mod-choice-cards.sectioned
+  input type='radio' id='choice5' name='choice2' value='5' checked='checked'
+  label.card for='choice5'
+    .radio.single
+      span
+    .content
+      h4 Pellentesque habitant morbi tristique
+      .sections
+        .item
+          span Nunc mattis diam
+          .value $100
+          span
+            ' nulla
+        .item
+          span Risus
+          .value 10
+          span consectetur
+
+  input type='radio' id='choice6' name='choice2' value='6'
+  label.card for='choice6'
+    .radio.single
+      span
+    .content
+      h4 Pellentesque habitant morbi tristique senectus
+      .sections
+        .item
+          span Nunc mattis diam
+          .value $100
+          span
+            ' nulla
+        .item
+          span Risus
+          .value 10
+          span consectetur
+```
+*/
+// scss-lint:enable all
+
+$mod-choice-card-border-color:     $neutral-5;
+$mod-choice-card-background-color: $neutral-8;
+$mod-choice-card-color:            $neutral-2;
+
+.mod-choice-cards {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: ru(1.5);
+
+  .card {
+    flex: 1 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: ru(1) ru(.25);
+    border: 1px solid $mod-choice-card-border-color;
+    border-radius: ru(.25);
+    background-color: $mod-choice-card-background-color;
+    text-align: center;
+    color: $mod-choice-card-color;
+    opacity: .6;
+
+    .radio {
+      margin-bottom: ru(.75);
+    }
+
+    h4 {
+      @include typography-5;
+      font-weight: 600;
+      margin: 0 0 ru(.33);
+      color: inherit;
+    }
+
+    p { color: inherit; }
+
+    img {
+      margin: auto auto ru(-1.5);
+    }
+
+    + .card {
+      margin-left: ru(1);
+    }
+  }
+
+  input[type='radio'] {
+    position: absolute;
+    width: 0;
+    height: 0;
+    opacity: 0;
+
+    &:checked + .card {
+      opacity: 1;
+
+      span:after {
+        opacity: 1;
+      }
+    }
+  }
+
+  &.sectioned {
+    .card {
+      position: relative;
+      padding: ru(2.75) ru(1) ru(1);
+      border-bottom-width: ru(.167);
+
+      h4 { margin: 0 0 ru(1); }
+    }
+
+    .content {
+      flex: 1 0;
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      height: 100%;
+    }
+
+    .sections {
+      display: flex;
+      margin: auto ru(-1) ru(-1);
+      border-top: 1px solid $mod-choice-card-border-color;
+
+      > * {
+        @include typography-7;
+        flex: 1 1;
+        margin: 0;
+        padding: ru(.75);
+        line-height: ru(.75);
+        color: $mod-choice-card-color;
+        text-align: center;
+
+        .value {
+          @include typography-4;
+          font-weight: 600;
+          margin: 0;
+          text-align: center;
+        }
+
+        + * {
+          border-left: 1px solid $mod-choice-card-border-color;
+        }
+      }
+    }
+  }
+
+  @media #{$small-only} {
+    flex-direction: column;
+    margin-bottom: 0;
+
+    .card {
+      flex-direction: row;
+      padding: ru(.5);
+      margin: 0 0 ru(1);
+      text-align: left;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+
+      .radio {
+        margin: 0;
+      }
+
+      .content {
+        margin-left: ru(.5);
+        margin-right: ru(.5);
+      }
+
+      h4 {
+        @include typography-6;
+        font-weight: 600;
+        margin: 0 0 ru(.125);
+        color: inherit;
+      }
+
+      p {
+        @include typography-7;
+        margin: 0;
+        line-height: ru(.75);
+        color: inherit;
+      }
+
+      img {
+        margin: auto;
+        max-width: ru(3.5);
+      }
+    }
+
+    &.sectioned {
+      .card {
+        padding: ru(.5);
+
+        h4 {
+          margin: ru(.5);
+          text-align: left;
+        }
+
+        .content {
+          flex: 1 0;
+          margin: ru(-.5) ru(-.5) ru(-.5) ru(.5);
+          border-left: 1px solid $mod-choice-card-border-color;
+        }
+      }
+
+      .sections {
+        margin: 0;
+        .item { padding: ru(.5); }
+      }
+    }
+  }
+
+  @media #{$medium-up} {
+    &.sectioned {
+      .card {
+        display: block;
+
+        .radio {
+          display: inline-block;
+          vertical-align: middle;
+          position: absolute;
+          top: ru(1);
+          left: 50%;
+          transform: translateX(-50%);
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,188 @@
+// scss-lint:disable all
+/*doc
+---
+title: Carrier Panel
+name: carrier_panel
+category: Panels - Carrier Panel
+---
+```slim_example
+.mod-carrier-panel
+  h2 Suspendisse id felis nulla.
+  p
+   strong> Etiam malesuada quis augue vitae.
+   | Maecenas ullamcorper turpis quis elit volutpat, fermentum placerat arcu commodo. Mauris ex mauris, porttitor sed risus at.
+  .plans
+    .plan
+      img src='holder.js/180x80?auto=yes'
+      a.button href='#' Suspendisse
+    .plan
+      img src='holder.js/200x100?auto=yes'
+      a.button href='#' Suspendisse
+    .plan
+      img src='holder.js/140x60?auto=yes'
+      a.button href='#' Suspendisse
+```
+
+```slim_example
+.mod-carrier-panel
+  h2 Suspendisse id felis nulla.
+  p
+   strong> Etiam malesuada quis augue vitae.
+   | Maecenas ullamcorper turpis quis elit volutpat, fermentum placerat arcu commodo. Mauris ex mauris, porttitor sed risus at.
+  .plans
+    .plan
+      img src='holder.js/180x80?auto=yes'
+      a.button href='#' Suspendisse
+    .plan
+      img src='holder.js/200x100?auto=yes'
+      a.button href='#' Suspendisse
+    .plan
+      img src='holder.js/140x60?auto=yes'
+      a.button href='#' Suspendisse
+    .plan
+      img src='holder.js/180x80?auto=yes'
+      a.button href='#' Suspendisse
+    .plan
+      img src='holder.js/200x100?auto=yes'
+      a.button href='#' Suspendisse
+    .plan
+      img src='holder.js/140x60?auto=yes'
+      a.button href='#' Suspendisse
+```
+
+```slim_example
+.mod-carrier-panel
+  h2 Suspendisse id felis nulla.
+  p
+   strong> Aenean ac bibendum nisi
+   | Proin aliquam tortor et aliquam dignissim. Aliquam sapien enim, elementum at massa sit amet, pretium egestas metus.
+  .content
+    img src='holder.js/135x50?auto=yes'
+    img src='holder.js/135x50?auto=yes'
+    img src='holder.js/135x50?auto=yes'
+    img src='holder.js/135x50?auto=yes'
+    img src='holder.js/135x50?auto=yes'
+    img src='holder.js/135x50?auto=yes'
+    img src='holder.js/135x50?auto=yes'
+    img src='holder.js/135x50?auto=yes'
+```
+*/
+// scss-lint:enable all
+
+$carrier-panel-max-width:        rem-calc(540px);
+$carrier-panel-background-color: $neutral-4;
+$carrier-panel-color:            $neutral-8;
+
+.mod-carrier-panel {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex: 1 0 auto;
+  padding: ru(2);
+  margin-top: auto;
+  background-color: $carrier-panel-background-color;
+  font-family: $font-family-sans-serif;
+  text-align: center;
+  color: $carrier-panel-color;
+
+  h2 {
+    @include like-h1;
+    color: inherit;
+  }
+
+  p {
+    @include like-p;
+    align-self: center;
+    max-width: $carrier-panel-max-width;
+    margin: 0 auto ru(.5);
+    color: inherit;
+  }
+
+  strong {
+    font-weight: 600;
+  }
+
+  .plans {
+    @include arrange-children-in-a-row;
+    margin-top: ru(.5);
+    justify-content: center;
+  }
+
+  .plan {
+    display: flex;
+    flex-direction: column;
+    flex: 0 1 auto;
+    align-self: bottom;
+    justify-content: flex-end;
+
+    img {
+      margin: 0 auto ru(.5);
+    }
+  }
+
+  .content {
+    @include arrange-children-in-a-row;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    > * {
+      flex: 0 0;
+    }
+
+    img {
+      margin-top: ru(2);
+    }
+  }
+
+  .button {
+    align-self: center;
+    padding: ru(.33) ru(1);
+    font-weight: 400;
+    background-color: inherit;
+    border-color: $carrier-panel-color;
+    color: $carrier-panel-color;
+
+    &:hover,
+    &:active,
+    &:focus {
+      background-color: $carrier-panel-color;
+      border-color: $carrier-panel-color;
+      color: $carrier-panel-background-color;
+    }
+  }
+
+  .pg-tooltip {
+    border-bottom-color: $carrier-panel-color;
+  }
+
+  .pg-tooltip-popup {
+    @include typography-7;
+    line-height: ru(.75);
+    margin: 0;
+  }
+
+  @media #{$small-only} {
+    padding: ru(1);
+
+    h2 {
+      @include like-h2;
+      color: inherit;
+    }
+
+    .plans {
+      flex-direction: column;
+    }
+
+    .plan {
+      margin: 0;
+    }
+
+    .plan + .plan {
+      margin-top: ru(1.75);
+    }
+
+    .button {
+      padding: ru(.33);
+    }
+  }
+}

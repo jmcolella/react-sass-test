@@ -1,0 +1,215 @@
+// scss-lint:disable all
+/*doc
+---
+title: Checkbox List
+name: checkbox-list
+category: Fields - Checkbox List
+---
+```slim_example_table
+.mod-example
+  .checkbox-list
+    .header
+      h4 Pellentesque habitant
+      p Suspendisse id felis nulla. Nulla facilisi. Mauris pharetra augue ac arcu dapibus aliquam.
+    .content
+      label.checkbox
+        input type='checkbox' checked='checked'
+        span Nunc mattis diam libero
+      label.checkbox
+        input type='checkbox' checked='checked'
+        span Pellentesque habitant morbi
+      label.checkbox
+        input type='checkbox' disabled='disabled' checked='checked'
+        span Fringilla
+      label.checkbox
+        input type='checkbox' disabled='disabled'
+        span Sed lobortis et quam at
+      label.checkbox
+        input type='checkbox' checked='checked'
+        span Donec lobortis dui
+      label.checkbox
+        input type='checkbox' checked='checked'
+        span Mauris tristique
+```
+
+## Deselect all
+```slim_example_table
+.mod-example
+  .checkbox-list
+    .header
+      h4 Have you ever been treated for or taken medication for any of the following?
+    .content
+      label.checkbox
+        input type='checkbox'
+        span High Sed lobortis
+      label.checkbox
+        input type='checkbox'
+        span High Suspendisse
+      label.checkbox
+        input type='checkbox'
+        span Pellentesque
+      label.checkbox
+        input type='checkbox' checked='checked'
+        span Cras egestas
+      label.checkbox
+        input type='checkbox' checked='checked'
+        span Quisque
+      label.checkbox
+        input type='checkbox'
+        span Nullam
+      label.checkbox
+        input type='checkbox'
+        span Maximus tincidunt
+      label.checkbox
+        input type='checkbox'
+        span Nulla vitae
+    .footer
+      label.checkbox
+        input type='checkbox' data-deselect-all=''
+        span Nam metus massa, tempor vel tortor
+```
+
+```js_example
+$('.content input').on('change', function() {
+  $deselectAll = $(this).parents('.content').next().find('input[data-deselect-all]');
+  if ($deselectAll.is(':checked')) {
+    $deselectAll.prop('checked', false);
+  }
+});
+
+$('input[data-deselect-all]').on('change', function() {
+  var $all = $(this).parents('.footer').prev().find('input:checked');
+  if ($(this).is(':checked')) {
+    $all.each(function() {
+      $(this).prop('checked', false);
+    });
+  }
+});
+```
+
+## Focus state
+```slim_example_table
+.mod-example
+  .checkbox-list.focused
+    .header
+      h4 Pellentesque habitant
+      p Suspendisse id felis nulla. Nulla facilisi. Mauris pharetra augue ac arcu dapibus aliquam.
+    .content
+      label.checkbox
+        input type='checkbox' checked='checked'
+        span Nunc mattis diam libero
+      label.checkbox
+        input type='checkbox' checked='checked'
+        span Pellentesque habitant morbi
+      label.checkbox
+        input type='checkbox' disabled='disabled' checked='checked'
+        span Fringilla
+      label.checkbox
+        input type='checkbox' disabled='disabled'
+        span Sed lobortis et quam at
+```
+
+## No-border version
+```slim_example_table
+.mod-example style='background: #00A4A5; padding: 24px;'
+  .checkbox-list.no-border
+    .header
+      h4 Pellentesque habitant
+      p Suspendisse id felis nulla. Nulla facilisi. Mauris pharetra augue ac arcu dapibus aliquam.
+    .content
+      label.checkbox
+        input type='checkbox' checked='checked'
+        span Nunc mattis diam libero
+      label.checkbox
+        input type='checkbox' checked='checked'
+        span Pellentesque habitant morbi
+      label.checkbox
+        input type='checkbox' disabled='disabled' checked='checked'
+        span Fringilla
+      label.checkbox
+        input type='checkbox' disabled='disabled'
+        span Sed lobortis et quam at
+```
+*/
+// scss-lint:enable all
+
+$checkbox-list-border-color: $neutral-5;
+$checkbox-list-header-color: $neutral-1;
+$checkbox-list-content-color: $neutral-2;
+$checkbox-list-background-color: $neutral-8;
+$checkbox-list-focused-border-color: $brand-3;
+$checkbox-list-focused-background-color: $brand-6;
+
+[class^='mod-'] {
+  .checkbox-list {
+    @include field;
+    font-family: $font-family-sans-serif;
+    border: 1px solid $checkbox-list-border-color;
+    border-radius: ru(.25);
+    background-color: $checkbox-list-background-color;
+    transition: border-color 500ms ease, background-color 500ms ease;
+
+    &.focused {
+      border-color: $checkbox-list-focused-border-color;
+      background-color: $checkbox-list-focused-background-color;
+
+      .header {
+        border-bottom-color: $checkbox-list-focused-border-color;
+      }
+    }
+
+    .header {
+      padding: ru(.75);
+      border-bottom: 1px solid $checkbox-list-border-color;
+
+      h4,
+      p {
+        @include typography-6;
+        color: $checkbox-list-header-color;
+        margin: 0;
+      }
+
+      h4 { font-weight: 600; }
+      p { font-weight: 300; }
+    }
+
+    .content {
+      padding: ru(.75);
+
+      > * {
+        margin: 0;
+      }
+
+      @media #{$small-only} {
+        @include arrange-in-block-grid($per-row: 1, $gutter: ru(.75));
+      }
+
+      @media #{$medium-up} {
+        @include arrange-in-block-grid($per-row: 2, $gutter: ru(.75));
+      }
+    }
+
+    .footer {
+      padding: ru(.75);
+      border-top: 1px solid $checkbox-list-border-color;
+    }
+
+    @media #{$medium-up-to-xxlarge} {
+      .header {
+        padding: ru(.5) ru(.75);
+
+        h4,
+        p {
+          @include typography-7;
+          line-height: ru(.75);
+          margin: 0;
+        }
+      }
+
+      .content,
+      .footer {
+        padding: ru(.5) ru(.75);
+      }
+    }
+  }
+}

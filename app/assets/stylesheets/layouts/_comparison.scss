@@ -1,0 +1,178 @@
+// scss-lint:disable all
+/*doc
+---
+title: Comparison Layout
+name: comparison
+category: Layouts - Comparison
+---
+
+This layout for the Comparison page is too complicated for Hologram to properly
+handle, because it also depends on background images and other modules
+(`mod-comparison` and `mod-comparison_header`). To see this in action it's
+better to check out the `comparison-layout` branch on the Rails app and go to
+[http://localhost:3000/mocks/comparison](http://localhost:3000/mocks/comparison)
+(that's also the best source when implementing this layout).
+
+Foundation is not used for this layout, because the grid system isn't granular
+enough to accommodate the (changing) fixed with for the left rail.
+
+**Important:** To toggle the filters on narrow viewports (mobile), JavaScript
+needs to be added that toggles the class `show-filters` on the `<body>` tag.
+This does not affect wider viewports.
+
+```slim_example
+  .mod-comparison_header
+    .wrap
+      h1 Suspendisse
+
+      h2 In rhoncus orci et
+
+      a.toggle-filters href='#filters' Ut scelerisque
+
+      ul.actions
+        li: a.i-phone href='#' Pellentesque
+        li: a.i-mail href='#' Donec non
+
+.mod-comparison.layout-comparison
+  #filters.filters.layout-filters
+    a.back href='#results' Vivamus ultricies augue
+    p filters
+
+  #results.results.layout-results
+    p sodales
+```
+*/
+// scss-lint:enable all
+
+.layout-comparison {
+  min-height: calc(100vh - 150px);
+
+  @media #{$small-only} {
+    .show-filters & {
+      .layout-filters {
+        display: block;
+      }
+    }
+  }
+
+  .layout-filters {
+    display: none;
+  }
+
+  .layout-cards {
+    padding: ru(1) ru(1.5);
+
+    > * {
+      max-width: rem-calc(1000px);
+      margin: 0 auto ru(2);
+      display: block;
+    }
+  }
+
+  @media #{$medium-up} {
+    display: flex;
+
+    .layout-filters {
+      display: flex;
+      padding: rem-calc(25) 0;
+    }
+  }
+
+  @media #{$large-up} {
+    min-height: calc(100vh - 170px);
+  }
+}
+
+.layout-cards {
+  .layout-equal-columns,
+  .layout-space-between {
+    > * {
+      &:first-child {
+        order: 1;
+        margin-top: ru(1);
+      }
+    }
+
+    b {
+      font-weight: bold;
+      margin-right: ru(.5);
+    }
+
+    .button {
+      font-size: rem-calc(14px);
+    }
+
+    .layout-view-actions {
+      display: flex;
+    }
+  }
+
+  .mod-robust-card {
+    &.dashed {
+      padding: ru(1);
+
+      .preferences {
+        flex-wrap: wrap;
+      }
+
+      p {
+        max-width: ru(25);
+      }
+    }
+  }
+
+  .show-result {
+    span {
+      font-weight: bold;
+    }
+  }
+}
+
+@media #{$small-only} {
+  .layout-comparison {
+    .layout-cards {
+      padding: ru(1) 0;
+
+      .layout-equal-columns,
+      .layout-space-between {
+        .layout-view-actions {
+          > :first-child {
+            margin-right: ru(.5);
+          }
+        }
+      }
+    }
+  }
+}
+
+@media #{$medium-up}{
+  .layout-cards {
+    .layout-equal-columns,
+    .layout-space-between {
+      > * {
+        margin-top: 0;
+
+        &:first-child {
+          order: 0;
+        }
+      }
+    }
+
+    .mod-robust-card {
+      &.dashed {
+        .button {
+          max-width: ru(10);
+        }
+      }
+    }
+  }
+}
+
+@media #{$large-up} {
+  .show-result {
+    span {
+      @include typography-3;
+      color: $brand-2;
+    }
+  }
+}

@@ -1,0 +1,224 @@
+// scss-lint:disable all
+/*doc
+---
+title: Countdown
+name: countdown
+category: Modules - Countdown
+---
+```slim_example
+.example
+  .mod-countdown
+    .header Maecenas ullamcorper turpis quis elit
+    .body
+      .item
+        .value 10
+        .unit Mauris
+      .item
+        .value 0
+        .unit Donec
+      .item
+        .value 10
+        .unit Vivamus
+      .item
+        .value 10
+        .unit Aenean
+
+css:
+  .example {
+    padding: 24px 0;
+    background: #eee;
+  }
+```
+
+## Mini
+```slim_example_table
+.mod-countdown.mini
+  .count 100 Maecenas
+  .until
+    ' nunc
+    a href='#' scelerisque enim
+```
+*/
+// scss-lint:enable all
+
+$countdown-min-width:                  rem-calc(290px);
+$countdown-color:                      $neutral-2;
+$countdown-item-background-color:      $neutral-8;
+$countdown-item-border-color:          $neutral-6;
+$countdown-item-border-radius:         ru(.25);
+$countdown-item-value-color:           $brand-2;
+$countdown-mini-background-color:      rgba(0, 72, 72, .28);
+$countdown-mini-color:                 $neutral-8;
+$countdown-mini-small-backgroud-color: $action-2;
+
+.mod-countdown {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: $countdown-min-width;
+  color: $countdown-color;
+
+  .header {
+    @include like-p;
+    margin: 0 0 ru(.75);
+    text-align: center;
+    color: inherit;
+  }
+
+  .body {
+    display: flex;
+  }
+
+  .item {
+    min-width: ru(3.33);
+    padding: ru(.5) ru(.25);
+    background-color: $countdown-item-background-color;
+    border: 1px solid $countdown-item-border-color;
+    border-radius: $countdown-item-border-radius;
+
+    .value {
+      @include like-h1;
+      line-height: ru(1.5);
+      margin: 0 0 ru(.167);
+      text-align: center;
+      color: $countdown-item-value-color;
+    }
+
+    .unit {
+      @include like-p;
+      margin: 0;
+      text-align: center;
+      color: inherit;
+    }
+
+    + .item {
+      margin-left: ru(.5);
+    }
+  }
+
+  &.mini {
+    position: relative;
+    display: inline-block;
+    min-width: 0;
+    padding: ru(.5);
+    background: $countdown-mini-background-color;
+    border-radius: ru(.25);
+    text-align: center;
+    color: $countdown-mini-color;
+
+    .count {
+      @include typography-5;
+      font-weight: 600;
+      line-height: ru(1);
+      margin: 0;
+    }
+
+    .until {
+      @include typography-7;
+      font-weight: 400;
+      line-height: ru(.75);
+      margin: 0;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    &:after {
+      content: '';
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      margin-left: ru(-.5);
+      width: 0;
+      height: 0;
+      border-top: ru(.5) solid $countdown-mini-background-color;
+      border-left: ru(.5) solid transparent;
+      border-right: ru(.5) solid transparent;
+    }
+  }
+
+  @media #{$small-only} {
+    .header {
+      order: 2;
+      margin: ru(.75) 0 0;
+    }
+
+    .body {
+      order: 1;
+    }
+
+    .item {
+      min-width: ru(2.75);
+
+      .value {
+        @include like-h2;
+        line-height: ru(1.25);
+        margin: 0 0 ru(.125);
+        color: $countdown-item-value-color;
+      }
+
+      .unit {
+        @include typography-7;
+        line-height: ru(.75);
+        margin: 0;
+      }
+
+      + .item {
+        margin-left: ru(.33);
+      }
+    }
+
+    &.mini {
+      display: block;
+      border-radius: 0;
+      background-color: $countdown-mini-small-backgroud-color;
+      padding: ru(.5);
+      text-align: center;
+
+      .count,
+      .until {
+        @include typography-5;
+        display: inline-block;
+        line-height: ru(1);
+        margin: 0;
+      }
+
+      .until {
+        font-weight: 300;
+        margin-left: rem-calc(5px);
+      }
+
+      &:after {
+        display: none;
+      }
+    }
+  }
+
+  @media #{$medium-only} {
+    &.mini {
+      display: block;
+      border-radius: 0;
+      background-color: $countdown-mini-small-backgroud-color;
+      padding: ru(.5);
+      text-align: center;
+
+      .count,
+      .until {
+        @include typography-5;
+        display: inline-block;
+        line-height: ru(1);
+        margin: 0;
+      }
+
+      .until {
+        font-weight: 300;
+        margin-left: rem-calc(5px);
+      }
+
+      &:after {
+        display: none;
+      }
+    }
+  }
+}

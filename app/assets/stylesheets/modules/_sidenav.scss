@@ -1,0 +1,106 @@
+// scss-lint:disable all
+/*doc
+---
+title: Sidenav
+name: sidenav
+category: Modules - Sidenav
+---
+```slim_example_table
+.mod-sidenav
+  ul
+    li
+      h4 Aenean
+      ul
+        li: a href='#' Bibendum
+        li: a href='#' Phasellus
+        li: a href='#' Curabitur
+        li: a href='#' Pharetra
+        li: a href='#' NAM
+        li: a href='#' Vivamus
+        li: a href='#' Aliquam
+    li
+      h4 Mauris
+      ul
+        li: a href='#' Fringilla
+        li: a href='#' Senectus
+        li: a href='#' Tristique
+        li: a href='#' Suspendisse
+```
+
+## Simple
+```slim_example_table
+.mod-sidenav.condensed
+  ul
+    li: a href='#' Cursus risus
+    li: a href='#' Fusce
+    li: a.active href='#' Risus blandit
+    li: a href='#' Mollis
+    li: a href='#' Massa
+    li: a href='#' Maximus
+    li: a href='#' Congue
+```
+*/
+// scss-lint:enable all
+
+.mod-sidenav {
+  list-style: none;
+  margin-top: ru(3.5);
+  text-align: right;
+  line-height: ru(1);
+  font-family: $sans-serif;
+  color: $main-font-color;
+
+  h4 {
+    @extend .typography-6;
+    font-weight: bold;
+  }
+
+  > ul {
+    a {
+      @extend .typography-6;
+      @extend .lowlight;
+      font-weight: 300;
+      text-decoration: none;
+
+      &:hover,
+      &:active {
+        color: $link-lowlight-hover-color;
+      }
+    }
+
+    > li + li {
+      margin-top: ru(.75);
+    }
+  }
+
+  li li {
+    height: ru(1.17);
+  }
+
+  &.condensed {
+    text-align: left;
+    margin-top: 0;
+
+    li + li {
+      margin-top: ru(.33);
+    }
+
+    > ul {
+      a {
+        font-weight: 400;
+        text-decoration: none;
+
+        &:hover,
+        &:focus,
+        &:active,
+        &.active {
+          color: $link-colored-color;
+        }
+
+        &.active {
+          font-weight: 600;
+        }
+      }
+    }
+  }
+}

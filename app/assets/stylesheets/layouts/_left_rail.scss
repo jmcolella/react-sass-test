@@ -1,0 +1,333 @@
+// scss-lint:disable all
+/*doc
+---
+title: Left Rail Layout
+name: left_rail
+category: Layouts - Left Rail
+---
+```slim_example
+.layout-left-rail
+  header
+    .logo
+      img src='https://cdn.policygenius.com/assets/pg-logo-white.png'
+    .title
+      .hamburger-toggle.i-rows
+      h1 Aenean sit amet
+
+  .layout-main
+    .layout-sidebar
+      .mod-nav-panel
+        .header
+          a href='#' Fusce
+        .body
+          ul
+            li
+              a.i-dashboard href='#' Consectetur
+            li.forward
+              a.active.i-textfile href='#' Hendrerit
+            li
+              a.i-mail href='#' Maximus
+            li
+              a.i-help href='#' Iaculis
+            li
+              a.i-folder href='#'
+                | Ultrices arcu
+                span.badge 1
+          h5 Faucibus lacus
+          ul
+            li
+              a.i-quote href='#' Donec nunc nulla
+            li
+              a.i-chat href='#' Nulla facilisi
+            li
+              a.i-send href='#' Pellentesque ornare
+
+    .layout-content
+      .mod-tabs
+        ul.nav
+          li.active
+            a href='#' Finibus
+          li
+            a href='#' Auctor
+          li
+            a href='#' Suspendisse
+          li.icon
+            a.i-dashboard href='#'
+          li.icon
+            a.i-mail href='#'
+        .content
+          p Pellentesque ornare malesuada blandit. Cras egestas neque non massa porta, molestie ornare ipsum luctus. Quisque eget ullamcorper eros, semper pulvinar eros.
+```
+
+When there are no tabs
+
+```slim_example
+.layout-left-rail
+  header
+    .logo
+      img src='https://cdn.policygenius.com/assets/pg-logo-white.png'
+    .title
+      h1 Aenean sit amet
+
+  .layout-main
+    .layout-sidebar
+      .mod-nav-panel
+        .header
+          a href='#' Fusce
+        .body
+          ul
+            li
+              a.i-dashboard href='#' Consectetur
+    .layout-content
+      .mod-tabs
+        .content
+          p Pellentesque ornare malesuada blandit. Cras egestas neque non massa porta, molestie ornare ipsum luctus. Quisque eget ullamcorper eros, semper pulvinar eros.
+    p Pellentesque
+*/
+// scss-lint:enable all
+
+$left-rail-header-gradient-start-color:         $brand-2;
+$left-rail-header-gradient-stop-color:          $brand-1;
+$left-rail-header-light-background-color:       $brand-2;
+$left-rail-header-dark-background-color:        $brand-1;
+$left-rail-header-color:                        $neutral-8;
+$layout-left-rail-sidebar-box-shadow-color:     rgba(0, 0, 0, .15);
+$side-bar-width:                                rem-calc(230px);
+$logo-size-small:                               rem-calc(160px);
+$logo-size-large:                               rem-calc(230px);
+$left-rail-side-bar-hamburger-toggle-size:      rem-calc(21px);
+$left-rail-side-bar-background-color:           $neutral-6;
+$overlay-background-color:                      rgba($neutral-1, .5);
+$sidebar-transition-time:                       .25s;
+$layout-content-default-min-width:              rem-calc(770px);
+
+.layout-left-rail {
+  max-width: none;
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+
+  @media #{$ie10-11} {
+    display: block;
+  }
+
+  .layout-main {
+    display: flex;
+    position: relative;
+    align-items: stretch;
+    flex: 1;
+  }
+
+  .layout-sidebar {
+    background-color: $left-rail-side-bar-background-color;
+    box-shadow: 2px 0 0 $layout-left-rail-sidebar-box-shadow-color;
+    z-index: 1;
+  }
+
+  .layout-content {
+    flex: 1 0;
+  }
+
+  > header {
+    @include linear-gradient(
+      to bottom,
+      $left-rail-header-gradient-start-color 0,
+      $left-rail-header-gradient-stop-color 100%,
+      $fallback: $left-rail-header-gradient-stop-color);
+
+    display: flex;
+    position: relative;
+    align-items: center;
+    padding: ru(1.5) 0 ru(3.5);
+    margin-bottom: ru(-2);
+    color: $left-rail-header-color;
+
+    .logo {
+      flex: 0 0;
+      text-align: center;
+
+      img { width: 65%; }
+    }
+
+    .title {
+      display: flex;
+      align-items: center;
+      flex: 1 0;
+    }
+
+    h1 {
+      @extend .like-h1;
+      margin: 0 0 0 ru(1);
+    }
+  }
+
+  // When there are no tabs
+  .mod-tabs > .content:first-child {
+    margin-top: ru(2);
+  }
+
+  @media #{$small-only} {
+    &.sidebar-open {
+      .title {
+        overflow: hidden;
+
+        h1 {
+          position: relative;
+          text-indent: 100%;
+          overflow: hidden;
+          white-space: nowrap;
+
+          &:after {
+            content: 'Menu';
+            position: absolute;
+            text-indent: 0%;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+          }
+        }
+      }
+    }
+
+    > header {
+      padding: ru(2) 0 ru(4);
+      background-color: $left-rail-header-dark-background-color;
+      padding-top: ru(3);
+      padding-bottom: ru(3);
+
+      h1 {
+        margin-bottom: 0;
+      }
+
+      .logo {
+        position: absolute;
+        top: 0;
+        flex-basis: $logo-size-small;
+        width: $logo-size-small;
+        padding: ru(.5);
+
+        img { width: 80%; }
+      }
+
+      &:before {
+        position: absolute;
+        top: 0;
+        background-color: $left-rail-header-light-background-color;
+        content: '';
+        display: block;
+        height: ru(2);
+        width: 100%;
+      }
+    }
+
+    .layout-sidebar {
+      width: 100%;
+      margin-left: -100%;
+    }
+
+    .hamburger-toggle {
+      cursor: pointer;
+      position: absolute;
+      top: ru(.2);
+      right: ru(.75);
+    }
+  }
+
+  @media #{$medium-bottom} {
+    .hamburger-toggle {
+      display: block;
+      font-size: $left-rail-side-bar-hamburger-toggle-size;
+      color: $left-rail-header-color;
+      margin-top: ru(.25);
+      margin-left: ru(1);
+      cursor: pointer;
+    }
+
+    .layout-sidebar {
+      overflow: hidden;
+      transition: margin-left $sidebar-transition-time linear;
+
+      &.open {
+        margin-left: 0;
+      }
+    }
+
+    .layout-content {
+      overflow: hidden;
+    }
+  }
+
+  @media #{$medium-only} {
+    > header {
+      .logo {
+        margin-left: -$side-bar-width;
+        transition: margin-left $sidebar-transition-time linear;
+      }
+    }
+
+    .layout-sidebar {
+      margin-left: -$side-bar-width;
+    }
+
+    .layout-main {
+      .overlay {
+        content: '';
+        position: fixed;
+        z-index: -1;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background: inherit;
+        transition: all $sidebar-transition-time linear;
+      }
+
+      &.sidebar-open {
+        .overlay {
+          z-index: 1000;
+          left: $side-bar-width;
+          background: $overlay-background-color;
+        }
+      }
+    }
+
+    .layout-content {
+      .mod-tabs {
+        min-width: $layout-content-default-min-width;
+      }
+    }
+
+    &.sidebar-open {
+      .logo {
+        margin-left: 0;
+      }
+    }
+  }
+
+  @media #{$medium-up} {
+    > header {
+      .logo {
+        flex-basis: $logo-size-large;
+      }
+    }
+
+    .layout-sidebar {
+      flex-basis: $side-bar-width;
+    }
+  }
+
+  @media #{$large-up} {
+    > header {
+      .hamburger-toggle {
+        display: none;
+      }
+    }
+  }
+
+  @media #{$screen} {
+    > header {
+      h1 { color: inherit; }
+    }
+  }
+}

@@ -1,0 +1,62 @@
+// scss-lint:disable all
+/*doc
+---
+title: Box Card
+name: box-card
+category: Cards - Box Card
+---
+```slim_example_table
+.mod-box-card
+  h5 In rhoncus orci et ex
+  p Proin aliquam tortor et aliquam dignissim. Aliquam sapien enim, elementum at massa sit amet
+  p Mauris semper faucibus tellus, id auctor mauris suscipit eget. Aenean in lacus lacinia, varius massa eget.
+  p In rhoncus orci et ex fermentum, ut euismod diam tincidunt. Vivamus eu aliquet sapien, non fringilla enim. Ut scelerisque nulla at sem suscipit, at porta mi tincidunt. Nunc in pharetra velit. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Donec imperdiet leo id odio tincidunt, eget blandit nisi fermentum. Donec non libero vitae augue consequat aliquet.
+```
+
+```slim_example_table
+.mod-box-card
+  .flex-row
+    img src='images/heart-sign.png'
+    div
+      h5 Fusce euismod bibendum orci
+      p Nunc mattis molestie libero, sed vulputate ipsum aliquet vitae. Proin pharetra felis et.
+      p Sed dapibus orci id sapien placerat, a consequat augue efficitur. Donec dui est, aliquet at enim ac, egestas consectetur orci.
+      p Morbi quis dui consequat, consectetur massa nec, blandit tellus. Nam accumsan quam eu blandit rhoncus. Suspendisse sed sem sagittis, ultricies erat ut, pretium neque. Vestibulum lacinia dignissim convallis. Nam consequat maximus turpis, vestibulum tristique metus aliquam eget. Aenean gravida velit suscipit imperdiet aliquam. Maecenas efficitur accumsan hendrerit.
+```
+*/
+// scss-lint:enable all
+
+$box-card-border-color:               $neutral-5;
+$box-card-background-color:           $neutral-8;
+$box-card-color:                      $neutral-2;
+$box-card-header-color:               $brand-2;
+
+.mod-box-card {
+  padding: ru(.75);
+  margin-bottom: ru(1);
+  border: 1px solid $box-card-border-color;
+  border-bottom-width: ru(.167);
+  border-radius: ru(.25);
+  background-color: $box-card-background-color;
+  color: $box-card-color;
+
+  h5 {
+    @include typography-5;
+    font-weight: 600;
+    // scss-lint:disable ImportantRule
+    margin: 0 0 ru(.167) !important;
+    color: $box-card-header-color !important;
+    // scss-lint:enable ImportantRule
+  }
+
+  p {
+    @include typography-6;
+    font-weight: 400;
+    margin: 0 0 ru(.5);
+    color: inherit;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}

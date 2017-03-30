@@ -1,0 +1,155 @@
+// scss-lint:disable all
+/*doc
+---
+title: Video Section
+name: video-section
+category: Modules - Video Section
+---
+
+## Variant #1
+```slim_example
+.mod-video.flex
+  .video-inner
+    h2.video-title.line Maecenas ullamcorper turpis
+    iframe allowfullscreen="" frameborder="0" height="360" src="https://www.youtube.com/embed/edVHZDcA3wo" width="640"
+```
+
+## Variant #2
+```slim_example
+.mod-video.video-right
+  h2.video-title.small Mauris pharetra augue ac arcu dapibus aliquam dapibus ex dictum in
+  .video-inner
+    iframe allowfullscreen="" frameborder="0" height="360" src="https://www.youtube.com/embed/edVHZDcA3wo" width="640"
+  p.video-text
+    | Maecenas ullamcorper turpis quis elit volutpat, fermentum placerat arcu commodo. Mauris ex mauris, porttitor sed risus at, feugiat sollicitudin augue. Nam et consequat urna. Fusce quis elit at turpis convallis pretium. Quisque ac quam tristique, euismod justo et, ultrices arcu. Vivamus consectetur risus et sapien maximus, sollicitudin pulvinar justo tincidunt. Suspendisse et nisi turpis.
+  p.video-text
+    | Maecenas rhoncus pulvinar dolor, sit amet commodo risus hendrerit quis. Suspendisse vel massa iaculis, porta massa in, pellentesque purus. Vivamus faucibus lacus et purus fringilla, sit amet placerat mi tempus. Donec nunc nulla, posuere ultricies imperdiet a, accumsan id lectus. Curabitur efficitur euismod turpis nec efficitur. Nullam consectetur ipsum in viverra sodales vitae dapibus ex dictum in. Nullam tempor scelerisque enim, ut dapibus tellus finibus quis. Phasellus sapien turpis, faucibus vel magna vel, auctor porttitor tellus. Integer pharetra felis leo, convallis condimentum neque viverra sit amet. Etiam ut ullamcorper diam. Pellentesque ornare malesuada blandit.
+    p.video-text
+      | Nam metus massa, tempor vel tortor et, pretium vestibulum libero. Phasellus id nulla convallis, faucibus magna sit amet, tempus arcu. Nunc ornare ornare nunc, nec efficitur tortor. Sed non diam id purus placerat convallis sit amet vitae nulla. Phasellus nisi est, posuere ut elit id, lobortis molestie est. Sed lobortis et quam at rhoncus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Sed iaculis ante quis enim commodo, eget lacinia erat convallis. Donec lobortis dui eget lectus placerat pretium nec quis erat. Mauris tristique efficitur enim, eu scelerisque ante dignissim sit amet.
+```
+
+## Variant #3
+```slim_example
+.mod-video.video-left
+  h2.video-title.small Mauris pharetra augue ac arcu dapibus aliquam dapibus ex dictum in
+  .video-inner
+    iframe allowfullscreen="" frameborder="0" height="360" src="https://www.youtube.com/embed/edVHZDcA3wo" width="640"
+  div.video-list
+    img src='holder.js/100px400?text=List'
+*/
+// scss-lint:enable all
+
+.mod-video {
+  @extend .clearfix;
+  padding: ru(1.5) ru(.5);
+  background-color: $neutral-7;
+
+  &.flex {
+    display: flex;
+    justify-content: center;
+  }
+
+  .video-inner {
+    width: 100%;
+    overflow: hidden;
+    text-align: center;
+
+    iframe {
+      width: 100%;
+      max-width: 100%;
+    }
+  }
+
+  &.video-right,
+  &.video-left {
+    .video-inner {
+      margin-bottom: ru(1.5);
+    }
+  }
+
+  .video-title {
+    @include typography-3;
+    margin-bottom: ru(1.333333);
+    position: relative;
+    display: inline-block;
+    font-weight: 600;
+    color: $neutral-2;
+
+    &.small {
+      @include typography-4;
+    }
+
+    &.line {
+      &:after {
+        content: '';
+        position: absolute;
+        bottom: ru(-.333333);
+        left: 50%;
+        width: calc(100% + #{ru(1.333333)});
+        border-bottom: 2px solid $brand-3;
+        transform: translateX(-50%);
+      }
+    }
+  }
+
+  .video-text {
+    @include typography-6;
+    font-weight: 300;
+    color: $neutral-2;
+  }
+
+  @media #{$large-up} {
+    .video-inner {
+      @include g-unit(8);
+    }
+
+    &.video-right,
+    &.video-left {
+      .video-inner {
+        @include g-unit(6);
+      }
+
+      .video-title {
+        @include g-unit(5);
+      }
+
+      .video-list {
+        @include g-unit(5);
+        display: inline-block;
+        padding: 0;
+      }
+    }
+
+    &.video-right {
+      .video-inner {
+        padding-right: 0;
+        float: right;
+        margin-left: 8.33333%;
+      }
+
+      .video-title {
+        float: left;
+      }
+
+      .video-text {
+        clear: left;
+      }
+    }
+
+    &.video-left {
+      .video-inner {
+        padding-left: 0;
+        float: left;
+        margin-right: 8.33333%;
+      }
+
+      .video-title {
+        float: right;
+      }
+
+      .video-text {
+        clear: right;
+      }
+    }
+  }
+}

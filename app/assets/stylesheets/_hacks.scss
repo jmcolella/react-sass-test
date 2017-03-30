@@ -1,0 +1,197 @@
+.ie9 {
+  // Components
+  [class^='mod-'] {
+    .selectbox {
+      &:after { display: none; }
+      select { padding: 0 ru(.25) 0 ru(.5); }
+    }
+
+
+    .selectfield {
+      @include table-model($alignment: middle);
+
+      .selectbox { width: 100%; }
+    }
+
+
+    .textfield {
+      @include table-model();
+
+      .group {
+        @include table-model($alignment: middle);
+        table-layout: auto;
+      }
+    }
+  }
+
+  // Layouts
+  .layout-left-rail {
+    .layout-main,
+    > header {
+      @include table-model();
+      table-layout: auto;
+    }
+
+    .layout-sidebar,
+    > header .logo {
+      width: rem-calc(240px);
+    }
+
+    > header > * {
+      vertical-align: middle;
+    }
+  }
+
+
+  // Modules
+  .mod-article-list {
+    figure {
+      @include table-model();
+      table-layout: auto;
+
+      img { width: 100%; }
+    }
+  }
+
+  .mod-block-panel {
+    @include table-model($alignment: middle);
+    table-layout: auto;
+
+    .header {
+      width: 16.67%;
+      &:before { display: block; }
+    }
+
+    .content {
+      display: inline-block;
+      vertical-align: middle;
+      width: 66%;
+      padding: ru(1);
+      padding-left: ru(4);
+    }
+
+    .actions {
+      display: inline-block;
+      vertical-align: middle;
+      width: 33%;
+      padding: ru(1);
+    }
+
+    &.dashed {
+      .content {
+        padding-left: ru(1);
+      }
+    }
+  }
+
+
+  .mod-breadcrumbs {
+    @include table-model();
+  }
+
+
+  .mod-card {
+    .multiple {
+      @include table-model($alignment: middle);
+    }
+
+    .header {
+      padding-left: 0;
+      padding-right: 0;
+
+      h2 {
+        padding-top: ru(.5);
+        padding-bottom: ru(.5);
+      }
+
+      .multiple {
+        margin-top: ru(-.5);
+        margin-bottom: ru(-.5);
+      }
+
+      &.tall {
+        h2 {
+          padding-top: ru(1);
+          padding-bottom: ru(1);
+        }
+
+        .multiple {
+          margin-top: ru(1);
+          margin-bottom: ru(1);
+        }
+      }
+    }
+
+    .content {
+      .feature {
+        margin-bottom: 0;
+        padding-bottom: ru(1);
+      }
+    }
+  }
+
+
+  .mod-contact-card {
+    .info {
+      width: auto;
+    }
+  }
+
+
+  .mod-estimate-panel {
+    .header {
+      @include table-model($alignment: middle);
+    }
+  }
+
+
+  .mod-link-list {
+    @media #{$large-up} {
+      a[class^='i-']:before {
+        display: table-cell;
+        text-align: center;
+      }
+    }
+  }
+
+
+  .mod-steps-list {
+    > ol {
+      li:before {
+        display: table-cell;
+        text-align: center;
+      }
+    }
+  }
+
+
+  .mod-tabs {
+    a {
+      display: block;
+    }
+
+    @media #{$small-only} {
+      .nav a[class^='i-'] {
+        display: inline-block;
+        vertical-align: middle;
+      }
+    }
+  }
+}
+
+// Ensure that the Media Alpha and Klaviyo tracking pixels/iframes don't add
+// vertical height to the page
+
+// scss-lint:disable IdSelector
+#__learnly_global,
+body > img[src*='//insurance.mediaalpha.com'],
+body > img[src*='//api.adsymptotic.com'],
+body > img[src*='//srv.stackadapt.com'],
+body > iframe[src*='//policygenius.go2cloud.org'] {
+  height: 0;
+  width: 0;
+  position: absolute;
+  display: block;
+  overflow: hidden;
+}
+// scss-lint:enable IdSelector

@@ -1,0 +1,61 @@
+// scss-lint:disable all
+/*doc
+---
+title: Emphasized Note
+name: note
+category: Components - Emphasized Note
+---
+```slim_example_table
+.mod-example
+  .emphasized-note
+    h3 Quisque ultrices pellentesque nulla
+    p Curabitur eget tellus in quam tristique efficitur et id lacus. Proin non enim et metus congue finibus scelerisque eget turpis. Curabitur sed nibh congue, vestibulum libero in, euismod nunc.
+```
+
+## No-border version
+```slim_example_table
+.mod-example style='background: #00A4A5; padding: 24px;'
+  .emphasized-note.no-border
+    h3 Quisque ultrices pellentesque nulla
+    p Curabitur eget tellus in quam tristique efficitur et id lacus. Proin non enim et metus congue finibus scelerisque eget turpis. Curabitur sed nibh congue, vestibulum libero in, euismod nunc.
+```
+*/
+// scss-lint:enable all
+
+$emphasized-note-border-color: $neutral-5;
+$emphasized-note-header-color: $neutral-1;
+$emphasized-note-content-color: $neutral-2;
+$emphasized-note-header-background-color: $neutral-6;
+$emphasized-note-content-background-color: $neutral-8;
+
+[class^='mod-'] {
+  .emphasized-note {
+    font-family: $font-family-sans-serif;
+    border: 1px solid $emphasized-note-border-color;
+    border-radius: ru(.25);
+    margin-bottom: ru(1);
+    overflow: hidden;
+
+    &.no-border {
+      border: 0;
+    }
+
+    h3 {
+      @include typography-6;
+      font-weight: 600;
+      color: $emphasized-note-header-color;
+      margin: 0;
+      padding: ru(.75) ru(1);
+      background-color: $emphasized-note-header-background-color;
+      border-bottom: 1px solid $emphasized-note-border-color;
+    }
+
+    p {
+      @include like-p;
+      color: $emphasized-note-content-color;
+      margin: 0;
+      padding: ru(.75) ru(1);
+      background-color: $emphasized-note-content-background-color;
+    }
+  }
+}

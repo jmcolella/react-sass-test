@@ -1,0 +1,263 @@
+// scss-lint:disable all
+/*doc
+---
+title: Select 2 Widget
+name: select2
+category: Fields - Select 2 Widget
+---
+## Select2 Widget Example
+```slim_example_table
+.mod-example
+  .selectfield
+    .field
+      label for='select2' Proin aliquam tortor
+      select.select2 id='select2'
+        option disabled='disabled' selected='selected'
+        option Aliquam sapien enim
+        option In rhoncus orci et
+        option Ut scelerisque nulla at sem
+        option Nunc in pharetra velit. Pellentesque habitant morbi tristique senectus et netus et malesuada fames
+```
+
+```js_example
+$('.select2').select2({
+  placeholder: 'Vestibulum ante ipsum',
+  dropdownAutoWidth: false,
+  containerCssClass: 'policygenius-select2-container',
+  dropdownCssClass: 'policygenius-select2-drop-down'
+});
+```
+
+## Templating
+```slim_example_table
+.mod-example
+  .selectfield
+    .field
+      label for='template' Nam metus massa, tempor vel tortor et
+      select.select2template id='template'
+        option disabled='disabled' selected='selected'
+        option Pretium Vestibulum
+        option Phasellus Id Nulla Convallis
+        option Nec efficitur tortor
+```
+
+```js_example
+function formatDoctor (doctor) {
+  if (!doctor.id) { return doctor.text; }
+  var $doctor = $(
+    '<div class='select2-template'>' +
+      '<div>' +
+        '<strong>' + doctor.text + '</strong>' +
+        '<em>Specialist</em>' +
+      '</div>' +
+      '<div class='details'>' +
+        '<span>1427-234 34th Ave.<br>Schenectady, NY 10012</span>' +
+      '</div>' +
+    '</div>'
+  );
+  return $doctor;
+};
+
+$('.select2template').select2({
+  placeholder: 'Select your insurance',
+  dropdownAutoWidth: false,
+  containerCssClass: 'policygenius-select2-container',
+  dropdownCssClass: 'policygenius-select2-drop-down',
+  formatResult: formatDoctor
+});
+```
+*/
+// scss-lint:enable all
+
+$select2-choice-background-color:    $neutral-8;
+$select2-choice-color:               $neutral-1;
+$select2-choice-default-color:       $neutral-3;
+$select2-drop-active-border-color:   $neutral-2;
+$select2-search-border-color:        $neutral-5;
+$select2-search-background-color:    $neutral-8;
+$select2-search-color:               $neutral-1;
+$select2-search-icon-color:          $neutral-4;
+$select2-results-color:              $neutral-1;
+$select2-hilighted-background-color: $brand-2;
+$select2-hilighted-color:            $neutral-8;
+$select2-noresults-background-color: $neutral-6;
+$select2-template-color:             $neutral-2;
+
+// scss-lint:disable ImportantRule
+.policygenius-select2-container {
+  display: block;
+  font-family: $font-family-sans-serif;
+
+  .select2-choice {
+    @include typography-5;
+    display: block;
+    height: ru(2.25);
+    border: 0 !important;
+    border-radius: 0;
+    padding: ru(.5) ru(2.5) ru(.5) ru(1);
+    background: $select2-choice-background-color !important;
+    color: $select2-choice-color !important;
+    font-family: inherit;
+    font-weight: 400;
+    margin: 0;
+  }
+
+  .select2-default {
+    color: $select2-choice-default-color !important;
+  }
+}
+
+.policygenius-select2-drop-down {
+  font-family: $font-family-sans-serif;
+  margin-top: ru(-2.25);
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+
+  &.select2-drop-active,
+  &.select2-drop-active.select2-drop-above {
+    border: 0;
+    box-shadow: none;
+  }
+
+  .select2-search {
+    @include icon(search);
+    position: relative;
+    display: block;
+    width: auto;
+    padding: 0;
+    margin: 0 -1px;
+    border-left: 1px solid $select2-search-border-color;
+    border-right: 1px solid $select2-search-border-color;
+
+    input {
+      @include typography-5;
+      font-weight: 400;
+      height: ru(2.25) !important;
+      margin: 0;
+      padding: ru(.33) ru(2.25) ru(.33) ru(1);
+      background: $select2-search-background-color !important;
+      color: $select2-search-color;
+    }
+
+    &:before {
+      position: absolute;
+      right: ru(.67);
+      top: ru(.75);
+      margin: 0;
+      font-size: rem-calc(16px);
+      color: $select2-search-icon-color;
+    }
+  }
+
+  .select2-results {
+    @include typography-6;
+    padding: 0;
+    margin: 0 -1px;
+    color: $select2-results-color;
+    border: 1px solid $select2-search-border-color;
+    border-radius: 0 0 ru(.25) ru(.25);
+
+    li {
+      padding: ru(.5) ru(1);
+    }
+
+    .select2-highlighted {
+      background: $select2-hilighted-background-color;
+      color: $select2-hilighted-color;
+
+      .select2-template {
+        color: $select2-hilighted-color;
+      }
+    }
+
+    .select2-result-label {
+      padding: 0;
+    }
+
+    .select2-no-results {
+      padding: ru(.5) ru(1);
+      background: $select2-noresults-background-color;
+    }
+
+    .select2-template {
+      @include typography-6;
+      display: flex;
+      font-weight: 400;
+      margin: 0;
+      color: $select2-template-color;
+
+      strong {
+        display: block;
+        font-weight: 600;
+      }
+
+      em {
+        display: block;
+        font-style: italic;
+        background: none;
+      }
+
+      .details {
+        margin-left: auto;
+        padding-left: ru(1);
+        text-align: right;
+      }
+    }
+  }
+
+  &.select2-drop-above {
+    margin-top: 0;
+    border-radius: 0;
+    transform: translateY(-4px);
+
+    .select2-search {
+      border-top: 1px solid $select2-search-border-color;
+      border-radius: ru(.25) ru(.25) 0 0;
+    }
+
+    .select2-results {
+      border-radius: 0;
+    }
+  }
+}
+
+
+@media #{$medium-up-to-xxlarge} {
+  .policygenius-select2-container {
+    .select2-choice {
+      @include typography-6;
+      height: ru(1.84);
+      padding: ru(.42) ru(2.5) ru(.42) ru(.75);
+      margin: 0;
+    }
+  }
+
+  .policygenius-select2-drop-down {
+    margin-top: ru(-1.84);
+
+    .select2-search {
+      input {
+        @include typography-6;
+        height: ru(1.84) !important;
+        margin: 0;
+        padding: ru(.33) ru(2.25) ru(.33) ru(.75);
+      }
+
+      &:before {
+        top: ru(.5);
+      }
+    }
+
+    .select2-results {
+      li {
+        padding: ru(.42) ru(.75);
+      }
+
+      .select2-no-results {
+        padding: ru(.42) ru(.75);
+      }
+    }
+  }
+}
+// scss-lint:enable ImportantRule

@@ -1,0 +1,341 @@
+// scss-lint:disable all
+/*doc
+---
+title: Toggle
+name: toggle
+category: Fields - Toggle
+---
+## Simple Toggle
+```slim_example_table
+.mod-example
+  .toggle
+    .header
+      label Aenean
+    .content
+      label.toggler
+        input type='radio' name='example1'
+        span.button Proin
+      label.toggler
+        input type='radio' name='example1'
+        span.button Quisque
+```
+
+## Toggle with Link
+```slim_example_table
+.mod-example
+  .toggle
+    .header
+      label In rhoncus orci et ex fermentum, ut euismod diam tincidunt.
+    .content
+      label.toggler
+        input type='radio' name='coverage'
+        span.button Leo
+      label.toggler
+        input type='radio' name='coverage'
+        span.button Ut
+    .footer
+      a href='#' Nunc in pharetra velit.
+```
+
+## With help text
+```slim_example_table
+.mod-example
+  .toggle
+    .header
+      label
+        span Suspendisse molestie vel sapien at posuere phasellus.
+        .sublabel Phasellus tellus augue, maximus a viverra.
+    .content
+      label.toggler
+        input type='radio' name='example5'
+        span.button Leo
+      label.toggler
+        input type='radio' name='example5'
+        span.button Ut
+```
+
+## With Tooltip
+```slim_example_table
+.mod-example
+  .toggle
+    .header
+      .help.i-help
+      label Nulla maximus congue dolor
+    .content
+      label.toggler
+        input type='radio' name='example2'
+        span.button Leo
+      label.toggler
+        input type='radio' name='example2'
+        span.button Ut
+```
+
+## Three Togglers
+```slim_example_table
+.mod-example
+  .toggle
+    .header
+      .help.i-help
+      label  Nunc mattis molestie libero, sed vulputate ipsum aliquet vitae. Proin pharetra felis.
+    .content
+      label.toggler
+        input type='radio' checked='checked' name='example3'
+        span.button Morbi quis
+      label.toggler
+        input type='radio' name='example3'
+        span.button Consectetur massa nec
+      label.toggler
+        input type='radio' name='example3'
+        span.button Suspendisse sed
+```
+
+### Group
+```slim_example_table
+.mod-example
+  .toggle.group
+    label.toggler
+      input type='radio' name='group'
+      span.button Consequat
+    label.toggler
+      input type='radio' name='group'
+      span.button Augue
+    label.toggler
+      input type='radio' name='group'
+      span.button Efficitur
+```
+
+### Group with togglers as links
+```slim_example_table
+.mod-example
+  .toggle.group
+    a.toggler href='#'
+      span.button.active Libero
+    a.toggler href='#'
+      span.button Ipsum
+br
+.mod-example
+  .toggle.group
+    a.toggler href='#'
+      span.button.active Consequat
+    a.toggler href='#'
+      span.button Augue
+    a.toggler href='#'
+      span.button Efficitur
+```
+
+## Focus state
+```slim_example_table
+.mod-example
+  .toggle.focused
+    .header
+      label Aenean
+    .content
+      label.toggler
+        input type='radio' name='example1'
+        span.button Proin
+      label.toggler
+        input type='radio' name='example1'
+        span.button Quisque
+```
+
+## No border
+```slim_example_table
+.mod-example style='background: #00A4A5; padding: 24px;'
+  .toggle.no-border
+    .header
+      label Aenean
+    .content
+      label.toggler
+        input type='radio' name='example1'
+        span.button Proin
+      label.toggler
+        input type='radio' name='example1'
+        span.button Quisque
+```
+*/
+// scss-lint:enable all
+
+$toggle-background-color:              $neutral-8;
+$toggle-border-color:                  $neutral-5;
+$toggle-header-color:                  $neutral-1;
+$toggle-help-icon-color:               $neutral-3;
+$toggle-focused-border-color:          $brand-3;
+$toggle-focused-background-color:      $brand-6;
+$toggle-group-active-background-color: $brand-2;
+$toggle-group-active-color:            $neutral-8;
+$toggler-border-color:                 $neutral-5;
+$toggler-shadow-color:                 $neutral-6;
+$toggler-selected-shadow-color:        $neutral-4;
+$toggler-background-color:             $neutral-8;
+$toggler-hover-background-color:       $neutral-6;
+$toggler-selected-background-color:    $neutral-6;
+$toggler-color:                        $neutral-3;
+$toggler-hover-color:                  $neutral-1;
+$toggler-selected-color:               $neutral-1;
+
+
+[class^='mod-'] {
+  .toggle {
+    @include field;
+    font-family: $font-family-sans-serif;
+    border: 1px solid $toggle-border-color;
+    border-radius: ru(.25);
+    padding: ru(.5) ru(1) ru(.75);
+    background-color: $toggle-background-color;
+    transition: border-color 500ms ease, background-color 500ms ease;
+
+    &.focused {
+      border-color: $toggle-focused-border-color;
+      background-color: $toggle-focused-background-color;
+
+      label {
+        border-bottom-color: $toggle-focused-border-color;
+      }
+    }
+
+    .header {
+      position: relative;
+      margin-bottom: ru(.5);
+
+      label {
+        @include typography-6;
+        font-weight: 600;
+        color: $neutral-1;
+        margin: 0;
+      }
+
+      .sublabel {
+        @include typography-6;
+        font-weight: 300;
+        color: $neutral-1;
+        padding: 0 ru(1) ru(.5);
+        margin: 0 ru(-1) ru(.75);
+        border-bottom: 1px solid $toggle-border-color;
+      }
+
+      .help {
+        float: right;
+        color: $toggle-help-icon-color;
+        margin-left: ru(1);
+        &:before { margin: 0; }
+      }
+    }
+
+    .content {
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    .footer {
+      @include typography-7;
+      margin: ru(.75) 0 0;
+    }
+
+    &.group {
+      display: flex;
+      padding: 0;
+      overflow: hidden;
+
+      .toggler {
+        flex: 1 1;
+
+        + .toggler {
+          border-left: 1px solid $toggle-border-color;
+          margin: 0;
+        }
+      }
+
+      .button {
+        border: 0;
+        border-radius: 0;
+        box-shadow: none;
+        font-weight: 600;
+      }
+
+      .button.active,
+      input:checked + .button {
+        background-color: $toggle-group-active-background-color;
+        color: $toggle-group-active-color;
+      }
+    }
+
+    @media #{$medium-up-to-xxlarge} {
+      padding: ru(.5) ru(.75) ru(.583);
+
+      .header {
+        label {
+          @include typography-7;
+          line-height: ru(.75);
+          margin: 0;
+        }
+
+        .sublabel {
+          @include typography-7;
+          line-height: ru(.75);
+          padding: 0 ru(.75) ru(.5);
+          margin: 0 ru(-.75) ru(.5);
+        }
+      }
+
+      .footer {
+        font-size: rem-calc(10px);
+        font-weight: 600;
+        margin: ru(.5) 0 0;
+      }
+    }
+  }
+
+  .toggler {
+    display: flex;
+    flex: 1 0;
+    position: relative;
+    text-decoration: none;
+
+    + .toggler {
+      margin-left: ru(.5);
+    }
+
+    @media #{$small-only} {
+      flex-basis: 100%;
+      + .toggler { margin: ru(.5) 0 0; }
+    }
+
+    input {
+      position: absolute;
+      top: 0;
+      left: 0;
+      opacity: 0;
+    }
+
+    .button {
+      display: block;
+      flex-grow: 1;
+      font-weight: 400;
+      padding: ru(.375) ru(.5);
+      border: 1px solid $toggler-border-color;
+      background-color: $toggler-background-color;
+      box-shadow: 0 4px 0 $toggler-shadow-color;
+      color: $toggler-color;
+
+      @media #{$medium-up-to-xxlarge} {
+        @include typography-7;
+        margin: 0;
+        padding: ru(.25) ru(.33);
+      }
+
+      &:hover,
+      &:focus,
+      &:active {
+        background-color: $toggler-hover-background-color;
+        border-color: $toggler-border-color;
+        color: $toggler-hover-color;
+      }
+    }
+
+    input:checked + .button {
+      background-color: $toggler-selected-background-color;
+      color: $toggler-selected-color;
+      box-shadow: 0 4px 0 $toggler-selected-shadow-color;
+    }
+  }
+}

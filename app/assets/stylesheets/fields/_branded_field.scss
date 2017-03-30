@@ -1,0 +1,81 @@
+// scss-lint:disable all
+/*doc
+---
+title: Branded Field
+name: branded-field
+category: Fields - Branded Field
+---
+```slim_example
+.mod-branded-field
+  .detail
+    h3 Suspendisse molestie
+    p
+      ' Nulla maximus congue dolor sed vestibulum. Nunc mattis molestie libero, sed vulputate ipsum.
+      a.action href='#' Egestas tortor
+  .mod-recommended-card.featured
+    .header
+      img src='images/pg-logo-dark.svg'
+      span vestibulum
+    .selectbox
+      select
+        optgroup label='Phasellus tellus'
+          option $100,000
+        optgroup label='Leo fringilla'
+          option $100,000
+          option $100,000
+          option $100,000
+    .footer
+      a href='#' Fusce id egestas metus
+```
+*/
+// scss-lint:enable all
+
+$branded-field-detail-width:            rem-calc(194px);
+$branded-field-detail-color:            $neutral-2;
+
+.mod-branded-field {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: ru(1);
+
+  > * {
+    flex: 0 1 auto;
+  }
+
+  .detail {
+    flex-basis: $branded-field-detail-width;
+    color: $branded-field-detail-color;
+
+    h3 {
+      @include like-h3;
+      font-weight: 600;
+      margin: ru(.25) 0 ru(.33);
+      color: inherit;
+    }
+
+    p {
+      @include typography-7;
+      line-height: ru(.75);
+      margin: 0;
+      color: inherit;
+    }
+  }
+
+  .mod-recommended-card {
+    margin-left: ru(1);
+  }
+
+  @media #{$small-only} {
+    flex-direction: column;
+
+    .detail {
+      flex-basis: auto;
+      margin-bottom: ru(1);
+    }
+
+    .mod-recommended-card {
+      width: 100%;
+      margin: 0;
+    }
+  }
+}

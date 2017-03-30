@@ -1,0 +1,269 @@
+// scss-lint:disable all
+/*doc
+---
+title: Table Section
+name: table-section
+category: Components - Table Section
+---
+```slim_example
+.com-table-section
+  .table-section-inner
+    table
+      thead
+        tr
+          th Dolor
+          th Amet
+          th colspan='3' Lorem
+          th colspan='3' Ipsum
+
+      tbody
+        tr
+          td colspan='2'
+          td sit 30
+          td sit 40
+          td sit 50
+          td sit 30
+          td sit 40
+          td sit 50
+        tr
+          td Donec
+          td Nunc
+          td $10.00
+          td $10.00
+          td $10.00
+          td $10.00
+          td $10.00
+          td $10.00
+        tr
+          td Sodales
+          td Odio
+          td $10.00
+          td $10.00
+          td $10.00
+          td $10.00
+          td $10.00
+          td $10.00
+        tr
+          td Quisque
+          td Curabitur
+          td $10.00
+          td $10.00
+          td $10.00
+          td $10.00
+          td $10.00
+          td $10.00
+        tr
+          td Proin
+          td In lacinia mi
+          td $10.00
+          td $10.00
+          td $10.00
+          td $10.00
+          td $10.00
+          td $10.00
+        tr.highlighted
+          td Sed laoreet
+          td Interdum et malesuada
+          td $10.00
+          td $10.00
+          td $10.00
+          td $10.00
+          td $10.00
+          td $10.00
+        tr
+          td Sed non nunc
+          td Curabitur in tellus
+          td $10.00
+          td $10.00
+          td $10.00
+          td $10.00
+          td $10.00
+          td $10.00
+        tr
+          td Maecenas
+          td Duis sed eleifend
+          td $10.00
+          td $10.00
+          td $10.00
+          td $10.00
+          td $10.00
+          td $10.00
+        tr
+          td Aliquam
+          td In lobortis
+          td $10.00
+          td $10.00
+          td $10.00
+          td $10.00
+          td $10.00
+          td $10.00
+        tr
+          td SBLI
+          td Level Premium Term
+          td $10.00
+          td $10.00
+          td $100.00
+          td $10.00
+          td $10.00
+          td $10.00
+        tr
+          td Curae
+          td Duis sed eleifend
+          td $10.00
+          td $10.00
+          td $10.00
+          td $10.00
+          td $10.00
+          td $10.00
+        tr
+          td Suspendisse
+          td Curabitur in tellus
+          td $10.00
+          td $10.00
+          td $10.00
+          td $10.00
+          td $10.00
+          td $10.00
+```
+
+## Small content
+```slim_example
+.com-table-section.small
+  .table-section-inner
+    table
+      thead
+        tr
+          th Dolor
+          th Amet
+      tbody
+        tr
+          td Donec
+          td $10.00
+        tr
+          td Sodales Odio
+          td $10.00
+        tr
+          td Quisque Curabitur
+          td $10.00
+        tr
+          td Proin In lacinia mi
+          td $10.00
+        tr.highlighted
+          td Sed laoreet Interdum et malesuada
+          td $10.00
+        tr
+          td Sed non nunc Curabitur in tellus
+          td $10.00
+        tr
+          td Duis sed eleifend Maecenas
+          td $10.00
+        tr
+          td Aliquam In lobortis
+          td $10.00
+        tr
+          td Level Premium Term
+          td $10.00
+        tr
+          td Duis sed eleifend
+          td $10.00
+        tr
+          td Curabitur in tellus
+          td $10.00
+```
+*/
+// scss-lint:enable all
+
+.com-table-section {
+  display: flex;
+  justify-content: center;
+  padding: ru(4) 0;
+  background-color: $neutral-7;
+
+  .table-section-inner {
+    @include g-unit(10);
+    overflow-y: hidden;
+    overflow-x: scroll;
+    -ms-overflow-style: -ms-autohiding-scrollbar;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  &.small {
+    .table-section-inner {
+      @include g-unit(8);
+    }
+
+    table {
+      min-width: rem-calc(320px);
+    }
+  }
+
+  table {
+    margin-bottom: 0;
+    width: 100%;
+    min-width: rem-calc(578px);
+    border: 0;
+    border-spacing: 0;
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+  }
+
+  tbody {
+    tr {
+      background-color: $neutral-8;
+
+      &:nth-child(even):not(.highlighted) {
+        background-color: $neutral-6;
+      }
+    }
+  }
+
+  th {
+    @include typography-6;
+    font-weight: 600;
+    color: $neutral-8;
+    background-color: $brand-2;
+
+    &:first-child {
+      border-top-left-radius: 6px;
+    }
+
+    &:last-child {
+      border-top-right-radius: 6px;
+    }
+  }
+
+  th,
+  td {
+    padding: ru(.375) ru(.5);
+  }
+
+  td {
+    &:first-child {
+      box-shadow: inset 1px 0 0 0 $neutral-5;
+    }
+
+    &:last-child {
+      box-shadow: inset -1px 0 0 0 $neutral-5;
+    }
+  }
+
+  tr {
+    &:last-child {
+      td {
+        box-shadow: inset 0 -1px 0 0 $neutral-5;
+
+        &:first-child {
+          box-shadow: inset 1px -1px 0 0 $neutral-5;
+        }
+
+        &:last-child {
+          box-shadow: inset -1px -1px 0 0 $neutral-5;
+        }
+      }
+    }
+
+    &.highlighted {
+      background-color: $brand-5;
+    }
+  }
+}

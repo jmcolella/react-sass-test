@@ -1,0 +1,245 @@
+// scss-lint:disable all
+/*doc
+---
+title: Steps List
+name: steps-list
+category: Lists - Step List
+---
+## Ordered List
+```slim_example
+.mod-steps-list
+  h2 Proin aliquam tortor et aliquam dignissim
+  ol
+    li
+      .image
+        img src='holder.js/120x150?auto=yes'
+      .content
+        h6 Aenean ac bibendum nisi
+        p
+          | In rhoncus orci et ex fermentum, ut euismod diam tincidunt. Vivamus eu aliquet sapien, non fringilla enim. Ut scelerisque nulla at sem suscipit, at porta mi tincidunt. Nunc in pharetra velit. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Donec imperdiet leo id odio tincidunt, eget blandit nisi fermentum. Donec non libero vitae augue consequat aliquet. Fusce euismod bibendum orci at placerat. Vivamus ultricies augue in tortor pharetra convallis. Maecenas gravida ex a sed vulputate, sodales cursus risus blandit.
+          em< Suspendisse molestie vel sapien
+    li
+      .image
+        img src='holder.js/120x150?auto=yes'
+      .content
+        h6 Donec placerat ipsum a nulla
+        p Phasellus viverra mollis massa ut eleifend. Nulla maximus congue dolor sed vestibulum. Nunc mattis molestie libero, sed vulputate ipsum aliquet vitae. Proin pharetra felis et odio porttitor, et egestas tortor laoreet. Sed dapibus orci id sapien placerat, a consequat augue efficitur. Donec dui est, aliquet at enim ac, egestas consectetur orci. Aliquam nisl nibh, lacinia et diam ut, mattis facilisis lectus.
+    li
+      .image
+        img src='holder.js/120x150?auto=yes'
+      .content
+        h6 Vestibulum lacinia
+        p Morbi quis dui consequat, consectetur massa nec, blandit tellus. Nam accumsan quam eu blandit rhoncus. Suspendisse sed sem sagittis, ultricies erat ut, pretium neque. Vestibulum lacinia dignissim convallis. Nam consequat maximus turpis, vestibulum tristique metus aliquam eget. Aenean gravida velit suscipit imperdiet aliquam. Maecenas efficitur accumsan hendrerit.
+```
+
+## Ordered List Colored
+```slim_example
+h2 Nam metus massa, tempor vel tortor
+.mod-steps-list.colored
+  ol
+    li
+      strong Sed lobortis et quam at rhoncus
+      | 10.0%
+    li
+      strong Vestibulum ante ipsum
+      | 10.0%
+    li
+      strong Placerat
+      | 10.0%
+```
+
+## Ordered List Legend
+```slim_example
+h2 Phasellus nisi est, posuere ut elit
+.mod-steps-list.colored.legend
+  ol
+    li
+      strong Vestibulum ante ipsum primis
+      | 10.0%
+    li
+      strong Donec lobortis dui
+      | 10.0%
+    li
+      strong Mauris
+      | 10.0%
+    li
+      strong Pretium
+      | 10.0%
+```
+
+## Unordered List
+```slim_example
+.mod-steps-list
+  ul
+    li
+      .image
+        img src='holder.js/200x200?auto=yes'
+      .content
+        h6 Aenean ac bibendum nisi
+        p Donec placerat ipsum a nulla maximus tincidunt
+    li
+      .image
+        img src='holder.js/200x200?auto=yes'
+      .content
+        h6 Phasellus in laoreet quam
+        p Integer suscipit orci odio, vel volutpat turpis ultrices at
+    li
+      .image
+        img src='holder.js/200x200?auto=yes'
+      .content
+        h6 Curabitur ex nibh
+        p Proin non accumsan dui. Ut pulvinar leo non iaculis condimentum.
+```
+*/
+// scss-lint:enable all
+
+$step-list-max-paragraph-width:             40em;
+$steps-list-image-max-width:                rem-calc(100px);
+
+.mod-steps-list {
+  margin-bottom: ru(1);
+  margin-top: ru(2);
+
+  em {
+    font-style: italic;
+    color: inherit;
+  }
+
+  > h2 {
+    @extend .like-h2;
+    margin-bottom: ru(2);
+  }
+
+  img {
+    max-width: $steps-list-image-max-width;
+  }
+
+  > ul {
+    list-style: none;
+  }
+
+  > ol {
+    list-style: none;
+    counter-reset: steps;
+
+    li {
+      position: relative;
+      padding-left: ru(2.5);
+    }
+
+    li:before {
+      @extend .typography-5;
+      counter-increment: steps;
+      content: counter(steps);
+      position: absolute;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      top: 0;
+      left: 0;
+      width: ru(1.5);
+      height: ru(1.5);
+      border-radius: 50%;
+      border: 2px solid $main-font-color;
+      font-family: $font-family-sans-serif;
+      font-weight: 600;
+      line-height: 1;
+      margin: 0;
+    }
+  }
+
+  &.colored {
+    margin-top: ru(0);
+
+    ol {
+      li:before {
+        @extend .typography-3;
+
+        color: $brand-2;
+        border: 0;
+        content: '#' counter(steps);
+      }
+
+      li {
+        display: block;
+
+        strong {
+          @extend .like-h4;
+          display: block;
+          margin: 0;
+        }
+      }
+    }
+  }
+
+  &.legend {
+    ol {
+      li:nth-of-type(1):before {
+        color: $brand-2;
+      }
+
+      li:nth-of-type(2):before {
+        color: $accent-2;
+      }
+
+      li:nth-of-type(3):before {
+        color: $action-2;
+      }
+
+      li:nth-of-type(4):before {
+        color: $neutral-4;
+      }
+    }
+  }
+
+
+  > ul,
+  > ol {
+    li {
+      margin-bottom: ru(1);
+      overflow: hidden;
+      display: flex;
+    }
+
+    h6 {
+      @extend .like-h4;
+      margin: 0;
+    }
+
+    p {
+      @extend .typography-6;
+      font-family: $font-family-sans-serif;
+      font-weight: 300;
+      margin: 0;
+      overflow: hidden;
+      max-width: $step-list-max-paragraph-width;
+    }
+  }
+
+  .image {
+    margin-right: ru(1);
+    display: inline-block;
+    vertical-align: top;
+  }
+
+  .content {
+    display: inline-block;
+  }
+
+  @media #{$small-only} {
+    ol {
+      li {
+        padding-left: 0;
+      }
+
+      li:before {
+        display: none;
+      }
+    }
+
+    img { display: none; }
+
+    .image { display: none; }
+  }
+}
+

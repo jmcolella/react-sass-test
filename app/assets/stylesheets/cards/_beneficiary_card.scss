@@ -1,0 +1,219 @@
+// scss-lint:disable all
+/*doc
+---
+title: Beneficiary Card
+name: beneficiary-card
+category: Cards - Beneficiary Card
+---
+```slim_example
+.mod-beneficiary-card.collapsed style='max-width: 480px'
+  span.icon-close
+
+  .mod-percentage-card
+    .details
+      h4 Etiam malesuada quis
+      h5 Phasellus
+      .actions
+        a href='#' data-edit-details='' vitae dapibus
+    .percentage
+      .value 10%
+      .selectbox
+        select data-select-percentage=''
+          option 10%
+          option 10%
+          option 10%
+          option 10%
+      h5 non tortor id neque
+      .actions
+        a href='#' data-edit-percentage='' ullamcorper turpis
+
+  .form
+    .textfield
+      .field
+        label for='first_name1' Fusce quis elit
+        input type='text' id='first_name1' placeholder='Maecenas ullamcorper turpis'
+    .toggle
+      .header
+        label Mauris
+      .content
+        label.toggler
+          input type='radio' name='example1'
+          span.button Fusce
+        label.toggler
+          input type='radio' name='example1'
+          span.button Donec
+    .selectfield
+      .field
+        label for='select1' Suspendisse
+        .selectbox
+          select id='select1'
+            option Etiam
+            option Ornare
+    .date-field
+      label Commodo risus
+      .field
+        .selectbox
+          select
+            option selected='selected' disabled='disabled' Sapien
+            option Massa
+            option Lacus
+            option Posuere
+            option Ultricies
+        .selectbox
+          select
+            option selected='selected' disabled='disabled' Day
+            option Porttitor
+            option Consequat
+            option Euismod
+            option Maximus
+        input type='text' placeholder='Year (YYYY)' maxlength='4'
+    .selectfield
+      .field
+        label for='select2' Habitant
+        .selectbox
+          select id='select2'
+            option 100%
+            option 10%
+    button.button.action type='submit' Suspendisse molestie vel
+```
+
+```slim_example
+.mod-beneficiary-card.collapsed style='max-width: 480px'
+  span.icon-close
+
+  .mod-percentage-card.error
+    .details
+      h4 Donec dui est, aliquet
+      h5 Blandit
+      .actions
+        a href='#' data-edit-details='' consectetur massa
+    .percentage
+      .value 10%
+      .selectbox
+        select data-select-percentage=''
+          option 10%
+          option 10%
+          option 10%
+          option 10%
+      h5 suscipit imperdiet
+      .actions
+        a href='#' data-edit-percentage='' maximus a viverra
+
+  .form
+    .textfield
+      .field
+        label for='first_name1' Nulla maximus
+        input type='text' id='first_name1' placeholder='Nunc in pharetra velit'
+    .toggle
+      .header
+        label Sodales
+      .content
+        label.toggler
+          input type='radio' name='example1'
+          span.button Cursus
+        label.toggler
+          input type='radio' name='example1'
+          span.button Risus
+    .selectfield
+      .field
+        label for='select1' Consequat
+        .selectbox
+          select id='select1'
+            option Aliquam
+            option Erat
+    .date-field
+      label Vestibulum lacinia
+      .field
+        .selectbox
+          select
+            option selected='selected' disabled='disabled' Suscipit
+            option Egestas
+            option Semper
+            option Lacus
+            option Lacinia
+        .selectbox
+          select
+            option selected='selected' disabled='disabled' Facilisis
+            option Egestas
+            option Semper
+            option Lacus
+            option Lacinia
+        input type='text' placeholder='tortor' maxlength='4'
+    .selectfield
+      .field
+        label for='select2' Vulputate
+        .selectbox
+          select id='select2'
+            option 100%
+            option 10%
+    button.button.action type='submit' Vel volutpat turpis
+```
+
+```js_example
+$('[data-edit-details]').on('click', function(e) {
+  e.preventDefault();
+  $(this).parents('.mod-beneficiary-card').removeClass('collapsed');
+});
+
+$('[data-edit-percentage]').on('click', function(e) {
+  e.preventDefault();
+  $(this).parents('.percentage').addClass('edit-mode');
+});
+
+$('[data-select-percentage]').on('change', function() {
+  $(this).parents('.percentage').removeClass('edit-mode');
+  $(this).parents('.percentage').find('.value').text( $(this).val() );
+});
+```
+*/
+// scss-lint:enable all
+
+$beneficiary-card-border-color:     $brand-3;
+$beneficiary-card-background-color: $neutral-8;
+$beneficiary-card-border-width:     ru(.25);
+$beneficiary-card-icon-size:        ru(1);
+
+.mod-beneficiary-card {
+  position: relative;
+  min-width: ru(11.33);
+  background-color: $beneficiary-card-background-color;
+  margin-bottom: ru(1);
+
+  .mod-percentage-card {
+    display: none;
+  }
+
+  &.collapsed {
+    .mod-percentage-card {
+      display: flex;
+    }
+
+    .form {
+      display: none;
+    }
+  }
+
+  .icon-close {
+    position: absolute;
+    z-index: 1;
+    top: -$beneficiary-card-icon-size / 2;
+    right: -$beneficiary-card-icon-size / 2;
+    background-size: 100%;
+    cursor: pointer;
+
+    &:before {
+      content: '';
+      display: inline-block;
+      width: $beneficiary-card-icon-size;
+      height: $beneficiary-card-icon-size;
+    }
+  }
+
+  .form {
+    border: 1px solid $beneficiary-card-border-color;
+    border-top-width: $beneficiary-card-border-width;
+    border-bottom-width: $beneficiary-card-border-width;
+    border-radius: ru(.25);
+    padding: ru(1);
+  }
+}

@@ -1,0 +1,81 @@
+// scss-lint:disable all
+/*doc
+---
+title: Start Quote Layout
+name: start_quote
+category: Layouts - Start Quote
+---
+```slim_example
+.layout-start-quote
+  .layout-choice
+    h2 Phasellus tellus augue, maximus a viverra
+    .mod-example
+      .selectfield
+        .field
+          label for='select2' Tincidunt
+          .selectbox
+            select id='select2'
+              option Leo fringilla
+              option Justo a venenatis
+              option Proin et ultrices neque
+        .field
+          label for='select3' Proin
+          .selectbox
+            select id='select3'
+              option Leo fringilla
+              option Justo a venenatis
+              option Proin et ultrices neque
+      .actions
+        a.button.action Donec id urna
+        a href='#' Etiam malesuada quis augue vitae
+
+  .layout-banners
+    h3 Nullam metus velit, efficitur commodo elementum vitae
+    img src='holder.js/400x400?auto=yes&text=block-grid-of-carriers'
+    span Fusce sagittis nec nulla sit
+```
+*/
+// scss-lint:enable all
+
+.layout-start-quote {
+  h2 {
+    @extend .like-h1;
+  }
+
+  h3 {
+    @extend .like-h1;
+    font-weight: 300;
+  }
+
+  .actions {
+    text-align: center;
+  }
+
+  .layout-banners {
+    span {
+      @include typography-7;
+      display: block;
+      text-align: center;
+      line-height: 1;
+      margin-top: ru(1);
+
+      i { font-style: italic; }
+    }
+  }
+
+  @media #{$small-only} {
+    .layout-banners {
+      margin-top: ru(1.5);
+
+      &.centered-content {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+    }
+  }
+
+  @media #{$medium-up} {
+    @include arrange-children-in-a-row(ru(4));
+  }
+}

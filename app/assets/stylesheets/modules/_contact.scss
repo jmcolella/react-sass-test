@@ -1,0 +1,75 @@
+$contact-form-color:                        $brand-2;
+$contact-form-placeholder-color:            $neutral-2;
+$contact-form-placeholder-color:            $neutral-2;
+$contact-form-textarea-background-color:    $neutral-8;
+$contact-form-textarea-border-color:        #6cc9ca;
+
+// scss-lint:disable VendorPrefix
+.mod-contact {
+  margin-bottom: ru(2);
+  // scss-lint:disable ImportantRule
+  padding: 0 !important;
+  // scss-lint:enable ImportantRule
+  color: $main-font-color;
+
+  .row {
+    @include grid-row(nest);
+  }
+
+  h1 {
+    @extend .like-h2;
+    color: inherit;
+  }
+
+  h2 {
+    @extend .like-h3;
+  }
+
+  input[type='text'],
+  input[type='email'],
+  textarea {
+    height: rem-calc(34px);
+    margin-bottom: ru(1);
+    padding: rem-calc(5px) rem-calc(8px);
+    font-family: $font-family-sans-serif;
+    font-size: rem-calc(14px);
+    color: $contact-form-color;
+    background: $contact-form-textarea-background-color;
+    border: 1px solid $contact-form-textarea-border-color;
+    border-radius: 6px;
+  }
+
+  input[type='text']::-webkit-input-placeholder,
+  input[type='email']::-webkit-input-placeholder,
+  textarea::-webkit-input-placeholder {
+    color: $contact-form-placeholder-color;
+  }
+
+  input[type='text']:-moz-placeholder,
+  input[type='email']:-moz-placeholder,
+  textarea:-moz-placeholder {
+    color: $contact-form-placeholder-color;
+  }
+
+  input[type='text']::-moz-placeholder,
+  input[type='email']::-moz-placeholder,
+  textarea::-moz-placeholder {
+    color: $contact-form-placeholder-color;
+  }
+
+  input[type='text']:-ms-input-placeholder,
+  input[type='email']:-ms-input-placeholder,
+  textarea:-ms-input-placeholder {
+    color: $contact-form-placeholder-color;
+  }
+
+  .button {
+    width: 100%;
+    margin-bottom: ru(1);
+  }
+
+  .inline-list li {
+    margin-right: rem-calc(20px);
+  }
+}
+// scss-lint:enable VendorPrefix

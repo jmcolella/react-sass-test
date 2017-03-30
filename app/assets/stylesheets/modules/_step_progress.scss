@@ -1,0 +1,404 @@
+// scss-lint:disable all
+/*doc
+---
+title: Step Progress
+name: step-progress
+category: Modules - Step Progress
+---
+```slim_example
+ul.mod-step-progress
+  li
+    a href='#'
+      i.icon-vehicles
+        span.icon-check-dark
+      .label Aenean
+  li
+    a href='#'
+      i.icon-drivers
+        span.icon-check-dark
+      .label Phasellus
+  li.active
+    a href='#'
+      i.icon-discounts
+        span
+      .label Curabitur
+  li.inactive
+    a href='#'
+      i.icon-insurance
+        span
+      .label Etiam
+  li.inactive
+    a href='#'
+      i.icon-quotes
+        span
+      .label Donec
+```
+
+```slim_example
+ul.mod-step-progress
+  li
+    a href='#'
+      i.icon-calculator
+        span.icon-check-dark
+      .label Vestibulum
+  li
+    a href='#'
+      i.icon-health
+        span.icon-check-dark
+      .label Dignissim
+  li.active
+    a href='#'
+      i.icon-quotes
+        span
+      .label Condimentum
+  li.inactive
+    a href='#'
+      i.icon-application
+        span
+      .label Sapien
+```
+
+```slim_example
+ul.mod-step-progress
+  li
+    a href='#'
+      i.icon-basics
+        span.icon-check-dark
+      .label Elementum
+  li
+    a href='#'
+      i.icon-health
+        span.icon-check-dark
+      .label Pretium
+  li.active
+    a href='#'
+      i.icon-quotes
+        span
+      .label Suscipit
+  li.inactive
+    a href='#'
+      i.icon-application
+        span
+      .label Lacinia
+```
+
+```slim_example
+ul.mod-step-progress
+  li
+    a href='#'
+      i.icon-basics
+        span.icon-check-dark
+      .label Aenean in lacus
+  li
+    a href='#'
+      i.icon-direction-arrows
+        span.icon-check-dark
+      .label Suspendisse erat
+  li.active
+    a href='#'
+      i.icon-health
+        span
+      .label In rhoncus orci
+  li
+    a href='#'
+      i.icon-quotes
+        span.icon-check-dark
+      .label Ut scelerisque nulla
+  li.inactive
+    a href='#'
+      i.icon-thumbs-up
+        span
+      .label Porttitor
+
+css:
+  @media screen and (max-width: 48rem) {
+    .exampleOutput { background-color: #007B7B }
+  }
+```
+*/
+// scss-lint:enable all
+
+$step-progress-color:                           $neutral-2;
+$step-progress-inactive-color:                  $neutral-4;
+$step-progress-icon-size:                       rem-calc(20px);
+$step-progress-item-size:                       ru(1.667);
+$step-progress-item-border-width:               rem-calc(2px);
+$step-progress-item-border-color:               $brand-3;
+$step-progress-item-background-color:           $neutral-8;
+$step-progress-active-item-border-color:        $action-2;
+$step-progress-inactive-item-border-color:      $neutral-4;
+
+$step-progress-mobile-color:                      $neutral-8;
+$step-progress-mobile-item-background-color:      $brand-1;
+$step-progress-mobile-item-border-color:          $action-2;
+$step-progress-mobile-active-item-border-color:   $brand-2;
+$step-progress-mobile-inactive-color:             $brand-2;
+$step-progress-mobile-inactive-item-border-color: $brand-2;
+
+$step-progress-dark-color:                        $neutral-8;
+$step-progress-dark-item-background-color:        $brand-2;
+$step-progress-dark-item-border-color:            $brand-3;
+$step-progress-dark-active-item-border-color:     $action-2;
+$step-progress-dark-inactive-color:               $brand-2;
+$step-progress-dark-inactive-background-color:    $brand-1;
+$step-progress-dark-inactive-item-border-color:   $brand-2;
+
+.mod-step-progress {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  z-index: 0;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+  background: none;
+  list-style: none;
+  font-family: $font-family-sans-serif;
+
+  li {
+    position: relative;
+    display: flex;
+    flex: 1 0 auto;
+    text-align: center;
+    color: $step-progress-color;
+
+    &.active {
+      pointer-events: none;
+
+      i {
+        border-color: $step-progress-active-item-border-color;
+        &:before { background-color: $step-progress-inactive-item-border-color; }
+      }
+    }
+
+    &.inactive {
+      color: $step-progress-inactive-color;
+      pointer-events: none;
+
+      &.clickable {
+        pointer-events: auto;
+      }
+
+      i {
+        border-color: $step-progress-inactive-item-border-color;
+        &:after { background-position: -$step-progress-icon-size 50%; }
+        &:before { background-color: $step-progress-inactive-item-border-color; }
+      }
+
+      a {
+        &:before {
+          background-color: $step-progress-inactive-item-border-color;
+        }
+      }
+    }
+
+    &:first-child {
+      a:before {
+        display: none;
+      }
+    }
+
+    &:last-child {
+      position: static;
+      flex: 0 1 auto;
+
+      i:before {
+        display: none;
+      }
+
+      a:before {
+        width: calc(100% - #{ru(3.833)});
+        z-index: -2;
+      }
+    }
+  }
+
+  a {
+    width: ru(3);
+    text-decoration: none;
+    color: inherit;
+
+    &:before {
+      content: '';
+      position: absolute;
+      z-index: -1;
+      top: $step-progress-item-size / 2;
+      transform: translateX(-100%) translateY(-50%);
+      width: calc(100% - #{ru(.75)});
+      height: $step-progress-item-border-width;
+      background-color: $step-progress-item-border-color;
+      pointer-events: none;
+    }
+
+    i:before {
+      display: none;
+    }
+  }
+
+  .label {
+    @include typography-7;
+    display: block;
+    margin: ru(.25) 0 ru(.125);
+    padding: 0;
+    background: none;
+    color: inherit;
+    font-weight: 700;
+    white-space: normal;
+    line-height: ru(.75);
+  }
+
+  i {
+    display: inline-block;
+    width: $step-progress-item-size;
+    height: $step-progress-item-size;
+    border: $step-progress-item-border-width solid $step-progress-item-border-color;
+    border-radius: 50%;
+    background-color: $step-progress-item-background-color;
+    text-align: center;
+    line-height: $step-progress-item-size - 2 * $step-progress-item-border-width;
+    position: relative;
+
+    &:after {
+      content: '';
+      display: inline-block;
+      vertical-align: middle;
+      width: $step-progress-icon-size;
+      height: ru(1.5);
+      margin-top: rem-calc(-4px);
+      background-repeat: no-repeat;
+      background-position: 0 50%;
+    }
+
+    &:before {
+      content: '';
+      position: absolute;
+      z-index: -1;
+      top: $step-progress-item-size / 2;
+      transform: translateY(-50%);
+      width: 100%;
+      height: $step-progress-item-border-width;
+      background-color: $step-progress-item-border-color;
+      pointer-events: none;
+    }
+
+    .icon-check-dark {
+      position: absolute;
+      top: 0;
+      right: rem-calc(-4px);
+
+      &:before {
+        content: '';
+        display: block;
+        width: rem-calc(14px);
+        height: rem-calc(14px);
+      }
+    }
+  }
+
+  &.dark {
+    i {
+      background-color: $step-progress-dark-item-background-color;
+      border-color: $step-progress-dark-item-border-color;
+      &:after { background-position: -2 * $step-progress-icon-size 50%; }
+      &:before { background-color: $step-progress-dark-item-border-color; }
+    }
+
+    li {
+      color: $step-progress-dark-color;
+
+      &.active {
+        i:before { background-color: $step-progress-dark-inactive-item-border-color; }
+      }
+
+      &.inactive {
+        color: $step-progress-dark-inactive-color;
+
+        i {
+          background-color: $step-progress-dark-inactive-background-color;
+          border-color: $step-progress-dark-inactive-item-border-color;
+          &:after { background-position: -3 * $step-progress-icon-size 50%; }
+          &:before { background-color: $step-progress-dark-inactive-item-border-color; }
+        }
+
+        a {
+          &:before {
+            // scss-lint:disable ImportantRule
+            background-color: $step-progress-dark-inactive-item-border-color !important;
+            // scss-lint:enable ImportantRule
+          }
+        }
+      }
+    }
+
+    a {
+      &:before {
+        background-color: $step-progress-dark-item-border-color;
+      }
+
+      &:hover,
+      &:active,
+      &:focus {
+        color: inherit;
+      }
+    }
+  }
+
+  @media #{$small-only} {
+    background-color: transparent;
+
+    .label {
+      display: none;
+    }
+
+    i {
+      background-color: $step-progress-mobile-item-background-color;
+      border-color: $step-progress-mobile-item-border-color;
+      &:after { background-position: -2 * $step-progress-icon-size 50%; }
+      &:before { background-color: $step-progress-mobile-item-border-color; }
+    }
+
+    li {
+      color: $step-progress-mobile-color;
+    }
+
+    li.active {
+      i:before { background-color: $step-progress-mobile-active-item-border-color; }
+    }
+
+    li.inactive {
+      color: $step-progress-mobile-inactive-color;
+
+      i {
+        border-color: $step-progress-mobile-inactive-item-border-color;
+        &:after { background-position: -3 * $step-progress-icon-size 50%; }
+        &:before { background-color: $step-progress-mobile-inactive-item-border-color; }
+      }
+
+      a {
+        &:before {
+          // scss-lint:disable ImportantRule
+          background-color: $step-progress-mobile-inactive-item-border-color !important;
+          // scss-lint:enable ImportantRule
+        }
+      }
+    }
+
+    a {
+      width: auto;
+
+      &:before {
+        background-color: $step-progress-mobile-item-border-color;
+      }
+    }
+  }
+
+  @media #{$ie10-11} {
+    li {
+      &:last-child {
+        a:before {
+          left: calc(100% - #{ru(2)});
+        }
+      }
+    }
+  }
+}

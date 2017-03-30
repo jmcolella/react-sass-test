@@ -1,0 +1,122 @@
+// scss-lint:disable all
+/*doc
+---
+title: Article
+name: article
+category: Modules - Article
+---
+## Generic Article
+
+```slim_example
+article.mod-article
+  h1 Maecenas
+
+  h2 A Aliquam
+  img src='holder.js/350x150?auto=yes' alt='Placeholder image' class='float-left'
+  p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam ac nisl blandit, convallis leo non, malesuada mi. Mauris tempus vehicula nisl nec suscipit. Suspendisse ullamcorper vitae ipsum ac tristique. Donec ullamcorper nunc velit, nec accumsan turpis vulputate vitae. Cras luctus, ante quis tempus semper, elit eros imperdiet neque, vel vehicula felis sem id purus. Etiam neque lorem, aliquet vitae leo at, fringilla dapibus sapien. Nunc eget libero at elit dapibus interdum. Proin vitae odio ante. Integer aliquam arcu non rutrum lobortis.
+
+  h3 Quisque a volutpat
+  img src='holder.js/350x150?auto=yes' alt='Placeholder image' class='float-right'
+  p.value Aliquam ac nisl blandit, convallis leo non, malesuada mi. Mauris tempus vehicula nisl nec suscipit. Suspendisse ullamcorper vitae ipsum ac tristique.
+
+  ul
+    li Donec sit
+    li Sed laoreet rutrum
+
+  h2 Mauris in dui
+  ul.arrows
+    li Mauris in dui
+    li Nullam
+```
+*/
+// scss-lint:enable all
+
+.mod-article {
+  margin-bottom: ru(2);
+  color: $main-font-color;
+
+  &.margin-top {
+    margin-top: ru(2);
+  }
+
+  h1 {
+    @extend .like-h1;
+    color: inherit;
+  }
+
+  h2 {
+    @extend .like-h3;
+  }
+
+  h3 {
+    @extend .like-h4;
+  }
+
+  p {
+    margin-bottom: ru(1);
+  }
+
+  ul {
+    margin: 0 0 ru(1) rem-calc(20px);
+    list-style: disc;
+
+    &.arrows {
+      list-style: none;
+      margin-left: 0;
+
+      li {
+        position: relative;
+        padding-left: rem-calc(20px);
+
+        &::before {
+          content: '▹';
+          top: rem-calc(2px);
+          position: absolute;
+          margin-left: rem-calc(-20px);
+          font-family: 'SSPika';
+          font-size: rem-calc(14px);
+        }
+      }
+    }
+  }
+
+  em {
+    font-style: italic;
+  }
+
+  img {
+    max-width: 100%;
+  }
+
+  .value {
+    font-style: italic;
+
+    &:before {
+      content: '» ';
+    }
+  }
+
+  .maps {
+    width: 100%;
+    height: ru(20);
+    border: 0;
+  }
+
+  img.float-left,
+  img.float-right {
+    display: block;
+    margin: ru(1) auto;
+  }
+
+  @media #{$medium-up} {
+    img.float-left {
+      float: left;
+      margin: 8px 20px 8px 0;
+    }
+
+    img.float-right {
+      float: right;
+      margin: 8px 0 8px 20px;
+    }
+  }
+}

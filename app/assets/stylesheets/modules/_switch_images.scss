@@ -1,0 +1,53 @@
+// scss-lint:disable all
+/*doc
+---
+title: Switch Images
+name: switch-images
+category: Modules - Switch Images
+---
+```slim_example_table
+.mod-switch-images
+  img.active src='images/dog.png'
+  img src='images/dog2.png'
+```
+
+```slim_example_table
+.mod-example.text-center
+  button.button.mini In rhoncus orci
+```
+
+```js_example
+$('button').on('click', function(e) {
+  var $target = $('.mod-switch-images img').not('.active');
+  $('.mod-switch-images img').removeClass('active');
+  $target.addClass('active');
+});
+```
+*/
+// scss-lint:enable all
+
+$switch-images-height: ru(9);
+
+.mod-switch-images {
+  position: relative;
+  margin-bottom: ru(1);
+  height: $switch-images-height;
+  @media #{$small-only} { display: none; }
+
+  img {
+    position: absolute;
+    max-height: $switch-images-height;
+    z-index: 0;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%) scale(0);
+    opacity: 0;
+    transition: all 350ms ease;
+
+    &.active {
+      z-index: 1;
+      transform: translateX(-50%) scale(1);
+      opacity: 1;
+    }
+  }
+}

@@ -1,0 +1,185 @@
+// scss-lint:disable all
+/*doc
+---
+title: Percentage Card
+name: percentage-card
+category: Cards - Percentage Card
+---
+```slim_example
+.mod-percentage-card style='max-width: 600px;'
+  .details
+    h4 Aenean ac bibendum nisi
+    h5 Phasellus
+    .actions
+      a href='#' data-edit-details='' laoreet quam
+  .percentage
+    .value 10%
+    .selectbox
+      select
+        option 10%
+        option 10%
+        option 10%
+        option 10%
+    h5 in rhoncus orci et
+    .actions
+      a href='#' data-edit-details='' ut euismod
+```
+
+```slim_example
+.mod-percentage-card style='max-width: 600px;'
+  .details
+    h4 Vivamus eu aliquet
+    h5 Pharetra
+    .actions
+      a href='#' data-edit-details='' tristique senectus
+  .percentage.edit-mode
+    .value 10%
+    .selectbox
+      select
+        option 10%
+        option 10%
+        option 10%
+        option 10%
+    h5 leo id odio
+    .actions
+      a href='#' data-edit-details='' ultricies augue
+```
+*/
+// scss-lint:enable all
+
+$percentage-card-min-height:               ru(5.583);
+$percentage-card-background-color:         $neutral-8;
+$percentage-card-border-color:             $neutral-5;
+$percentage-card-label-color:              $neutral-4;
+$percentage-card-value-color:              $brand-2;
+$percentage-card-value-error-color:        $accent-2;
+$percentage-card-selectbox-color:          $neutral-2;
+$percentage-card-actions-background-color: $neutral-6;
+
+.mod-percentage-card {
+  display: flex;
+  min-height: $percentage-card-min-height;
+  position: relative;
+  min-width: ru(11.33);
+  background-color: $percentage-card-background-color;
+  border: 1px solid $percentage-card-border-color;
+  border-radius: ru(.25);
+  margin-bottom: ru(1);
+  overflow: hidden;
+
+  .details {
+    display: flex;
+    flex: 1 1 60%;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: ru(.667);
+    overflow: hidden;
+
+    h4 {
+      @include typography-4;
+      margin: 0 0 ru(.125);
+    }
+  }
+
+  .percentage {
+    display: flex;
+    flex: 1 1 40%;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: ru(.667);
+    border-left: 1px solid $percentage-card-border-color;
+
+    .value {
+      @include typography-3;
+      color: $percentage-card-value-color;
+      margin: 0 0 ru(.083);
+    }
+
+    .selectbox {
+      display: none;
+      border: 0;
+      height: auto;
+      padding: 0;
+      line-height: 1;
+      margin-top: auto;
+
+      select {
+        @include typography-3;
+        color: $percentage-card-selectbox-color;
+        margin: 0;
+        padding: 0;
+      }
+
+      &:after {
+        right: 0;
+      }
+    }
+
+    .actions {
+      position: relative;
+      left: -1px;
+      margin-right: ru(-.708);
+    }
+
+    &.edit-mode {
+      .value,
+      h5 {
+        display: none;
+      }
+
+      .selectbox {
+        display: block;
+      }
+    }
+  }
+
+  h5 {
+    @include typography-6;
+    font-weight: 400;
+    line-height: ru(.75);
+    color: $percentage-card-label-color;
+    margin: 0 0 ru(.167);
+  }
+
+  &.error {
+    // scss-lint:disable ImportantRule
+    border-color: $percentage-card-border-color !important;
+    // scss-lint:enable ImportantRule
+
+    .percentage {
+      .value {
+        color: $percentage-card-value-error-color;
+      }
+    }
+  }
+
+  .actions {
+    margin: ru(.667) ru(-.667) ru(-.667);
+    padding: ru(.292) ru(.25) ru(.292) ru(.667);
+    border-top: 1px solid $percentage-card-border-color;
+    background-color: $percentage-card-actions-background-color;
+
+    a {
+      @include typography-7;
+      display: inline-block;
+      font-weight: 400;
+      margin: 0;
+      text-decoration: none;
+
+      &:hover,
+      &:active {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  @media #{$small-only} {
+    .details {
+      flex-basis: 55%;
+    }
+
+    .percentage {
+      flex-basis: 45%;
+    }
+  }
+}

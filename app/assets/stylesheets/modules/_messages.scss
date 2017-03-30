@@ -1,0 +1,188 @@
+// scss-lint:disable all
+/*doc
+---
+title: Messages
+name: messages
+category: Modules - Messages
+---
+### Short
+```slim_example
+.mod-message
+  a.short href='#'
+    img.avatar src='https://gravatar.com/avatar/6562824e9acc1a4e04d22f9aca38ce96.png'
+    .details
+      h4 Maecenas ullamcorper
+      .tag Fermentum
+      p Quisque ac quam tristique, euismod justo et, ultrices arcu. Vivamus consectetur risus et sapien maximus, sollicitudin pulvinar justo tincidunt. Suspendisse et nisi turpis. Maecenas rhoncus pulvinar dolor, sit amet commodo risus hendrerit quis. Suspendisse vel massa iaculis, porta massa in, pellentesque purus...
+    .meta
+      .date consectetur ipsum in
+```
+
+### Expanded
+```slim_example
+.mod-message
+  .header
+    img.avatar src='https://gravatar.com/avatar/6562824e9acc1a4e04d22f9aca38ce96.png'
+    .details
+      p
+        strong Etiam:
+        |  Aenean
+    .meta
+      .tag Pretium
+      .date nec volutpat orci
+  .body
+    p Proin aliquam!
+    p Mauris semper faucibus tellus, id auctor!
+    p Donec blandit diam a neque aliquet, nec facilisis mi finibus. Quisque facilisis mauris eget tortor consectetur vulputate. Vestibulum ipsum neque, dictum et consectetur ornare, ultrices ullamcorper velit.
+    h4 Aenean ac bibendum
+    p
+      | Phasellus in laoreet quam. Curabitur ex nibh, pharetra eget aliquam congue, commodo vitae tortor. Nam lectus tellus, tristique eget molestie ut, condimentum id felis&nbsp;
+      a href='#' porta facilisis
+      |  placerat ipsum a nulla maximus!
+    h4 Maecenas ullamcorper
+    p Mauris ex mauris, porttitor sed risus at, feugiat sollicitudin augue. Nam et consequat urna. Fusce quis elit at turpis convallis pretium. Quisque ac quam tristique, euismod justo et, ultrices arcu.
+```
+*/
+// scss-lint:enable all
+
+$message-header-border-color:  $neutral-6;
+$message-short-text-color:     $neutral-3;
+$message-avatar-border-color:  $accent-3;
+$message-tag-background-color: $accent-3;
+$message-tag-text-color:       $neutral-8;
+$message-date-text-color:      $neutral-3;
+
+.mod-message {
+  .header {
+    display: flex;
+    padding: ru(.5);
+    border-top: 1px solid $message-header-border-color;
+    border-bottom: 1px solid $message-header-border-color;
+
+    .details {
+      margin: ru(.5) 0 0 ru(.5);
+    }
+  }
+
+  .short {
+    display: flex;
+    padding: ru(.5);
+    border-top: 1px solid $message-header-border-color;
+    border-bottom: 1px solid $message-header-border-color;
+    text-decoration: none;
+
+    .details {
+      margin-left: ru(1);
+      margin-right: ru(1);
+    }
+
+    h4 {
+      @include like-h4;
+      font-weight: 400;
+      margin-bottom: 0;
+    }
+
+    .tag {
+      margin-right: ru(.33);
+    }
+
+    p {
+      @include like-p;
+      display: inline;
+      vertical-align: -1px;
+      margin: 0;
+      color: $message-short-text-color;
+    }
+  }
+
+  .avatar {
+    width: ru(2.33);
+    height: ru(2.33);
+    padding: ru(.083);
+    border: ru(.083) solid $message-avatar-border-color;
+    border-radius: 50%;
+  }
+
+  .details {
+    flex: 1 0;
+  }
+
+  .meta {
+    margin-left: auto;
+    text-align: right;
+  }
+
+  .tag {
+    @include typography-7;
+    margin-bottom: 0;
+    display: inline-block;
+    border-radius: ru(.375);
+    padding: ru(.167) ru(.375);
+    background-color: $message-tag-background-color;
+    line-height: 1;
+    white-space: nowrap;
+    color: $message-tag-text-color;
+
+    + .date {
+      margin-top: ru(.33);
+    }
+  }
+
+  .date {
+    @include typography-7;
+    margin-bottom: 0;
+    text-transform: uppercase;
+    white-space: nowrap;
+    color: $message-date-text-color;
+  }
+
+  .body {
+    padding: ru(.5) 0 ru(1);
+
+    p {
+      @include like-p;
+    }
+
+    h4 {
+      @include like-h4;
+      margin-bottom: ru(.5);
+    }
+  }
+
+  strong {
+    font-weight: 600;
+  }
+
+  @media #{$small-only} {
+    .short,
+    .body {
+      h4 {
+        @include typography-6;
+        margin-bottom: ru(.33);
+      }
+
+      p {
+        @include typography-7;
+        line-height: ru(.75);
+        margin: 0;
+      }
+    }
+
+    .short,
+    .header {
+      padding: ru(.5) 0;
+    }
+
+    h4 {
+      margin-top: 0;
+    }
+
+    .body {
+      p {
+        margin-top: ru(.33);
+        margin-bottom: ru(.33);
+      }
+    }
+  }
+}
+

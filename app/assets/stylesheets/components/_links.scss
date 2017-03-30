@@ -1,0 +1,132 @@
+// scss-lint:disable all
+/*doc
+---
+title: Links
+name: links
+category: Components - Links
+---
+## Simple Link
+```slim_example
+.mod-example
+  a href='#' Suspendisse congue volutpat posuere
+```
+
+## Small link
+```slim_example
+.mod-example
+  a.small href='#' Aenean ac nulla
+```
+
+## Lowlight Link
+```slim_example
+.mod-example
+  a.lowlight href='#' Sed id nunc
+```
+
+## Action Link
+```slim_example
+.mod-example
+  a.action href='#' Etiam et facilisis augue
+```
+
+## Underline Hover Link
+```slim_example
+.mod-example
+  a.highlighting href='#' Ut euismod lectus at
+```
+
+## Colored Link
+```slim_example
+.mod-example
+  a.info href='#' Praesent ultricies, velit sit
+```
+
+## Link on colored background
+```slim_example_table
+.mod-example style='display: flex; justify-content: center; align-items: center; background-color: #00a4a5; padding: 25px'
+  a.solid-background Lorem Ipsum
+```
+
+*/
+// scss-lint:enable all
+
+$link-color:                    $neutral-3;
+$link-hover-color:              $neutral-2;
+$link-lowlight-color:           $neutral-3;
+$link-lowlight-hover-color:     $action-2;
+$link-action-color:             $brand-3;
+$link-action-hover-color:       $brand-2;
+$link-underline-color:          $neutral-2;
+$link-underline-border-color:   $brand-3;
+$link-colored-color:            $brand-2;
+$link-solid-background-color:   $neutral-8;
+
+[class^='mod-'] {
+  a {
+    color: $link-color;
+    text-decoration: underline;
+    transition: color 300ms ease-out;
+
+    &:hover,
+    &:active {
+      color: $link-hover-color;
+    }
+
+    &.small {
+      font-size: ru(.5);
+    }
+
+    &.margin {
+      margin: ru(1.16);
+    }
+
+    &.lowlight {
+      color: $link-lowlight-color;
+
+      &:hover,
+      &:active {
+        color: $link-lowlight-hover-color;
+      }
+    }
+
+    &.action {
+      color: $link-action-color;
+
+      &:hover,
+      &:active {
+        color: $link-action-hover-color;
+      }
+    }
+
+    &.highlighting {
+      border-bottom: rem-calc(2px) solid transparent;
+      color: $link-underline-color;
+      text-decoration: none;
+
+      &:hover {
+        border-color: $link-underline-border-color;
+      }
+    }
+
+    &.info {
+      color: $link-colored-color;
+      text-decoration: none;
+
+      &:hover,
+      &:active {
+        text-decoration: underline;
+      }
+    }
+
+    &.solid-background {
+      @include typography-7;
+      color: $link-solid-background-color;
+      text-decoration: none;
+      margin-bottom: 0;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}

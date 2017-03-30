@@ -1,0 +1,94 @@
+// scss-lint:disable all
+/*doc
+---
+title: Shadows
+name: shadows
+category: Base Styles - Shadows
+---
+
+## Drop shadow on white container
+
+```slim_example
+.example_container_with_drop_shadow_on_white style='background-color: white; width: 100%; height: 200px;'
+
+scss:
+.example_container_with_drop_shadow_on_white
+  // @include drop-shadow-on-white;
+```
+
+## Drop shadow on color containter
+```slim_example
+.example_container_with_drop_shadow_on_color style='background-color: #00a4a5; width: 100%; height: 200px;'
+
+scss:
+.example_container_with_drop_shadow_on_color
+  // @include drop-shadow-on-color;
+```
+
+## Text shadow on white background
+```slim_example
+.example_container  style='background-color: #fff; width: 100%; display: flex; flex-direction: column;'
+  h1.example_text_shadow_on_white style='margin: 24px 0 48px 50px; color: #4d4d4d; font-size: 68px; font-weight: 600; line-height: 72px;'
+    | Lorem ipsum dolor sit amet
+  h2.example_text_shadow_on_white style='margin: 0 0 24px 50px; color: #4d4d4d; font-size: 42px; font-weight: 600; line-height: 48px;'
+    | Lorem ipsum dolor sit amet
+  p.example_text_shadow_on_white style='margin: 0 0 24px 50px; color: #4d4d4d; font-size: 19px; line-height: 30px;'
+    | consectetur adipiscing elit
+
+scss:
+.example_text_shadow_on_white
+  // @include text-shadow;
+```
+
+## Text shadow on color background
+```slim_example
+.example_container style='background-color: #00a4a5; width: 100%; display: flex; flex-direction: column;'
+  h1.example_text_shadow_on_color style='margin: 24px 0 48px 50px; color: #fff; font-size: 68px; font-weight: 600; line-height: 72px;'
+    | Lorem ipsum dolor sit amet
+  h2.example_text_shadow_on_color style='margin: 0 0 24px 50px; color: #fff; font-size: 42px; font-weight: 600; line-height: 48px;'
+    | Lorem ipsum dolor sit amet
+  p.example_text_shadow_on_color style='margin: 0 0 24px 50px; color: #fff; font-size: 19px; line-height: 30px;'
+    | consectetur adipiscing elit
+
+scss:
+.example_text_shadow_on_coor
+  // @include text-shadow;
+```
+
+*/
+// scss-lint:enable all
+
+$shadow-x:                 0;
+$shadow-y:                 2px;
+$shadow-blur:              3px;
+$shadow-blur-text:         2px;
+$shadow-color:             rgba(0, 0, 0, .1);
+$shadow-color-on-color:    rgba(0, 0, 0, .2);
+
+@mixin drop-shadow-on-white() {
+  box-shadow: $shadow-x $shadow-y $shadow-blur $shadow-color;
+}
+
+@mixin drop-shadow-on-color() {
+  box-shadow: $shadow-x $shadow-y $shadow-blur $shadow-color-on-color;
+}
+
+@mixin text-shadow() {
+  text-shadow: $shadow-x $shadow-y $shadow-blur-text $shadow-color;
+}
+
+.example_container_with_drop_shadow_on_white {
+  @include drop-shadow-on-white;
+}
+
+.example_container_with_drop_shadow_on_color {
+  @include drop-shadow-on-color;
+}
+
+.example_text_shadow_on_white {
+  @include text-shadow;
+}
+
+.example_text_shadow_on_color {
+  @include text-shadow;
+}

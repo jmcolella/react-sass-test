@@ -1,0 +1,33 @@
+// scss-lint:disable all
+/*doc
+---
+title: Value Card
+name: value-card
+category: Cards - Value Card
+---
+```slim_example_table
+div style='background: #eee; padding: 24px;'
+  .mod-value-card
+    img src='holder.js/240x360?auto=yes'
+```
+*/
+// scss-lint:enable all
+
+$value-card-max-width:         rem-calc(290px);
+$value-card-height:            rem-calc(400px);
+$value-card-border-color:      $neutral-8;
+$value-card-background-color:  $brand-1;
+
+.mod-value-card {
+  display: inline-block;
+  position: relative;
+  width: 100%;
+  max-width: $value-card-max-width;
+  border: ru(1) solid $value-card-border-color;
+  background-color: $value-card-background-color;
+
+  img {
+    display: block;
+    width: 100%;
+  }
+}

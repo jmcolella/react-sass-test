@@ -1,0 +1,46 @@
+// scss-lint:disable all
+/*doc
+---
+title: Offset images
+name: offset-images
+category: Components - Offset Images
+---
+```slim_example
+.mod-example style='width: 300px;'
+  .offset-images
+    img src='holder.js/80x80?auto=yes'
+    img src='holder.js/80x80?auto=yes'
+    img src='holder.js/80x80?auto=yes'
+```
+*/
+// scss-lint:enable all
+
+$offset-images-border-color:           $brand-2;
+$offset-images-image-width:            35%;
+$offset-images-image-height:           100%;
+$offset-images-image-margin-left:      ru(-.5);
+
+[class^='mod-'] {
+  .offset-images {
+    img {
+      display: inline-block;
+      vertical-align: middle;
+      border-radius: 50%;
+      border: 1px solid $offset-images-border-color;
+      margin-left: $offset-images-image-margin-left;
+      position: relative;
+      z-index: 1;
+      height: $offset-images-image-height;
+      width: $offset-images-image-width;
+
+      &:first-child {
+        margin-left: 0;
+        z-index: 2;
+      }
+
+      &:last-child {
+        z-index: 0;
+      }
+    }
+  }
+}

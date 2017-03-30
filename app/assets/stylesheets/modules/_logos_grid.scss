@@ -1,0 +1,76 @@
+// scss-lint:disable all
+/*doc
+---
+title: Logos Grid
+name: logos_grid
+category: Modules - Logos Grid
+---
+
+* _Single column on mobile_
+* _Two columns for medium-up_
+
+```slim_example
+.mod-logos-grid
+  .grid-cell
+    figure
+      img src='holder.js/400x200?auto=yes'
+      figcaption Nam metus massa
+  .grid-cell
+    figure
+      img src='holder.js/400x150?auto=yes'
+      figcaption Nam metus massa
+  .grid-cell
+    figure
+      img src='holder.js/300x200?auto=yes'
+      figcaption Nam metus massa
+  .grid-cell
+    figure
+      img src='holder.js/400x250?auto=yes'
+      figcaption Nam metus massa
+  .grid-cell
+    figure
+      img src='holder.js/180x300?auto=yes'
+      figcaption Nam metus massa
+  .grid-cell
+    figure
+      img src='holder.js/300x300?auto=yes'
+      figcaption Nam metus massa
+```
+*/
+// scss-lint:enable all
+
+.mod-logos-grid {
+  align-items: baseline;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+
+  .grid-cell {
+    flex-basis: auto;
+    margin: 0 auto;
+    padding: ru(1);
+    text-align: center;
+  }
+
+  figure {
+    margin: 0;
+  }
+
+  img {
+    max-height: 150px;
+  }
+
+  figcaption {
+    @include typography-7;
+  }
+}
+
+@media #{$medium-up} {
+  .mod-logos-grid {
+    flex-direction: row;
+
+    .grid-cell {
+      flex-basis: 50%;
+    }
+  }
+}

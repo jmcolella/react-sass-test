@@ -1,0 +1,106 @@
+// scss-lint:disable all
+/*doc
+---
+title: Pricing Table
+name: pricing-table
+category: Modules - Pricing Table
+---
+
+## Table
+```slim_example_table
+table.mod-pricing-table
+  thead
+    tr
+      th.note Proin aliquam tortor
+      th
+        ' 10
+        span.units Aliquam
+      th
+        ' 10
+        span.units Aliquam
+      th
+        ' 10
+        span.units Aliquam
+  tbody
+    tr
+      th
+        ' $100
+        span.units Suspendisse
+      td
+        a $10
+      td
+        a $10
+      td
+        a $10
+    tr
+      th
+        ' $100
+        span.units Nulla
+      td
+        a $10
+      td.selected
+        a $10
+      td.highlight
+        a $10
+    tr
+      th
+        ' $100
+        span.units Porttitor
+      td
+        a $10
+      td
+        a $10
+      td
+        a $10
+```
+*/
+// scss-lint:enable all
+
+$mod-pricing-table-cell-color: $neutral-6;
+$mod-pricing-table-cell-color-selected: $brand-4;
+$mod-pricing-table-cell-color-highlight: $accent-5;
+$mod-pricing-table-link-color: $neutral-2;
+$mod-pricing-table-link-color-hover: $neutral-1;
+
+.mod-pricing-table {
+  @extend .typography-6;
+  font-weight: 300;
+
+  td,
+  th {
+    text-align: center;
+    vertical-align: middle;
+  }
+
+  tbody td {
+    background: $mod-pricing-table-cell-color;
+
+    &.selected {
+      background: $mod-pricing-table-cell-color-selected;
+    }
+
+    &.highlight {
+      background: $mod-pricing-table-cell-color-highlight;
+    }
+  }
+
+  a {
+    color: $mod-pricing-table-link-color;
+
+    &:hover {
+      color: $mod-pricing-table-link-color-hover;
+    }
+  }
+
+  .note {
+    @extend .typography-7;
+    font-style: italic;
+    margin: 0;
+  }
+
+  .units {
+    @extend .typography-7;
+    display: block;
+    margin: 0;
+  }
+}

@@ -1,0 +1,30 @@
+@mixin close($size, $thickness, $color) {
+  position: relative;
+  width: $size;
+  height: $size;
+  transform: rotate(45deg);
+  cursor: pointer;
+
+  &:before,
+  &:after {
+    content: '';
+    position: absolute;
+    background-color: $color;
+  }
+
+  &:before {
+    width: $size;
+    height: $thickness;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+  }
+
+  &:after {
+    width: $thickness;
+    height: $size;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}

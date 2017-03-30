@@ -1,0 +1,107 @@
+// scss-lint:disable all
+/*doc
+---
+title: Content Align
+name: content-align
+category: Layouts - Content Align
+---
+```slim_example
+.layout-left-align
+  .mod-example
+    button.button.i-mail Etiam malesuada
+```
+
+```slim_example
+.layout-right-align
+  .mod-example
+    button.button.i-mail Etiam malesuada
+    button.button.i-phone style='margin-left: 12px;' Sed non tortor
+```
+
+```slim_example
+.layout-center-align
+  .mod-example
+    button.button.action.i-mail Etiam malesuada
+```
+
+```slim_example
+.layout-center-vertical-align style='height: 400px; background: #f6f6f6;'
+  .mod-example
+    label.checkbox
+      input type='checkbox' checked='checked'
+      span Donec semper ligula
+  .mod-example style='margin-left: 24px;'
+    .selectbox
+      select
+        option Nullam metus velit
+        option Fusce sagittis nec
+        option Aenean sit amet pretium orci
+```
+### Layout Space Between
+```slim_example
+.layout-space-between style='background: #f6f6f6; padding: 30px 0'
+  .mod-example
+    label.checkbox
+      input type='checkbox' checked='checked'
+      span Donec semper ligula
+  .mod-example style='margin-left: 24px;'
+    .selectbox
+      select
+        option Nullam metus velit
+        option Fusce sagittis nec
+        option Aenean sit amet pretium orci
+  .mod-example style='margin-left: 24px;'
+    .selectbox
+      select
+        option Pet insurance
+        option Fusce sagittis nec
+        option Aenean sit amet pretium orci
+```
+*/
+// scss-lint:enable all
+
+.layout-left-align,
+.layout-right-align,
+.layout-center-align,
+.layout-space-between {
+  display: flex;
+
+  > * {
+    flex: 0 1 auto;
+  }
+
+  .button.action {
+    @media #{$medium-up} {
+      width: auto;
+      min-width: ru(8);
+    }
+  }
+}
+
+.layout-left-align {
+  justify-content: flex-start;
+}
+
+.layout-right-align {
+  justify-content: flex-end;
+}
+
+.layout-center-align {
+  justify-content: center;
+}
+
+.layout-center-vertical-align {
+  @extend .layout-center-align;
+  align-items: center;
+}
+
+.layout-space-between {
+  justify-content: space-between;
+  flex-direction: column;
+  align-items: center;
+
+  @media #{$medium-up} {
+    flex-direction: row;
+  }
+}
+

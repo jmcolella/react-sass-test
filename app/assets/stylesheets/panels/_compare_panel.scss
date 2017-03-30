@@ -1,0 +1,132 @@
+// scss-lint:disable all
+/*doc
+---
+title: Compare Panel
+name: compare-panel
+category: Panels - Compare Panel
+---
+```slim_example
+div style='background: #eee; padding: 24px;'
+  .mod-compare-panel
+    .content
+      h5 Curabitur ex nibh, pharetra eget
+      button.button.action.lowlight[disabled] Iaculis
+      button.button.outline Aenean
+  br
+  .mod-compare-panel data-example=''
+    .content
+      h5
+        strong et
+        '  tortor consectetur
+      button.button.action.lowlight Rhoncus
+      button.button.outline Fusce
+    .error-message
+      h5 Suspendisse molestie vel sapien at posuere.
+  br
+  .mod-example.text-center
+    button.button.mini.js-compare-panel-example Nulla maximus congue
+```
+
+```js_example
+  $('.js-compare-panel-example').on('click', function() {
+    $('[data-example]').toggleClass('error');
+  });
+```
+*/
+// scss-lint:enable all
+
+$compare-panel-background-color:   $neutral-8;
+$compare-panel-border-color:       $neutral-5;
+$compare-panel-color:              $neutral-2;
+$compare-panel-error-color:        $accent-3;
+$compare-panel-error-border-color: $accent-3;
+
+.mod-compare-panel {
+  position: relative;
+  padding: ru(.667) ru(1);
+  background-color: $compare-panel-background-color;
+  border-bottom: ru(.125) solid $compare-panel-border-color;
+  overflow: hidden;
+  color: $compare-panel-color;
+  transition: border-color 350ms ease-out;
+
+  h5 {
+    @include typography-6;
+    font-weight: 600;
+    margin: 0 ru(1) 0 0;
+    color: inherit;
+
+    strong {
+      @include typography-5;
+      margin: 0;
+    }
+  }
+
+  .button {
+    padding: ru(.33) ru(1.25);
+
+    &.action {
+      width: auto;
+      margin-bottom: ru(.167);
+      padding: ru(.292) ru(1.25) ru(.25);
+    }
+
+    + .button {
+      margin-left: ru(.5);
+    }
+  }
+
+  .content {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: flex-end;
+    transform: translateY(0);
+    transition: all 350ms ease-out;
+  }
+
+  .error-message {
+    position: absolute;
+    top: 200%;
+    right: ru(1);
+    margin: 0;
+    max-height: none;
+    transform: translateY(-50%);
+    transition: all 350ms ease-out;
+
+    h5 {
+      margin: 0;
+      color: $compare-panel-error-color;
+    }
+  }
+
+  &.error {
+    border-bottom-color: $compare-panel-error-border-color;
+
+    .content {
+      transform: translateY(200%);
+      opacity: 0;
+    }
+
+    .error-message {
+      top: 50%;
+      opacity: 1;
+    }
+  }
+
+  @media #{$small-only} {
+    .content {
+      justify-content: center;
+    }
+
+    h5 {
+      flex: 1 0 100%;
+      margin: 0 0 ru(.75);
+      text-align: center;
+    }
+
+    .error-message {
+      left: ru(1);
+    }
+  }
+}

@@ -1,0 +1,187 @@
+// scss-lint:disable all
+/*doc
+---
+title: Simple List
+name: simple-list
+category: Lists - Simple List
+---
+```slim_example
+ul.mod-simple-list
+  li Curabitur ex nibh, pharetra eget aliquam congue
+  li Suspendisse
+  li In rhoncus orci et ex fermentum
+  li Vivamus eu aliquet sapien, non fringilla enim
+  li Ut scelerisque nulla at sem suscipit, at porta mi tincidunt
+  li Nunc in pharetra velit
+  li Pellentesque habitant morbi
+  li Suspendisse molestie vel sapien at posuere
+```
+
+## Two columns
+```slim_example
+ul.mod-simple-list.two-columns
+  li Curabitur ex nibh, pharetra eget aliquam congue
+  li Suspendisse
+  li In rhoncus orci et ex fermentum
+  li Vivamus eu aliquet sapien, non fringilla enim
+  li Ut scelerisque nulla at sem suscipit, at porta mi tincidunt
+  li Nunc in pharetra velit
+  li Pellentesque habitant morbi
+```
+
+## Two columns unstyled
+```slim_example
+.mod-simple-list.two-columns.unstyled
+  ul
+    li
+      Phasellus tellus
+      p
+        a href='#' sed vulputate
+    li
+      strong Aliquam
+      p Proin pharetra felis et odio porttitor
+    li
+      strong Chicago
+      p Nunc in pharetra velit
+    li
+      strong Washington, D.C.
+      p Vivamus ultricies augue in tortor pharetra
+```
+
+## Condensed
+```slim_example
+ul.mod-simple-list.condensed
+  li Curabitur ex nibh, pharetra eget aliquam congue
+  li Suspendisse
+  li In rhoncus orci et ex fermentum
+  li Vivamus eu aliquet sapien, non fringilla enim
+  li Ut scelerisque nulla at sem suscipit, at porta mi tincidunt
+  li Nunc in pharetra velit
+  li Pellentesque habitant morbi
+  li Suspendisse molestie vel sapien at posuere
+```
+
+## Nested
+```slim_example
+ul.mod-simple-list
+  li Curabitur ex nibh, pharetra eget aliquam congue
+  li Suspendisse
+  li
+    | In rhoncus orci et ex fermentum
+    ul
+      li Vivamus eu aliquet sapien, non fringilla enim
+      li Ut scelerisque nulla at sem suscipit, at porta mi tincidunt
+      li Nunc in pharetra velit
+  li Pellentesque habitant morbi
+  li Suspendisse molestie vel sapien at posuere
+```
+
+## Mini
+```slim_example
+ul.mod-simple-list.mini
+  li Curabitur ex nibh, pharetra eget aliquam congue
+  li Suspendisse
+  li In rhoncus orci et ex fermentum
+  li Vivamus eu aliquet sapien, non fringilla enim
+```
+*/
+// scss-lint:enable all
+
+ul.mod-simple-list {
+  margin: 0 0 ru(1);
+  padding: 0 0 0 ru(1);
+  list-style: disc;
+
+  li {
+    margin-bottom: ru(.33);
+  }
+
+  ul {
+    margin-top: ru(.33);
+    padding-left: ru(1);
+    list-style: circle;
+  }
+
+  strong {
+    font-weight: 600;
+  }
+
+  img {
+    vertical-align: middle;
+    margin-right: ru(.5);
+  }
+
+  &.mini {
+    li {
+      @include typography-7;
+      line-height: ru(.75);
+      margin: 0;
+    }
+
+    strong {
+      @include typography-6;
+      line-height: ru(1);
+      margin: 0;
+    }
+  }
+
+  &.condensed {
+    li {
+      margin-bottom: 0;
+    }
+
+    ul {
+      margin-top: 0;
+    }
+  }
+
+  &.extended {
+    margin: 0;
+
+    li {
+      margin-bottom: ru(.33);
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  &.two-columns {
+    padding-left: 0;
+
+    li {
+      margin-left: ru(1);
+    }
+  }
+
+  &.no-bullet {
+    padding-left: 0;
+    list-style: none;
+
+    li {
+      margin-left: 0;
+    }
+  }
+
+  &.highlighting {
+    a {
+      border-bottom: rem-calc(2px) solid transparent;
+      color: $link-underline-color;
+      text-decoration: none;
+
+      &:hover {
+        border-color: $link-underline-border-color;
+      }
+    }
+  }
+
+  &.unstyled {
+    margin: 0;
+    padding: 0;
+
+    li {
+      list-style-type: none;
+    }
+  }
+}

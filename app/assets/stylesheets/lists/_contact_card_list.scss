@@ -1,0 +1,43 @@
+// scss-lint:disable all
+/*doc
+---
+title: Contact Card List
+name: contact-card-list
+category: Lists - Contact Card List
+---
+### Contact Card List
+```slim_example
+ul.mod-contact-card-list
+  li.contact-card
+    h4 Phasellus
+    .i-phone 0-000-000-0000
+    .hours
+      | sit amet dapibus
+    a.i-globe.action "www.ullamcorper.com"
+
+  li.contact-card
+    h4 Vivamus consectetur
+    .i-phone 0-000-000-0000
+    .hours
+      | id egestas metus
+    a.i-globe.action "www.porttitor.com"
+```
+*/
+// scss-lint:enable all
+
+ul.mod-contact-card-list {
+  list-style: none;
+
+  h4 {
+    @extend .like-h4;
+    margin-bottom: 0;
+  }
+
+  li.contact-card {
+    margin-top: ru(1);
+
+    .hours { margin-left: ru(1); }
+    .i-globe::before { color: $main-font-color; }
+    .contact-card { margin-top: ru(1); }
+  }
+}

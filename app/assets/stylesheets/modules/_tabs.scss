@@ -1,0 +1,157 @@
+// scss-lint:disable all
+/*doc
+---
+title: Tabs
+name: tabs
+category: Modules - Tabs
+---
+```slim_example
+.mod-tabs
+  ul.nav
+    li.active
+      a href='#' Maecenas
+    li
+      a href='#' Ullamcorper
+    li
+      a href='#' Fusce quis
+    li.icon
+      a.i-dashboard href='#'
+    li.icon
+      a.i-mail href='#'
+  .content
+    p Maecenas rhoncus pulvinar dolor, sit amet commodo risus hendrerit quis. Suspendisse vel massa iaculis, porta massa in, pellentesque purus.
+```
+*/
+// scss-lint:enable all
+
+$tabs-nav-background-color:         $brand-3;
+$tabs-nav-active-background-color:  $neutral-8;
+$tabs-nav-hover-background-color:   $brand-4;
+$tabs-content-background-color:     $neutral-8;
+$tabs-tab-color:                    $neutral-8;
+$tabs-tab-height:                   ru(2);
+$tabs-active-tab-color:             $main-font-color;
+$tabs-tab-padding-small:            ru(.5);
+$tabs-tab-padding-medium:           ru(1);
+$tabs-tab-padding-large:            ru(2);
+$tabs-tab-padding-xlarge:           ru(2);
+
+.mod-tabs {
+  font-family: $font-family-sans-serif;
+
+  .nav {
+    @extend %grid-row;
+    width: auto;
+    max-width: none;
+
+    li {
+      float: left;
+      margin-left: rem-calc(2px);
+
+      &.active {
+        a,
+        a:hover,
+        a:active {
+          background-color: $tabs-nav-active-background-color;
+          color: $tabs-active-tab-color;
+        }
+      }
+
+      &.icon { display: none; }
+
+      &:hover a,
+      &:active a {
+        background-color: $tabs-nav-hover-background-color;
+      }
+    }
+
+    a {
+      display: flex;
+      align-items: center;
+      white-space: nowrap;
+      padding: ru(.5) $tabs-tab-padding-small;
+      min-height: $tabs-tab-height;
+      background-color: $tabs-nav-background-color;
+      text-decoration: none;
+      color: $tabs-tab-color;
+
+      &[class^='i-'] {
+        display: none;
+      }
+    }
+  }
+
+  > .content {
+    padding: ru(1);
+    background-color: $tabs-content-background-color;
+  }
+
+  @media #{$small-only} {
+    .nav {
+      display: flex;
+      flex-direction: row;
+
+      li {
+        float: none;
+        flex-grow: 1;
+
+        a { justify-content: space-around; }
+      }
+    }
+  }
+
+  @media #{$medium-only} {
+    .nav {
+      padding-left: ru(1);
+
+      li:first-child {
+        margin-left: 0;
+      }
+
+      li.icon {
+        display: flex;
+      }
+
+      a[class^='i-'] {
+        display: flex;
+        font-size: rem-calc(19);
+        background: none;
+        padding: ru(.125) ru(.5) 0;
+        color: $brand-4;
+
+        &:before { margin-right: 0; }
+
+        &:hover,
+        &:active { background: none; }
+      }
+    }
+  }
+
+  @media #{$small-up} {
+    .nav li {
+      @include typography-6;
+      margin-top: 0;
+      margin-bottom: 0;
+    }
+  }
+
+  @media #{$large-up} {
+    .nav li {
+      @include typography-4;
+      line-height: 1;
+      margin-bottom: 0;
+    }
+  }
+
+  @media #{$medium-only} {
+    .nav a { padding: ru(.5) $tabs-tab-padding-medium; }
+  }
+
+  @media #{$large-only} {
+    .nav a { padding: ru(.5) $tabs-tab-padding-large; }
+  }
+
+  @media #{$xlarge-up} {
+    .nav a { padding: ru(.5) $tabs-tab-padding-xlarge; }
+  }
+}

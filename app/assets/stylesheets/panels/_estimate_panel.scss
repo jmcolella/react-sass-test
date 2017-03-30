@@ -1,0 +1,92 @@
+// scss-lint:disable all
+/*doc
+---
+title: Estimate Panel
+name: estimate-panel
+category: Panels - Estimate Panel
+---
+Estimate Panel
+
+```slim_example_table
+.mod-estimate-panel
+  .header
+    .statistic
+      h4 Suspendisse
+      .value $100,000
+    .statistic
+      h4 Proin
+      .value leo id odio
+  .content
+    .statistic
+      h4 Phasellus viverra
+      .value $10 - $100
+```
+*/
+// scss-lint:enable all
+
+$estimate-panel-header-background-color:   $brand-2;
+$estimate-panel-content-background-color:  $neutral-8;
+$estimate-panel-header-color:              $neutral-8;
+$estimate-panel-content-color:             $neutral-3;
+
+.mod-estimate-panel {
+  text-align: center;
+
+  .statistic {
+    padding: ru(.75);
+
+    + .statistic {
+      @media #{$small-up} {
+        padding-top: 0;
+      }
+
+      @media #{$large-up} {
+        padding-top: ru(.75);
+      }
+    }
+  }
+
+  h4 {
+    @extend .typography-7;
+    font-weight: 300;
+    text-transform: uppercase;
+    margin: 0;
+  }
+
+  .value {
+    @extend .typography-4;
+    font-family: $font-family-serif;
+    font-weight: bold;
+    margin-bottom: 0;
+    line-height: 1;
+  }
+
+  .header {
+    @extend %layout-flex;
+    background: $estimate-panel-header-background-color;
+    color: $estimate-panel-header-color;
+
+    h4 {
+      color: $estimate-panel-header-color;
+    }
+
+    > * {
+      flex-grow: 1;
+      align-self: center;
+    }
+
+    @media #{$small-up} {
+      flex-direction: column;
+    }
+
+    @media #{$large-up} {
+      flex-direction: row;
+    }
+  }
+
+  .content {
+    background: $estimate-panel-content-background-color;
+    color: $estimate-panel-content-color;
+    margin-bottom: ru(1);
+  }
+}

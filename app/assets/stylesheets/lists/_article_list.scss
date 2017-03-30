@@ -1,0 +1,337 @@
+// scss-lint:disable all
+/*doc
+---
+title: Article List
+name: article-list
+category: Lists - Article List
+---
+## List of articles
+```slim_example_table
+ul.mod-article-list
+  li
+    a href='#'
+      figure
+        img src='holder.js/150x80?auto=yes'
+        figcaption
+          h3 Proin aliquam tortor
+          p In rhoncus orci et ex fermentum
+  li
+    a href='#'
+      figure
+        img src='holder.js/150x80?auto=yes'
+        figcaption
+          h3 Proin aliquam tortor
+          p In rhoncus orci et ex fermentum
+  li
+    a href='#'
+      figure
+        img src='holder.js/150x80?auto=yes'
+        figcaption
+          h3 Proin aliquam tortor
+          p In rhoncus orci et ex fermentum
+```
+
+## Condensed version
+```slim_example_table
+ul.mod-article-list.condensed
+  li
+    a href='#'
+      figure
+        img src='holder.js/120x80?auto=yes'
+        figcaption
+          h3 Suspendisse molestie vel sapien at posuere
+          p Proin pharetra felis et odio porttitor, et egestas tortor laoreet.
+  li
+    a href='#'
+      figure
+        img src='holder.js/180x80?auto=yes'
+        figcaption
+          h3 Suspendisse molestie vel sapien at posuere
+          p Proin pharetra felis et odio porttitor, et egestas tortor laoreet.
+  li
+    a href='#'
+      figure
+        img src='holder.js/200x200?auto=yes'
+        figcaption
+          h3 Suspendisse molestie vel sapien at posuere
+          p Proin pharetra felis et odio porttitor, et egestas tortor laoreet.
+  li
+    a href='#'
+      figure
+        img src='holder.js/300x600?auto=yes'
+        figcaption
+          h3 Suspendisse molestie vel sapien at posuere
+          p Proin pharetra felis et odio porttitor, et egestas tortor laoreet.
+```
+
+## With Tag
+```slim_example_table
+ul.mod-article-list.condensed
+  li
+    a href='#'
+      figure
+        img src='holder.js/120x80?auto=yes'
+        figcaption
+          .tag Donec dui est
+          h3 Suspendisse molestie vel sapien at posuere
+          p Proin pharetra felis et odio porttitor, et egestas tortor laoreet.
+  li
+    a href='#'
+      figure
+        img src='holder.js/120x80?auto=yes'
+        figcaption
+          .tag Phasellus
+          h3 Suspendisse molestie vel sapien at posuere
+          p Proin pharetra felis et odio porttitor, et egestas tortor laoreet.
+```
+
+## Grid
+```slim_example
+div style='max-width: 960px'
+  ul.mod-article-list.condensed.grid
+    li
+      a href='#'
+        figure
+          img src='holder.js/120x60?auto=yes'
+          figcaption
+            .tag Donec dui est
+            h3 Suspendisse molestie vel sapien at posuere
+    li
+      a href='#'
+        figure
+          img src='holder.js/120x60?auto=yes'
+          figcaption
+            .tag Phasellus
+            h3 Suspendisse molestie vel sapien at posuere
+    li
+      a href='#'
+        figure
+          img src='holder.js/120x60?auto=yes'
+          figcaption
+            .tag Donec dui est
+            h3 Suspendisse molestie vel sapien at posuere
+    li
+      a href='#'
+        figure
+          img src='holder.js/120x60?auto=yes'
+          figcaption
+            .tag Phasellus
+            h3 Suspendisse molestie vel sapien at posuere
+```
+*/
+// scss-lint:enable all
+
+$article-list-color:                 $neutral-2;
+$article-list-heading-color:         $label-font-color;
+$article-list-heading-hover-color:   $neutral-1;
+$articles-list-heading-border-color: $action-2;
+$article-list-image-max-width:       ru(10);
+$articles-list-tag-color:            $neutral-3;
+
+.mod-article-list {
+  list-style: none;
+  color: $article-list-color;
+
+  li {
+    margin-bottom: ru(1);
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  h3 {
+    @extend .like-h5;
+    margin: 0;
+    color: $article-list-heading-color;
+  }
+
+  p {
+    @extend .like-p;
+    font-family: $font-family-sans-serif;
+    font-weight: 600;
+    margin-bottom: 0;
+    margin-top: 0;
+  }
+
+  a {
+    text-decoration: none;
+  }
+
+  figure {
+    margin: 0;
+    padding: 0;
+  }
+
+  img:not([width]) {
+    width: 50%;
+  }
+
+  figcaption {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .tag {
+    @include typography-7;
+    font-weight: 600;
+    margin: 0 0 ru(.25);
+    line-height: ru(.75);
+    text-transform: uppercase;
+    color: $articles-list-tag-color;
+  }
+
+  &.condensed {
+    color: $article-list-color;
+
+    h3,
+    p {
+      @include like-p;
+      color: inherit;
+    }
+
+    h3 {
+      display: inline-block;
+      margin: 0 auto ru(.167) 0;
+      font-weight: 600;
+      border-bottom: rem-calc(2px) solid transparent;
+    }
+
+    p {
+      margin: 0;
+    }
+
+    a {
+      // scss-lint:disable ImportantRule
+      color: $article-list-color !important;
+      // scss-lint:enable ImportantRule
+
+      &:hover {
+        h3 {
+          border-bottom-color: $articles-list-heading-border-color;
+        }
+      }
+    }
+
+    img {
+      flex: 0 1 auto;
+    }
+  }
+
+  &.grid {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    margin-right: ru(-1);
+    margin-bottom: ru(-2);
+
+    li {
+      flex: 1 0 33.3%;
+      padding-right: ru(1);
+      margin-bottom: ru(2);
+      -ms-flex-negative: 1;
+      -ms-flex-preferred-size: 30%; // IE Padding Fix
+    }
+
+    figure {
+      flex-direction: column;
+    }
+
+    figcaption {
+      padding: 0;
+    }
+
+    img {
+      min-width: 100%;
+      margin: auto auto ru(.5);
+      border-bottom: rem-calc(2px) solid transparent;
+      transition: all 250ms ease;
+    }
+
+    h3 {
+      margin-bottom: 0;
+      border-bottom: 0;
+      transition: all 250ms ease;
+    }
+
+    a {
+      &:hover,
+      &:focus,
+      &:active {
+        color: inherit;
+
+        img {
+          border-bottom-color: $articles-list-heading-border-color;
+        }
+
+        h3 {
+          color: $article-list-heading-hover-color;
+        }
+      }
+    }
+  }
+
+  @media #{$medium-up} {
+    h3 { line-height: 1; }
+    p { margin-top: ru(.25); }
+
+    figure {
+      display: flex;
+    }
+
+    img {
+      align-self: flex-start;
+
+      &:not([width]) {
+        width: 33%;
+      }
+    }
+
+    figcaption {
+      padding-left: ru(2);
+    }
+
+    &.condensed {
+      figcaption {
+        padding-left: ru(1);
+      }
+    }
+
+    &.grid {
+      figure {
+        display: block;
+      }
+
+      figcaption {
+        padding-left: 0;
+      }
+    }
+  }
+
+  @media #{$medium-only} {
+    &.grid {
+      li { flex-basis: 50%; }
+    }
+  }
+
+  @media #{$small-only} {
+    &.condensed {
+      img {
+        width: 100%;
+        margin-bottom: ru(.5);
+      }
+    }
+
+    &.grid {
+      margin-bottom: ru(-1.25);
+      margin-right: 0;
+
+      li {
+        flex-basis: 100%;
+        margin-bottom: ru(1.25);
+        padding-right: 0;
+      }
+    }
+  }
+}

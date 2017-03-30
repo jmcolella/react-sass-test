@@ -1,0 +1,127 @@
+// scss-lint:disable all
+/*doc
+---
+title: Spacers
+name: spacers
+category: Base Styles - Spacers
+---
+
+#### Extra Small Spacer
+```slim_example_table
+img src='holder.js/400x50?auto=yes&bg=ccc&fg=ccc' style='display: block;'
+.spacer-xs
+img src='holder.js/400x50?auto=yes&bg=ccc&fg=ccc' style='display: block;'
+```
+
+#### Small Spacer
+```slim_example_table
+img src='holder.js/400x50?auto=yes&bg=ccc&fg=ccc' style='display: block;'
+.spacer-s
+img src='holder.js/400x50?auto=yes&bg=ccc&fg=ccc' style='display: block;'
+```
+
+#### Medium Spacer
+```slim_example_table
+img src='holder.js/400x50?auto=yes&bg=ccc&fg=ccc' style='display: block;'
+.spacer-m
+img src='holder.js/400x50?auto=yes&bg=ccc&fg=ccc' style='display: block;'
+```
+
+#### Large Spacer
+```slim_example_table
+img src='holder.js/400x50?auto=yes&bg=ccc&fg=ccc' style='display: block;'
+.spacer-l
+img src='holder.js/400x50?auto=yes&bg=ccc&fg=ccc' style='display: block;'
+```
+
+#### Extra Large Spacer
+```slim_example_table
+img src='holder.js/400x50?auto=yes&bg=ccc&fg=ccc' style='display: block;'
+.spacer-xl
+img src='holder.js/400x50?auto=yes&bg=ccc&fg=ccc' style='display: block;'
+```
+
+## Negative spacers
+
+#### Negative Extra Small Spacer
+```slim_example_table
+img src='holder.js/400x50?auto=yes&bg=ccc&fg=ccc' style='display: block;'
+div.spacer-negative-xs style='margin-left: 50px;'
+  img src='holder.js/300x50?auto=yes&bg=999&fg=999' style='display: block;'
+```
+
+#### Negative Small Spacer
+```slim_example_table
+img src='holder.js/400x50?auto=yes&bg=ccc&fg=ccc' style='display: block;'
+div.spacer-negative-s style='margin-left: 50px;'
+  img src='holder.js/300x50?auto=yes&bg=999&fg=999' style='display: block;'
+```
+
+#### Negative Medium Spacer
+```slim_example_table
+img src='holder.js/400x75?auto=yes&bg=ccc&fg=ccc' style='display: block;'
+div.spacer-negative-m style='margin-left: 50px;'
+  img src='holder.js/300x75?auto=yes&bg=999&fg=999' style='display: block;'
+```
+
+#### Negative Large Spacer
+```slim_example_table
+img src='holder.js/400x200?auto=yes&bg=ccc&fg=ccc' style='display: block;'
+div.spacer-negative-l style='margin-left: 50px;'
+  img src='holder.js/300x200?auto=yes&bg=999&fg=999' style='display: block;'
+```
+
+#### Negative Extra Large Spacer
+```slim_example_table
+img src='holder.js/400x200?auto=yes&bg=ccc&fg=ccc' style='display: block;'
+div.spacer-negative-xl style='margin-left: 50px;'
+  img src='holder.js/300x200?auto=yes&bg=999&fg=999' style='display: block;'
+```
+*/
+// scss-lint:enable all
+
+// scss-lint:disable ImportantRule
+.spacer-xs {
+  margin-top: ru(.5) !important;
+}
+
+.spacer-s {
+  margin-top: ru(1) !important;
+}
+
+.spacer-m {
+  margin-top: ru(1.5) !important;
+}
+
+.spacer-l {
+  margin-top: ru(3) !important;
+}
+
+.spacer-xl {
+  margin-top: ru(6) !important;
+}
+
+.spacer-negative-xs {
+  margin-top: ru(-.5) !important;
+}
+
+.spacer-negative-s {
+  margin-top: ru(-1) !important;
+}
+
+.spacer-negative-m {
+  margin-top: ru(-1.5) !important;
+}
+
+.spacer-negative-l {
+  margin-top: ru(-3) !important;
+}
+
+.spacer-negative-xl {
+  margin-top: ru(-6) !important;
+}
+
+.spacer-zero {
+  margin-top: 0 !important;
+}
+// scss-lint:enable ImportantRule

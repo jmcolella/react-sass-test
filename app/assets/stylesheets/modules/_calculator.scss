@@ -1,0 +1,337 @@
+// scss-lint:disable all
+/*doc
+---
+title: Calculator
+name: calculator
+category: Modules - Calculator
+---
+```slim_example
+div style='max-width: 480px; background: #fbfbfb; padding: 24px;'
+  .mod-calculator
+    .header
+      img src='images/pg-calculator-logo.svg'
+      i.i-help
+      h3 Proin aliquam
+    .content
+      h4 In rhoncus orci
+      .row
+        .label Vivamus
+        .value $1,000,000
+      .row
+        .label Suspendisse molestie
+        .value $10,000
+      .row.active
+        .label Nulla
+        .value $ ----
+      h4 Vulputate ipsum
+      .row
+        .label Proin pharetra felis et
+        .value $ ----
+      .row
+        .label Aliquam nisl nibh, lacinia
+        .value $ ----
+      .row
+        .label Morbi quis dui consequat
+        .value $ ----
+      h4 The math
+      .row
+        .label Nam accumsan quam
+        .value $1,000,000
+      .row
+        .label Sed vulputate
+        .value $ ----
+    .footer
+      h3 Sed vulputate
+      .value $1,000,000
+```
+
+## Calculator with Links
+```slim_example_table
+.mod-calculator-with-links
+  h3 In rhoncus orci
+  ul
+    li
+      span Fermentum
+      span.value $1,000,000
+      a href='#' SODALES
+    li
+      span Suspendisse molestie
+      span.value $10,000
+      a href='#' SODALES
+    li
+      span Augue
+      span.value $---
+      a href='#' SODALES
+  h3 Lacinia et diam
+  ul
+    li
+      span Suspendisse
+      span.value $1,000,000
+      a href='#' SODALES
+    li
+      span Nulla maximus
+      span.value $10,000
+      a href='#' SODALES
+    li
+      span Aliquam
+      span.value $---
+      a href='#' SODALES
+  h3 Phasellus
+  ul
+    li
+      span Suspendisse sed
+      span.value $1,000,000
+    li
+      span Mauris ex mauris
+      span.value $---
+    li
+      span Maecenas ullamcorper
+      span.value $1,000,000
+    li
+      span Etiam malesuada
+      span.value
+        | = $1,000,000
+    li
+      span Fusce quis
+      span.value Elit at
+```
+*/
+// scss-lint:enable all
+
+$calculator-border-color:           $neutral-5;
+$calculator-background-color:       $neutral-8;
+$calculator-logo-width:             ru(5);
+$calculator-header-color:           $brand-2;
+$calculator-content-color:          $neutral-2;
+$calculator-caret-size:             ru(.25);
+$calculator-caret-background-color: $neutral-7;
+$calculator-footer-value-color:     $neutral-1;
+$calculator-with-links-color:       $neutral-2;
+
+.mod-calculator {
+  border: 1px solid $calculator-border-color;
+  border-radius: ru(.25);
+  background-color: $calculator-background-color;
+
+  .header {
+    padding: ru(.75);
+    border-bottom: 1px solid $calculator-border-color;
+
+    img {
+      display: block;
+      width: $calculator-logo-width;
+      margin-bottom: ru(.167);
+      margin-left: 0;
+      clear: both;
+    }
+
+    h3 {
+      @include typography-5;
+      font-weight: 700;
+      margin: 0;
+      color: $calculator-header-color;
+      clear: none;
+    }
+
+    i {
+      float: right;
+      font-size: rem-calc(19px);
+      line-height: ru(1.25);
+      font-style: normal;
+
+      &:before {
+        margin: 0;
+      }
+    }
+  }
+
+  .content {
+    padding: ru(.75);
+    color: $calculator-content-color;
+
+    h4 {
+      @include typography-6;
+      position: relative;
+      font-weight: 700;
+      margin: 0 0 ru(.5);
+      color: inherit;
+    }
+
+    .row + h4 {
+      margin-top: ru(1.25);
+    }
+  }
+
+  .row {
+    @include typography-7;
+    display: flex;
+    position: relative;
+    line-height: ru(.75);
+    margin: 0;
+
+    + .row {
+      margin-top: ru(.33);
+    }
+
+    > * {
+      flex: 1 0;
+    }
+
+    .label {
+      padding: 0;
+      background: none;
+      white-space: normal;
+      text-align: left;
+      color: inherit;
+    }
+
+    .value {
+      margin-left: 0;
+      text-align: right;
+    }
+  }
+
+  h4,
+  .row {
+    &.active {
+      font-weight: 700;
+      color: $brand-2;
+
+      &:before,
+      &:after {
+        content: '';
+        position: absolute;
+        z-index: 1;
+        top: 50%;
+        left: ru(-.75);
+        width: 0;
+        height: 0;
+        margin-top: -$calculator-caret-size;
+        border-top: $calculator-caret-size solid transparent;
+        border-bottom: $calculator-caret-size solid transparent;
+        border-left: $calculator-caret-size solid transparent;
+      }
+
+      &:before {
+        border-left-color: $calculator-border-color;
+      }
+
+      &:after {
+        margin-left: -1px;
+        border-left-color: $calculator-caret-background-color;
+      }
+    }
+  }
+
+  .footer {
+    display: flex;
+    align-items: center;
+    padding: ru(.75);
+    border-top: 1px solid $calculator-border-color;
+
+    > * {
+      flex: 1 0;
+    }
+
+    h3 {
+      @include typography-5;
+      font-weight: 700;
+      margin: 0;
+    }
+
+    .value {
+      @include typography-4;
+      margin: 0;
+      text-align: right;
+      color: $calculator-footer-value-color;
+    }
+  }
+}
+
+
+.mod-calculator-with-links {
+  font-weight: 400;
+  color: $calculator-with-links-color;
+
+  ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+
+    span:nth-of-type(2) {
+      text-align: right;
+    }
+
+    + h3 {
+      margin-top: ru(1);
+    }
+  }
+
+  li {
+    @include typography-7;
+    display: flex;
+    line-height: ru(.75);
+    margin: 0;
+
+    + li {
+      margin-top: ru(.33);
+    }
+
+    > * {
+      flex: 0 1 20%;
+
+      + * {
+        padding-left: ru(1);
+      }
+    }
+
+    > span:nth-of-type(1) {
+      flex: 0 1 40%;
+    }
+
+    > span:nth-of-type(2) {
+      flex: 0 1 30%;
+    }
+
+    a {
+      flex: 0 1 20%;
+      text-decoration: none;
+
+      &:hover,
+      &:active {
+        text-decoration: underline;
+      }
+    }
+
+    .value {
+      text-align: right;
+    }
+  }
+
+  h3 {
+    @include typography-6;
+    font-weight: 600;
+    margin: 0 0 ru(.25);
+    color: inherit;
+  }
+
+  @media #{$small-only} {
+    li {
+      > * + * {
+        padding-left: ru(.75);
+      }
+
+      > span:nth-of-type(1) {
+        flex: 0 1 50%;
+      }
+
+      > span:nth-of-type(2) {
+        flex: 0 1 30%;
+      }
+
+      a {
+        flex-basis: 20%;
+      }
+    }
+  }
+}

@@ -1,0 +1,34 @@
+// scss-lint:disable all
+/*doc
+---
+title: Intro
+name: intro
+category: Modules - Intro
+---
+```slim_example_table
+.mod-intro
+  h2 Nam metus massa
+  p Phasellus id nulla convallis, faucibus magna sit amet, tempus arcu. Nunc ornare ornare nunc, nec efficitur tortor.
+```
+*/
+// scss-lint:enable all
+
+$intro-title-color: $accent-2;
+$intro-color:       $neutral-2;
+
+.mod-intro {
+  color: $intro-color;
+
+  h2 {
+    @include like-h1;
+    margin: 0 0 ru(.5);
+    color: $intro-title-color;
+  }
+
+  p {
+    @include typography-4;
+    line-height: ru(1.5);
+    margin: 0;
+    color: inherit;
+  }
+}

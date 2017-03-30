@@ -1,0 +1,89 @@
+// scss-lint:disable all
+/*doc
+---
+title: Section Columns
+name: section-columns
+category: Layouts - Section Columns
+---
+```slim_example
+.mod-section-columns.layout-section-columns
+  div
+    h3 Maecenas ullamcorper
+    h5 Lorem ipsum
+    ul.mod-simple-list
+      li: a href='#' Consequat
+      li: a href='#' Augue
+      li: a href='#' Efficitur
+      li: a href='#' Dapibus
+      li: a href='#' Maximus
+    a.button.info.mini href='#' Pretium neque
+
+  div
+    h3 Maecenas ullamcorper
+    h5 Lorem ipsum
+    ul.mod-simple-list
+      li: a href='#' Consequat
+      li: a href='#' Augue
+      li: a href='#' Efficitur
+    a.button.info.mini href='#' Pretium neque
+```
+*/
+// scss-lint:enable all
+
+.layout-section-columns {
+  display: flex;
+  color: $neutral-2;
+
+  > * {
+    flex: 1 1;
+    padding: ru(3) ru(2);
+
+    &:first-child { padding-left: 0; }
+    &:last-child { padding-right: 0; }
+  }
+
+  h3 {
+    @include like-h3;
+    font-weight: 600;
+    margin: 0 0 ru(.25);
+    color: $brand-2;
+  }
+
+  h5 {
+    @include like-p;
+    font-weight: 600;
+    margin: 0 0 ru(1);
+  }
+
+  ul,
+  ol {
+    li + li {
+      margin-top: ru(.25);
+    }
+  }
+
+  a {
+    color: inherit;
+
+    &:hover,
+    &:active,
+    &:focus {
+      color: $brand-2;
+    }
+  }
+
+  .button.info {
+    display: inline-block;
+    min-width: ru(10);
+  }
+
+  @media #{$small-only} {
+    flex-direction: column;
+
+    > * { padding: ru(1) 0; }
+
+    .flex-row {
+      flex-direction: row;
+    }
+  }
+}

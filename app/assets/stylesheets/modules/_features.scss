@@ -1,0 +1,264 @@
+// scss-lint:disable all
+/*doc
+---
+title: Features
+name: features
+category: Modules - Features
+---
+## Base Module
+```slim_example
+.mod-features
+  div
+    img src='images/heart-sign.png'
+    h4 In rhoncus orci
+    p Mauris semper faucibus tellus, id auctor mauris suscipit eget. Aenean in lacus lacinia, varius massa eget, facilisis urna.
+  div
+    img src='images/heart-sign.png'
+    h4 Suspendisse molestie vel
+    p Suspendisse erat dolor, auctor sed eleifend quis, hendrerit eget sapien.
+  div
+    img src='images/heart-sign.png'
+    h4 Phasellus viverra mollis
+    p Donec blandit diam a neque aliquet, nec facilisis mi finibus. Quisque facilisis mauris eget tortor consectetur vulputate.
+```
+
+## Variant: Condensed
+```slim_example
+.mod-features.condensed
+  div
+    header
+      img src='images/heart-sign.png'
+      h4 Nam metus massa
+    p Phasellus in laoreet quam. Curabitur ex nibh, pharetra eget aliquam congue, commodo vitae tortor.
+  div
+    header
+      img src='images/heart-sign.png'
+      h4 Sed non diam id
+    p Nam lectus tellus, tristique eget molestie ut, condimentum id felis. Etiam porta facilisis viverra. Donec placerat ipsum a nulla maximus tincidunt.
+  div
+    header
+      img src='images/heart-sign.png'
+      h4 Phasellus nisi est
+    p Aliquam sapien enim, elementum at massa sit amet, pretium egestas metus.
+  div
+    header
+      img src='images/heart-sign.png'
+      h4 Mauris tristique
+    p Mauris semper faucibus tellus, id auctor mauris suscipit eget. Aenean in lacus lacinia, varius massa eget, facilisis urna.
+  div
+    header
+      img src='images/heart-sign.png'
+      h4 Pellentesque habitant
+    p Suspendisse erat dolor, auctor sed eleifend quis, hendrerit eget sapien. Donec blandit diam a neque aliquet, nec facilisis mi finibus.
+  div
+    header
+      img src='images/heart-sign.png'
+      h4 Nullam mollis turpis eget
+    p Quisque facilisis mauris eget tortor consectetur vulputate. Vestibulum ipsum neque, dictum et consectetur ornare, ultrices ullamcorper velit.
+```
+
+## Variant: "Colored"
+```slim_example
+.mod-features.colored
+  .primary-color
+    img src='images/rightpolicy.svg'
+    h4 Etiam malesuada quis
+    p Phasellus tellus augue, maximus a viverra tincidunt
+    a.button.mini.solid-background.solid-background-primary Ullamcorper velit
+  .secondary-color
+    img src='images/rightpolicy.svg'
+    h4 Etiam malesuada quis
+    p Phasellus tellus augue, maximus a viverra tincidunt
+    a.button.mini.solid-background.solid-background-secondary Consectetur ornare
+  .tertiary-color
+    img src='images/rightpolicy.svg'
+    h4 Etiam malesuada quis
+    p Phasellus tellus augue, maximus a viverra tincidunt
+    a.button.mini.solid-background.solid-background-tertiary Vestibulum ipsum
+```
+*/
+// scss-lint:enable all
+
+$features-color:                                $neutral-2;
+$features-title-color:                          $brand-2;
+$features-colored-primary-background-color:     $brand-3;
+$features-colored-secondary-background-color:   #3ad1ba;
+$features-colored-tertiary-background-color:    #f08f5c;
+$features-colored-color:                        $neutral-8;
+$features-condensed-padding-small:              ru(1.5);
+$features-condensed-padding-large:              ru(2);
+
+.mod-features {
+  color: $features-color;
+  display: flex;
+
+  > div {
+    text-align: center;
+  }
+
+  img {
+    display: block;
+    height: ru(3.6);
+    margin: 0 auto ru(.5);
+  }
+
+  h4 {
+    @include typography-5;
+    font-weight: 600;
+    margin: 0 0 ru(.33);
+    color: $features-title-color;
+  }
+
+  p {
+    @include typography-6;
+    margin: 0;
+    color: inherit;
+  }
+
+  &.condensed {
+    flex-wrap: wrap;
+    margin-left: -$features-condensed-padding-large;
+    margin-right: -$features-condensed-padding-large;
+
+    > div {
+      display: flex;
+      flex-direction: column;
+      margin: 0 0 $features-condensed-padding-large;
+      padding: 0 $features-condensed-padding-large;
+      text-align: left;
+    }
+
+    header {
+      display: flex;
+      align-items: center;
+    }
+
+    img {
+      height: auto;
+      width: rem-calc(42);
+      margin: 0;
+    }
+
+    h4 {
+      margin: 0 0 0 ru(.5);
+    }
+
+    p {
+      margin-top: ru(1);
+    }
+  }
+
+  &.colored {
+    > div {
+      flex: 1 1 auto;
+      padding: ru(1);
+      background-color: $features-colored-primary-background-color;
+      text-decoration: none;
+      color: $features-colored-color;
+    }
+
+    img {
+      max-width: rem-calc(53px);
+      max-height: rem-calc(53px);
+    }
+
+    h4,
+    p {
+      color: inherit;
+    }
+
+    h4 {
+      margin-bottom: 1.125rem;
+    }
+
+    p {
+      @include typography-7;
+      line-height: ru(.75);
+      margin-bottom: 1.875rem;
+    }
+
+    .primary-color {
+      background-color: $features-colored-primary-background-color;
+    }
+
+    .secondary-color {
+      background-color: $features-colored-secondary-background-color;
+    }
+
+    .tertiary-color {
+      background-color: $features-colored-tertiary-background-color;
+    }
+  }
+
+  @media #{$small-only} {
+    flex-direction: column;
+
+    > div {
+      margin-bottom: ru(1);
+
+      &:last-of-type {
+        margin-bottom: 0;
+      }
+    }
+
+    &.colored {
+      > div {
+        max-width: none;
+      }
+    }
+  }
+
+  @media #{$medium-up} {
+    > div {
+      margin-right: ru(2);
+      flex-basis: 33%;
+
+      &:last-of-type {
+        margin-right: 0;
+      }
+    }
+
+    &.colored {
+      > div {
+        margin-right: ru(1);
+        max-width: ru(11);
+
+        &:last-of-type {
+          margin-right: 0;
+        }
+      }
+    }
+
+    &.condensed {
+      flex-wrap: wrap;
+      margin: -$features-condensed-padding-small;
+      margin-top: 0;
+
+      > div {
+        margin: 0 0 $features-condensed-padding-small;
+        padding: 0 $features-condensed-padding-small;
+        flex-basis: 50%;
+      }
+    }
+
+    div.wide {
+      max-width: ru(23);
+    }
+  }
+
+  @media #{$large-up} {
+    &.condensed {
+      > div {
+        flex: 1 1 33%;
+      }
+    }
+  }
+
+  @media #{$ie10-11} {
+    > div {
+      &.wide {
+        width: 100%;
+      }
+    }
+  }
+}

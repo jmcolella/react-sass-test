@@ -1,0 +1,187 @@
+// scss-lint:disable all
+/*doc
+---
+title: Policy Center
+name: layout-policy-center
+category: Layouts - Policy Center
+---
+
+```slim_example
+.mod-tabs
+  ul.nav
+    li.active
+      a href='#' Tab 1
+    li
+      a href='#' Tab 2
+  .content.layout-policy-center
+    nav
+      img src='holder.js/2000x80?auto=yes&text=breadcrumb-progress'
+
+    section
+      h1 Lorem Ipsum
+      .layout-row
+        div
+          img src='holder.js/1000x400?auto=yes&text=content'
+        div
+          img src='holder.js/1000x400?auto=yes&text=content'
+    section
+      h2 Della Horem
+      .layout-row
+        div
+          img src='holder.js/1000x400?auto=yes&text=content'
+        div
+          img src='holder.js/1000x400?auto=yes&text=content'
+        div
+          img src='holder.js/1000x400?auto=yes&text=content'
+    section
+      .layout-row
+        div
+          h1 Lorem Ipsum
+          img src='holder.js/1000x400?auto=yes&text=content'
+        div
+          h2 Della Horem
+          img src='holder.js/1000x400?auto=yes&text=content'
+          p
+            | In rhoncus orci et ex fermentum, ut euismod diam tincidunt. Vivamus eu aliquet sapien, non fringilla enim. Ut scelerisque nulla at sem suscipit, at porta mi tincidunt. Nunc in pharetra velit.
+```
+*/
+// scss-lint:enable all
+
+$policy-center-max-width: rem-calc(1200px);
+$policy-center-section-gradient-start: ru(-16);
+$policy-center-section-gradient-stop: ru(8);
+$policy-center-section-gradient-start-color: $action-6;
+$policy-center-section-gradient-stop-color: $neutral-8;
+$policy-center-gutter-small: ru(1);
+$policy-center-gutter-medium: ru(1);
+$policy-center-gutter-large: ru(2);
+$policy-center-gutter-xlarge: ru(4);
+$policy-center-top-padding-xlarge: ru(2);
+$policy-center-max-paragraph-width: 40em;
+
+.mod-tabs .content.layout-policy-center {
+  padding: 0;
+}
+
+.layout-policy-center {
+  * { outline: none; }
+
+  h1 {
+    @extend .like-h2;
+  }
+
+  h2 {
+    @extend .like-h2;
+    font-weight: 300;
+  }
+
+  h3 {
+    @extend .like-p;
+    margin: ru(1) 0 0;
+  }
+
+  h4 {
+    @extend .like-h4;
+    margin-bottom: 0;
+  }
+
+  h5 {
+    @extend .like-p;
+    margin: ru(2) 0 0;
+  }
+
+  p {
+    @extend .like-p;
+    max-width: $policy-center-max-paragraph-width;
+
+    a { @extend .action; }
+  }
+
+  strong { font-weight: bold; }
+
+  em { font-style: italic; }
+
+  nav > *,
+  section > * {
+    max-width: $policy-center-max-width;
+    margin-left: 0;
+  }
+
+  section {
+    aside {
+      display: none;
+
+      p {
+        margin: 0 0 ru(1);
+      }
+    }
+
+    &:not(:first-of-type) {
+      // Auto-prefixer conflicts with Bourbon, so for now we use the Bourbon mixin
+      // See: https://github.com/postcss/autoprefixer/issues/204
+      @include linear-gradient(
+        to bottom,
+        $policy-center-section-gradient-start-color $policy-center-section-gradient-start,
+        $policy-center-section-gradient-stop-color $policy-center-section-gradient-stop,
+        $fallback: transparent);
+    }
+
+  }
+
+  hr {
+    margin: ru(2) 0;
+  }
+
+  ul.bullets {
+    @extend .like-p;
+    list-style: inherit;
+    margin-left: ru(1);
+  }
+
+  .image-panel {
+    text-align: center;
+    margin-top: ru(1);
+    max-width: 20em;
+
+    img {
+      vertical-align: bottom;
+    }
+  }
+
+  @media #{$small-only} {
+    // Spacing between stacked content
+    .layout-row > * + * {
+      margin-top: ru(1);
+    }
+
+    section { padding: $policy-center-gutter-small; }
+    nav { padding: $policy-center-gutter-small $policy-center-gutter-small 0; }
+  }
+
+  @media #{$medium-up} {
+    .layout-row {
+      @include arrange-children-in-a-row($gutter: ru(4));
+    }
+
+    section > .layout-row > aside {
+      display: block;
+      text-align: right;
+      align-self: flex-end;
+    }
+  }
+
+  @media #{$medium-only} {
+    section { padding: $policy-center-gutter-medium; }
+    nav { padding: $policy-center-gutter-medium $policy-center-gutter-medium 0; }
+  }
+
+  @media #{$large-only} {
+    section { padding: $policy-center-gutter-large; }
+    nav { padding: $policy-center-gutter-large $policy-center-gutter-large 0; }
+  }
+
+  @media #{$xlarge-up} {
+    section { padding: $policy-center-top-padding-xlarge $policy-center-gutter-xlarge; }
+    nav { padding: $policy-center-top-padding-xlarge $policy-center-gutter-xlarge 0; }
+  }
+}

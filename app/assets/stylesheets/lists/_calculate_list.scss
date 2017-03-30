@@ -1,0 +1,52 @@
+// scss-lint:disable all
+/*doc
+---
+title: Calculate List
+name: calculate-list
+category: Lists - Calculate List
+---
+```slim_example
+ul.mod-calculate-list
+  li Mauris ex
+  li Etiam malesuada quis augue
+  li Maecenas ullamcorper turpis quis
+  li Suspendisse id felis nulla
+  li Pellentesque habitant morbi tristique
+```
+*/
+// scss-lint:enable all
+
+$calculate-list-color:                  $neutral-2;
+$calculate-list-last-line-color:        $brand-2;
+$calculate-list-last-line-border-color: $neutral-3;
+
+ul.mod-calculate-list {
+  margin: 0 0 ru(.5);
+  padding: 0;
+  list-style: none;
+  color: $calculate-list-color;
+
+  li {
+    padding: ru(.25) 0 ru(.25) ru(1.5);
+    font-weight: 300;
+
+    &:before {
+      content: attr(data-prefix);
+      display: inline-block;
+      vertical-align: rem-calc(-3px);
+      width: ru(1.33);
+      margin-left: ru(-1.5);
+      margin-right: ru(.17);
+      font-size: rem-calc(32px);
+      font-weight: 600;
+      line-height: ru(1);
+      text-align: center;
+    }
+
+    &:last-child {
+      border-top: 1px solid $calculate-list-last-line-border-color;
+      font-weight: 600;
+      color: $calculate-list-last-line-color;
+    }
+  }
+}

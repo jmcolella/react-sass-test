@@ -1,0 +1,307 @@
+// scss-lint:disable all
+/*doc
+---
+title: Select Field
+name: selectfield
+category: Fields - Select field
+---
+## Simple Select Field
+```slim_example_table
+.mod-example
+  .selectfield
+    .field
+      label for='select1' Nam metus
+      .selectbox
+        select id='select1'
+          option Pellentesque habitant
+          option Suspendisse id felis
+          option Pellentesque habitant morbi
+```
+
+## Simple Select Field with Placeholder
+```slim_example_table
+.mod-example
+  .selectfield
+    .field
+      label Nam metus
+      .selectbox
+        select
+          option value='' Aenean in lacus lacinia
+          option value='1' Pellentesque habitant
+          option value='2' Suspendisse id felis
+          option value='3' Pellentesque habitant morbi
+```
+
+## Select Field with Subheader
+```slim_example_table
+.mod-example
+  .selectfield
+    .field
+      label for='select1'
+        span Nam metus
+        .sublabel Nam metus massa, tempor vel tortor et
+      .selectbox
+        select id='select1'
+          option Pellentesque habitant
+          option Suspendisse id felis
+          option Pellentesque habitant morbi
+```
+
+## Focus state
+```slim_example_table
+.mod-example
+  .selectfield.focused
+    .field
+      label for='select1' Nam metus
+      .selectbox
+        select id='select1'
+          option Pellentesque habitant
+          option Suspendisse id felis
+          option Pellentesque habitant morbi
+```
+
+## Select Field with tooltip
+```slim_example_table
+.mod-example
+  .selectfield
+    .field
+      .help.i-help
+      label for='select1' Nam metus
+      .selectbox
+        select id='select1'
+          option Pellentesque habitant
+          option Suspendisse id felis
+          option Pellentesque habitant morbi
+```
+
+## Multicolumn selects
+```slim_example_table
+.mod-example
+  .selectfield
+    .field
+      label for='select2' Nam metus
+      .selectbox
+        select id='select2'
+          option Pellentesque habitant
+          option Suspendisse id felis
+          option Pellentesque habitant morbi
+    .field
+      label for='select3' Sed
+      .selectbox
+        select id='select3'
+          option Pellentesque habitant
+          option Suspendisse id felis
+          option Pellentesque habitant morbi
+```
+
+## Select2 Widget Example
+```slim_example_table
+.mod-example
+  .selectfield
+    .field
+      label for='select2' Aenean ac bibendum nisi
+      select.select2 id='select2'
+        option disabled='disabled' selected='selected'
+        option Pellentesque habitant
+        option Suspendisse id felis
+        option Pellentesque habitant morbi
+        option Pellentesque habitant morbi Pellentesque habitant morbi Pellentesque habitant morbi
+```
+
+```js_example
+$('.select2').select2({
+  placeholder: 'Aenean in lacus lacinia',
+  dropdownAutoWidth: false,
+  containerCssClass: 'policygenius-select2-container',
+  dropdownCssClass: 'policygenius-select2-drop-down'
+});
+```
+
+```js_example
+$(function() {
+  $('select option').each(function() {
+    var $this = $(this),
+        $select = $this.parent();
+
+    if ($this.index() == 0 && $this.val() == '') {
+      $select.addClass('placeholder');
+    }
+  });
+
+  $('select').on('change', function() {
+    var $this = $(this);
+    if ($this.val()) {
+      $this.removeClass('placeholder');
+    } else {
+      $this.addClass('placeholder');
+    }
+  });
+});
+```
+
+## No-border version
+```slim_example_table
+.mod-example style='background: #00A4A5; padding: 24px;'
+  .selectfield.no-border
+    .field
+      label for='select1' Nam metus
+      .selectbox
+        select id='select1'
+          option Pellentesque habitant
+          option Suspendisse id felis
+          option Pellentesque habitant morbi
+```
+*/
+// scss-lint:enable all
+
+$selectfield-background-color:          $neutral-8;
+$selectfield-border-color:              $neutral-5;
+$selectfield-select-color:              $neutral-2;
+$selectfield-help-icon-color:           $neutral-3;
+$selectfield-label-color:               $neutral-1;
+$selectfield-focused-border-color:      $brand-3;
+$selectfield-focused-background-color:  $brand-6;
+
+[class^='mod-'] {
+  @extend %reset;
+
+  .selectfield {
+    @include field;
+    display: flex;
+    font-family: $font-family-sans-serif;
+    border: 1px solid $selectfield-border-color;
+    border-radius: ru(.25);
+    background-color: $selectfield-background-color;
+    transition: border-color 500ms ease, background-color 500ms ease;
+
+    > * { flex-grow: 1; }
+
+    &.focused {
+      border-color: $selectfield-focused-border-color;
+      background-color: $selectfield-focused-background-color;
+
+      label {
+        border-bottom-color: $selectfield-focused-border-color;
+      }
+
+      .policygenius-select2-container .select2-choice {
+        // scss-lint:disable ImportantRule
+        background-color: $selectfield-focused-background-color !important;
+        // scss-lint:enable ImportantRule
+      }
+    }
+
+    .field {
+      position: relative;
+      flex-direction: column;
+      flex: 1 1;
+      > * { flex-grow: 1; }
+
+      + .field {
+        > .selectbox,
+        > .group {
+          border-left: 1px solid $selectfield-border-color;
+        }
+      }
+    }
+
+    .policygenius-select2-container {
+      .select2-choice {
+        border-radius: 0 0 ru(.25) ru(.25);
+      }
+    }
+
+    label {
+      @include field-label;
+      text-align: left;
+      color: $selectfield-label-color;
+      border-bottom: 1px solid $selectfield-border-color;
+      font-weight: 600;
+
+      .sublabel {
+        font-weight: 300;
+      }
+    }
+
+    .help {
+      float: right;
+      margin-right: ru(1);
+      margin-top: ru(.5);
+
+      &:before {
+        color: $selectfield-help-icon-color;
+        margin: 0;
+        line-height: 1;
+      }
+    }
+
+    .selectbox {
+      @include typography-5;
+      display: flex;
+      margin: 0;
+      min-width: 0;
+      height: auto;
+      background: inherit;
+      border: 0;
+      border-radius: 0;
+      color: $selectfield-select-color;
+      overflow: hidden;
+
+      div {
+        width: 100%;
+      }
+
+      select {
+        height: ru(2.25);
+        padding-left: ru(1);
+        padding-right: ru(1.5);
+      }
+
+      &:after {
+        top: ru(1.125);
+        right: ru(1);
+      }
+    }
+
+    @media #{$small-only} {
+      label {
+        padding-left: ru(.75);
+        padding-right: ru(.75);
+      }
+
+      .selectbox {
+        select {
+          padding-left: ru(.75);
+          padding-right: ru(1.33);
+        }
+
+        &:after {
+          right: ru(.75);
+        }
+      }
+    }
+
+    @media #{$medium-up-to-xxlarge} {
+      .help {
+        margin-top: ru(.375);
+        margin-right: ru(.75);
+      }
+
+      .selectbox {
+        @include typography-6;
+        margin: 0;
+
+        select {
+          height: ru(1.84);
+          padding-left: ru(.75);
+          padding-right: ru(2);
+        }
+
+        &:after {
+          top: ru(1);
+          right: ru(.75);
+        }
+      }
+    }
+  }
+}

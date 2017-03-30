@@ -1,0 +1,596 @@
+// scss-lint:disable all
+/*doc
+---
+title: TrustPilot
+name: trustpilot
+category: Modules - TrustPilot
+---
+```slim_example_table
+.mod-trustpilot style='max-width: 400px'
+  h4 Maecenas ullamcorper turpis quis
+  .content
+    .powered-by
+      span Mauris ex mauris, porttitor
+      .trustpilot-logo
+    .stars.excellent
+      .star.filled
+      .star.filled
+      .star.filled
+      .star.filled
+      .star.filled
+    .rating
+      strong Maecenas
+      |  &ndash; rhoncus pulvinar dolor
+```
+
+```slim_example_table
+.mod-trustpilot style='max-width: 400px'
+  h4 Etiam malesuada quis
+  .content
+    .powered-by
+      span Nullam metus velit
+      .trustpilot-logo
+    .stars.good
+      .star.filled
+      .star.filled
+      .star.filled
+      .star.filled
+      .star
+    .rating
+      strong Fusce
+      |  &ndash; sagittis nec nulla
+```
+
+```slim_example_table
+.mod-trustpilot style='max-width: 400px'
+  h4 Maecenas ullamcorper turpis
+  .content
+    .powered-by
+      span Quis elit volutpat
+      .trustpilot-logo
+    .stars.average
+      .star.filled
+      .star.filled
+      .star.filled
+      .star
+      .star
+    .rating
+      strong Fermentum
+      |  &ndash; placerat arcu commodo
+```
+
+```slim_example_table
+.mod-trustpilot style='max-width: 400px'
+  h4 Suspendisse id felis nulla
+  .content
+    .powered-by
+      span Nulla facilisi mauris
+      .trustpilot-logo
+    .stars.poor
+      .star.filled
+      .star.filled
+      .star
+      .star
+      .star
+    .rating
+      strong Pharetra
+      |  &ndash; augue ac arcu
+```
+
+```slim_example_table
+.mod-trustpilot style='max-width: 400px'
+  h4 Nunc mattis diam libero
+  .content
+    .powered-by
+      span Vitae dapibus ex dictum
+      .trustpilot-logo
+    .stars.bad
+      .star.filled
+      .star
+      .star
+      .star
+      .star
+    .rating
+      strong Nullam
+      |  &ndash; tempor scelerisque
+```
+
+```slim_example_table
+.mod-trustpilot style='max-width: 400px'
+  h4 Faucibus vel magna vel
+  .content
+    .powered-by
+      span Phasellus sapien turpis
+      .trustpilot-logo
+    .stars.excellent
+      .star.filled
+      .star.filled
+      .star.filled
+      .star.filled
+      .star.filled
+    .rating
+      strong Malesuada
+      |  &ndash; augue vitae dapibus
+    .review
+      p Lorem Ipsum dolor sit amet, consecte tur adipiscing elit. Eti...
+      .meta
+        span Pellentesque habitant morbi
+        em tristique senectus
+    .review
+      p Lorem Ipsum dolor sit amet, consecte tur adipiscing elit. Eti...
+      .meta
+        span Pellentesque habitant morbi
+        em tristique senectus
+    .review
+      p Lorem Ipsum dolor sit amet, consecte tur adipiscing elit. Eti...
+      .meta
+        span Pellentesque habitant morbi
+        em tristique senectus
+```
+
+```slim_example
+.mod-trustpilot.short
+  aside
+    .powered-by
+      .trustpilot-logo
+    .stars.mini.excellent
+      .star.filled
+      .star.filled
+      .star.filled
+      .star.filled
+      .star.filled
+    strong.typography-7
+      a.more href='#' Tincidunt eget blandit
+```
+
+```slim_example
+.mod-trustpilot.horizontal style='max-width: 750px'
+  aside
+    .powered-by
+      .trustpilot-logo
+    .stars.mini.excellent
+      .star.filled
+      .star.filled
+      .star.filled
+      .star.filled
+      .star.filled
+    .rating
+      span Molestie vel
+      strong  sapien at
+  .review
+    p Nulla maximus congue dolor sed vestibulum. Nunc mattis molestie libero, sed vulputate ipsum aliquet vitae. Proin pharetra felis et odio porttitor, et egestas tortor laoreet.
+    .meta
+      span A consequat augue
+      em  Donec dui est
+```
+
+```slim_example
+.mod-trustpilot.horizontal style='max-width: 750px'
+  aside
+    .powered-by
+      .trustpilot-logo
+    .stars.mini.excellent
+      .star.filled
+      .star.filled
+      .star.filled
+      .star.filled
+      .star.filled
+    strong
+      a.more href='#' Suspendisse molestie vel
+  .review
+    p Morbi quis dui consequat, consectetur massa nec, blandit tellus. Nam accumsan quam eu blandit rhoncus. Suspendisse sed sem sagittis, ultricies erat ut, pretium neque.
+    .meta
+      span Nam consequat
+      em  Maximus turpis
+```
+
+```slim_example
+.mod-trustpilot.horizontal.columns
+  aside
+    .powered-by
+      .trustpilot-logo
+    .stars.mini.excellent
+      .star.filled
+      .star.filled
+      .star.filled
+      .star.filled
+      .star.filled
+  .review
+    p Phasellus tellus augue, maximus a viverra tincidunt, vestibulum at lorem. Curabitur et magna erat. Vivamus dictum justo a venenatis pulvinar. Fusce ullamcorper rhoncus nunc, ut convallis leo fringilla a.
+  .author
+    strong Proin et ultrices
+    strong  Phasellus luctus
+    a.more href='#'  Nunc mattis iaculis
+```
+
+```slim_example
+.mod-trustpilot.mixed
+  .header
+    .stars.mini.excellent
+      .star.filled
+      .star.filled
+      .star.filled
+      .star.filled
+      .star.filled
+    .trustpilot-logo
+  .review
+    p Donec placerat ipsum a nulla maximus tincidunt. Vestibulum dignissim ac erat ac placerat. In hac habitasse platea dictumst. Integer suscipit orci odio, vel volutpat turpis ultrices at.
+    .meta
+      span Ut pulvinar leo non
+      em  Iaculis condimentum
+  strong
+    a.more href='#' Proin aliquam tortor
+```
+
+```slim_example
+.mod-trustpilot.info
+  h5 Suspendisse erat dolor
+  .rating
+    strong Donec blandit
+    '  &ndash; nec facilisis mi
+  .stars.mini.excellent
+    .star.filled
+    .star.filled
+    .star.filled
+    .star.filled
+    .star.filled
+  .trustpilot-logo
+```
+*/
+// scss-lint:enable all
+
+$trustpilot-border-color:                 $neutral-5;
+$trustpilot-background-color:             $neutral-8;
+$trustpilot-powered-by-color:             $neutral-3;
+$trustpilot-text-color:                   $neutral-2;
+$trustpilot-logo-width:                   rem-calc(126px);
+$trustpilot-logo-height:                  rem-calc(16px);
+$trustpilot-star-size:                    ru(1.667);
+$trustpilot-star-medium-size:             ru(1.33);
+$trustpilot-star-mini-size:               ru(1);
+$trustpilot-star-sign-width:              rem-calc(24px);
+$trustpilot-star-sign-height:             rem-calc(22px);
+$trustpilot-star-medium-sign-width:       rem-calc(20px);
+$trustpilot-star-medium-sign-height:      rem-calc(18px);
+$trustpilot-star-mini-sign-width:         rem-calc(16px);
+$trustpilot-star-mini-sign-height:        rem-calc(15px);
+$trustpilot-star-background-color:        $neutral-4;
+$trustpilot-excellent-color:              #007543;
+$trustpilot-good-color:                   #74af4a;
+$trustpilot-average-color:                #f7cb36;
+$trustpilot-poor-color:                   #f07433;
+$trustpilot-bad-color:                    #dd2731;
+$trustpilot-rating-point-color:           $neutral-3;
+$trustpilot-review-text-color:            $neutral-2;
+$trustpilot-review-meta-color:            $neutral-3;
+
+.mod-trustpilot {
+  background-color: $trustpilot-background-color;
+  border: 1px solid $trustpilot-border-color;
+  border-bottom-width: ru(.25);
+  font-weight: 400;
+  text-align: center;
+
+  h4 {
+    @include typography-6;
+    font-weight: 600;
+    margin: 0;
+    padding: ru(.5) ru(.75);
+    text-transform: uppercase;
+    border-bottom: 1px solid $trustpilot-border-color;
+  }
+
+  .content {
+    padding: ru(.75);
+  }
+
+  .powered-by {
+    display: inline-block;
+    margin: 0 auto;
+    font-size: rem-calc(10px);
+    color: $trustpilot-powered-by-color;
+    text-transform: uppercase;
+
+    .trustpilot-logo {
+      margin-left: ru(.33);
+    }
+  }
+
+  .trustpilot-logo {
+    display: inline-block;
+    width: $trustpilot-logo-width;
+    height: $trustpilot-logo-height;
+    background: url('/images/trust-pilot-logo.png') no-repeat;
+    background-size: 100% auto;
+  }
+
+  .stars {
+    @include trustpilot-rating-color(excellent, $trustpilot-excellent-color);
+    @include trustpilot-rating-color(good, $trustpilot-good-color);
+    @include trustpilot-rating-color(average, $trustpilot-average-color);
+    @include trustpilot-rating-color(poor, $trustpilot-poor-color);
+    @include trustpilot-rating-color(bad, $trustpilot-bad-color);
+    display: flex;
+    justify-content: center;
+    margin: ru(.667) 0;
+  }
+
+  .mini {
+    margin-top: ru(.167);
+    margin-bottom: ru(.5);
+
+    .star {
+      width: $trustpilot-star-mini-size;
+      height: $trustpilot-star-mini-size;
+      border-radius: ru(.125);
+      background-size: $trustpilot-star-mini-sign-width $trustpilot-star-mini-sign-height;
+      margin-left: ru(.167);
+    }
+
+    .star:first-of-type {
+      margin-left: 0;
+    }
+  }
+
+  .star {
+    flex: 0 1 auto;
+    width: $trustpilot-star-size;
+    height: $trustpilot-star-size;
+    border-radius: ru(.25);
+    background-image: url('/images/trust-pilot-star.png');
+    background-color: $trustpilot-star-background-color;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    background-size: $trustpilot-star-sign-width $trustpilot-star-sign-height;
+    margin-left: ru(.33);
+
+    &:first-of-type {
+      margin-left: 0;
+    }
+  }
+
+  .rating {
+    color: $trustpilot-rating-point-color;
+
+    strong {
+      color: $trustpilot-text-color;
+    }
+  }
+
+  .review {
+    text-align: left;
+    margin: ru(1) 0 0;
+
+    p {
+      @include typography-6;
+      font-weight: 600;
+      margin: 0;
+      color: $trustpilot-review-text-color;
+
+      &:before,
+      &:after {
+        content: '\201D';
+      }
+    }
+
+    .meta {
+      @include typography-7;
+      line-height: ru(.75);
+      margin: ru(.167) 0 0;
+      color: $trustpilot-review-meta-color;
+    }
+  }
+
+  &.short {
+    border: 0;
+    border-radius: 0;
+    background: none;
+  }
+
+  &.horizontal {
+    display: flex;
+    align-items: flex-start;
+    padding: ru(1) ru(2);
+    border: 0;
+    border-radius: 0;
+    color: $trustpilot-text-color;
+
+    aside {
+      flex: 1 0 ru(9);
+    }
+
+    .trustpilot-logo {
+      margin-left: 0;
+    }
+
+    .review {
+      flex: 1 1 auto;
+      margin: 0 0 0 ru(1);
+    }
+
+    .meta {
+      color: inherit;
+    }
+
+    .more {
+      display: inline-block;
+    }
+  }
+
+  &.columns {
+    > * {
+      flex: 1 0;
+    }
+
+    aside {
+      flex-basis: ru(6.667);
+    }
+
+    .review {
+      flex-basis: auto;
+      margin-left: ru(2);
+      margin-right: ru(2);
+    }
+
+    .more {
+      margin-top: ru(.5);
+    }
+  }
+
+  .author {
+    @include typography-7;
+    flex-basis: ru(7);
+    line-height: ru(.75);
+    margin: 0;
+    text-align: left;
+
+    strong {
+      display: block;
+    }
+  }
+
+  &.mixed {
+    border: 0;
+    border-radius: 0;
+    background: none;
+    text-align: left;
+
+    .header {
+      display: flex;
+      align-items: center;
+    }
+
+    .stars {
+      margin: 0 ru(.5) 0 0;
+    }
+
+    .review {
+      margin: ru(1) 0;
+    }
+
+    .meta {
+      color: $trustpilot-text-color;
+    }
+  }
+
+  &.info {
+    border: 0;
+    border-radius: 0;
+    background: none;
+
+    h5 {
+      font-size: rem-calc(10px);
+      line-height: ru(.75);
+      margin: 0;
+      text-transform: uppercase;
+    }
+
+    .rating {
+      color: inherit;
+    }
+
+    strong { color: $trustpilot-excellent-color; }
+
+    .stars {
+      margin-top: ru(.33);
+      margin-bottom: ru(.125);
+    }
+
+    .trustpilot-logo {
+      margin-top: ru(.33);
+    }
+  }
+
+  strong {
+    font-weight: 600;
+  }
+
+  em {
+    font-style: italic;
+  }
+
+  .more {
+    color: $trustpilot-text-color;
+  }
+
+
+  @media #{$small-only} {
+    &.horizontal {
+      flex-direction: column;
+      padding: ru(1);
+      border-radius: ru(.25);
+
+      aside {
+        flex: 0 1 auto;
+        margin: 0 auto ru(1);
+      }
+
+      .review {
+        margin: 0;
+      }
+    }
+  }
+}
+
+.mod-trustpilot-list {
+  display: flex;
+
+  > * {
+    flex: 1 1;
+
+    + * {
+      margin-left: ru(1);
+    }
+  }
+
+  @media #{$small-only} {
+    flex-direction: column;
+
+    > * + * {
+      margin-left: 0;
+      margin-top: ru(1);
+    }
+
+    .mod-trustpilot {
+      .review {
+        text-align: center;
+      }
+    }
+  }
+
+  @media #{$medium-only} {
+    > * + * { margin-left: ru(.75); }
+
+    .mod-trustpilot {
+      h4 { padding: ru(.5); }
+      .content { padding: ru(.5); }
+
+      .stars {
+        margin-top: ru(.167);
+        margin-bottom: ru(.5);
+      }
+
+      .star {
+        width: $trustpilot-star-mini-size;
+        height: $trustpilot-star-mini-size;
+        border-radius: ru(.125);
+        margin-left: ru(.167);
+        background-size: $trustpilot-star-mini-sign-width $trustpilot-star-mini-sign-height;
+      }
+
+      .star:first-of-type {
+        margin-left: auto;
+      }
+    }
+  }
+
+  @media #{$large-only} {
+    .mod-trustpilot {
+      .star {
+        width: $trustpilot-star-medium-size;
+        height: $trustpilot-star-medium-size;
+        background-size: $trustpilot-star-medium-sign-width $trustpilot-star-medium-sign-height;
+      }
+    }
+  }
+}

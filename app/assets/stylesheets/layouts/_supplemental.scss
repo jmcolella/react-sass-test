@@ -1,0 +1,73 @@
+// scss-lint:disable all
+/*doc
+---
+title: Supplemental
+name: supplemental
+category: Layouts - Supplemental
+---
+```slim_example
+.layout-supplemental
+  .item
+    h4
+      ' Aenean gravida velit suscipit
+      br
+      a.info href='#' Phasellus tellus augue, maximus
+  .item
+    p Vivamus dictum justo a venenatis pulvinar. Fusce ullamcorper rhoncus nunc, ut convallis leo fringilla a. Proin et ultrices neque. Morbi sit amet dapibus dui.
+```
+*/
+// scss-lint:enable all
+
+$layout-supplemental-gap:          ru(2.667);
+$layout-supplemental-offset:       ru(3);
+$layout-supplemental-border-color: $brand-3;
+$layout-supplemental-color:        $neutral-2;
+
+.layout-supplemental {
+  font-family: $font-family-sans-serif;
+  color: $layout-supplemental-color;
+
+  .item {
+    text-align: center;
+
+    &:first-child {
+      margin-bottom: ru(.75);
+    }
+  }
+
+  h4 {
+    @include like-h4;
+    font-weight: 300;
+    margin: 0;
+  }
+
+  p {
+    @include like-p;
+    font-weight: 400;
+    margin: 0;
+  }
+
+  @media #{$medium-up} {
+    display: flex;
+    align-items: flex-end;
+
+    .item {
+      flex: 1 1 auto;
+      min-width: 50%;
+      padding-top: $layout-supplemental-offset;
+      padding-bottom: ru(.5);
+
+      &:first-child {
+        margin-bottom: 0;
+        padding-right: $layout-supplemental-gap;
+        text-align: right;
+      }
+
+      &:last-child {
+        padding-left: $layout-supplemental-gap;
+        border-left: 1px solid $layout-supplemental-border-color;
+        text-align: left;
+      }
+    }
+  }
+}

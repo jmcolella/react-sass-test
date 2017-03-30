@@ -1,0 +1,207 @@
+// scss-lint:disable all
+/*doc
+---
+title: Nav Panel
+name: nav-panel
+category: Panels - Nav
+---
+
+```slim_example_table
+.mod-nav-panel
+  ul
+    li.header
+      a.i-settings href='#users' Nulla
+    li: a.i-dashboard href='#' Phasellus
+    li
+      a.forward.active href='#products'
+        i.i-textfile
+        | Maecenas
+    li: a.i-mail href='#' Curabitur
+    li: a.i-help href='#' Quisque
+    li
+      a.i-folder href='#'
+        | Nunc mattis diam
+        span.badge 3
+    li: h5 Maximus tincidunt
+    li: a.i-quote href='#' Enim auctor
+    li: a.i-chat href='#' Mattis congue
+    li: a.i-send href='#' Nulla vitae ultricies
+  ul#users.minimizable
+    li.header: a.back href='#' Morbi
+    li: h5 Semper pulvinar
+    li: a.i-user href='#' Tristique
+    li: a.i-adduser href='#' Velit urna euismod
+    li: h5 Nulla's Viverra
+    li: a.i-write href='#' Cras egestas
+    li: a.i-logout href='#' Velit urna
+  ul#products.minimizable
+    li.header: a.back href='#' Lacus
+    li: h5 Quisque Maecenas
+    li: a.active href='#' Nisi
+    li: a href='#' Sollicitudin
+    li: a href='#' Consequat
+    li: a href='#' Quis
+    li: a href='#' Vulputate tristique
+    li: h5 Nam et consequat
+    li: a href='#' Turpis
+    li: a href='#' Convallis
+    li: a href='#' Etiam ut ullamcorper
+    li: a href='#' Tristique
+    li: a href='#' Risus
+    li: a href='#' Nullam
+    li: a href='#' Condimentum neque
+    li: a href='#' Convallis
+```
+
+```js_example
+$('a[href^="#"]').click(function(event) {
+  // Close any open panels
+  $('.open').removeClass('open');
+
+  // Open this panel
+  $(event.target.getAttribute('href')).addClass('open');
+
+  return false;
+});
+
+```
+*/
+// scss-lint:enable all
+
+$nav-panel-header-background-color: $brand-3;
+$nav-panel-header-hover-background-color: $brand-4;
+$nav-panel-header-color: $neutral-8;
+$nav-panel-header-height: ru(2);
+$nav-panel-background-color: $neutral-6;
+$nav-panel-link-color: $main-font-color;
+$nav-panel-link-active-color: $brand-2;
+$nav-panel-link-hover-background-color: $neutral-8;
+$nav-panel-subtitle-color: $neutral-3;
+$nav-panel-badge-background-color: $brand-3;
+$nav-panel-badge-color: $neutral-8;
+$nav-panel-gutter-large: ru(1.5);
+$nav-panel-gutter-small: ru(1);
+$nav-panel-arrow-size: ru(.25);
+$nav-panel-arrow-offset: ru(.75);
+
+.mod-nav-panel {
+  min-height: 672px;
+  position: relative;
+  font-family: $font-family-sans-serif;
+  background: $nav-panel-background-color;
+
+  li {
+    line-height: 1;
+    position: relative;
+  }
+
+  h5 {
+    @extend .typography-7;
+    margin: 0 $nav-panel-gutter-large;
+    color: $nav-panel-subtitle-color;
+    margin-top: ru(.75);
+  }
+
+  a {
+    position: relative;
+    padding: 0 $nav-panel-gutter-small 0 $nav-panel-gutter-large;
+    line-height: ru(1.5);
+    color: $nav-panel-link-color;
+    display: block;
+    text-decoration: none;
+    font-weight: 700;
+    transition: background-color 150ms ease-out;
+
+    &:hover,
+    &:active {
+      background-color: $nav-panel-link-hover-background-color;
+    }
+
+    &.active {
+      color: $nav-panel-link-active-color;
+    }
+
+    &[class*='i-']:before {
+      color: inherit;
+    }
+  }
+
+  ul.minimizable {
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    transition: left 200ms ease-out;
+    position: absolute;
+    top: 0;
+    background: $nav-panel-background-color;
+    z-index: 1;
+
+    &.open {
+      display: block;
+      left: 0;
+    }
+  }
+
+  .header {
+    margin-bottom: ru(.5);
+
+    > a {
+      padding: 0 $nav-panel-gutter-small 0 $nav-panel-gutter-large;
+      line-height: $nav-panel-header-height;
+      background-color: $nav-panel-header-background-color;
+      color: $nav-panel-header-color;
+
+      &[class*='i-']:before {
+        color: inherit;
+      }
+
+      &:hover,
+      &:active {
+        background-color: $nav-panel-header-hover-background-color;
+      }
+
+      &.forward {
+        @include arrow(ru(.75), $nav-panel-arrow-offset, rem-calc(2px), $nav-panel-arrow-size, $nav-panel-header-color, $nav-panel-header-background-color, left);
+
+        &:hover,
+        &:active {
+          &:after { border-left-color: $nav-panel-header-hover-background-color; }
+        }
+      }
+
+      &.back {
+        @include arrow(ru(.75), $nav-panel-arrow-offset, rem-calc(2px), $nav-panel-arrow-size, $nav-panel-header-color, $nav-panel-header-background-color, right);
+
+        &:hover,
+        &:active {
+          &:after { border-right-color: $nav-panel-header-hover-background-color; }
+        }
+      }
+    }
+  }
+
+  .forward {
+    @include arrow(ru(.5), $nav-panel-arrow-offset, rem-calc(2px), $nav-panel-arrow-size, $nav-panel-link-color, $nav-panel-background-color, left);
+
+    &:hover,
+    &:active {
+      &:after { border-left-color: $nav-panel-link-hover-background-color; }
+    }
+  }
+
+  .badge {
+    @extend .typography-7;
+    position: absolute;
+    right: ru(.5);
+    padding: 0 ru(1 / 3);
+    margin: ru(.25) 0;
+    border-radius: ru(.125);
+    line-height: ru(1);
+    background-color: $nav-panel-badge-background-color;
+    color: $nav-panel-badge-color;
+  }
+
+  [class*='i-']:before {
+    line-height: ru(1);
+  }
+}

@@ -1,0 +1,217 @@
+// scss-lint:disable all
+/*doc
+---
+title: Stacked Cards
+name: stacked-cards
+category: Cards - Stacked Cards
+---
+```slim_example
+.mod-stacked-cards
+  h3 Getting Started
+  .cards
+    a.card href='#'
+      h5 Aenean ac bibendum nisi
+      p Proin aliquam tortor et aliquam dignissim.
+      .read-more Donec blandit
+    a.card href='#'
+      h5 Vestibulum Etiam
+      p Aenean sit amet pretium orci, nec volutpat orci.
+      .read-more Donec blandit
+    a.card href='#'
+      h5 Quisque ac quam tristique
+      p Vivamus consectetur risus et sapien
+      .read-more Donec blandit
+    a.card href='#'
+      h5 Maecenas ullamcorper
+      p Aliquam nisl nibh, lacinia et diam ut
+      .read-more Donec blandit
+    a.card href='#'
+      h5 Vivamus consectetur
+      p Suspendisse vel massa iaculis, porta massa in
+      .read-more Donec blandit
+
+.mod-stacked-cards
+  .cards
+    a.card href='#'
+      h5 Aenean ac bibendum nisi
+      p Proin aliquam tortor et aliquam dignissim.
+      .read-more Donec blandit
+    a.card href='#'
+      h5 Vestibulum Etiam
+      p Aenean sit amet pretium orci, nec volutpat orci.
+      .read-more Donec blandit
+    a.card href='#'
+      h5 Quisque ac quam tristique
+      p Vivamus consectetur risus et sapien
+      .read-more Donec blandit
+    a.card href='#'
+      h5 Maecenas ullamcorper
+      p Aliquam nisl nibh, lacinia et diam ut
+      .read-more Donec blandit
+    a.card href='#'
+      h5 Vivamus consectetur
+      p Suspendisse vel massa iaculis, porta massa in
+      .read-more Donec blandit
+css:
+  .mod-stacked-cards {
+    padding: 48px;
+    background: #FBFBFB;
+  }
+```
+*/
+// scss-lint:enable all
+
+$stacked-cards-max-width:                    ru(40);
+$stacked-cards-header-background-color:      $accent-2;
+$stacked-cards-header-color:                 $neutral-8;
+$stacked-cards-card-background-color:        $neutral-8;
+$stacked-cards-card-border-color:            $neutral-5;
+$stacked-cards-card-color:                   $neutral-2;
+$stacked-cards-card-header-color:            $accent-2;
+$stacked-cards-branded-card-header-color:    $brand-2;
+$stacked-cards-card-footer-background-color: $neutral-6;
+
+.mod-stacked-cards {
+  position: relative;
+  max-width: $stacked-cards-max-width;
+
+  h3 {
+    @include typography-5(false);
+    display: block;
+    color: $stacked-cards-header-background-color;
+    font-weight: 600;
+    margin: 0;
+    text-align: center;
+
+    a {
+      text-decoration: none;
+      color: inherit;
+
+      &:hover,
+      &:active,
+      &:focus {
+        color: inherit;
+      }
+    }
+  }
+
+  .cards {
+    display: flex;
+    flex-direction: column;
+    padding: 0 ru(.5);
+  }
+
+  .card {
+    display: flex;
+    flex-direction: column;
+    flex: 1 0 0%;
+    padding: ru(.5) ru(.75) 0;
+    background-color: $stacked-cards-card-background-color;
+    box-shadow: 0 ru(.25) 0 $stacked-cards-card-border-color;
+    overflow: hidden;
+    text-decoration: none;
+    color: $stacked-cards-card-color;
+    margin-top: ru(1);
+    border-radius: ru(.25);
+    border: 1px solid $stacked-cards-card-border-color;
+
+    h5 {
+      @include typography-6;
+      font-weight: 600;
+      margin: 0 0 ru(.33);
+      color: $stacked-cards-card-header-color;
+    }
+
+    p {
+      @include typography-7;
+      margin-bottom: ru(.5);
+      line-height: ru(.75);
+      color: inherit;
+    }
+
+    .read-more {
+      @include typography-7;
+      margin: auto ru(-.75) 0;
+      padding: ru(.33) ru(.75);
+      background-color: $stacked-cards-card-footer-background-color;
+      color: inherit;
+    }
+
+    &:hover,
+    &:active,
+    &:focus {
+      text-decoration: none;
+      color: $stacked-cards-card-color;
+
+      h5 {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  &.branded {
+    .card {
+      h5 {
+        color: $stacked-cards-branded-card-header-color;
+      }
+    }
+  }
+
+  @media #{$medium-up} {
+    .cards {
+      flex-direction: row;
+      padding: 0;
+    }
+
+    h3 {
+      display: inline-block;
+      padding: ru(.33) ru(.5);
+      border-radius: ru(.25) ru(.25) 0 0;
+      background-color: $stacked-cards-header-background-color;
+      color: $stacked-cards-header-color;
+    }
+  }
+
+  @media #{$medium-only} {
+    padding: 0 ru(1);
+
+    .cards {
+      flex-wrap: wrap;
+      justify-content: space-between;
+      margin-top: ru(-1);
+    }
+
+    .card {
+      flex: 0 1 49%;
+    }
+
+    h3 {
+      margin: ru(-1) 0 ru(1);
+    }
+  }
+
+  @media #{$large-up} {
+    .card {
+      margin-top: 0;
+      border-radius: 0;
+      border-right: 0;
+
+      &:first-child {
+        border-radius: ru(.25) 0 0 ru(.25);
+      }
+
+      &:last-child {
+        border-radius: 0 ru(.25) ru(.25) 0;
+        border-right: 1px solid $stacked-cards-card-border-color;
+      }
+    }
+
+    h3 {
+      text-align: left;
+
+      + .cards .card:first-child {
+        border-radius: 0 0 0 ru(.25);
+      }
+    }
+  }
+}

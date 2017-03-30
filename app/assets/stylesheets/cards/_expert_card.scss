@@ -1,0 +1,164 @@
+// scss-lint:disable all
+/*doc
+---
+title: Expert Card
+name: expert-card
+category: Cards - Expert Card
+---
+```slim_example_table
+.mod-expert-card
+  .content
+    img src='/images/expert.png'
+    h4 In rhoncus orci et ex fermentum
+    p Proin aliquam tortor et aliquam dignissim.
+  form.form
+    label Donec blandit diam
+    .text-input.no-border
+      textarea data-expand-card=''
+    .hidden
+      label Rhoncus
+      .text-input.no-border
+        input type='email'
+      label.checkbox
+        input type='checkbox' checked='checked'
+        span Nulla maximus congue dolor sed vestibulum. Nunc mattis molestie libero.
+    button.button.action type='submit' A consequat
+
+css:
+  .mod-expert-card {
+    max-width: 320px;
+  }
+```
+
+```js_example
+var $element = $('.mod-expert-card');
+$element.find('[data-expand-card]').on('focus', function() {
+  if (!$element.hasClass('expanded')) {
+    $element.addClass('expanded')
+    $element.find('.hidden').slideDown(500);
+  }
+});
+```
+*/
+// scss-lint:enable all
+
+$expert-card-background-color:               $brand-5;
+$expert-card-content-color:                  $neutral-2;
+$expert-card-form-background-color:          $brand-4;
+$expert-card-form-color:                     $neutral-8;
+$expert-card-form-button-background-color:   $brand-2;
+$expert-card-form-border-color:              $brand-1;
+$expert-card-form-checkbox-background-color: $brand-2;
+$expert-card-form-checkbox-sign-color:       $neutral-8;
+
+.mod-expert-card {
+  border-radius: ru(.25);
+  background-color: $expert-card-background-color;
+  overflow: hidden;
+
+  .content {
+    padding: ru(.75);
+    color: $expert-card-content-color;
+    overflow: hidden;
+
+    h4,
+    p {
+      @include typography-4;
+      color: inherit;
+    }
+
+    h4 {
+      font-weight: 600;
+      margin: 0 0 ru(.25);
+    }
+
+    p {
+      font-weight: 300;
+      margin: 0 0 ru(.5);
+    }
+
+    img {
+      float: right;
+      max-width: ru(4);
+      margin-left: ru(.75);
+    }
+  }
+
+  .form {
+    padding: ru(.75);
+    border-radius: ru(.25) ru(.25) 0 0;
+    background-color: $expert-card-form-background-color;
+    color: $expert-card-form-color;
+
+    label {
+      @include typography-6;
+      font-weight: 600;
+      margin: 0 0 ru(.33);
+      color: $expert-card-form-color;
+    }
+
+    textarea {
+      height: ru(2);
+      resize: none;
+      transition: height 500ms ease;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    .checkbox {
+      @include typography-7;
+      margin: 0 0 ru(.75);
+      padding-left: ru(1);
+      margin-top: ru(.5);
+
+      &:before {
+        width: ru(.625);
+        height: ru(.625);
+        border: 0;
+        border-radius: ru(.125);
+        background-color: $expert-card-form-checkbox-background-color;
+      }
+
+      span {
+        margin: 0;
+        line-height: ru(.75);
+        // scss-lint:disable ImportantRule
+        color: $expert-card-form-color !important;
+        // scss-lint:enable ImportantRule
+
+        &:after {
+          width: ru(.25);
+          height: ru(.375);
+          box-shadow: 2px 2px 0 0 $expert-card-form-checkbox-sign-color;
+          top: rem-calc(1px);
+          left: rem-calc(3px);
+        }
+      }
+    }
+
+    .button {
+      @include typography-6;
+      font-weight: 600;
+      background-color: $expert-card-form-button-background-color;
+      margin: 0 0 ru(.208);
+      box-shadow: 0 ru(.208) 0 $expert-card-form-border-color;
+
+      &:hover,
+      &:active,
+      &:focus {
+        background-color: $expert-card-form-border-color;
+        box-shadow: 0 ru(.083) 0 $expert-card-form-border-color;
+      }
+    }
+  }
+
+  &.expanded {
+    .form {
+      textarea {
+        height: ru(4.5);
+      }
+    }
+  }
+}

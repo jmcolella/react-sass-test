@@ -1,0 +1,371 @@
+// scss-lint:disable all
+/*doc
+---
+title: Slider Card
+name: slider-card
+category: Cards - Slider Card
+---
+```slim_example
+.mod-card-slider
+  .header
+    h6 Proin aliquam tortor et aliquam
+    .help.i-help
+  .content
+    .section
+      .slider.tall
+        .value
+          span $100
+          small
+            '  /orci
+        .bar
+          .range style='width: 50%;'
+          .handler style='left: 50%;'
+          .average style='left: 50%'
+            .average-circle
+            .average-tooltip
+              span.policygenius-tooltip
+                span.average-text Ullamcorper
+                .popup Suspendisse molestie vel sapien at posuere. Phasellus viverra mollis massa ut eleifend. Nulla maximus congue dolor sed vestibulum.
+          .value.current style='left: 50%;'
+            span $1,000
+            small
+              '  /orci
+        .value
+          span $5,436
+          small
+            '  /orci
+    .section.emphasized
+      h6
+        strong 10
+        span  Suspendisse molestie vel sapien at posuere
+      a href='#' Phasellus viverra mollis massa ut eleifend. Nulla maximus congue dolor.
+    .section
+      h6 Phasellus tellus augue, maximus a viverra
+      ul
+        li: span.truncate Aenean ac bibendum nisi
+        li: span.truncate Etiam malesuada quis
+        li: span.truncate Suspendisse molestie vel
+        li: span.truncate Aenean ac bibendum nisi
+        li: span.truncate Aenean ac bibendum nisi
+        li: span.truncate Etiam malesuada quis
+        li: span.truncate Suspendisse molestie vel
+        li: span.truncate Aenean ac bibendum nisi
+        li: span.truncate Aenean ac bibendum nisi
+        li: span.truncate Etiam malesuada quis
+        li: span.truncate Suspendisse molestie vel
+        li: span.truncate Aenean ac bibendum nisi
+  .footer
+    a.button.action href='#' Maecenas ullamcorper turpis quis
+
+css:
+  .mod-card-slider {
+    max-width: 600px;
+  }
+```
+
+```slim_example
+.mod-card-slider.narrow
+  .header
+    h6 Proin aliquam tortor et aliquam
+    .help.i-help
+  .content
+    .section
+      .details
+        .cost
+          span $1,000
+          small
+            '  /orci
+        .count
+          .value 10
+          span  Nullam metus velit
+      .slider
+        .bar
+          .range style='width: 50%;'
+          .handler style='left: 50%;'
+      .note
+        a href='#' Phasellus viverra mollis massa ut eleifend. Nulla maximus congue dolor.
+    .section
+      h6 Phasellus tellus augue, maximus a viverra
+      ul
+        li: span.truncate Aenean ac bibendum nisi
+        li: span.truncate Etiam malesuada quis
+        li: span.truncate Suspendisse molestie vel
+        li: span.truncate Aenean ac bibendum nisi
+        li: span.truncate Aenean ac bibendum nisi
+        li: span.truncate Etiam malesuada quis
+        li: span.truncate Suspendisse molestie vel
+        li: span.truncate Aenean ac bibendum nisi
+        li: span.truncate Aenean ac bibendum nisi
+        li: span.truncate Etiam malesuada quis
+        li: span.truncate Suspendisse molestie vel
+        li: span.truncate Aenean ac bibendum nisi
+  .footer
+    a.button.action href='#' Maecenas ullamcorper turpis quis
+```
+
+```slim_example
+.flex-row style='max-width: 800px'
+  .mod-card-slider.narrow
+    .header
+      h6 Proin aliquam tortor et aliquam
+      .help.i-help
+    .content
+      .section
+        .details
+          .cost
+            span $1,000
+            small
+              '  /orci
+          .count
+            .value 10
+            span  Nullam metus velit
+        .slider
+          .bar
+            .range style='width: 75%;'
+            .handler style='left: 75%;'
+        .note
+          a href='#' Pellentesque habitant morbi tristique
+      .section
+        h6 Phasellus tellus augue, maximus a viverra
+        ul
+          li: span.truncate Aenean ac bibendum nisi
+          li: span.truncate Etiam malesuada quis
+          li: span.truncate Suspendisse molestie vel
+          li: span.truncate Aenean ac bibendum nisi
+          li: span.truncate Aenean ac bibendum nisi
+          li: span.truncate Etiam malesuada quis
+          li: span.truncate Suspendisse molestie vel
+          li: span.truncate Aenean ac bibendum nisi
+          li: span.truncate Aenean ac bibendum nisi
+          li: span.truncate Etiam malesuada quis
+          li: span.truncate Suspendisse molestie vel
+          li: span.truncate Aenean ac bibendum nisi
+    .footer
+      a.button.action href='#' Maecenas ullamcorper turpis quis
+  .mod-card-slider.narrow
+    .header
+      h6 Phasellus nec iaculis velit, quis
+      .help.i-help
+    .content
+      .section
+        .details
+          .cost
+            span $1,000
+            small
+              '  /orci
+          .count
+            .value 10
+            span  Nullam metus velit
+        .slider
+          .bar
+            .range style='width: 75%;'
+            .disabled style='width: 20%;'
+            .handler style='left: 75%;'
+        .note
+          a href='#' Suspendisse vel massa iaculis, porta massa
+      .section
+        h6 Phasellus tellus augue, maximus a viverra
+        ul
+          li: span.truncate Aenean ac bibendum nisi
+          li: span.truncate Etiam malesuada quis
+          li: span.truncate Suspendisse molestie vel
+          li: span.truncate Aenean ac bibendum nisi
+          li: span.truncate Aenean ac bibendum nisi
+          li: span.truncate Etiam malesuada quis
+          li: span.truncate Suspendisse molestie vel
+          li: span.truncate Aenean ac bibendum nisi
+          li: span.truncate Aenean ac bibendum nisi
+          li: span.truncate Etiam malesuada quis
+          li: span.truncate Suspendisse molestie vel
+          li: span.truncate Aenean ac bibendum nisi
+    .footer
+      a.button.action href='#' Maecenas ullamcorper turpis quis
+```
+
+```js_example
+$('.policygenius-tooltip').on('click', function(e) {
+  $(this).toggleClass('show');
+});
+```
+*/
+// scss-lint:enable all
+
+$card-slider-background-color:        $neutral-8;
+$card-slider-border-color:            $neutral-5;
+$card-slider-border-radius:           ru(.25);
+$card-slider-color:                   $neutral-2;
+$card-slider-header-background-color: $neutral-6;
+$card-slider-note-hover-color:        $brand-2;
+
+.mod-card-slider {
+  border: 1px solid $card-slider-border-color;
+  border-bottom-width: rem-calc(4px);
+  border-radius: $card-slider-border-radius;
+  background-color: $card-slider-background-color;
+  margin-bottom: ru(1);
+  font-weight: 400;
+  color: $card-slider-color;
+
+  // tech debt start
+  .average {
+    .policygenius-tooltip {
+      display: inline;
+    }
+  }
+  // tech debt end
+
+  .header {
+    display: flex;
+    align-self: flex-start;
+    border-bottom: 1px solid $card-slider-border-color;
+    background-color: $card-slider-header-background-color;
+    padding: ru(.5) ru(.75);
+    border-radius: ru(.167) ru(.167) 0 0;
+
+    h6 {
+      margin: 0;
+    }
+
+    .help {
+      margin-left: auto;
+      padding-left: ru(1);
+
+      &:before {
+        margin: 0;
+      }
+    }
+  }
+
+  .section {
+    padding: ru(.75);
+
+    + .section {
+      border-top: 1px solid $card-slider-border-color;
+    }
+  }
+
+  .footer {
+    padding: ru(.5) ru(.75);
+    border-top: 1px solid $card-slider-border-color;
+
+    .button.action {
+      margin-bottom: rem-calc(5px);
+    }
+  }
+
+  .details {
+    display: flex;
+    align-items: flex-start;
+    margin: 0 0 ru(1.25);
+
+    .cost {
+      @include typography-4;
+      font-weight: 600;
+      margin: 0 ru(1) 0 0;
+
+      small {
+        @include typography-7;
+        margin: 0;
+      }
+    }
+
+    .count {
+      @include typography-6;
+      font-weight: 400;
+      margin: 0 0 0 auto;
+
+      .value {
+        @include typography-5;
+        display: inline-block;
+        margin: 0;
+      }
+    }
+  }
+
+  .note {
+    @include typography-7;
+    line-height: ru(.75);
+    margin: ru(2.5) 0 0;
+    text-align: center;
+
+    a {
+      color: $card-slider-color;
+
+      &:hover,
+      &:active,
+      &:focus {
+        color: $card-slider-note-hover-color;
+      }
+    }
+  }
+
+  .emphasized {
+    display: flex;
+    align-items: center;
+
+    h6 {
+      font-weight: 600;
+      margin: 0 ru(1) 0 0;
+
+      strong {
+        @include typography-4;
+        margin: 0;
+      }
+    }
+
+    a {
+      @include typography-7;
+      line-height: ru(.75);
+      margin: 0 0 0 auto;
+      text-align: center;
+      max-width: ru(5.5);
+      color: $card-slider-color;
+
+      &:hover,
+      &:active,
+      &:focus {
+        color: $card-slider-note-hover-color;
+      }
+    }
+
+    > div {
+      flex: 1 1;
+    }
+  }
+
+  ul {
+    columns: 3;
+    -webkit-column-break-inside: avoid;
+    page-break-inside: avoid;
+    break-inside: avoid-column;
+
+    li {
+      @include typography-7;
+      @include text-truncation;
+      line-height: ru(1);
+      margin: 0;
+    }
+  }
+
+  h6 {
+    @include typography-6;
+    font-weight: 600;
+    color: $card-slider-color;
+    margin: 0 0 ru(.33);
+  }
+
+  strong {
+    font-weight: 600;
+  }
+
+  &.narrow {
+    .footer {
+      border-top: 0;
+      padding-top: 0;
+    }
+
+    ul {
+      columns: 2;
+    }
+  }
+}

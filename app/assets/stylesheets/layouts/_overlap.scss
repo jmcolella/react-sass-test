@@ -1,0 +1,44 @@
+// scss-lint:disable all
+/*doc
+---
+title: Overlap Layout
+name: overlap
+category: Layouts - Overlap
+---
+```slim_example
+.layout-overlap-columns
+  div
+      img src='holder.js/600x300?auto=yes'
+  div
+      img src='holder.js/600x300?auto=yes'
+```
+*/
+// scss-lint:enable all
+
+.layout-overlap-columns {
+  > * {
+    &:first-child {
+      margin-bottom: ru(1);
+    }
+  }
+
+  @media #{$medium-up} {
+    @include arrange-children-in-a-row;
+    padding-bottom: ru(2);
+
+    > * {
+      margin: 0;
+
+      &:first-child {
+        margin: 0 ru(-3.5) 0 0;
+        position: relative;
+        z-index: 1;
+      }
+
+      &:last-child {
+        position: relative;
+        top: ru(2);
+      }
+    }
+  }
+}

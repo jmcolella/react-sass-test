@@ -1,0 +1,165 @@
+// scss-lint:disable all
+/*doc
+---
+title: Icon List
+name: icon-list
+category: Lists - Icon List
+---
+```slim_example
+ul.mod-icon-list
+  li.i-check Phasellus tellus augue, maximus a viverra tincidunt, vestibulum at lorem. Curabitur et magna erat.
+  li.i-check Vivamus dictum justo a venenatis pulvinar. Fusce ullamcorper rhoncus nunc, ut convallis.
+  li.i-check Fusce id egestas metus, consectetur sagittis lacus. Phasellus luctus elementum iaculis.
+
+ul.mod-icon-list
+  li.i-delete Nunc mattis iaculis enim. Proin at nunc at nisi lobortis bibendum at vel ex. Sed et lacinia ante.
+  li.i-delete Etiam malesuada quis augue vitae.
+  li.i-delete Sed non tortor id neque posuere luctus ac vel sapien.
+```
+
+```slim_example
+ul.mod-icon-list
+  li.icon-checkmark Nullam metus velit, efficitur commodo elementum.
+  li.icon-checkmark Fusce quis elit at turpis convallis pretium.
+  li.icon-checkmark Vivamus faucibus lacus et purus fringilla, sit amet placerat mi tempus.
+```
+
+```slim_example
+ul.mod-icon-list.condensed
+  li.icon-checkmark Nullam metus velit, efficitur commodo elementum.
+  li.icon-checkmark Fusce quis elit at turpis convallis pretium.
+  li.icon-checkmark Vivamus faucibus lacus et purus fringilla, sit amet placerat mi tempus.
+  li.icon-close-accent Vivamus faucibus lacus et purus fringilla, sit amet placerat mi tempus.
+```
+
+```slim_example
+ul.mod-icon-list.small
+  li.icon-tiger-circle Suspendisse id felis nulla
+  li.icon-tangerine-circle Mauris pharetra augue ac arcu
+  li.icon-turquoise-circle Nunc mattis diam libero
+  li.icon-teal-circle Quisque eget ullamcorper
+```
+*/
+// scss-lint:enable all
+
+$icon-list-color:              $neutral-2;
+$icon-list-default-icon-color: $brand-3;
+$icon-list-delete-icon-color:  $accent-4;
+$icon-list-orange-icon-color:  $action-2;
+$icon-list-margin-bottom:      ru(1);
+$icon-list-margin-top:         0;
+
+ul.mod-icon-list {
+  margin: $icon-list-margin-top 0 $icon-list-margin-bottom;
+  padding: 0;
+  list-style: none;
+  color: $icon-list-color;
+
+  li {
+    position: relative;
+    margin: 0;
+    padding-left: ru(1.5);
+
+    + li {
+      margin-top: ru(.667);
+    }
+
+    &:before {
+      position: absolute;
+      top: rem-calc(3px);
+      left: 0;
+      font-size: rem-calc(22px);
+    }
+
+    &[class^='i-']:before {
+      color: $icon-list-default-icon-color;
+    }
+
+    &.i-delete:before {
+      color: $icon-list-delete-icon-color;
+    }
+
+    &.i-fastforward:before,
+    &.i-moneybag:before {
+      color: $icon-list-orange-icon-color;
+    }
+
+    &[class^='icon-'] {
+      &:before {
+        content: '';
+        top: 0;
+        left: rem-calc(2px);
+        width: rem-calc(22px);
+        height: rem-calc(22px);
+        background-size: 100%;
+      }
+
+      &.icon-checkmark {
+        &:before {
+          top: rem-calc(2px);
+        }
+      }
+    }
+  }
+
+  &.condensed {
+    @include typography-6;
+    margin-top: $icon-list-margin-top;
+    margin-bottom: $icon-list-margin-bottom;
+
+    li {
+      padding-left: ru(1.25);
+
+      + li {
+        margin-top: ru(.25);
+      }
+
+      &:before {
+        top: rem-calc(1px);
+        font-size: rem-calc(20px);
+      }
+
+      &[class^='icon-'] {
+        &:before {
+          top: rem-calc(1px);
+          width: rem-calc(16px);
+          height: rem-calc(16px);
+          background-size: 100%;
+        }
+
+        &.icon-checkmark {
+          &:before {
+            top: rem-calc(3px);
+          }
+        }
+
+        &.icon-close-accent {
+          &:before {
+            content: '';
+            height: ru(.55);
+            width: ru(.55);
+            top: ru(.2);
+            left: ru(.1);
+            background-repeat: no-repeat;
+            background-size: 100%;
+          }
+        }
+      }
+    }
+  }
+
+  &.small {
+    @extend .condensed;
+    font-size: rem-calc(13px);
+    line-height: ru(.75);
+  }
+
+  strong,
+  b {
+    font-weight: 600;
+  }
+
+  a {
+    color: inherit;
+  }
+}

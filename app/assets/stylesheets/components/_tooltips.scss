@@ -1,0 +1,217 @@
+// scss-lint:disable all
+/*doc
+---
+title: Tooltip
+name: tooltip
+category: Components - Tooltip
+---
+#### Click on text to see tooltips
+
+### Centered Tooltip
+```slim_example_table
+.mod-example style='margin-left:200px;'
+  .policygenius-tooltip
+    | Curabitur eget
+    .popup
+      p: strong Aliquam
+      p Mauris in dui at massa finibus sodales sit amet ac nibh. Etiam fermentum magna.
+```
+
+### Left Aligned Tooltip
+```slim_example_table
+.mod-example style='margin-left:200px;'
+  .policygenius-tooltip
+    | Curabitur eget
+    .popup.left-align
+      | In lacinia mi ut urna porta, eget volutpat ligula finibus. Vestibulum convallis sapien sed mattis tempor.
+```
+
+### Right Aligned Tooltip
+```slim_example_table
+.mod-example style='margin-left:200px;'
+  .policygenius-tooltip
+    | Curabitur eget
+    .popup.right-align
+      | In lacinia mi ut urna porta, eget volutpat ligula finibus. Vestibulum convallis sapien sed mattis tempor.
+```
+
+```js_example
+$('.policygenius-tooltip').on('click', function(e) {
+  var $target = $(e.target);
+  $target.toggleClass('show');
+});
+```
+*/
+// scss-lint:enable all
+
+$tooltip-popup-background-color:            $neutral-8;
+$tooltip-popup-background-color-on-mobile:  rgba($neutral-1, .75);
+$tooltip-popup-border-color:                $neutral-5;
+$tooltip-popup-color:                       $neutral-2;
+
+// scss-lint:disable SelectorDepth
+// scss-lint:disable NestingDepth
+[class^='mod-'] {
+  .policygenius-tooltip {
+    cursor: help;
+    display: inline-block;
+    position: relative;
+    text-decoration: none;
+    outline: none;
+
+    &.show {
+      .popup {
+        opacity: 1;
+        transform: translate(-50%, 15px) scale(1);
+        pointer-events: auto;
+        visibility: visible;
+      }
+    }
+
+    .popup {
+      @include typography-7;
+      position: absolute;
+      left: 50%;
+      top: 100%;
+      z-index: 100;
+      margin: 0;
+      width: ru(10);
+      padding: rem-calc(15px);
+      border: 1px solid $tooltip-popup-border-color;
+      border-radius: ru(.167);
+      font-weight: 400;
+      line-height: ru(.75);
+      text-align: left;
+      background-color: $tooltip-popup-background-color;
+      color: $tooltip-popup-color;
+      pointer-events: none;
+      opacity: 0;
+      visibility: hidden;
+      transform: translate(-50%, 15px) scale(0);
+      transition: opacity .15s ease-out;
+      white-space: normal;
+
+      strong {
+        font-weight: 600;
+      }
+
+      p {
+        margin: 0 0 ru(.33);
+
+        &:last-child {
+          margin: 0;
+        }
+      }
+
+      &:before,
+      &:after {
+        display: inline-block;
+        left: 0;
+        right: 0;
+        bottom: 100%;
+        content: '';
+        height: 0;
+        width: 0;
+        border: solid transparent;
+        margin: 0 auto;
+        position: absolute;
+      }
+
+      &:before {
+        border-bottom-color: $tooltip-popup-border-color;
+        border-width: 10px;
+      }
+
+      &:after {
+        border-bottom-color: $tooltip-popup-background-color;
+        border-width: 8px;
+      }
+    }
+
+    .left-align {
+      &:before,
+      &:after {
+        right: -60%;
+      }
+    }
+
+    .right-align {
+      &:before,
+      &:after {
+        right: 60%;
+      }
+    }
+
+    &.wide {
+      .popup {
+        width: ru(15.5);
+      }
+    }
+
+    @media #{$medium-up} {
+      .left-align {
+        left: -40px;
+      }
+
+      .right-align {
+        left: 110px;
+      }
+    }
+  }
+
+  @media #{$small-only} {
+    .policygenius-tooltip {
+      .popup {
+        @include icon(delete, $position: after);
+        @include typography-6;
+        position: fixed;
+        z-index: 110;
+        top: 50%;
+        margin: 0;
+        min-width: ru(11.33);
+        max-width: ru(15);
+        padding: ru(1);
+        border-bottom-width: 1px;
+
+        &:before {
+          display: none;
+        }
+
+        &:after {
+          width: auto;
+          height: auto;
+          border: 0;
+          margin: 0;
+          font-size: rem-calc(13px);
+          top: ru(.5);
+          left: auto;
+        }
+      }
+
+      &.show {
+        &:before {
+          content: '';
+          position: fixed;
+          z-index: 100;
+          top: 0;
+          right: 0;
+          bottom: 0;
+          left: 0;
+          background-color: $tooltip-popup-background-color-on-mobile;
+        }
+
+        .popup {
+          left: 50%;
+          width: auto;
+          transform: translate(-50%, -50%) scale(1);
+
+          &:after {
+            right: ru(.5);
+          }
+        }
+      }
+    }
+  }
+}
+// scss-lint:enable SelectorDepth
+// scss-lint:enable NestingDepth

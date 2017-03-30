@@ -1,0 +1,227 @@
+// scss-lint:disable all
+/*doc
+---
+title: Tabbed Details
+name: tabbed-details
+category: Modules - Tabbed Details
+---
+```slim_example
+.mod-tabbed-details
+  ul.tabs
+    li: a href='#coverage' Proin aliquam tortor
+    li.active: a href='#term' Et aliquam dignissim
+  .content#coverage
+    .mod-calculator-with-links
+      h4 Aliquam sapien enim
+      ul
+        li
+          span Elementum
+          span.value $1,000,000
+          a href='#' Massa sit amet
+        li
+          span Pretium egestas
+          span.value $10,000
+          a href='#' Mauris semper faucibus
+        li
+          span Tellus
+          span.value $---
+          a href='#' Auctor mauris
+      h4 Your Aenean suscipit
+      ul
+        li
+          span Lacinia
+          span.value $1,000,000
+          a href='#' Varius massa
+        li
+          span Suspendisse erat dolor
+          span.value $10,000
+          a href='#' Auctor sed eleifend
+        li
+          span Elementum
+          span.value $---
+          a href='#' Massa eget
+      h4 Dictum et
+      ul
+        li
+          span Consectetur ornare
+          span.value $1,000,000
+        li
+          span Ultrices ullamcorper
+          span.value $---
+        li
+          span In rhoncus orci et
+          span.value $1,000,000
+        li
+          span Ut euismod diam tincidunt
+          span.value
+            | = $1,000,000
+        li
+          span Vivamus eu
+          span.value aliquet sapien
+  .content.active#term
+    h3 Ut scelerisque nulla at sem suscipit.
+    p Nunc in pharetra velit. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
+    h4 Donec imperdiet leo id odio tincidunt, eget blandit nisi fermentum. Donec non libero vitae.
+    p Donec non libero vitae augue consequat aliquet. Fusce euismod bibendum orci at placerat. Vivamus ultricies augue in tortor pharetra convallis. Maecenas gravida ex a sed vulputate, sodales cursus risus blandit.
+
+    .term-graph
+      .area
+        .divider data-value='0' style='left: 0'
+        .divider data-value='10' style='left: 25%'
+        .divider data-value='20' style='left: 50%'
+        .divider data-value='30' style='left: 75%'
+        .divider data-value='40' style='left: 100%'
+        .current style='left: 80%'
+      .item
+        .label Your Kids
+        .line
+          .bar style='width: 60%'
+      .item
+        .label
+          | Suspendisse
+          .sublabel Molestie vel sapien at posuere
+        .line
+          .bar style='width: 80%'
+      .item
+        .label
+          | Phasellus viverra
+          .sublabel Nulla maximus congue dolor sed
+        .line
+          .bar style='width: 80%'
+      .item
+        .label Nunc mattis
+        .line
+          .bar style='width: 55%'
+
+    p Proin pharetra felis et odio porttitor, et egestas tortor laoreet. Sed dapibus orci id sapien placerat, a consequat augue efficitur.
+
+css:
+  .mod-tabbed-details { max-width: 600px; }
+```
+
+```js_example
+$(function() {
+  $('.mod-tabbed-details .tabs a').on('click', function(e) {
+    e.preventDefault();
+    var $this = $(this),
+        target = $this.attr('href');
+    $('.mod-tabbed-details .tabs li').removeClass('active');
+    $('.mod-tabbed-details .content').removeClass('active');
+    $this.parent().toggleClass('active');
+    $(target).toggleClass('active');
+  });
+});
+```
+*/
+// scss-lint:enable all
+
+$tabbed-details-border-color:                $neutral-5;
+$tabbed-details-background-color:            $neutral-8;
+$tabbed-details-tab-border-color:            $neutral-5;
+$tabbed-details-tab-active-color:            $neutral-2;
+$tabbed-details-tab-background-color:        $neutral-7;
+$tabbed-details-tab-active-background-color: $neutral-8;
+$tabbed-details-content-color:               $neutral-2;
+
+.mod-tabbed-details {
+  border: 1px solid $tabbed-details-border-color;
+  border-radius: 0 0 ru(.25) ru(.25);
+  background-color: $tabbed-details-background-color;
+
+  .tabs {
+    display: flex;
+    margin: 0 -1px;
+
+    li {
+      display: flex;
+      flex: 1 0;
+      text-align: center;
+      border-left: 1px solid $tabbed-details-tab-border-color;
+      border-bottom: 1px solid $tabbed-details-tab-border-color;
+
+      &:last-child {
+        border-right: 1px solid $tabbed-details-tab-border-color;
+      }
+
+      a {
+        @include typography-6;
+        display: block;
+        font-weight: 700;
+        margin: 0;
+        flex-grow: 1;
+        padding: ru(.5);
+        background-color: $tabbed-details-tab-background-color;
+        text-decoration: none;
+      }
+
+      &:first-child {
+        border-right: 0;
+
+        &.active {
+          border-right: 1px solid $tabbed-details-tab-border-color;
+        }
+      }
+
+      &.active {
+        border-bottom: 0;
+        border-top: 1px solid $tabbed-details-tab-border-color;
+        margin-top: ru(-.167);
+
+        a {
+          padding-top: ru(.667);
+          color: $tabbed-details-tab-active-color;
+          background-color: $tabbed-details-tab-active-background-color;
+        }
+
+        + li {
+          border-left: 0;
+        }
+      }
+    }
+  }
+
+  .content {
+    display: none;
+    padding: ru(1);
+    color: $tabbed-details-content-color;
+
+    &.active {
+      display: block;
+    }
+
+    ul {
+      margin-bottom: ru(1);
+    }
+
+    h3 {
+      @include like-h3;
+    }
+
+    h4,
+    p {
+      @include typography-6;
+      margin: 0 0 ru(1);
+      color: inherit;
+    }
+
+    h4 {
+      font-weight: 700;
+
+      + p {
+        margin-top: ru(-1);
+      }
+
+      + ul {
+        margin-top: ru(-.5);
+      }
+    }
+
+    img {
+      margin-bottom: ru(1);
+    }
+
+    > :last-child {
+      margin-bottom: 0;
+    }
+  }
+}

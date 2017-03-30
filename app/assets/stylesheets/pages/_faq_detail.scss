@@ -1,0 +1,194 @@
+// scss-lint:disable all
+/*doc
+---
+title: FAQ Detail
+name: faq-detail
+category: Pages - FAQ Detail
+---
+```slim_example
+.mod-learning-center.layout-learning-center
+  .layout-header style='background-image: url(https://cdn.policygenius.com/assets/learning-center/life-hero-qa-7ab4e421d4cb38bf81ba58c39f33d997.jpg)'
+    .mod-breadcrumbs.backdrop.mini
+      .layout-container
+        ul
+          li: a href='#' Health Insurance
+          li: a href='#' Learning Center
+          li: a href='#' FAQ
+          li: span What is Obamacare?
+    .layout-container
+      h4 Health Insurance
+      h1 What is Obamacare?
+  .layout-main
+    .layout-content
+      .layout-section
+        h3 What you need to know
+        p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer tempor eros a luctus porta. Cras laoreet sem et imperdiet placerat. In sit amet dui id enim ultricies tincidunt vel eu est. Donec ipsum lacus, finibus et pulvinar et, euismod a felis.
+        p Mauris convallis, sem vel varius feugiat, purus leo placerat lorem, ac placerat risus augue ac augue. Proin congue posuere erat, sit amet viverra risus pulvinar ut. Donec porta dolor sed lacus dictum, porta sodales nunc vestibulum.
+
+        a.button.info.mini.back.i-directleft href='#' Back to FAQ
+
+        .spacer-m
+        h5
+          ' Related questions in
+          strong: em 'Obamacare'
+        ul.mod-simple-list.no-bullet
+          li: a href='#' What is Obamacare?
+          li: a href='#' Seriously, what is Obamacare I don't understand?
+          li: a href='#' Who is this Obama fellow, anyway?
+
+        .spacer-m
+        h5 Helpful Resources
+        .layout-table-grid
+          div
+            a.button.graphic href='#'
+              img.graphic-image src='images/heart-sign.png' width='60'
+              span.graphic-text About Health Insurance
+          div
+            a.button.graphic href='#'
+              img.graphic-image src='images/heart-sign.png' width='60'
+              span.graphic-text About Life Insurance
+          div
+            a.button.graphic href='#'
+              img.graphic-image src='images/heart-sign.png' width='60'
+              span.graphic-text About Pet Insurance
+          div
+            a.button.graphic href='#'
+              img.graphic-image src='images/heart-sign.png' width='60'
+              span.graphic-text Long-Disability Insurance
+
+        .spacer-m
+        h5 Recent articles
+        ul.mod-article-list.condensed
+          li
+            a href='#'
+              figure
+                img src='holder.js/120x80?auto=yes&textmode=exact'
+                figcaption
+                  h3 How accurate are term life insurance quotes?
+                  p Getting term life insurance quotes online has never been easier.
+          li
+            a href='#'
+              figure
+                img src='holder.js/120x80?auto=yes&textmode=exact'
+                figcaption
+                  h3 How accurate are term life insurance quotes?
+                  p Getting term life insurance quotes online has never been easier.
+          li
+            a href='#'
+              figure
+                img src='holder.js/120x80?auto=yes&textmode=exact'
+                figcaption
+                  h3 How accurate are term life insurance quotes?
+                  p Getting term life insurance quotes online has never been easier.
+          li
+            a href='#'
+              figure
+                img src='holder.js/120x80?auto=yes&textmode=exact'
+                figcaption
+                  h3 How accurate are term life insurance quotes?
+                  p Getting term life insurance quotes online has never been easier.
+        .spacer-s
+        .layout-center-align
+          a.button.info.mini href='#' See more
+
+
+    .layout-sidebar
+      h5 Have questions about health insurance?
+      form.mod-search-box.mini
+        input type='text' placeholder='e.g. What is life insurance?'
+
+      .spacer-m
+      .mod-ad-unit.mini
+        .content
+          h3 We make health insurance shopping easy
+          a.button.action href='#' Learning Center
+
+      .spacer-m
+      .mod-box-card
+        .mod-rating-index
+          h4 Health Insurance
+          h4 Company Reviews
+          ul
+            li
+              a href='#' Aetna Insurance
+              .rating
+                .com-rating.compact.narrow
+                  .stars
+                    .i-star.active
+                    .i-star.active
+                    .i-star.active
+                    .i-star
+                    .i-star
+            li
+              a href='#' Blue Cross Blue Shield
+              .rating
+                .com-rating.compact.narrow
+                  .stars
+                    .i-star.active
+                    .i-star.active
+                    .i-star.active
+                    .i-star
+                    .i-star
+            li
+              a href='#' Oscar Insurance
+              .rating
+                .com-rating.compact.narrow
+                  .stars
+                    .i-star.active
+                    .i-star.active
+                    .i-star.active
+                    .i-star.active
+                    .i-star
+            li
+              a href='#' Aetna Insurance
+              .rating
+                .com-rating.compact.narrow
+                  .stars
+                    .i-star.active
+                    .i-star.active
+                    .i-star
+                    .i-star
+                    .i-star
+            li
+              a href='#' Oscar Insurance
+              .rating
+                .com-rating.compact.narrow
+                  .stars
+                    .i-star.active
+                    .i-star.active
+                    .i-star.active
+                    .i-star
+                    .i-star
+            li
+              a href='#' Blue Cross Blue Shield
+              .rating
+                .com-rating.compact.narrow
+                  .stars
+                    .i-star.active
+                    .i-star.active
+                    .i-star
+                    .i-star
+                    .i-star
+            li
+              strong: a href='#' View All
+
+      .spacer-m
+      .mod-box-card
+        h4 Health Insurance by State
+        .spacer-s
+        .flex-row.wide
+          ul.mod-simple-list.no-bullet
+            li: a href='#' New York
+            li: a href='#' New York
+            li: a href='#' New York
+            li: a href='#' New York
+          ul.mod-simple-list.no-bullet
+            li: a href='#' New York
+            li: a href='#' New York
+            li: a href='#' New York
+        .spacer-negative-xs
+        strong: a href='#' View All
+
+```
+*/
+// scss-lint:enable all

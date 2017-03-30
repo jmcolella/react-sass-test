@@ -1,0 +1,151 @@
+// scss-lint:disable all
+/*doc
+---
+title: Term Details Graph
+name: term-details-graph
+category: Components - Term Details Graph
+---
+```slim_example
+.mod-example
+  .term-graph
+    .area
+      .divider data-value='0' style='left: 0'
+      .divider data-value='10' style='left: 25%'
+      .divider data-value='20' style='left: 50%'
+      .divider data-value='30' style='left: 75%'
+      .divider data-value='40' style='left: 100%'
+      .current style='left: 80%'
+    .item
+      .label Vivamus eget
+      .line
+        .bar style='width: 60%'
+    .item
+      .label
+        | Mauris in
+        .sublabel Ut ullamcorper justo id
+      .line
+        .bar style='width: 80%'
+    .item
+      .label
+        | Sed maximus
+        .sublabel Mauris luctus nunc sapien
+      .line
+        .bar style='width: 80%'
+    .item
+      .label Ut non nisi
+      .line
+        .bar style='width: 55%'
+```
+*/
+// scss-lint:enable all
+
+$term-graph-area-background-color: $neutral-6;
+$term-graph-area-current-color:    $accent-2;
+$term-graph-area-current-width:    rem-calc(2px);
+$term-graph-area-divider-color:    $neutral-2;
+$term-graph-item-padding:           ru(.25);
+$term-graph-item-height:            ru(2.25);
+$term-graph-label-width:           ru(7);
+$term-graph-label-gap:             ru(.5);
+$term-graph-label-color:           $neutral-2;
+$term-graph-sublabel-color:        $neutral-3;
+$term-graph-bar-height:            ru(.75);
+$term-graph-bar-background-color:  $brand-1;
+
+[class^='mod-'] {
+  .term-graph {
+    position: relative;
+    margin-bottom: ru(2);
+
+    .area {
+      position: absolute;
+      top: $term-graph-item-padding;
+      bottom: $term-graph-item-padding;
+      right: 0;
+      left: $term-graph-label-width + $term-graph-label-gap;
+      background-color: $term-graph-area-background-color;
+      border-radius: 0 ru(.25) ru(.25) 0;
+      border-right: ru(.5) solid $term-graph-area-background-color;
+    }
+
+    .current {
+      position: absolute;
+      z-index: 1;
+      top: 0;
+      bottom: ru(-.8);
+      width: $term-graph-area-current-width;
+      background-color: $term-graph-area-current-color;
+
+      &:after {
+        content: '';
+        position: absolute;
+        top: 100%;
+        width: ru(.25);
+        height: ru(.25);
+        border-radius: 50%;
+        left: 50%;
+        transform: translateX(-50%);
+        background-color: $term-graph-area-current-color;
+      }
+    }
+
+    .divider {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      border-left: 1px dotted $term-graph-area-divider-color;
+      z-index: 1;
+
+      &:after {
+        @include typography-7;
+        content: attr(data-value);
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        transform: translateX(-50%);
+        font-weight: 400;
+        margin: 0;
+      }
+    }
+
+    .item {
+      max-width: none;
+      position: relative;
+      display: flex;
+      align-items: center;
+      margin: 0;
+      padding: $term-graph-item-padding ru(.5) $term-graph-item-padding 0;
+      height: $term-graph-item-height;
+    }
+
+    .label {
+      @include typography-7;
+      width: $term-graph-label-width;
+      background-color: transparent;
+      font-weight: 600;
+      padding: 0;
+      margin: 0 $term-graph-label-gap 0 0;
+      line-height: ru(.75);
+      color: $term-graph-label-color;
+      text-align: right;
+    }
+
+    .sublabel {
+      font-weight: 400;
+      color: $term-graph-sublabel-color;
+    }
+
+    .line {
+      flex: 1 0;
+    }
+
+    .bar {
+      height: $term-graph-bar-height;
+      background-color: $term-graph-bar-background-color;
+    }
+
+    @media #{$small-only} {
+      display: none;
+    }
+  }
+}

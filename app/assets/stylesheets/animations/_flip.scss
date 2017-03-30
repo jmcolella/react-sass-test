@@ -1,0 +1,126 @@
+// scss-lint:disable all
+/*doc
+---
+title: Flip
+name: flip
+category: Animations - Flip
+---
+## Flip Horizontal
+```slim_example_table
+.mod-example
+  .flip style='width: 320px; height: 180px'
+    figure
+      .front
+        .mod-ad-unit.mini
+          .content
+            h3 Proin aliquam tortor et
+            a.button.action href='#' Quisque
+      .back
+        .mod-ad-unit.mini
+          .content
+            h3 Proin aliquam
+            a.button.full-width href='#' Nulla
+```
+
+## Flip Vertical
+```slim_example_table
+.mod-example
+  .flip.vertical style='width: 320px; height: 180px'
+    figure
+      .front
+        .mod-ad-unit.mini
+          .content
+            h3 Proin aliquam tortor et
+            a.button.action href='#' Quisque
+      .back
+        .mod-ad-unit.mini
+          .content
+            h3 Proin aliquam
+            a.button.full-width href='#' Nulla
+```
+*/
+// scss-lint:enable all
+
+[class^='mod-'] {
+  .flip {
+    position: relative;
+    perspective: 500px;
+    margin-bottom: ru(2);
+
+    figure {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      margin: 0;
+      transition: transform 500ms;
+      transform-style: preserve-3d;
+      transform: rotateY(0);
+      animation: flip-horizontal 8s infinite ease-in-out;
+    }
+
+    .front,
+    .back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      backface-visibility: hidden;
+      //small hack for firefox
+      transform: rotateX(0deg);
+    }
+
+    .front {
+      z-index: 1;
+    }
+
+    .back {
+      transform: rotateY(180deg);
+      z-index: 2;
+    }
+
+    &.vertical {
+      figure {
+        animation: flip-vertical 8s infinite ease-in-out;
+      }
+
+      .back {
+        transform: rotateX(180deg);
+      }
+    }
+  }
+}
+
+@media #{$ie10-11} {
+  [class^='mod-'] {
+    .flip {
+      figure {
+        animation: none;
+        transform: none;
+      }
+
+      .front {
+        z-index: 2;
+        transform: none;
+      }
+
+      .back {
+        z-index: 1;
+        transform: none;
+      }
+
+      &.vertical {
+        figure {
+          animation: none;
+        }
+
+        .front {
+          z-index: 2;
+        }
+
+        .back {
+          z-index: 1;
+          transform: none;
+        }
+      }
+    }
+  }
+}

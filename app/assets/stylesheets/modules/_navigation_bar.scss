@@ -1,0 +1,152 @@
+// scss-lint:disable all
+/*doc
+---
+title: Navigation Bar
+name: navigation_bar
+category: Modules - Navigation Bar
+---
+```slim_example
+div style='background-color: #999; padding: 1.125rem'
+  .mod-nav-bar data-mobile-title='Lorem Ipsum'
+    a.link href='#'
+      span Lorem
+      small Phasellus
+    a.link href='#'
+      span Ipsum
+      small Phasellus
+    a.link href='#'
+      span Vivamus
+      small Phasellus
+    a.link href='#'
+      span Fusce
+      small Phasellus
+    a.link href='#'
+      span Nullam
+      small Phasellus
+    a.link.full href='#'
+      span Suspendisse molestie™
+      small Etiam malesuada quis augue?
+```
+*/
+// scss-lint:enable all
+
+$mod-nav-bar-button-background-hover-color:         $brand-2;
+$mod-nav-bar-background-color:                      $neutral-8;
+$mod-nav-bar-border-color:                          $neutral-5;
+$mod-nav-bar-button-hover-color:                    $neutral-8;
+$mod-nav-bar-text-color:                            $neutral-2;
+$mod-nav-bar-hint-color:                            $neutral-8;
+$mod-nav-bar-button-background-color-desktop:       #ee7832;
+$mod-nav-bar-button-background-hover-color-desktop: #b65c27;
+
+.mod-nav-bar {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 ru(-.75);
+  background-color: $mod-nav-bar-background-color;
+  text-align: center;
+  border-width: 1px 0 0 1px;
+  border-style: solid;
+  border-color: $mod-nav-bar-border-color;
+
+  .link {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0;
+    width: 100%;
+    padding: ru(.5);
+    border-width: 0 1px 1px 0;
+    border-style: solid;
+    border-color: $mod-nav-bar-border-color;
+    color: $mod-nav-bar-text-color;
+    text-decoration: none;
+
+    &:hover {
+      background-color: $mod-nav-bar-button-background-hover-color;
+      color: $mod-nav-bar-button-hover-color;
+    }
+
+    span {
+      @include typography-5;
+    }
+
+    small {
+      @include typography-7;
+    }
+
+    span,
+    small {
+      margin-bottom: 0;
+      line-height: ru(.75);
+    }
+  }
+
+  @media #{$medium-up} {
+    margin-left: 0;
+    margin-right: 0;
+    flex-wrap: nowrap;
+    border-radius: ru(.25);
+    border-width: 0;
+    background-color: initial;
+
+    .link {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: ru(.208);
+      padding: ru(.5);
+      padding-bottom: ru(.375);
+      border-width: 0 2px 0 0;
+      border-color: $mod-nav-bar-button-background-hover-color-desktop;
+      background-color: $mod-nav-bar-button-background-color-desktop;
+      color: $mod-nav-bar-hint-color;
+      box-shadow: 0 ru(.208) 0 $mod-nav-bar-button-background-hover-color-desktop;
+      white-space: nowrap;
+
+      &:hover {
+        background-color: $mod-nav-bar-button-background-hover-color-desktop;
+      }
+
+      &.full {
+        flex-basis: 50%;
+      }
+
+      &:last-child {
+        border-right-width: 0;
+        border-top-right-radius: ru(.25);
+        border-bottom-right-radius: ru(.25);
+        flex-shrink: 0;
+        flex-basis: 22.5%;
+      }
+
+      &:first-child {
+        border-top-left-radius: ru(.25);
+        border-bottom-left-radius: ru(.25);
+      }
+    }
+  }
+
+  @media #{$small-only} {
+    position: relative;
+    padding-top: rem-calc(40px);
+    border: 0;
+
+    &:before {
+      content: attr(data-mobile-title);
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: rem-calc(40px);
+      line-height: rem-calc(40px);
+      color: $neutral-8;
+      background-color: $accent-2;
+    }
+
+    .link {
+      border-width: 0 0 1px;
+    }
+  }
+}

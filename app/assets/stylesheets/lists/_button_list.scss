@@ -1,0 +1,36 @@
+// scss-lint:disable all
+/*doc
+---
+title: Button List
+name: button-list
+category: Lists - Button List
+---
+
+```slim_example
+ul.mod-button-list
+  li
+    a.button.action href='#' Sapien
+  li
+    a.button.i-heart href='#' Maximus
+  li
+    a.button.action.lowlight href='#' Laoreet
+  li
+    span Morbi quis dui consequat
+```
+*/
+// scss-lint:enable all
+
+ul.mod-button-list {
+  list-style: none;
+  margin-bottom: ru(1);
+
+  li {
+    margin-bottom: ru(1);
+
+    > * {
+      width: 100%;
+      display: block;
+      text-align: center;
+    }
+  }
+}

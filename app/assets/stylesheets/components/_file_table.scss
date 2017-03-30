@@ -1,0 +1,107 @@
+// scss-lint:disable all
+/*doc
+---
+title: File Table
+name: file-table
+category: Components - File Table
+---
+```slim_example
+.mod-example
+  .file-table
+    .row
+      .cell
+        span
+          a.item-link href='#' class='i-file' IMG_8094.PNG
+          small Nunc maximus dolor nec
+      .cell
+        a href='#'
+          i class='i-download'
+      .cell
+        a href='#'
+          i class='i-trash'
+    .row
+      .cell
+        span
+          a.item-link href='#' class='i-file' IMG_8094_VERY_LONG_FILE_NAME.PNG
+          small Nunc maximus dolor nec
+      .cell
+        a href='#'
+          i class='i-download'
+      .cell
+        a href='#'
+          i class='i-trash'
+    .row
+      .cell
+        span
+          a.item-link href='#' class='i-file' IMG_8094.PNG
+          small Nunc maximus dolor nec
+      .cell
+        a href='#'
+          i class='i-download'
+      .cell
+        a href='#'
+          i class='i-trash'
+```
+*/
+// scss-lint:enable all
+
+$table-file-name-color:         $neutral-2;
+$table-small-color:             $neutral-3;
+$table-download-icon-color:     #008000;
+$table-trash-icon-color:        $accent-3;
+$table-link-text-width:         ru(8);
+
+
+[class^='mod-'] {
+  .file-table {
+    margin-bottom: ru(2);
+
+    a {
+      display: block;
+      color: $table-file-name-color;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    small {
+      @extend .typography-7;
+      margin-left: ru(1);
+      color: $table-small-color;
+    }
+
+    .row {
+      display: flex;
+      align-items: row;
+      padding-bottom: ru(1);
+    }
+
+    .cell {
+      flex: 2;
+      margin-right: ru(.5);
+
+      &:first-child {
+        margin-right: ru(1);
+        flex: 20;
+      }
+    }
+
+    .item-link {
+      width: $table-link-text-width;
+    }
+
+    .i-download {
+      color: $table-download-icon-color;
+      margin: 0 ru(.5);
+    }
+
+    .i-trash {
+      color: $table-trash-icon-color;
+      margin: 0 ru(.5);
+    }
+
+    @media #{$small-only} {
+      margin-top: ru(2);
+    }
+  }
+}

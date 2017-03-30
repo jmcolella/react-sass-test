@@ -1,0 +1,403 @@
+// scss-lint:disable all
+/*doc
+---
+title: Card Form
+name: card-form
+category: Fields - Card Form
+---
+```slim_example
+.mod-card-form  style='max-width: 600px'
+  label Vivamus ultricies
+  .field
+    .group.prefix data-prefix='$'
+      input type='text' id='income' placeholder='Suspendisse molestie vel'
+  .field
+    label.checkbox
+      input type='checkbox' checked='checked'
+      span Vivamus dictum justo
+```
+
+```slim_example
+.mod-card-form  style='max-width: 600px'
+  label Vivamus ultricies
+  .field
+    .selectbox
+      select
+        option Etiam malesuada
+        option Maecenas ullamcorper
+        option Fusce quis elit at turpis
+  .field
+    .group.prefix data-prefix='$'
+      input type='text' id='income' placeholder='Suspendisse molestie vel' value='100,000'
+  .field
+    label.checkbox
+      input type='checkbox' checked='checked'
+      span Vivamus dictum justo
+```
+
+```slim_example
+.mod-card-form  style='max-width: 600px'
+  label Vivamus ultricies
+  .field
+    .selectbox
+      select
+        option disabled='disabled' selected='selected' Morbi sit amet dapibus
+        option Etiam malesuada
+        option Maecenas ullamcorper
+        option Fusce quis elit at turpis
+  .field
+    .group.prefix data-prefix='$'
+      input type='text' id='income' placeholder='Suspendisse molestie vel' value='100,000'
+  .field
+    label.checkbox
+      input type='checkbox' checked='checked'
+      span Vivamus dictum justo
+```
+
+```slim_example
+.mod-card-form  style='max-width: 600px'
+  span.icon-close
+  label Vivamus ultricies
+  .field
+    .selectbox
+      select
+        option disabled='disabled' selected='selected' Suspendisse molestie vel sapien
+        option Etiam malesuada
+        option Maecenas ullamcorper
+        option Fusce quis elit at turpis
+  .field
+    .group.prefix data-prefix='$'
+      input type='text' id='income' placeholder='Suspendisse molestie vel' value='100,000'
+  .field
+    label.checkbox
+      input type='checkbox' checked='checked'
+      span Vivamus dictum justo
+```
+
+## Complex example
+```slim_example
+.mod-card-form  style='max-width: 600px'
+  label Vivamus ultricies
+  .field
+    .group.prefix data-prefix='$'
+      input type='text' id='income' placeholder='100,000' value='100,000'
+  .field
+    label.checkbox
+      input type='checkbox' checked='checked'
+      span Vivamus dictum justo
+    label.checkbox
+      input type='checkbox'
+      span Aenean sit amet pretium
+    label.checkbox
+      input type='checkbox'
+      span Vivamus faucibus lacus
+  .field
+    label.radio
+      input type='radio' name='radios'
+      span Curabitur
+    label.radio
+      input type='radio' name='radios'
+      span Nulla facilisi
+  .field
+    input type='text' placeholder='Donec nunc nulla'
+  .field
+    .selectbox
+      select
+        option Etiam malesuada
+        option Maecenas ullamcorper
+        option Fusce quis elit at turpis
+    .selectbox
+      select
+        option Maecenas ullamcorper
+        option Fusce quis elit at turpis
+        option Etiam malesuada
+  .field
+    label.toggler
+      input type='radio' name='example2'
+      span.button Nam
+    label.toggler
+      input type='radio' name='example2'
+      span.button Et
+    label.toggler
+      input type='radio' name='example2'
+      span.button Urna quis
+  .field
+    button.button.action Elit volutpat
+```
+
+```slim_example_table
+.mod-card-form.filter
+  label.teal
+    .checkbox.flip
+      input type='checkbox'
+      span.truncate Pellentesque ornare malesuada blandit
+    p Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+```
+
+```slim_example_table
+.mod-card-form.filter
+  .content.pink
+    h5
+      span.truncate Pellentesque ornare malesuada blandit
+    p Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+```
+*/
+// scss-lint:enable all
+
+$card-form-background-color: $neutral-8;
+$card-form-border-color:     $neutral-5;
+$card-form-color:            $neutral-2;
+$card-form-filter-color:     $neutral-1;
+$card-form-filter-teal:      #33baa3;
+$card-form-filter-pink:      #ea608d;
+$card-form-filter-blue:      #64cae6;
+$card-form-icon-size:        ru(1);
+
+.mod-card-form {
+  @include field;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  font-family: $font-family-sans-serif;
+  border: 1px solid $card-form-border-color;
+  border-bottom-width: rem-calc(5px);
+  border-radius: ru(.25);
+  background-color: $card-form-background-color;
+
+  .icon-close {
+    position: absolute;
+    top: -$card-form-icon-size / 2;
+    right: -$card-form-icon-size / 2;
+    background-size: 100%;
+    cursor: pointer;
+
+    &:before {
+      content: '';
+      display: inline-block;
+      width: $card-form-icon-size;
+      height: $card-form-icon-size;
+    }
+  }
+
+  > label {
+    @include field-label;
+    font-weight: 600;
+    color: $textfield-label-color;
+    border-bottom: 1px solid $card-form-border-color;
+  }
+
+  .field {
+    position: relative;
+    display: flex;
+    flex: 1 0;
+    flex-wrap: wrap;
+    padding: ru(.75);
+
+    + .field {
+      border-top: 1px solid $card-form-border-color;
+    }
+
+    > * {
+      flex-grow: 1;
+    }
+  }
+
+  .prefix,
+  .postfix {
+    width: auto;
+    height: auto;
+    margin: 0;
+    border: 0;
+  }
+
+  .group {
+    display: flex;
+    align-items: stretch;
+    max-width: 100%;
+    overflow: hidden;
+
+    input[type='text'],
+    input[type='email'],
+    input[type='tel'] {
+      margin: 0;
+    }
+
+    &.prefix:before,
+    &.postfix:after {
+      display: flex;
+      align-items: center;
+      flex: 1 0 auto;
+      width: auto;
+      height: auto;
+      border: 0;
+      margin: 0;
+      padding: ru(.33) ru(.75);
+      text-align: center;
+    }
+
+    &.prefix:before {
+      content: attr(data-prefix);
+      background-color: $textfield-prefix-background-color;
+      border-right: 1px solid $textfield-prefix-border-color;
+      color: $textfield-prefix-color;
+    }
+
+    &.postfix:after {
+      content: attr(data-postfix);
+      background-color: $textfield-postfix-background-color;
+      border-left: 1px solid $textfield-postfix-border-color;
+      color: $textfield-postfix-color;
+    }
+  }
+
+  input[type='text'],
+  input[type='email'],
+  input[type='tel'] {
+    @include typography-5;
+    flex: 0 1 auto;
+    margin: ru(-.75);
+    padding: ru(.375) ru(.75);
+    min-width: 0;
+    height: auto;
+    background: inherit;
+    color: $textfield-input-color;
+
+    &::placeholder {
+      color: $textfield-input-placeholder-color;
+    }
+  }
+
+  .checkbox,
+  .radio {
+    flex-basis: 100%;
+  }
+
+  .selectbox {
+    @include typography-5;
+    margin: 0;
+    border: 0;
+    border-radius: 0;
+    height: ru(2.25);
+    line-height: ru(2.25);
+
+    select {
+      padding-left: ru(.75);
+    }
+
+    + .selectbox {
+      border-left: 1px solid $card-form-border-color;
+    }
+  }
+
+  .button.action {
+    margin-bottom: ru(.208);
+  }
+
+  .group,
+  .selectbox {
+    margin: ru(-.75);
+  }
+
+  &.filter {
+    border-bottom-width: 1px;
+    overflow: hidden;
+
+    h5 {
+      @include typography-6;
+      @include text-truncation;
+      font-weight: 600;
+      margin: 0 0 ru(.25);
+      color: $card-form-filter-color;
+    }
+
+    .checkbox {
+      @include text-truncation;
+      font: inherit;
+      font-weight: 600;
+      margin-bottom: ru(.25);
+
+      .truncate {
+        width: 100%;
+      }
+
+      span {
+        // scss-lint:disable ImportantRule
+        color: $card-form-filter-color !important;
+        // scss-lint:enable ImportantRule
+      }
+    }
+
+
+    > label,
+    > .content {
+      @include typography-6;
+      font-weight: 400;
+      margin: 0;
+      min-height: ru(5);
+      color: $card-form-color;
+      padding: ru(.5) ru(.75);
+      border-bottom: ru(.5) solid transparent;
+
+      p {
+        @include typography-6;
+        @include multiline-truncation(2, ru(2));
+        font-weight: 400;
+        margin: 0;
+      }
+
+      &.teal {
+        border-bottom-color: $card-form-filter-teal;
+      }
+
+      &.pink {
+        border-bottom-color: $card-form-filter-pink;
+      }
+
+      &.blue {
+        border-bottom-color: $card-form-filter-blue;
+      }
+    }
+  }
+
+  strong {
+    font-weight: 600;
+  }
+
+
+  @media #{$small-only} {
+    .selectbox {
+      flex-basis: 100%;
+    }
+
+    .selectbox + .selectbox {
+      margin-top: ru(.75);
+      border-left: 0;
+      border-top: 1px solid $card-form-border-color;
+    }
+  }
+
+  @media #{$medium-up-to-xxlarge} {
+    .field {
+      padding: ru(.5) ru(.75);
+    }
+
+    input[type='text'],
+    input[type='email'],
+    input[type='tel'] {
+      @include typography-6;
+      margin: ru(-.5) ru(-.75);
+    }
+
+    .selectbox {
+      @include typography-6;
+      margin: 0;
+      height: ru(1.84);
+      line-height: ru(1.84);
+    }
+
+    .group,
+    .selectbox {
+      margin: ru(-.5) ru(-.75);
+    }
+  }
+}

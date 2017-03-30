@@ -1,0 +1,372 @@
+// scss-lint:disable all
+/*doc
+---
+title: Text Field
+name: textfield
+category: Fields - Text field
+---
+## Simple Input
+```slim_example_table
+.mod-example
+  .text-input
+    input type='text' placeholder='Phasellus in laoreet quam'
+```
+
+## Simple Text Field
+```slim_example_table
+.mod-example
+  .textfield
+    .field
+      label for='first_name1' Proin aliquam
+      input type='text' id='first_name1' placeholder='Phasellus in laoreet quam'
+  .textfield
+    .field
+      label for='first_name2' Proin aliquam
+      input type='text' id='first_name2' value='Fermentum'
+```
+
+## Multiline Text Field
+```slim_example_table
+.mod-example
+  .textfield
+    .field
+      label for='textarea' Maecenas gravida ex a sed vulputate, sodales.
+      textarea id='textarea'
+```
+
+## Text Field with remove link
+```slim_example_table
+.mod-example
+  .textfield
+    .field
+      label for='first_name1'
+        | Pet's name
+        span.i-delete.cancel Phasellus viverra
+      input type='text' id='first_name1' placeholder='Phasellus in laoreet quam'
+```
+
+## Text Field with help text and tooltip
+```slim_example_table
+.mod-example
+  .textfield
+    .field
+      .help.i-help
+      label for='age'
+        span Nulla maximus congue dolor sed vestibulum
+        .sublabel
+          | (Nunc mattis molestie libero, sed vulputate ipsum aliquet vitae.)
+      input type='text' id='age' value='dui est'
+```
+
+## Focus state
+```slim_example_table
+.mod-example
+  .text-input.focused
+    input type='text' placeholder='Phasellus in laoreet quam'
+```
+
+```slim_example_table
+.mod-example
+  .textfield.focused
+    .field
+      label for='first_name3' Proin aliquam
+      input type='text' id='first_name3' placeholder='Phasellus in laoreet quam'
+```
+
+## Visibility control
+```slim_example_table
+.mod-example
+  .textfield
+    .field
+      label for='phone' Morbi quis dui
+      .security
+        input type='tel' id='phone' value='000-000-000'
+```
+
+## Prefix and Postfix
+```slim_example_table
+.mod-example
+  .textfield
+    .field
+      label for='income' Nam consequat maximus turpis, vestibulum tristique metus aliquam eget. Aenean gravida velit suscipit imperdiet aliquam.
+      .group.prefix data-prefix='$'
+        input type='text' id='income' placeholder='100,000' value='100,000'
+  .textfield
+    .field
+      label for='height1' Phasellus
+      .group.postfix data-postfix='lbs.'
+        input type='text' id='height1' placeholder='100' value='100'
+```
+
+## Multicolumn input
+```slim_example_table
+.mod-example
+  .textfield
+    .field
+      label for='height2' Vivamus
+      input type='text' id='height2' placeholder='100' value='100'
+    .field
+      label for='height3' Nulla
+      .group.postfix data-postfix='lbs.'
+        input type='text' id='height3' placeholder='100' value='100'
+```
+
+```slim_example_table
+.mod-example
+  .textfield.multiple
+    label Suspendisse molestie vel
+    .group
+      input type='text' placeholder='Quam'
+      input type='text' placeholder='Sed'
+      input type='text' placeholder='Dolor'
+```
+
+## No-border
+```slim_example_table
+.mod-example style='background: #00A4A5; padding: 24px;'
+  .textfield.no-border
+    .field
+      label for='first_name5' Proin aliquam
+      input type='text' id='first_name5' placeholder='Phasellus in laoreet quam'
+```
+*/
+// scss-lint:enable all
+
+$textfield-background-color:          $neutral-8;
+$textfield-help-icon-color:           $neutral-3;
+$textfield-border-color:              $neutral-5;
+$textfield-focused-background-color:  $brand-6;
+$textfield-focused-border-color:      $brand-3;
+$textfield-prefix-background-color:   $neutral-6;
+$textfield-prefix-border-color:       $neutral-5;
+$textfield-prefix-color:              $neutral-2;
+$textfield-postfix-background-color:  $neutral-6;
+$textfield-postfix-border-color:      $neutral-5;
+$textfield-postfix-color:             $neutral-2;
+$textfield-label-color:               $neutral-1;
+$textfield-input-color:               $neutral-1;
+$textfield-input-placeholder-color:   $neutral-3;
+$textfield-security-sign-color:       $neutral-4;
+$textfield-label-remove-link-color:   $accent-2;
+
+[class^='mod-'] {
+  @extend %reset;
+
+  .text-input {
+    @include field;
+    border: 1px solid $textfield-border-color;
+    border-radius: ru(.25);
+
+    input,
+    textarea {
+      @extend .typography-6;
+      font-weight: 400;
+      margin: 0;
+      display: inline-block;
+      padding: ru(.5) ru(.75);
+      min-width: 0;
+      height: auto;
+      border-radius: ru(.25);
+      background: $textfield-background-color;
+      color: $textfield-input-color;
+
+      &::placeholder {
+        color: $textfield-input-placeholder-color;
+      }
+
+      @media #{$medium-up-to-xxlarge} {
+        padding: ru(.42) ru(.5);
+      }
+    }
+
+    textarea {
+      height: ru(4.5);
+    }
+
+    &.focused {
+      border-color: $textfield-focused-border-color;
+
+      input {
+        background-color: $textfield-focused-background-color;
+      }
+    }
+  }
+
+  .textfield {
+    @include field;
+    display: flex;
+    font-family: $font-family-sans-serif;
+    border: 1px solid $textfield-border-color;
+    border-radius: ru(.25);
+    background-color: $textfield-background-color;
+    text-align: left;
+    transition: border-color 500ms ease, background-color 500ms ease;
+
+    > * { flex-grow: 1; }
+
+    &.focused {
+      border-color: $textfield-focused-border-color;
+      background-color: $textfield-focused-background-color;
+
+      label {
+        background-color: $textfield-focused-background-color;
+        border-bottom-color: $textfield-focused-border-color;
+      }
+    }
+
+    &.multiple {
+      flex-direction: column;
+
+      .group {
+        * + * {
+          border-left: 1px solid $textfield-border-color;
+        }
+      }
+    }
+
+    .field {
+      position: relative;
+      flex: 1 1;
+      flex-direction: column;
+      > * { flex-grow: 1; }
+
+      + .field {
+        input,
+        .group {
+          border-left: 1px solid $textfield-border-color;
+        }
+
+        .group input {
+          border-left: 0;
+        }
+      }
+    }
+
+    label {
+      @include field-label;
+      color: $textfield-label-color;
+      border-bottom: 1px solid $textfield-border-color;
+      border-radius: ru(.25) ru(.25) 0 0;
+      font-weight: 600;
+
+      .sublabel {
+        font-weight: 300;
+      }
+
+      .cancel {
+        color: $textfield-label-remove-link-color;
+        float: right;
+        text-decoration: underline;
+        font-weight: 400;
+
+        &:before {
+          margin-right: ru(.15);
+        }
+      }
+    }
+
+    .help {
+      float: right;
+      margin-right: ru(1);
+      margin-top: ru(.5);
+
+      &:before {
+        color: $textfield-help-icon-color;
+        margin: 0;
+        line-height: 1;
+      }
+    }
+
+    input,
+    textarea {
+      @include field-input;
+      flex: 0 1 auto;
+      min-width: 0;
+      height: auto;
+      background: none;
+      color: $textfield-input-color;
+
+      &::placeholder {
+        color: $textfield-input-placeholder-color;
+      }
+    }
+
+    textarea {
+      width: 100%;
+      height: ru(4.5);
+      margin: ru(.5) 0;
+      padding-top: 0;
+      padding-bottom: 0;
+      resize: none;
+    }
+
+    .prefix,
+    .postfix {
+      width: auto;
+      height: auto;
+      margin: 0;
+      border: 0;
+    }
+
+    .prefix { border-radius: 0 0 0 ru(.25); }
+    .postfix { border-radius: 0 0 ru(.25); }
+
+    .group {
+      display: flex;
+      align-items: stretch;
+      max-width: 100%;
+      overflow: hidden;
+
+      &.prefix:before,
+      &.postfix:after {
+        display: flex;
+        align-items: center;
+        flex: 1 0 auto;
+        padding: ru(.33) ru(.75);
+        text-align: center;
+      }
+
+      &.prefix:before {
+        content: attr(data-prefix);
+        background-color: $textfield-prefix-background-color;
+        border-right: 1px solid $textfield-prefix-border-color;
+        color: $textfield-prefix-color;
+      }
+
+      &.postfix:after {
+        content: attr(data-postfix);
+        background-color: $textfield-postfix-background-color;
+        border-left: 1px solid $textfield-postfix-border-color;
+        color: $textfield-postfix-color;
+      }
+    }
+
+    .security {
+      @include icon(view);
+      position: relative;
+      padding-right: ru(1.5);
+      cursor: pointer;
+
+      &:before {
+        position: absolute;
+        right: ru(.5);
+        top: ru(.5);
+        color: $textfield-security-sign-color;
+        margin: 0;
+      }
+    }
+
+    @media #{$small-only} {
+      &.multiple {
+        .group {
+          flex-direction: column;
+
+          * + * {
+            border-top: 1px solid $textfield-border-color;
+            border-left: 0;
+          }
+        }
+      }
+    }
+  }
+}

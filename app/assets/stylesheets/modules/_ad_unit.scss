@@ -1,0 +1,178 @@
+// scss-lint:disable all
+/*doc
+---
+title: Ad Unit
+name: ad-unit
+category: Modules - Ad Unit
+---
+## Plan image
+```slim_example
+.mod-ad-unit
+  img src='holder.js/1000x250?auto=yes'
+```
+
+## Headline & action button
+```slim_example
+.mod-ad-unit
+  .content
+    h3 Phasellus mollis ullamcorper odio
+    a.button.action href='#' Maecenas non
+```
+
+## Content in a row
+```slim_example
+.mod-ad-unit
+  .content.horizontal
+    h3 Donec sit amet odio tincidunt, ornare elit ut
+    a.button.action href='#' Maecenas non
+```
+
+## Background image
+```slim_example
+.mod-ad-unit
+  .content.align-left style='background-image: url(images/career-board-hero-image.jpg)'
+    h3 Curabitur eget tellus in quam tristique efficitur et id lacus.
+    a.button.action href='#' Maecenas non
+```
+
+## Small version for narrow blocks like sidebar
+```slim_example_table
+.mod-ad-unit.mini
+  .content
+    h3 Nunc metus nunc, eleifend sed pharetra eu
+    a.button.action href='#' Maecenas non
+
+css:
+  .mod-ad-unit.mini {
+    max-width: 290px;
+  }
+```
+*/
+// scss-lint:enable all
+
+$ad-unit-border-radius:    ru(.25);
+$ad-unit-background-color: $brand-2;
+$ad-unit-color:            $neutral-8;
+
+.mod-ad-unit {
+  display: inline-block;
+  width: 100%;
+  border-radius: $ad-unit-border-radius;
+  overflow: hidden;
+  color: $ad-unit-color;
+
+  img {
+    display: block;
+    max-width: 100%;
+    border-radius: $ad-unit-border-radius;
+  }
+
+  .content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: ru(2) ru(1);
+    margin-left: auto;
+    margin-right: auto;
+    background: {
+      color: $ad-unit-background-color;
+      repeat: no-repeat;
+      position: 50% 50%;
+      size: cover;
+    }
+
+    &.align-left {
+      align-items: flex-start;
+
+      h3,
+      h4 {
+        text-align: left;
+      }
+    }
+
+    &.horizontal {
+      flex-direction: row;
+      align-items: center;
+      justify-content: flex-start;
+      padding: ru(2.5) ru(1);
+
+      h3,
+      h4 {
+        margin: 0 ru(2) 0 0;
+      }
+
+      .button.action {
+        margin-left: auto;
+        margin-right: 0;
+      }
+    }
+  }
+
+  &.mini {
+    .content {
+      padding: ru(.75) ru(.75) ru(1);
+
+      h3,
+      h4 {
+        @include like-h3;
+        margin: 0 0 ru(.75);
+        text-align: left;
+        // scss-lint:disable ImportantRule
+        color: inherit !important;
+        // scss-lint:enable ImportantRule
+      }
+
+      .button.action {
+        width: 100%;
+        padding-left: ru(.75);
+        padding-right: ru(.75);
+      }
+    }
+  }
+
+  h3,
+  h4 {
+    @include like-h2;
+    margin: 0 0 ru(1);
+    text-align: center;
+    // scss-lint:disable ImportantRule
+    color: inherit !important;
+    // scss-lint:enable ImportantRule
+    max-width: 100%;
+  }
+
+  .button.action {
+    width: auto;
+    margin: 0;
+    padding-left: ru(2);
+    padding-right: ru(2);
+  }
+
+  @media #{$medium-up} {
+    .content.align-left h3,
+    .content.align-left h4 {
+      max-width: 60%;
+    }
+  }
+
+
+  @media #{$small-only} {
+    .content {
+      &.horizontal {
+        padding: ru(2) ru(1);
+        flex-direction: column;
+        justify-content: center;
+
+        h3,
+        h4 {
+          margin: 0 0 ru(1);
+        }
+
+        .button.action {
+          margin: 0 auto;
+        }
+      }
+    }
+  }
+}

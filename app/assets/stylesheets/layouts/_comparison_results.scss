@@ -1,0 +1,153 @@
+// scss-lint:disable all
+/*doc
+---
+title: Comparison Results Layout
+name: comparison-results
+category: Layouts - Comparison Results
+---
+
+```slim_example
+  .layout-results
+  	.results-section
+      img src='holder.js/600x50?auto=yes&text=Content'
+    .results-section
+      img src='holder.js/600x50?auto=yes&text=Content'
+    .results-section
+      img src='holder.js/600x50?auto=yes&text=Content'
+```
+
+## Example from Health insurance results area
+```slim_example
+  .mod-comparison.layout-results
+    .mod-.results-section.layout-space-between.flex-nowrap
+        div
+          a.button.outline
+            | Suspendisse molestie
+        div
+          button.button.action.lowlight
+            | Phasellus tellus
+    .results-section.layout-three-quarters
+      div
+        h1  Vivamus dictum justo a venenatis pulvinar. Fusce ullamcorper rhoncus nunc, ut convallis leo.
+        p
+          strong  Proin et ultrices.
+          |  Morbi sit amet dapibus dui. Fusce id egestas metus, consectetur sagittis lacus. Phasellus luctus elementum iaculis. Nunc mattis iaculis enim. Proin at nunc at nisi lobortis bibendum at vel ex. Sed et lacinia ante. Donec id urna feugiat, sollicitudin ante
+          em  erat
+          |  lacinia metus.
+      div
+    .results-section
+      .mod-results-graph
+        .layout-three-quarters
+          figure.graph.mod-box-card
+            img src='holder.js/100px300?auto=yes&text=Results Graph'
+          .legend
+              .selectfield
+                  .field
+                      .selectbox
+                          select
+                              option value="10" Malesuada quis augue
+                              option value="25" Vitae dapibus
+                              option value="50" Sed non tortor
+                              option value="100" Id neque posuere
+                              option value="160" Vitae porttitor
+              .plan-key
+                h4.typography-1 Mauris ex
+                p.typography-2 Maecenas ullamcorper turpis quis elit volutpat, fermentum.
+                ul.mod-icon-list.condensed
+                    li.icon-tiger-circle
+                        | Maecenas
+                        strong
+                          em  quis
+                        |  hendrerit
+                    li.icon-tangerine-circle
+                        | Maecenas
+                        strong
+                          em  quis
+                        |  hendrerit
+                    li.icon-turquoise-circle
+                        | Maecenas
+                        strong
+                          em  urna
+                        |  hendrerit
+                    li.icon-teal-circle
+                        | Maecenas
+                        strong
+                          em  risus
+                        |  hendrerit
+                p.i-alert Vivamus faucibus lacus et purus
+    .results-section
+      .mod-empty-panel
+        .actions
+          h1  Donec nunc nulla, posuere.
+          h2  Curabitur efficitur euismod turpis nec efficitur.
+        .content
+          img src='holder.js/600x600?auto=yes'
+```
+
+*/
+// scss-lint:enable all
+
+.layout-results {
+  .layout-space-between {
+    > * {
+      margin-top: ru(.25);
+      margin-bottom: ru(.25);
+    }
+
+    > *:not(:last-child) {
+      margin-right: ru(.5);
+    }
+  }
+
+  .results-view-controller {
+    flex-direction: column;
+
+    .layout-space-between {
+      flex-flow: wrap;
+    }
+
+    .button.action {
+      margin-bottom: rem-calc(4px);
+    }
+  }
+
+  .mod-robust-card.dashed {
+    padding: ru(1);
+  }
+
+  .navigate-button,
+  .results-view-controller b {
+    display: none;
+  }
+
+  &.is-graph-page {
+    .navigate-button {
+      display: inline-block;
+    }
+
+    .results-view-controller {
+      flex-flow: nowrap;
+    }
+  }
+
+  .results-section:first-child {
+    margin-top: ru(1.25);
+  }
+
+  .results-section {
+    max-width: rem-calc(1000px);
+    margin: 0 auto ru(2);
+    padding: 0 ru(1.5);
+  }
+}
+
+@media #{$medium-up} {
+  .layout-results .results-view-controller {
+    flex-direction: row;
+
+    .navigate-button,
+    b {
+      display: inline-block;
+    }
+  }
+}

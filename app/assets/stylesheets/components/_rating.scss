@@ -1,0 +1,179 @@
+/*doc
+---
+title: Rating
+name: rating
+category: Components - Rating
+---
+
+## Big Rating
+```slim_example
+.com-rating
+  .superheader Donec sit amet
+  .heading Donec sit amet
+  .stars
+    .i-star.active
+    .i-star.active
+    .i-star.active
+    .i-star
+    .i-star
+  .footer Quisque
+```
+
+## Small Rating
+```slim_example
+.com-rating.compact
+  .heading Donec sit amet
+  .stars
+    .i-star.active
+    .i-star.active
+    .i-star.active
+    .i-star
+    .i-star
+  .footer Quisque
+```
+
+## Mini Rating
+```slim_example
+.com-rating.mini
+  .heading Donec sit amet
+  .stars
+    .i-star.active
+    .i-star.active
+    .i-star.active
+    .i-star
+    .i-star
+  .footer Quisque
+```
+
+## Simple Rating
+```slim_example
+.com-rating.compact
+  .stars
+    .i-star.active
+    .i-star.active
+    .i-star.active
+    .i-star
+    .i-star
+```
+
+## Align Left Rating
+```slim_example
+.com-rating.compact.align-left
+  .stars
+    .i-star.active
+    .i-star.active
+    .i-star.active
+    .i-star
+    .i-star
+```
+
+## Narrow Rating
+```slim_example
+.com-rating.compact.narrow
+  .stars
+    .i-star.active
+    .i-star.active
+    .i-star.active
+    .i-star
+    .i-star
+```
+*/
+
+$rating-footer-color:       $neutral-3;
+$rating-heading-color:      $neutral-1;
+$rating-star-active-color:  $brand-2;
+$rating-star-color:         $brand-4;
+$rating-superheader-color:  $neutral-3;
+
+.com-rating {
+  text-align: center;
+
+  .stars {
+    display: inline-flex;
+    text-align: center;
+  }
+
+  .footer,
+  .heading {
+    @include typography-7;
+    font-weight: 400;
+    text-align: center;
+    color: $rating-footer-color;
+    font-size: ru(.67);
+  }
+
+  .superheader {
+    margin: 0 0 ru(.133);
+    color: $rating-superheader-color;
+    text-align: center;
+  }
+
+  .heading {
+    color: $rating-heading-color;
+    margin-bottom: ru(.5);
+  }
+
+  &.compact {
+    .footer,
+    .heading {
+      font-size: ru(.5);
+    }
+
+    .heading {
+      margin-bottom: 0;
+    }
+
+    .i-star {
+      font-size: ru(.75);
+    }
+  }
+
+  &.mini {
+    .i-star {
+      font-size: ru(.5);
+    }
+  }
+
+  &.align-left {
+    text-align: left;
+
+    .heading {
+      text-align: left;
+    }
+  }
+
+  &.narrow {
+    .i-star {
+      &:before {
+        margin-right: ru(.15);
+      }
+    }
+  }
+
+  .i-star {
+    font-size: rem-calc(28px);
+    color: $rating-star-color;
+    line-height: initial;
+
+    &:before {
+      vertical-align: baseline;
+    }
+
+    &:last-of-type:before {
+      margin-right: 0;
+    }
+
+    &.active {
+      color: $rating-star-active-color;
+    }
+  }
+
+  @media #{$small-only} {
+    .ratings,
+    .heading,
+    .footer {
+      justify-content: center;
+      max-width: none;
+    }
+  }
+}

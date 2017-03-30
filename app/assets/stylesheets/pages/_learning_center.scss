@@ -1,0 +1,408 @@
+// scss-lint:disable all
+/*doc
+---
+title: Learning Center
+name: learning-center
+category: Pages - Learning Center
+---
+```slim_example
+.mod-learning-center.layout-learning-center
+  .layout-header.tall style='background-image: url(https://cdn.policygenius.com/assets/learning-center/life-hero-qa-7ab4e421d4cb38bf81ba58c39f33d997.jpg)'
+    .mod-breadcrumbs.backdrop.mini
+      .layout-container
+        ul
+          li: a href='#' Health Insurance
+          li: span Learning Center
+    .layout-container
+      h1 Health Insurance Guide
+      h4 Education & Advice
+      .mod-stacked-cards
+        .mod-countdown.mini
+          .count 109 Days
+          .until
+            ' until
+            a href='#' open enrollment
+        h3: a href='#' Getting Started
+        .cards
+          a.card href='#'
+            h5 Health Insurance Basics
+            p What it is, how it works and what you need to know.
+            .read-more Read More
+          a.card href='#'
+            h5 Health Insurance Marketplaces
+            p How to shop on Healthcare.gov and exchanges.
+            .read-more Read More
+          a.card href='#'
+            h5 Health Insurance Reviews
+            p Find the best health insurance company for you.
+            .read-more Read More
+          a.card href='#'
+            h5 Finding Affordable Health Insurance
+            p Tips and tricks on how to buy a plan.
+            .read-more Read More
+          a.card href='#'
+            h5 Obamacare Enrollment
+            p Important dates for open and special enrollment.
+            .read-more Read More
+
+  .layout-main
+    .layout-content.no-offset
+      .flex-row.wide.align-left
+        div
+          h3 Have questions about health insurance?
+          form.mod-search-box.mini
+            input type='text' placeholder='e.g. What is life insurance?'
+          .spacer-xs
+        div
+          h5
+            ' Popular searches
+          .flex-row.wide.align-left
+            div
+              ul.mod-simple-list.mini.no-bullet.extended
+                li: a.info href='#' About Health Insurance
+                li: a.info href='#' What is a health insurance deductible?
+            div
+              ul.mod-simple-list.mini.no-bullet.extended
+                li: a.info href='#' How much does health insurance cost?
+                li: a.info href='#' How can I apply for health insurance?
+      .spacer-m
+      h3
+        ' Health insurance FAQ
+        a.view-all.info href='#' View All
+      .flex-row.wide.align-left
+        div
+          ul.mod-simple-list.mini.no-bullet.extended
+            li
+              h5
+                img src='images/heat-beat.svg'
+                | About Health Insurance
+            li: a href='#' What is a health insurance deductible?
+            li: a href='#' What is a catastrophic plan?
+            li: a href='#' What is coinsurance?
+        div
+          ul.mod-simple-list.mini.no-bullet.extended
+            li
+              h5
+                img src='images/aca.svg'
+                | Choosing and Using a Plan
+            li: a href='#' How much does health insurance cost?
+            li: a href='#' How can I apply for health insurance?
+            li: a href='#' How long can you be on your parents' health insurance plan?
+      .spacer-m
+      .flex-row.wide.align-left
+        div
+          ul.mod-simple-list.mini.no-bullet.extended
+            li
+              h5
+                img src='images/health-card.svg'
+                | Affordable Care Act
+            li: a href='#' What is the Affordable Care Act?
+            li: a href='#' How can I apply for Obamacare?
+            li: a href='#' When is open enrollment for health insurance?
+        div
+          ul.mod-simple-list.mini.no-bullet.extended
+            li
+              h5
+                img src='images/pg-circle.svg'
+                | About PolicyGenius
+            li: a href='#' Do you offer all the plans available?
+            li: a href='#' Do you offer the cheapest prices?
+      .spacer-m
+      h3
+        ' Health insurance golossary
+        a.view-all.info href='#' View All
+      a.button.tag premium
+      a.button.tag deductible
+      a.button.tag coinsurance
+      a.button.tag term
+      a.button.tag catastrophic plans
+      a.button.tag copayments
+      a.button.tag premium
+      a.button.tag deductible
+      a.button.tag coinsurance
+      a.button.tag term
+      a.button.tag catastrophic plans
+      a.button.tag copayments
+      .spacer-m
+      .flex-row.wide.w-space
+        div
+          h3 Health Insurance Company Review
+          .mod-rating-index
+            .cards
+              a.mod-card.rating href='#'
+                h3: span Blue Cross Blue Shield Health Carrier
+                .content
+                  .i-star.active
+                  .i-star.active
+                  .i-star.active
+                  .i-star
+                  .i-star
+              a.mod-card.rating href='#'
+                h3: span Blue Cross Blue Shield
+                .content
+                  .i-star.active
+                  .i-star.active
+                  .i-star
+                  .i-star
+                  .i-star
+              a.mod-card.rating href='#'
+                h3: span Blue Cross Blue Shield
+                .content
+                  .i-star.active
+                  .i-star.active
+                  .i-star.active
+                  .i-star.active
+                  .i-star
+              a.mod-card.rating href='#'
+                h3: span Blue Cross Blue Shield Health Carrier
+                .content
+                  .i-star.active
+                  .i-star.active
+                  .i-star.active
+                  .i-star
+                  .i-star
+              a.mod-card.rating href='#'
+                h3: span Blue Cross Blue Shield
+                .content
+                  | No rating available
+              a.mod-card.rating href='#'
+                h3: span Blue Cross Blue Shield
+                .content
+                  .i-star.active
+                  .i-star.active
+                  .i-star.active
+                  .i-star.active
+                  .i-star
+        div
+          h3 Health Insurance in my state
+          .mod-rating-index.one-in-row-small-only
+            .cards
+              a.button.graphic href='#'
+                img.graphic-image src='images/california.svg' width='60' height='60'
+                span.graphic-text California
+              a.button.graphic href='#'
+                img.graphic-image src='images/new-york.svg' width='60' height='60'
+                span.graphic-text New York
+              a.button.graphic href='#'
+                img.graphic-image src='images/pennsylvania.svg' width='60' height='60'
+                span.graphic-text Pennsylvania
+              a.button.graphic href='#'
+                img.graphic-image src='images/illinois.svg' width='60' height='60'
+                span.graphic-text Illinois
+              a.button.graphic href='#'
+                img.graphic-image src='images/georgia.svg' width='60' height='60'
+                span.graphic-text Georgia
+              a.button.graphic href='#'
+                img.graphic-image src='images/florida.svg' width='60' height='60'
+                span.graphic-text Florida
+              a.button.graphic href='#'
+                img.graphic-image src='images/texas.svg' width='60' height='60'
+                span.graphic-text Texas
+      .spacer-m
+      h3 Helpful Resources
+      ul.mod-article-list.condensed.grid
+        li
+          a href='#'
+            figure
+              img src='holder.js/120x60?auto=yes&textmode=exact'
+              figcaption
+                .tag Life Insurance
+                h3 How accurate are term life insurance quotes?
+        li
+          a href='#'
+            figure
+              img src='holder.js/120x60?auto=yes&textmode=exact'
+              figcaption
+                .tag PolicyGenius
+                h3 How accurate are term life insurance quotes?
+        li
+      .spacer-m
+      .mod-ad-unit
+        .content.align-left style='background-image: url(images/career-board-hero-image.jpg)'
+          h3 Open enrollment has begun! Find health insurance based on your priorities
+          a.button.action href='#' Get Started
+      .spacer-m
+      h3
+        ' Related articles in
+        em 'Health insurance'
+      .mod-frame-grid
+        a.item.featured style='background-color: #ccc;'
+          .headline
+            .tag Tag
+            p Headline Text Here
+          .details
+            p For most of us, the idea of shopping for life insurance is about as appealing...
+            .flex-row.v-centered
+              span.continue Continue Reading
+              span.estimation Est. 17 min read
+
+        .items
+          a.item style='background-color: #ccc;'
+            .headline
+              .tag Tag
+              p Headline Text Here
+            .details
+              p For most of us, the idea of shopping for life insurance is about as appealing...
+              .flex-row.v-centered
+                span.continue Continue Reading
+                span.estimation Est. 17 min read
+          a.item style='background-color: #ccc;'
+            .headline
+              .tag Tag
+              p Headline Text Here
+            .details
+              p For most of us, the idea of shopping for life insurance is about as appealing...
+              .flex-row.v-centered
+                span.continue Continue Reading
+                span.estimation Est. 17 min read
+          a.item.wide style='background-color: #ccc;'
+            .headline
+              .tag Tag
+              p Headline Text Here
+            .details
+              p For most of us, the idea of shopping for life insurance is about as appealing...
+              .flex-row.v-centered
+                span.continue Continue Reading
+                span.estimation Est. 17 min read
+```
+
+```slim_example
+.mod-learning-center.layout-learning-center
+  .layout-header.tall style='background-image: url(https://d3auu7e972pryf.cloudfront.net/images/Hero_Family_Final-dcc0e76f2c.jpg)'
+    .mod-breadcrumbs.mini.backdrop
+      .layout-container
+        ul
+          li: a href='#' Life Insurance
+          li: span Learning Center
+    .layout-container
+      h1
+        ' Life Insurance
+        br
+        ' Learning Center
+      .mod-stacked-cards
+        h3 Getting Started
+        .cards
+          a.card href='#'
+            h5 Life Insurance 101
+            p What it is, what is covers, and what it's for.
+            .read-more Read More
+          a.card href='#'
+            h5 Shopping Advice
+            p Here's what to expect, from buying a policy to making a claim.
+            .read-more Read More
+          a.card href='#'
+            h5 Company Reviews
+            p We've done the research for you.
+            .read-more Read More
+          a.card href='#'
+            h5 Term vs Whole Life
+            p All about the two different types of life insurance.
+            .read-more Read More
+          a.card href='#'
+            h5 Real Life Stories
+            p People buy life insurance for a variety of reasons.
+            .read-more Read More
+  .layout-main
+    .layout-content.no-offset
+      .mod-list-card
+        .content
+          h4 Life Insurance Q&A
+          ul
+            li: a href='#' When is the best time to buy life insurance?
+            li: a href='#' How do I estimate how much life insurance to buy?
+            li: a href='#' Are all life insurance companies the same?
+            li: a href='#' Is the life insurance my employer provides enough?
+        a.view-all href='#' View All
+      h5
+        ' Popular articles in
+        strong: em: Life insurance
+      .mod-frame-grid.equal-columns
+        a.item.half.featured style='background-image: url(https://www.policygenius.com/blog/library/uploads/2015/04/is-term-life-worth-it-1360x758-810x490.png)'
+          .headline
+            .tag Advice
+            p Is term life insurance worth it?
+          .details
+            p When you’re insurance shopping, a lot of new terms get thrown around. Historically you were expected to rely on your broker to translate this industry gibberish, but then we invented this thing called the internet...
+            .flex-row.v-centered
+              span.continue Continue Reading
+              span.estimation Est. 6 min read
+        .items
+          a.item.wide href='#' style='background-image: url(https://www.policygenius.com/blog/library/uploads/2014/12/medical-exam-large-012216-610x460.jpg)'
+            .headline
+              .tag Advice
+              p So you’re having an insurance medical exam!
+            .details
+              p If you’re shopping for a life insurance or long-term disability insurance policy, there’s a good chance...
+              .flex-row.v-centered
+                span.continue Continue Reading
+                span.estimation Est. 6 min read
+          a.item.wide href='#' style='background-image: url(https://www.policygenius.com/blog/library/uploads/2015/09/life-insurance-classifications-featured-091115-610x460.jpg)'
+            .headline
+              .tag Advice
+              p What the heck are life insurance classifications?
+            .details
+              p If you’re shopping for a life insurance or long-term disability insurance policy, there’s a good chance...
+              .flex-row.v-centered
+                span.continue Continue Reading
+                span.estimation Est. 6 min read
+
+    .layout-sidebar
+      form.mod-search-box.mini
+        input type='text' name='query' placeholder='What is life insurance?'
+        button.button.action type='submit' Search
+      h6.typography-7
+        strong Popular questions
+      ul.mod-simple-list.mini.no-bullet
+        li: a href='#' When should I buy my first life insurance policy?
+        li: a href='#' How to buy life insurance?
+        li: a href='#' Can you buy life insurance for a whole family?
+      .mod-emphasized-list
+        h6 Popular terms
+        ul
+          li: a href='#' riders
+          li: a href='#' paramedical exam
+          li:a href='#' premium
+      .spacer-m
+      .mod-expert-card
+        .content
+          img src='images/expert.png'
+          h4 Have a question about life insurance?
+          p Let one of our experts help you.
+        form.form
+          label Ask Your Question
+          .text-input.no-border
+            input type='text'
+          button.button.action type='submit' Ask Away
+      .spacer-m
+      h5
+        ' How much insurance do you need?
+        em: a href='#' Not sure?
+      form
+        .mod-two-fields
+          .field
+            label for='select1' Coverage
+            .selectbox
+              select id='select1'
+                option $25,000
+                option $35,000
+                option $45,000
+                option $55,000
+          .field
+            label for='select2' Term
+            .selectbox
+              select id='select2'
+                option 20 years
+                option 25 years
+                option 30 years
+                option 35 years
+        button.button.action type='submit' Get Quotes
+      .spacer-m
+      h5 Helpful Resources
+      ul
+        li: a href='#' Who Needs It?
+        li: a href='#' Common Excuses
+        li: a href='#' Next Steps
+        li: a href='#' Term Glossary
+```
+*/
+// scss-lint:enable all

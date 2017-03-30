@@ -1,0 +1,755 @@
+// scss-lint:disable all
+/*doc
+---
+title: Comparison Page with Robust Cards
+name: comparison-page-upd
+category: Pages - Comparison with Robust Cards
+---
+```slim_example
+main
+  #life-comparison-app
+    div
+      .mod-comparison_header
+        .wrap.life
+          h1
+            | PolicyGenius
+          a.toggle-filters[href='#']
+            | Show Filters
+          ul.mod-step-progress.dark
+            li
+              a[href='/life-insurance/quotes/family']
+                i.icon-calculator
+                  span.icon-check-dark
+                .label
+                  | Calculator
+            li
+              a[href='/life-insurance/health/health_profile']
+                i.icon-health
+                  span.icon-check-dark
+                .label
+                  | Health
+            li.active
+              a[href='#']
+                i.icon-quotes
+                .label
+                  | Quotes
+            li.inactive
+              a[href='#']
+                i.icon-application
+                .label
+                  | Application
+          ul.actions
+            li
+              a.expert[href='tel:18556952255']
+                | (855) 695-2255
+            li
+              a.chat
+                | Chat
+      .mod-comparison.layout-comparison
+        div
+        #filters.filters.layout-filters
+          a.back[href='#']
+            | Back to results
+          .mod-sidebar-filter
+            .section.show-for-medium-up
+              div
+                div
+                  div
+                    a.button.action.lowlight.i-floppydisk
+                      | Save Your Progress
+                  noscript
+                div
+                  div
+                    a#why-pg-modal-link.button.action.lowlight.i-help
+                      | Why PolicyGenius?
+                  noscript
+            .section
+              div
+                h2
+                  | Adjust your policy
+                .slider
+                  .header
+                    .title
+                      | Coverage
+                    .value
+                      | $550,000
+                  .rc-slider.bar
+                    .rc-slider-track.rc-slider-track-1[style='visibility: visible; left: 0%; width: 41.6667%;']
+                    .rc-slider-step
+                    .rc-slider-handle.rc-slider-handle-2.rc-slider-handle-upper[style='left: 41.6667%;']
+                    .rc-slider-mark
+                .slider
+                  .header
+                    .title
+                      | Term
+                    .value
+                      | 15
+                      |  Years
+                  .rc-slider.bar
+                    .rc-slider-track.rc-slider-track-1[style='visibility: visible; left: 0%; width: 40%;']
+                    .rc-slider-step
+                    .rc-slider-handle.rc-slider-handle-2.rc-slider-handle-upper[style='left: 40%;']
+                    .rc-slider-mark
+            .section
+              div
+                h2
+                  | Show Prices
+                label.radio.highlighted[for='m']
+                  input#m[type='radio' name='show-prices' value='m' checked='']
+                  span
+                    | Monthly
+                label.radio.highlighted[for='a']
+                  input#a[type='radio' name='show-prices' value='a']
+                  span
+                    | Annually
+                    small
+                      | (Save up to 10%)
+            .section.show-for-small-only
+              div
+                div
+                  div
+                    a.button.action.lowlight.i-floppydisk
+                      | Save Your Progress
+                  noscript
+                div
+                  div
+                    a#why-pg-modal-link.button.action.lowlight.i-help
+                      | Why PolicyGenius?
+                  noscript
+            .section
+              div
+                h2.section-toggler.collapsed
+                  | Edit Your Info
+                .inner.hide
+                  a.button.left-side.i-plus[href='/life-insurance/health/health_profile']
+                    | Edit Your Health
+                  a.button.left-side.i-user[href='/life-insurance/health/basic_info']
+                    | Edit Your Basics
+                  a.button.left-side.i-calculator[href='/life-insurance/quotes/family']
+                    | Calculate Coverage
+        #results.results.white-bg.layout-results
+          .body
+            div
+              div.features-section
+                .headline-message
+                  h2 Nice! We have 8 policy matches for you
+                  p
+                    strong>
+                      | How did we determine your rates?
+                    | It has to do with something called your underwriting class
+
+                  p The main factors insurers will take into account to determine your price
+                  ul.mod-simple-list.condensed
+                    li Lorem ipsum dolor sit amet, consectetur adipiscing elit
+                    li Sed do eiusmod tempor incididunt ut labore et dolore magna
+                    li Aliqua. Ut enim ad minim veniam, quis nostrud
+                .choices
+                  .best-prices
+                    .heading
+                      h1
+                        | Your best options
+                      div
+                        span>
+                          ' Based on your
+                          a
+                            ' underwriting class
+                    .layout-equal-columns
+                      .card-policy
+                        .text-center
+                          div
+                            h5.sidebar-title-super.tag-line
+                              | Best price
+                            span.sub-link
+                              span
+                                a.soft
+                                  |  
+                            p.pg-tooltip-popup.primary
+                              span.pg-tooltip-sub.text-normal
+                        .mod-card
+                          .header
+                            .multiple
+                              h2.value[style='margin-bottom: 0px;']
+                                sup $
+                                span 20
+                                sup
+                                  | .
+                                  | 52
+                                small
+                                  | /
+                                  | mo
+                              .section.details
+                                a
+                                  span.sign
+                                  | Details
+                          .content.compact
+                            div
+                              .feature
+                                img.carrier[src='holder.js/182x48?auto=yes']
+                                a.soft[href='/life-insurance/comparison/carriers/aig']
+                                  | More about this insurer
+                              .feature.ratings
+                                h4
+                                  | Ratings
+                                p
+                                  strong
+                                    | A
+                                  |  A.M. Best
+                                p
+                                  strong
+                                    | A+
+                                  |  Better Business Bureau
+                                .soft
+                                  span.pg-tooltip[tabindex='-1' aria-haspopup='true' role='tooltip']
+                                    | What are these?
+                                  p.pg-tooltip-popup.primary[aria-hidden='true']
+                                    span.pg-tooltip-sub.text-normal
+                                      span.pg-tooltip-sub
+                                        b
+                                          | A.M. Best
+                                        |  is an independent rating agency that evaluates the financial strength of insurance companies. Ratings as of May 2016, on a scale from A++ to D.
+                                        br
+                                        br
+                                        b
+                                          | Better Business Bureau
+                                        |  (BBB) is a non-profit that collects consumer feedback on businesses around the country.
+                            .more-content
+                              hr
+                              .research
+                                strong
+                                  | We’ve done the research
+                                a.sub-link[href='/life-insurance/comparison/carriers/aig']
+                                  | Read more about this policy &
+                                  | United States Life Ins in the City of NY
+                              .multiple.spacer-s
+                                .feature
+                                  h4
+                                    | Coverage
+                                  p
+                                    strong
+                                      | $550,000
+                                .feature
+                                  h4
+                                    | Term
+                                  p
+                                    strong
+                                      | 15 Years
+                              .feature
+                                h4
+                                  | Underwriting Class
+                                p
+                                  strong
+                                    | Preferred Plus Non-Tobacco
+                              .feature
+                                h4
+                                  | Plan Name
+                                p
+                                  strong
+                                    | Select-a-Term - 15 Year
+                              .spacer-xs
+                            a.button.action.lowlight[href='/life-insurance/application/new?policy%5Bannual_premium%5D=234.5&amp;policy%5Bmonthly_premium%5D=2.52&amp;policy%5Bcarrier_name%5D=United+States+Life+Ins+in+the+City+of+NY&amp;policy%5Bhealth_category%5D=Preferred+Plus+Non-Tobacco&amp;policy%5Btable_rating%5D=0&amp;policy%5Bunderwriting_class%5D=preferred_plus&amp;policy%5Bcoverage_amount%5D=550000&amp;policy%5Bterm_in_years%5D=15&amp;policy%5Bproduct%5D=Select-a-Term+-+15+Year&amp;policy%5Bslug%5D=aig&amp;policy%5Brecommendation%5D=Best+price&amp;payment_mode=monthly&amp;triggered_from=life-comparison-featured-policy']
+                              | Continue
+                            .card-outer.text-center
+                              div
+                                div
+                                  a.typography-7
+                                    | Save for Later
+                                noscript
+                          div
+                      .card-policy
+                        .text-center
+                          div
+                            h5.sidebar-title-super.tag-line
+                              | Second best price
+                            span.sub-link
+                              span
+                                a.soft[href='#' aria-haspopup='true' role='tooltip']
+                                  |  
+                            p.pg-tooltip-popup.primary[aria-hidden='true']
+                              span.pg-tooltip-sub.text-normal
+                        .mod-card
+                          .header
+                            .multiple
+                              h2.value[style='margin-bottom: 0px;']
+                                sup
+                                  | $
+                                span
+                                  | 24
+                                sup
+                                  | .
+                                  | 49
+                                small
+                                  | /
+                                  | mo
+                              .section.details
+                                a
+                                  span.sign
+                                  | Details
+                          .content.compact
+                            div
+                              .feature
+                                img.carrier[src='holder.js/182x48?auto=yes']
+                                a.soft[href='/life-insurance/comparison/carriers/banner-life']
+                                  | More about this insurer
+                              .feature.ratings
+                                h4
+                                  | Ratings
+                                p
+                                  strong
+                                    | A+
+                                  |  A.M. Best
+                                p
+                                  strong
+                                    | A+
+                                  |  Better Business Bureau
+                                .soft
+                                  span.pg-tooltip[tabindex='-1' aria-haspopup='true' role='tooltip']
+                                    | What are these?
+                                  p.pg-tooltip-popup.primary[aria-hidden='true']
+                                    span.pg-tooltip-sub.text-normal
+                                      span.pg-tooltip-sub
+                                        b
+                                          | A.M. Best
+                                        |  is an independent rating agency that evaluates the financial strength of insurance companies. Ratings as of May 2016, on a scale from A++ to D.
+                                        br
+                                        br
+                                        b
+                                          | Better Business Bureau
+                                        |  (BBB) is a non-profit that collects consumer feedback on businesses around the country.
+                            .more-content
+                              hr
+                              .research
+                                strong
+                                  | We’ve done the research
+                                a.sub-link[href='/life-insurance/comparison/carriers/banner-life']
+                                  | Read more about this policy &
+                                  | William Penn Life Insurance Co of NY
+                              .multiple.spacer-s
+                                .feature
+                                  h4
+                                    | Coverage
+                                  p
+                                    strong
+                                      | $550,000
+                                .feature
+                                  h4
+                                    | Term
+                                  p
+                                    strong
+                                      | 15 Years
+                              .feature
+                                h4
+                                  | Underwriting Class
+                                p
+                                  strong
+                                    | Preferred Non-Tobacco
+                              .feature
+                                h4
+                                  | Plan Name
+                                p
+                                  strong
+                                    | OPTerm 15
+                              .spacer-xs
+                            a.button.action.lowlight[href='/life-insurance/application/new?policy%5Bannual_premium%5D=279.9&amp;policy%5Bmonthly_premium%5D=24.49&amp;policy%5Bcarrier_name%5D=William+Penn+Life+Insurance+Co+of+NY&amp;policy%5Bhealth_category%5D=Preferred+Non-Tobacco&amp;policy%5Btable_rating%5D=0&amp;policy%5Bunderwriting_class%5D=preferred&amp;policy%5Bcoverage_amount%5D=550000&amp;policy%5Bterm_in_years%5D=15&amp;policy%5Bproduct%5D=OPTerm+15&amp;policy%5Bslug%5D=banner-life&amp;policy%5Brecommendation%5D=Second+best+price&amp;payment_mode=monthly&amp;triggered_from=life-comparison-featured-policy']
+                              | Continue
+                            .card-outer.text-center
+                              div
+                                div
+                                  a.typography-7
+                                    | Save for Later
+                                noscript
+                          div
+                  .why-shop
+                    .spacer-m
+                      .heading
+                      div
+                        .mod-info-panel
+                          .header
+                            img[src='holder.js/182x48?auto=yes&textmode=exact']
+                          .content
+                            h4
+                              | Why shop with us?
+                            h5
+                              | Over 2 billion in coverage placed
+                            p
+                              | We've helped create a multi-billion dollar safety net for American families
+                            h5
+                              | Thousands of families covered
+                            p
+                              | Thousands of people have trusted us to financially protect their families
+                          .footer[style='cursor: pointer;']
+                            .mod-trustpilot.info
+                              h5
+                                | Our Clients Rate Us
+                              .rating
+                                strong
+                                  | Excellent
+                                |  – 9.5 out of 10
+                              .stars.mini.excellent
+                                .star.filled
+                                .star.filled
+                                .star.filled
+                                .star.filled
+                                .star.filled
+                              .trustpilot-logo
+                    .free-help
+                      strong
+                        | Free & friendly help if you need it.
+                      br
+                      | Call an expert at
+                      a[href='tel:1855-695-2255']
+                        | 1-855-695-2255
+                      br
+                      button.button
+                        | Chat with an expert
+              .why-apply
+                div
+                  h5
+                    | Why apply with PolicyGenius?
+                  .mod-one-two-three
+                    figure
+                      h3.pvs[style='font-size: 1.625rem;']
+                        | 1
+                      p.phl
+                        | Our experts manage the entire application process for a better customer experience
+                    figure
+                      h3.pvs[style='font-size: 1.625rem;']
+                        | 2
+                      p.phl
+                        | Think of us as a free independent advisor working to get you the best coverage
+                    figure
+                      h3.pvs[style='font-size: 1.625rem;']
+                        | 3
+                      p.phl
+                        | Insurance rates are regulated, so you won't get a cheaper price by going directly to the insurer
+            .text-center
+              h1.typography-3
+                strong
+                  | All Policy Matches
+              .spacer-negative-s
+                small
+                  | 8 matches
+            .spacer-m
+            .policies
+              .mod-comparison-table-header.bordered.light
+                .section
+                  | Quote
+                  span.i-directup
+                .section
+                  | Insurer
+                  span
+                .section
+                  | Financial Strength
+                  span
+                .section.visible-for-large-up
+                  | Customer Satisfaction
+                  span
+                .section
+              .policy-cards
+
+                .mod-robust-card
+                  .mod-robust-card-header
+                    .mod-robust-card-header-row
+                      .mod-robust-card-logo
+                        img src='holder.js/182x48?auto=yes'
+                      .mod-robust-card-top-info
+                        .mod-robust-card-top-text
+                          ' Insurer rated you
+                          strong Select Preferred Non-Tobacco
+                        a.mod-robust-card-hint Why does this matter?
+                    .mod-robust-card-details
+                      .mod-robust-card-top-text
+                        ' Plan name
+                        strong Select-a-Term - 20 Years
+
+                  .mod-robust-card-content
+                    .mod-robust-card-section.half-width-on-mobile
+                      .policygenius-tooltip
+                        .popup
+                          span AM Best  is an independent rating agency that evaluates the financial strength of insurance companies. Ratings as of May 2016, on a scale from A++ to D.
+                        .mod-robust-card-caption
+                          | Price
+                          i.i-help
+                      .mod-robust-card-pull
+                        .mod-robust-card-price
+                          span.mod-robust-card-price-value $125
+                          sup.mod-robust-card-price-sup .43
+                          small.mod-robust-card-price-period
+                            ' /mo
+                        a.mod-robust-card-hint data-reveal-id='yourPriorities' Same price everywhere
+                    .mod-robust-card-section.half-width-on-mobile
+                      .mod-robust-card-caption
+                        span Plan
+                        | Type
+                        i.i-help
+                      .mod-robust-card-pull
+                        .mod-robust-card-type Instant coverage
+                        a.mod-robust-card-hint data-reveal-id='yourPriorities' What is this?
+                    .mod-robust-card-section
+                      .mod-robust-card-caption
+                        | Ratings
+                        span  & Reviews
+                        i.i-help
+                      .mod-robust-card-pull
+                        .mod-robust-card-ratings
+                          .mod-robust-card-rating
+                            .mod-robust-card-rating-value A
+                            .mod-robust-card-rating-note BBB
+                          .mod-robust-card-rating
+                            .mod-robust-card-rating-value A+
+                            .mod-robust-card-rating-note Financial Strength
+                    .mod-robust-card-section.connected-on-mobile
+                      .mod-robust-card-caption.mod-robust-card-desktop
+                        | Reviews
+                        i.i-help
+                      .mod-robust-card-pull
+                        .mod-robust-card-review
+                          .mod-robust-card-stars
+                            .com-rating.compact.narrow
+                              .stars
+                                .i-star.active
+                                .i-star.active
+                                .i-star.active
+                                .i-star
+                                .i-star
+                          span Application Process
+                        .mod-robust-card-review
+                          .mod-robust-card-stars
+                            .com-rating.compact.narrow
+                              .stars
+                                .i-star.active
+                                .i-star.active
+                                .i-star.active
+                                .i-star
+                                .i-star
+                          span Customer Service
+
+                  .mod-robust-card-footer
+                    .mod-robust-card-actions
+                      a.button.action Apply Now
+                      a.button.outline Details
+                      a.button.outline.i-mail.mod-robust-card-desktop
+                      .mod-robust-card-count.i-user.mod-robust-card-desktop
+                        ' Over
+                        strong 200,000 customers
+                    .mod-robust-card-compare
+                      label.checkbox.flip
+                        input type='checkbox' checked='checked'
+                        span Compare
+
+                .mod-robust-card
+                  .mod-robust-card-header
+                    .mod-robust-card-header-row
+                      .mod-robust-card-logo
+                        img src='holder.js/182x48?auto=yes'
+                      .mod-robust-card-top-info
+                        .mod-robust-card-top-text
+                          ' Insurer rated you
+                          strong Select Preferred Non-Tobacco
+                        a.mod-robust-card-hint Why does this matter?
+                    .mod-robust-card-details
+                      .mod-robust-card-top-text
+                        ' Plan name
+                        strong Select-a-Term - 20 Years
+
+                  .mod-robust-card-content
+                    .mod-robust-card-section.half-width-on-mobile
+                      .policygenius-tooltip
+                        .popup
+                          span AM Best  is an independent rating agency that evaluates the financial strength of insurance companies. Ratings as of May 2016, on a scale from A++ to D.
+                        .mod-robust-card-caption
+                          | Price
+                          i.i-help
+                      .mod-robust-card-pull
+                        .mod-robust-card-price
+                          span.mod-robust-card-price-value $125
+                          sup.mod-robust-card-price-sup .43
+                          small.mod-robust-card-price-period
+                            ' /mo
+                        a.mod-robust-card-hint data-reveal-id='yourPriorities' Same price everywhere
+                    .mod-robust-card-section.half-width-on-mobile
+                      .mod-robust-card-caption
+                        span Plan
+                        | Type
+                        i.i-help
+                      .mod-robust-card-pull
+                        .mod-robust-card-type Instant coverage
+                        a.mod-robust-card-hint data-reveal-id='yourPriorities' What is this?
+                    .mod-robust-card-section
+                      .mod-robust-card-caption
+                        | Ratings
+                        span  & Reviews
+                        i.i-help
+                      .mod-robust-card-pull
+                        .mod-robust-card-ratings
+                          .mod-robust-card-rating
+                            .mod-robust-card-rating-value A
+                            .mod-robust-card-rating-note BBB
+                          .mod-robust-card-rating
+                            .mod-robust-card-rating-value A+
+                            .mod-robust-card-rating-note Financial Strength
+                    .mod-robust-card-section.connected-on-mobile
+                      .mod-robust-card-caption.mod-robust-card-desktop
+                        | Reviews
+                        i.i-help
+                      .mod-robust-card-pull
+                        .mod-robust-card-review
+                          .mod-robust-card-stars
+                            .com-rating.compact.narrow
+                              .stars
+                                .i-star.active
+                                .i-star.active
+                                .i-star.active
+                                .i-star
+                                .i-star
+                          span Application Process
+                        .mod-robust-card-review
+                          .mod-robust-card-stars
+                            .com-rating.compact.narrow
+                              .stars
+                                .i-star.active
+                                .i-star.active
+                                .i-star.active
+                                .i-star
+                                .i-star
+                          span Customer Service
+
+                  .mod-robust-card-footer
+                    .mod-robust-card-actions
+                      a.button.action Apply Now
+                      a.button.outline Details
+                      a.button.outline.i-mail.mod-robust-card-desktop
+                      .mod-robust-card-count.i-user.mod-robust-card-desktop
+                        ' Over
+                        strong 200,000 customers
+                    .mod-robust-card-compare
+                      label.checkbox.flip
+                        input type='checkbox' checked='checked'
+                        span Compare
+                .mod-robust-card
+                  .mod-robust-card-header
+                    .mod-robust-card-header-row
+                      .mod-robust-card-logo
+                        img src='holder.js/182x48?auto=yes'
+                      .mod-robust-card-top-info
+                        .mod-robust-card-top-text
+                          ' Insurer rated you
+                          strong Select Preferred Non-Tobacco
+                        a.mod-robust-card-hint Why does this matter?
+                    .mod-robust-card-details
+                      .mod-robust-card-top-text
+                        ' Plan name
+                        strong Select-a-Term - 20 Years
+
+                  .mod-robust-card-content
+                    .mod-robust-card-section.half-width-on-mobile
+                      .policygenius-tooltip
+                        .popup
+                          span AM Best  is an independent rating agency that evaluates the financial strength of insurance companies. Ratings as of May 2016, on a scale from A++ to D.
+                        .mod-robust-card-caption
+                          | Price
+                          i.i-help
+                      .mod-robust-card-pull
+                        .mod-robust-card-price
+                          span.mod-robust-card-price-value $125
+                          sup.mod-robust-card-price-sup .43
+                          small.mod-robust-card-price-period
+                            ' /mo
+                        a.mod-robust-card-hint data-reveal-id='yourPriorities' Same price everywhere
+                    .mod-robust-card-section.half-width-on-mobile
+                      .mod-robust-card-caption
+                        span Plan
+                        | Type
+                        i.i-help
+                      .mod-robust-card-pull
+                        .mod-robust-card-type Instant coverage
+                        a.mod-robust-card-hint data-reveal-id='yourPriorities' What is this?
+                    .mod-robust-card-section
+                      .mod-robust-card-caption
+                        | Ratings
+                        span  & Reviews
+                        i.i-help
+                      .mod-robust-card-pull
+                        .mod-robust-card-ratings
+                          .mod-robust-card-rating
+                            .mod-robust-card-rating-value A
+                            .mod-robust-card-rating-note BBB
+                          .mod-robust-card-rating
+                            .mod-robust-card-rating-value A+
+                            .mod-robust-card-rating-note Financial Strength
+                    .mod-robust-card-section.connected-on-mobile
+                      .mod-robust-card-caption.mod-robust-card-desktop
+                        | Reviews
+                        i.i-help
+                      .mod-robust-card-pull
+                        .mod-robust-card-review
+                          .mod-robust-card-stars
+                            .com-rating.compact.narrow
+                              .stars
+                                .i-star.active
+                                .i-star.active
+                                .i-star.active
+                                .i-star
+                                .i-star
+                          span Application Process
+                        .mod-robust-card-review
+                          .mod-robust-card-stars
+                            .com-rating.compact.narrow
+                              .stars
+                                .i-star.active
+                                .i-star.active
+                                .i-star.active
+                                .i-star
+                                .i-star
+                          span Customer Service
+
+                  .mod-robust-card-footer
+                    .mod-robust-card-actions
+                      a.button.action Apply Now
+                      a.button.outline Details
+                      a.button.outline.i-mail.mod-robust-card-desktop
+                      .mod-robust-card-count.i-user.mod-robust-card-desktop
+                        ' Over
+                        strong 200,000 customers
+                    .mod-robust-card-compare
+                      label.checkbox.flip
+                        input type='checkbox' checked='checked'
+                        span Compare
+            .mod-carrier-panel
+              div
+                h2
+                  | What about everyone else?
+                div
+                  strong
+                    | Great question.
+                  |  Unfortunately, these insurers did not have a policy that matched your specific situation. 
+                  span.pg-tooltip
+                    | Why?
+                  p.pg-tooltip-popup.primary
+                    span.pg-tooltip-sub.text-normal
+                      span.pg-tooltip-sub
+                        | These insurers may not offer the coverage amount and term combination you searched for or they may not be available in your state. If you have a specific preference for an insurer that you don't see here, talk to a PolicyGenius expert about your options.
+              .content
+                img[src='holder.js/182x48?auto=yes']
+                img[src='holder.js/182x48?auto=yes']
+                img[src='holder.js/182x48?auto=yes']
+                img[src='holder.js/182x48?auto=yes']
+                img[src='holder.js/182x48?auto=yes']
+                img[src='holder.js/182x48?auto=yes']
+              .spacer-m
+                a.button.i-navigateup
+                  | Back to your best options
+```
+
+```js_example
+$('.section-toggler').click(function(event) {
+  if ($(this).hasClass('expanded')) {
+    $(this).removeClass('expanded').addClass('collapsed');
+    $(this).parent().find('.inner').slideUp(500);
+  } else {
+    $(this).addClass('expanded').removeClass('collapsed');
+    $(this).parent().find('.inner').slideDown(500);
+  }
+});
+```
+*/
+// scss-lint:enable all

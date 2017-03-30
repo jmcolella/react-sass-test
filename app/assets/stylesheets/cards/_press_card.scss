@@ -1,0 +1,100 @@
+// scss-lint:disable all
+/*doc
+---
+title: Press Card
+name: press-card
+category: Cards - Press Card
+---
+```slim_example_table
+.mod-press-stack-card
+  .content
+    h2 Proin aliquam tortor
+    .quote
+      p Aliquam sapien enim, elementum at massa sit amet, pretium egestas metus. Mauris semper faucibus tellus.
+      img src='holder.js/160x40?auto=yes'
+    .quote
+      p Suspendisse erat dolor, auctor sed eleifend quis, hendrerit eget sapien. Donec blandit diam a neque.
+      img src='holder.js/140x40?auto=yes'
+    a.button.action href='#' In rhoncus orci
+
+css:
+  .mod-press-stack-card { max-width: 320px; }
+```
+*/
+// scss-lint:enable all
+
+$press-stack-card-min-width:           rem-calc(290px);
+$press-stack-card-max-width:           rem-calc(380px);
+$press-stack-card-color:               $neutral-2;
+$press-stack-card-border-color:        $neutral-5;
+$press-stack-card-border-radius:       ru(.25);
+$press-stack-card-background-color:    $neutral-8;
+$press-stack-card-near-shadow-color:   $neutral-4;
+$press-stack-card-far-shadow-color:    $neutral-5;
+$press-stack-card-header-border-color: $neutral-6;
+
+.mod-press-stack-card {
+  position: relative;
+  z-index: 0;
+  min-width: $press-stack-card-min-width;
+  max-width: $press-stack-card-max-width;
+  color: $press-stack-card-color;
+
+  .content {
+    position: relative;
+    border: 1px solid $press-stack-card-border-color;
+    border-radius: $press-stack-card-border-radius;
+    background-color: $press-stack-card-background-color;
+    padding: ru(.75);
+  }
+
+  &:before,
+  &:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transform-origin: 0 0;
+    border-radius: $press-stack-card-border-radius;
+  }
+
+  &:before {
+    background-color: $press-stack-card-near-shadow-color;
+    transform: rotate(-.65deg);
+    z-index: -1;
+  }
+
+  &:after {
+    background-color: $press-stack-card-far-shadow-color;
+    transform: rotate(-1.3deg);
+    z-index: -2;
+  }
+
+  h2 {
+    @include typography-2;
+    font-weight: 600;
+    margin-bottom: ru(1);
+    padding-bottom: ru(.5);
+    border-bottom: rem-calc(2px) solid $press-stack-card-header-border-color;
+    text-align: center;
+    color: inherit;
+  }
+
+  p {
+    @include typography-6;
+    font-weight: 400;
+    margin-bottom: ru(.33);
+    color: inherit;
+  }
+
+  .quote {
+    margin-bottom: ru(1);
+
+    img {
+      height: 22px;
+      width: auto;
+    }
+  }
+}

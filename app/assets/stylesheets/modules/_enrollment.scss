@@ -1,0 +1,132 @@
+// scss-lint:disable all
+/*doc
+---
+title: Enrollment
+name: enrollment
+category: Modules - Enrollment
+---
+```slim_example
+.mod-enrollment
+  .header
+    strong Nulla maximus
+    '  congue dolor sed vestibulum
+  .content
+    div
+      h5 Proin pharetra felis et odio porttitor
+      .mod-search-box.mini
+        input type='text' name='query' placeholder='Cfficitur'
+        button.button.action type='submit' Consequat
+```
+
+```slim_example
+.mod-enrollment
+  .header
+    strong Nulla maximus
+    '  congue dolor sed vestibulum
+  .content
+    div
+      p
+        strong: em Aliquam nisl nibh, lacinia et diam ut.
+        '  Morbi quis dui consequat, consectetur massa nec, blandit tellus.
+      p Nam consequat maximus turpis, vestibulum tristique metus aliquam eget. Aenean gravida velit suscipit imperdiet aliquam.
+    div
+      h5 Aliquam sapien enim, elementum at massa sit amet.
+      .mod-search-box.mini
+        input type='text' name='query' placeholder='Cfficitur'
+        button.button.action type='submit' Consequat
+```
+*/
+// scss-lint:enable all
+
+.mod-enrollment {
+  padding: ru(1);
+  background-color: $neutral-6;
+  color: $neutral-2;
+
+  .header {
+    @include typography-2;
+    font-weight: 400;
+    margin: 0 0 ru(1.25);
+    text-align: center;
+    color: inherit;
+
+    strong {
+      color: $brand-2;
+    }
+  }
+
+  .content {
+    display: flex;
+    justify-content: center;
+    max-width: rem-calc(800px);
+    margin: 0 auto;
+
+    > * + * {
+      margin: 0 0 0 ru(2);
+    }
+
+    h5 {
+      @include typography-5;
+      font-weight: 600;
+      margin: 0 0 ru(.5);
+      color: inherit;
+    }
+
+    p {
+      @include typography-7;
+      font-weight: 400;
+      line-height: ru(.75);
+      margin: 0 0 ru(.25);
+      color: inherit;
+    }
+  }
+
+  .mod-search-box.mini {
+    max-width: none;
+    min-width: ru(13.33);
+    margin-bottom: 0;
+
+    .button.action {
+      @include typography-7(false);
+      padding: 0 ru(.75);
+    }
+  }
+
+  strong {
+    font-weight: 600;
+  }
+
+  em {
+    font-style: italic;
+  }
+
+  @media #{$small-only} {
+    padding: ru(.75);
+
+    .header {
+      @include typography-4;
+      margin: 0 0 ru(.75);
+      color: inherit;
+    }
+
+    .content {
+      flex-direction: column;
+
+      > * {
+        margin: ru(1.5) 0 0;
+
+        &:first-child {
+          margin: 0;
+        }
+      }
+
+      h5 {
+        text-align: center;
+      }
+    }
+
+    .mod-search-box.mini {
+      min-width: 0;
+    }
+  }
+}

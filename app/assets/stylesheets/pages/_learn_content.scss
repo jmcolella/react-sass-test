@@ -1,0 +1,60 @@
+// scss-lint:disable all
+/*doc
+---
+title: Learn Content
+name: learn-content
+category: Pages - Learn Content
+---
+```slim_example
+.mod-learning-center.layout-learning-center
+  .layout-header style='background-image: url(https://d3auu7e972pryf.cloudfront.net/images/Hero_Family_Final-dcc0e76f2c.jpg)'
+    .layout-container
+      h4 Subheader text
+      h1 Header Text
+
+  .layout-main
+    .layout-content
+      .layout-section
+        .layout-article
+          p Unlike other types of insurance, you can’t just buy health insurance whenever you want. There is a very clear timeline for when you can buy health insurance. You’ve probably heard of it – it’s called the Open Enrollment Period.
+          p Everyone has an annual enrollment period, even if they get their health insurance from an employer. When it comes to employer-based health insurance, your HR department will get in contact with you about your company-specific enrollment period where you’ll have an opportunity make changes to your health insurance and other benefits. If you’re responsible for buying your own health plan, this is the article for you.
+          p Open Enrollment isn’t your only chance to buy health insurance. Everyone has the chance to qualify for a Special Enrollment Period. Special Enrollment Periods allow you to sign up for life insurance outside of Open Enrollment if you have a qualifying life event – e.g. having a kid.
+          h3#when-is-open-enrollment When is Open Enrollment?
+          p Open Enrollment for 2017 starts on November 1, 2016 and ends on January 31, 2017. You can sign up for a health insurance plan at any time during the Open Enrollment Period.
+          p During Open Enrollment, you need to purchase qualifying health coverage (also known as minimum essential coverage). Examples of qualifying health coverage include:
+          ul
+            li Health insurance plans purchased through the federal or state marketplaces
+            li A marketplace plan or off-market plan purchased through an online broker
+            li Any employer-provided health insurance plan
+            li Most government provided health insurance like Medicare, Medicaid, Children’s Health Insurance Program (CHIP), and TRICARE
+          p
+            | While this list covers the most common types of health insurance plans, you can
+            a href='https://www.irs.gov/affordable-care-act/individuals-and-families/aca-individual-shared-responsibility-provision-minimum-essential-coverage'  view the full list on the IRS website
+          p If you do not purchase qualifying health coverage by January 31, 2017, you will be unable to purchase health insurance unless you qualify for a Special Enrollment Period. You also can’t switch to a different health insurance plan outside of Open Enrollment unless you qualify for a Special Enrollment Period.
+          h3#what-are-the-qualifying-events-for-a-special-enrollment-period What are the qualifying events for a Special Enrollment Period?
+          p Any major change in your life that causes you to lose your existing health coverage or changes your household size or your residence could qualify you for a Special Enrollment Period.
+          p More specifically, if you lose your job-based coverage, lose eligibility for Medicaid, CHIP, or Medicare, lose coverage through a family member, or lose individual coverage, you could qualify for a Special Enrollment Period.
+          p If you lost your existing coverage and qualify for a Special Enrollment Period, you have 60 days from the event to buy a new health insurance plan. If you expect to lose coverage in the next 60 days, you may also be able to pre-emptively purchase a new health insurance plan.
+          p You do not qualify for a Special Enrollment Period if you voluntarily cancel your coverage.
+          p You can also qualify for a Special Enrollment Period if your household size changes or your residence changes. For example, if you get married, have or adopt a child, get divorced, or someone on your plan dies, you may qualify for a Special Enrollment Period. If you move your place of residence to a new ZIP code or you’re moving to the U.S. from a foreign country, you may also qualify.
+          p If your household size changes or you move residence and you qualify for a Special Enrollment Period, you have 60 days from the event to purchase a new health insurance plan.
+          h3#why-are-there-enrollment-periods Why are there enrollment periods?
+          p To understand why enrollment periods exist, we need to understand some of the rules the Affordable Care Act put in place for insurers. The Affordable Care Act introduced two major consumer protections 1) health insurance companies can no longer deny people coverage based on pre-existing conditions and 2) health insurance companies can no longer take coverage away if you get sick.
+          p Health insurance companies didn’t just used to do these things out of spite for consumers – they denied and dropped customers so that they could control their risk pools. All insurance products work by utilizing risk pools. Imagine it like this You and your neighbors all get together and put $100 in a pot every month in case someone gets sick. If your neighbor gets sick, they can take money from the pot to pay for their bills. Health insurance works much the same way, but on a larger scale. Instead of sharing a pot with your neighbors, you’re sharing a pot with millions of other customers.
+          p Let’s say your neighbor Phil refused to take part and did not put $100 in the pot every month. Then one day he gets sick and needs help paying his medical bills. He asks if he can join the neighborhood pot and take money out for his medical bills. Next month, after he’s cured, he decides he’s no longer going to participate in the program. He ended up depleting the pot while only contributing one month’s worth of money into it.
+          p Because the Affordable Care Act enacted consumer protections that took away the options insurers had for controlling their risk pools, it came up with a new way to stabilize risk pools the Individual Mandate.
+          p Think back to the example above. If everyone in your neighborhood was allowed to act like Phil, the program would be unsustainable. The same is true for health insurance, which is why the Affordable Care Act instituted the Individual Mandate. The Individual Mandate requires that every individual have health insurance or pay a tax penalty. This health insurance policy can come from an employer, the health insurance marketplace, or from off-market. Government provided healthcare programs like Medicare, TRICARE, Medicaid, and CHIP also fulfill the individual mandate.
+          p Without the Individual Mandate, healthy people could decide to buy health insurance only when they need it, depleting the pot for people who have chronic conditions or otherwise utilize the healthcare system more frequently. This concept is called adverse selection; you may remember it from Economics 101.
+          p The Affordable Care Act built in enrollment periods in order to guarantee that anyone who wants health insurance buys it for the entire year. If you miss open enrollment, you cannot buy health insurance from the marketplace unless there are specific “qualifying events” that trigger a Special Enrollment Period. This allows health insurance companies to keep their risk pools stable by balancing the premiums of healthy customers with the needs of sick customers. This benefits everyone in the long run – eventually, the healthy people will become sick, need to utilize more health services, and benefit from these protections.
+    .layout-sidebar
+      h5 Have questions about health insurance?
+      form.mod-search-box.mini
+        input type='text' name='query' placeholder='What is life insurance?'
+      .spacer-m
+      .mod-ad-unit.mini
+        .content
+          h3 We make health insurance shopping easy
+          a.button.action href='#' Learning Center
+```
+*/
+// scss-lint:enable all

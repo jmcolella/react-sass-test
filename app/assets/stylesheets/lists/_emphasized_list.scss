@@ -1,0 +1,72 @@
+// scss-lint:disable all
+/*doc
+---
+title: Emphasized List
+name: emphasized-list
+category: Lists - Emphasized List
+---
+```slim_example
+.mod-emphasized-list
+  h6 Phasellus tellus
+  ul
+    li: a href='#' at nunc at nisi lobortis
+    li: a href='#' bibendum at vel ex
+    li: a href='#' sollicitudin ante in, lacinia
+.mod-emphasized-list
+  h6 Phasellus tellus
+  ul
+    li: a href='#' malesuada
+    li: a href='#' vel sapien
+    li: a href='#' vulputate
+    li: a href='#' pretium
+```
+*/
+// scss-lint:enable all
+
+$emphasized-list-color:       $neutral-2;
+$emphasized-list-hover-color: $brand-2;
+
+.mod-emphasized-list {
+  margin-bottom: ru(.75);
+  color: $emphasized-list-color;
+
+  h6 {
+    @include typography-7;
+    font-weight: 600;
+    line-height: ru(.75);
+    margin-bottom: ru(.125);
+    color: inherit;
+  }
+
+  ul {
+    @include typography-7;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    line-height: ru(.75);
+  }
+
+  li {
+    display: inline-flex;
+    margin-right: ru(.25);
+
+    &:after { content: ', '; }
+
+    &:last-child {
+      margin-right: 0;
+      &:after { content: ''; }
+    }
+  }
+
+  a {
+    color: inherit;
+
+    &:hover,
+    &:active,
+    &:focus {
+      color: $emphasized-list-hover-color;
+    }
+  }
+}

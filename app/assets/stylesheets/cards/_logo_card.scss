@@ -1,0 +1,44 @@
+// scss-lint:disable all
+/*doc
+---
+title: Logo Card
+name: logo-card
+category: Cards - Logo Card
+---
+```slim_example
+.mod-logo-card
+  img src='/images/trust-pilot-logo-c5faab5578.png'
+  .footer Donec blandit
+```
+*/
+// scss-lint:enable all
+
+$logo-card-border-color:            $neutral-5;
+$logo-card-background-color:        $neutral-8;
+$logo-card-footer-background-color: $neutral-6;
+
+.mod-logo-card {
+  display: inline-block;
+  border: 1px solid $logo-card-border-color;
+  border-radius: ru(.25);
+  background-color: $logo-card-background-color;
+  box-shadow: 0 ru(.167) 0 $logo-card-border-color;
+  text-align: center;
+  padding: ru(1) ru(.75);
+
+  img {
+    display: block;
+    margin: 0 auto;
+  }
+
+  .footer {
+    @include typography-7;
+    font-weight: 600;
+    margin: ru(1) ru(-.75) ru(-1);
+    padding: ru(.25) ru(.33);
+    border-radius: 0 0 ru(.25) ru(.25);
+    background-color: $logo-card-footer-background-color;
+    text-decoration: underline;
+    color: inherit;
+  }
+}

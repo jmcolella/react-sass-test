@@ -1,0 +1,85 @@
+// scss-lint:disable all
+/*doc
+---
+title: FAQ & Glossary
+name: faq-glossary
+category: Pages - FAQ & Glossary
+---
+```slim_example
+.mod-learning-center.layout-learning-center
+  .layout-header style='background-image: url(https://cdn.policygenius.com/assets/learning-center/life-hero-qa-7ab4e421d4cb38bf81ba58c39f33d997.jpg)'
+    .mod-breadcrumbs.backdrop.mini
+      .layout-container
+        ul
+          li: a href='#' Health Insurance
+          li: a href='#' Learning Center
+          li: span FAQ
+    .layout-container
+      h4 Health Insurance
+      h1 FAQ
+
+  .layout-main
+    .layout-content
+      .layout-section
+        .flex-row.wide
+          div
+            h5 Have questions about health insurance?
+            form.mod-search-box.mini
+              input type='text' placeholder='e.g. What is life insurance?'
+            .spacer-xs
+            h6: strong Not finding what you're looking for?
+            a.i-chat.typography-7 href='#' Chat with a PolicyGenius expert
+          div
+            img src='holder.js/500x150?auto=yes'
+
+        .spacer-l
+        .flex-row.wide.align-left
+          div
+            div
+              h3
+                img src='images/heart-sign.png' width='42'
+                span About Health Insurance
+              ul.mod-simple-list.no-bullet
+                li: a href='#' What is health insurance?
+                li: a href='#' What is the penalty for not having health insurance?
+                li: a href='#' What is a premium?
+                li: a href='#' What is a health insurance deductible?
+                li: a href='#' What is a catastrophic plan?
+                li: a href='#' What is a coinsurance?
+            div
+              .spacer-m
+              h3
+                img src='images/heart-sign.png' width='42'
+                span About PolicyGenius
+              ul.mod-simple-list.no-bullet
+                li: a href='#' Does PolicyGenius offer all the plans available?
+                li: a href='#' Do you offer the cheapest prices?
+          div
+            div
+              h3
+                img src='images/heart-sign.png' width='42'
+                span Choosing and Using a Plan
+              ul.mod-simple-list.no-bullet
+                li: a href='#' How much does health insurance cost?
+                li: a href='#' How can I apply for health insurance?
+                li: a href='#' How long can you be on your parents'  health insurance plan?
+            div
+              .spacer-m
+              h3
+                img src='images/heart-sign.png' width='42'
+                span Affordable Care Act
+              ul.mod-simple-list.no-bullet
+                li: a href='#' What is the Affordable Care Act?
+                li: a href='#' How can I apply for Obamacare?
+                li: a href='#' When is open enrollment for health insurance?
+
+      .spacer-m
+      .layout-center-align
+        .mod-ad-unit
+          .content.horizontal
+            h3 We make health insurance shopping easy
+            a.button.action href='#' Learning Center
+    div
+```
+*/
+// scss-lint:enable all

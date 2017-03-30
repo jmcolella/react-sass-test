@@ -1,0 +1,96 @@
+// scss-lint:disable all
+/*doc
+---
+title: Equal Columns Layout
+name: equal-columns
+category: Layouts - Equal Columns
+---
+
+## Equal columns
+```slim_example
+.layout-equal-columns
+  div
+    img src='holder.js/400x300?auto=yes'
+  div
+    img src='holder.js/400x400?auto=yes'
+  div
+    img src='holder.js/400x300?auto=yes'
+```
+
+## Top aligned
+```slim_example
+.layout-equal-columns.top-align
+  div
+    img src='holder.js/400x300?auto=yes'
+  div
+    img src='holder.js/400x400?auto=yes'
+  div
+    img src='holder.js/400x300?auto=yes'
+```
+
+## Bottom aligned
+```slim_example
+.layout-equal-columns.bottom-align
+  div
+    img src='holder.js/400x300?auto=yes'
+  div
+    img src='holder.js/400x400?auto=yes'
+  div
+    img src='holder.js/400x300?auto=yes'
+```
+*/
+// scss-lint:enable all
+
+.layout-equal-columns {
+  align-items: baseline;
+
+  &.top-align {
+    align-items: initial;
+  }
+
+  &.bottom-align {
+    align-items: flex-end;
+  }
+
+  &.stretch {
+    align-items: stretch;
+  }
+
+  &.center {
+    align-items: center;
+  }
+
+  &.spread {
+    text-align: center;
+
+    > :first-child {
+      text-align: left;
+    }
+
+    > :last-child {
+      text-align: right;
+    }
+  }
+
+  > * {
+    @include firefox-hack() {
+      min-width: 0;
+    }
+  }
+
+  @media #{$medium-up} {
+    @include arrange-children-in-a-row;
+  }
+
+  @media #{$small-only} {
+    > * + * { margin-top: ru(1); }
+  }
+
+  @media #{$ie10-11} {
+    width: 100%;
+
+    &.top-align {
+      align-items: flex-start;
+    }
+  }
+}

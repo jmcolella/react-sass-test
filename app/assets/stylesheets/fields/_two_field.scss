@@ -1,0 +1,309 @@
+// scss-lint:disable all
+/*doc
+---
+title: Two Fields
+name: two-field
+category: Fields - Two Fields
+---
+```slim_example
+.mod-two-fields
+  .field
+    label for='password1' Phasellus
+    div
+      input type='text' id='password1' placeholder='Curabitur et magna erat'
+  .field
+    label for='password2' Suspendisse Phasellus
+    div
+      input type='text' id='password2' placeholder='Curabitur et magna erat'
+```
+
+```slim_example
+.mod-two-fields.error
+  .field
+    label for='password1' Phasellus
+    div
+      input type='text' id='password1' placeholder='Curabitur et magna erat'
+  .field
+    label for='password2' Suspendisse Phasellus
+    div
+      input type='text' id='password2' placeholder='Curabitur et magna erat'
+.error-message.visible  Vivamus dictum justo
+```
+
+```slim_example
+.mod-two-fields
+  .field
+    label for='name' In rhoncus orci et
+    div
+      input type='text' id='name' placeholder='Ut scelerisque'
+  .field
+    label Pellentesque habitant
+    .toggle
+      .content
+        label.toggler
+          input type='radio' name='example1'
+          span.button Nunc
+        label.toggler
+          input type='radio' name='example1'
+          span.button Nulla
+```
+
+```slim_example
+.mod-two-fields
+  .field
+    label for='name' In rhoncus orci et
+    .selectbox
+      select
+        option selected='selected' disabled='disabled' Select your insurance
+        option Life insurance
+        option Renters insurance
+        option Long-term disability insurance
+  .field
+    label Pellentesque habitant
+    .toggle
+      .content
+        label.toggler
+          input type='radio' name='example1'
+          span.button Nunc
+        label.toggler
+          input type='radio' name='example1'
+          span.button Nulla
+```
+
+## Focus state
+```slim_example
+.mod-two-fields.focused
+  .field
+    label for='name' In rhoncus orci et
+    div
+      input type='text' id='name' placeholder='Ut scelerisque'
+  .field
+    label Pellentesque habitant
+    .toggle
+      .content
+        label.toggler
+          input type='radio' name='example1'
+          span.button Nunc
+        label.toggler
+          input type='radio' name='example1'
+          span.button Nulla
+```
+
+## No border example
+```slim_example
+.example style='background: #00A4A5; padding: 24px;'
+  .mod-two-fields.no-border
+    .field
+      label for='name' In rhoncus orci et
+      div
+        input type='text' id='name' placeholder='Ut scelerisque'
+    .field
+      label Pellentesque habitant
+      .toggle
+        .content
+          label.toggler
+            input type='radio' name='example1'
+            span.button Nunc
+          label.toggler
+            input type='radio' name='example1'
+            span.button Nulla
+```
+*/
+// scss-lint:enable all
+
+$two-fields-background-color:          $neutral-8;
+$two-fields-border-color:              $neutral-5;
+$two-fields-focused-background-color:  $brand-6;
+$two-fields-focused-border-color:      $brand-3;
+$two-fields-label-color:               $neutral-1;
+$two-fields-input-color:               $neutral-1;
+$two-fields-input-placeholder-color:   $neutral-3;
+
+
+.mod-two-fields {
+  @include field;
+  display: flex;
+  align-items: flex-start;
+  font-family: $font-family-sans-serif;
+  border: 1px solid $two-fields-border-color;
+  border-radius: ru(.25);
+  background-color: $two-fields-background-color;
+  overflow: hidden;
+
+  .field {
+    position: relative;
+    display: flex;
+    flex: 1 1;
+    flex-direction: column;
+    > * { margin: 0; }
+
+    > label {
+      @include field-label;
+      color: $two-fields-label-color;
+      border-bottom: 1px solid $two-fields-border-color;
+      font-weight: 600;
+    }
+
+    + .field {
+      > label { border-left: 1px solid transparent; }
+      > div { border-left: 1px solid $two-fields-border-color; }
+    }
+  }
+
+  input {
+    @include field-input;
+    flex: 0 1 auto;
+    min-width: 0;
+    height: auto;
+    background: inherit;
+    color: $two-fields-input-color;
+
+    &::placeholder {
+      color: $two-fields-input-placeholder-color;
+    }
+  }
+
+  .selectbox {
+    border: 0;
+    border-radius: 0;
+    height: ru(2.58);
+
+    select {
+      padding: ru(.5) ru(.75);
+      height: inherit;
+    }
+  }
+
+  .toggle {
+    border: 0;
+    border-radius: 0;
+    padding: ru(.5) ru(.75);
+    background: none;
+
+    .toggler span {
+      padding: ru(.25) ru(.5);
+    }
+  }
+
+  &.focused {
+    border-color: $two-fields-focused-border-color;
+    background-color: $two-fields-focused-background-color;
+
+    .field {
+      > label {
+        border-bottom-color: $two-fields-focused-border-color;
+      }
+
+      > div {
+        border-left-color: $two-fields-focused-border-color;
+      }
+    }
+
+    input {
+      background-color: $two-fields-focused-background-color;
+    }
+  }
+
+  @media #{$small-only} {
+    align-items: stretch;
+    flex-direction: column;
+    border: 0;
+    border-radius: 0;
+    background: none;
+
+    .field {
+      flex: 1 0;
+      border: 1px solid $two-fields-border-color;
+      border-radius: ru(.25);
+      background-color: $two-fields-background-color;
+      overflow: hidden;
+    }
+
+    .field + .field {
+      margin-top: ru(1);
+      > label { border-left: 0; }
+      > div { border-left: 0; }
+    }
+
+    input {
+      padding: ru(.5) ru(.75);
+    }
+
+    .selectbox {
+      height: ru(2.25);
+    }
+
+    .toggle {
+      padding: ru(.75);
+
+      .toggler span {
+        padding: ru(.33) ru(.5);
+      }
+    }
+
+    &.no-border {
+      .field {
+        border: 0;
+      }
+    }
+
+    &.focused {
+      background: none;
+
+      .field {
+        border-color: $two-fields-focused-border-color;
+        background-color: $two-fields-focused-background-color;
+      }
+    }
+  }
+
+  &.error {
+    border-color: $error-border-color;
+    margin-bottom: ru(1);
+
+    + .error-message {
+      @include typography-7;
+      font-family: $font-family-sans-serif;
+      font-weight: 700;
+      margin: ru(-.667) ru(1) 0;
+      color: $error-message-color;
+      text-align: left;
+      opacity: 0;
+      overflow: hidden;
+      transition: all 500ms ease;
+
+      &.visible {
+        opacity: 1;
+        margin-bottom: ru(1);
+      }
+    }
+  }
+
+
+  @media #{$small-only} {
+    &.error {
+      .field {
+        border-color: $error-border-color;
+      }
+    }
+  }
+
+  @media #{$medium-up-to-xxlarge} {
+    .selectbox {
+      height: ru(1.84);
+
+      select {
+        padding: ru(.42) ru(.75);
+      }
+    }
+
+    .toggle {
+      padding: ru(.208) ru(.75);
+
+      .toggler span {
+        padding: ru(.167) ru(.33);
+      }
+    }
+  }
+}
+

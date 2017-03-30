@@ -1,0 +1,166 @@
+// scss-lint:disable all
+/*doc
+---
+title: Link List
+name: link-list
+category: Lists - Link List
+---
+
+### Link List with icons as Grid
+
+```slim_example
+ul.mod-link-list.grid
+  li
+    a.i-star href='#'
+      | Proin aliquam
+      small Suspendisse
+  li
+    a.i-openbook href='#'
+      | Aliquam sapien
+      small Suspendisse
+  li
+    a.i-star href='#'
+      | Nulla maximus
+      small Suspendisse
+  li
+    a.i-openbook href='#'
+      | Nunc in pharetra
+      small Suspendisse
+  li
+    a.i-star href='#'
+      | Phasellus viverra
+      small Suspendisse
+```
+### Link list
+
+```slim_example
+ul.mod-link-list
+  li
+    a href='#'
+      | Proin aliquam
+      small Suspendisse
+  li
+    a href='#'
+      | Aliquam sapien
+      small Suspendisse
+  li
+    a href='#'
+      | Nulla maximus
+      small Suspendisse
+  li
+    a href='#'
+      | Nunc in pharetra
+      small Suspendisse
+  li
+    a href='#'
+      | Phasellus viverra
+      small Suspendisse
+```
+
+### Link grid with images
+
+```slim_example
+ul.mod-link-list.grid
+  li
+    a href='#'
+      img src='holder.js/100x100?auto=yes'
+  li
+    a href='#'
+      img src='holder.js/100x100?auto=yes'
+  li
+    a href='#'
+      img src='holder.js/100x100?auto=yes'
+  li
+    a href='#'
+      img src='holder.js/100x100?auto=yes'
+  li
+    a href='#'
+      img src='holder.js/100x100?auto=yes'
+```
+*/
+// scss-lint:enable all
+
+$link-grid-gutter: ru(2);
+$link-grid-heading-color: $neutral-2;
+$link-grid-heading-hover-color: $neutral-1;
+$link-grid-icon-background-color: $brand-3;
+$link-grid-icon-color: $neutral-8;
+$link-grid-icon-size: ru(2);
+$link-grid-pika-top-offset-fix: ru(.1);
+$link-grid-items-per-row: 3;
+
+.mod-link-list {
+  list-style: none;
+  padding-top: ru(1);
+
+  a {
+    @extend .like-h3;
+    line-height: 1;
+
+    &[class^='i-']:before {
+      display: none;
+    }
+  }
+
+  li {
+    margin-bottom: ru(.75);
+  }
+
+  small {
+    @extend .typography-6;
+    display: none;
+  }
+
+  @media #{$medium-up} {
+    &.grid {
+      @include arrange-in-block-grid($per-row: $link-grid-items-per-row, $gutter: $link-grid-gutter, $min-width: ru(4));
+      padding-top: ru(1);
+    }
+
+    a {
+      color: $link-grid-heading-color;
+      text-decoration: none;
+
+      &:hover,
+      &:active {
+        color: $link-grid-heading-hover-color;
+
+        small {
+          color: $link-hover-color;
+        }
+      }
+    }
+
+    small {
+      color: $link-color;
+      text-decoration: underline;
+      display: block;
+      margin: 0;
+      transition: color 300ms ease-out;
+    }
+  }
+
+  @media #{$small-only} {
+    &.grid {
+      text-align: center;
+    }
+  }
+
+  @media #{$large-up} {
+    a[class^='i-']:before {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      float: left;
+      height: $link-grid-icon-size;
+      width: $link-grid-icon-size;
+      line-height: $link-grid-icon-size;
+      font-size: $link-grid-icon-size * .5;
+      background-color: $link-grid-icon-background-color;
+      color: $link-grid-icon-color;
+      border-radius: 50%;
+      margin-right: ru(1);
+      padding-top: $link-grid-pika-top-offset-fix;
+    }
+  }
+}

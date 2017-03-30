@@ -1,0 +1,114 @@
+// scss-lint:disable all
+/*doc
+---
+title: Search box
+name: search-box
+category: Fields - Search box
+---
+```slim_example
+.mod-search-box
+  input type='text' name='query' placeholder='Sed dapibus orci id sapien'
+  button.button.action type='submit' Suspendisse
+```
+
+```slim_example
+.mod-search-box.mini
+  input type='text' name='query' placeholder='Sed dapibus orci id sapien'
+  button.button.action type='submit' Nulla
+```
+
+```slim_example
+.mod-search-box.mini
+  input type='text' name='query' placeholder='Sed dapibus orci id sapien'
+```
+*/
+// scss-lint:enable all
+
+$search-box-border-radius: ru(.25);
+$search-box-button-width: 10rem;
+$search-box-border-color: $neutral-5;
+$search-box-color: $main-font-color;
+$search-box-padding: 1em;
+$search-box-placeholder-color: $neutral-4;
+$search-box-border-width: 1px;
+$search-box-button-background-hover-color: $action-2;
+$search-box-height: ru(2);
+$search-box-mini-height: ru(1.84);
+
+.mod-search-box {
+  @include icon(search);
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  overflow: hidden;
+  position: relative;
+
+  height: $search-box-height;
+  border-width: $search-box-border-width;
+  border-style: solid;
+  border-color: $search-box-border-color;
+  border-radius: $search-box-border-radius;
+  margin-bottom: ru(2);
+
+  &:before {
+    position: absolute;
+    right: ru(.5);
+    top: ru(.5);
+    color: $search-box-placeholder-color;
+    margin: 0;
+  }
+
+  label {
+    display: none;
+  }
+
+  input[type='text'],
+  input[type='search'] {
+    @extend .typography-6;
+    flex: 1 1 auto;
+    color: $search-box-color;
+    margin: ru(.25) 0;
+    padding: 0 $search-box-padding;
+    line-height: auto;
+
+    &::placeholder {
+      color: $search-box-placeholder-color;
+    }
+  }
+
+  .button.action {
+    flex-basis: $search-box-button-width;
+
+    border-radius: 0;
+    padding: 0;
+    margin: 0;
+    box-shadow: none;
+
+    &:hover,
+    &:focus,
+    &:active {
+      top: 0;
+      box-shadow: none;
+      background-color: $search-box-button-background-hover-color;
+    }
+  }
+
+  &.mini {
+    height: $search-box-mini-height;
+    margin-bottom: ru(.75);
+
+    input[type='text'] {
+      @include typography-7;
+      color: $search-box-color;
+      margin: 0;
+    }
+
+    .button.action {
+      @include typography-6;
+      flex: 0 1;
+      white-space: nowrap;
+      margin: 0;
+      padding: 0 ru(1);
+    }
+  }
+}

@@ -1,0 +1,99 @@
+// scss-lint:disable all
+/*doc
+---
+title: Brands
+name: brands
+category: Modules - Brands
+---
+```slim_example
+.mod-brands
+  h5 Vestibulum ante ipsum primis
+  .content
+    img src='holder.js/120x50?auto=yes'
+    img src='holder.js/140x40?auto=yes'
+    img src='holder.js/120x50?auto=yes'
+    img src='holder.js/140x40?auto=yes'
+    img src='holder.js/120x50?auto=yes'
+    span in Tellus
+```
+*/
+// scss-lint:enable all
+
+$brands-max-width: rem-calc(1200px);
+$brands-background-color: $brand-5;
+$brands-color: $neutral-2;
+
+.mod-brands {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: ru(1);
+  background-color: $brands-background-color;
+  color: $brands-color;
+  text-align: center;
+
+  > * {
+    flex: 0 1;
+
+    + * {
+      margin: ru(.75) 0 0;
+    }
+  }
+
+  .content {
+    display: flex;
+    flex-direction: column;
+
+    > * {
+      margin: auto;
+
+      + * {
+        margin-top: ru(1);
+      }
+    }
+  }
+
+  h5 {
+    @include typography-5;
+    font-weight: 600;
+    margin: 0;
+  }
+
+  span {
+    @include typography-5;
+    white-space: nowrap;
+    margin: ru(.75) 0 0;
+    color: inherit;
+  }
+
+  @media #{$medium-up} {
+    flex-direction: row;
+    text-align: left;
+
+    > * + * {
+      margin: 0 0 0 ru(1);
+    }
+
+    h5 {
+      flex-basis: ru(10.667);
+    }
+
+    .content {
+      flex: 1 1;
+      flex-wrap: wrap;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+
+      > * {
+        margin: ru(.25) ru(.5);
+        max-width: rem-calc(100px);
+
+        + * {
+          margin-top: ru(.25);
+        }
+      }
+    }
+  }
+}

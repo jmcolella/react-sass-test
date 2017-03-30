@@ -1,0 +1,334 @@
+// scss-lint:disable all
+/*doc
+---
+title: Block Panel
+name: block-panel
+category: Panels - Block Panel
+---
+
+## Simple Block Panel
+
+```slim_example
+.mod-block-panel.colored
+  .body
+    .content
+      h3 Proin aliquam
+      p Aliquam sapien enim, elementum at massa sit amet, pretium egestas metus. Mauris semper faucibus tellus, id auctor mauris suscipit eget.
+```
+
+## Block Panel with CTA
+
+```slim_example
+.mod-block-panel.colored
+  .body
+    .content
+      h3 Proin aliquam
+      p TAliquam sapien enim, elementum at massa sit amet, pretium egestas metus. Mauris semper faucibus tellus, id auctor mauris suscipit eget.
+    .actions
+      a.button.action href='#' In rhoncus orci
+      a.link href='#' Suspendisse
+```
+
+## Block Panel with Icon
+
+```slim_example
+.mod-block-panel.colored
+  .header.i-heart
+    | Critical Illness
+  .body
+    .content
+      h3 Proin aliquam
+      p TAliquam sapien enim, elementum at massa sit amet, pretium egestas metus. Mauris semper faucibus tellus, id auctor mauris suscipit eget.
+    .actions
+      a.button.action href='#' In rhoncus orci
+      a.link href='#' Suspendisse
+```
+
+## Block Panel with Breadcrumbs module inside
+
+```slim_example
+.mod-block-panel.colored
+  .header.i-heart
+    | Diam
+  .body
+    ul.mod-breadcrumbs.blocks
+      li.caption In rhoncus orci
+      li
+        span Tortor
+      li
+        span Donec blandit
+      li
+        span.active Suscipit
+      li
+        span.inactive Lacinia
+      li
+        span.inactive Neque
+    .content
+      h3 Nulla maximus
+      p Aenean ac bibendum nisi. Phasellus in laoreet quam. Curabitur ex nibh, pharetra eget aliquam congue, commodo vitae tortor.
+    .actions
+      a.button.action href='#' Suspendisse erat dolor
+      a.link href='#' Suspendisse
+```
+
+## Block Panel Dashed
+
+This also demonstrates spacing for stacked block panels
+
+```slim_example
+.mod-block-panel.dashed
+  .header.i-quote
+  .body
+    .content
+      h3 Pellentesque habitant.
+      p Ut scelerisque nulla at sem suscipit, at porta mi tincidunt. Nunc in pharetra velit.
+    .actions
+      .selectbox
+        select
+          option Nunc mattis molestie libero
+      a.button.action href='#' Nulla maximus
+.mod-block-panel.dashed
+  .header.i-quote
+  .body
+    .content
+      h3 Suspendisse id felis nulla.
+    .actions
+      img src='holder.js/200x200?auto=yes'
+      a.button.action href='#' Phasellus viverra mollis
+      a.link href='#' Suspendisse
+```
+*/
+// scss-lint:enable all
+
+$block-panel-colored-block-background-color:            $brand-3;
+$block-panel-colored-block-text-color:                  $neutral-8;
+$block-panel-colored-heading-color:                     $neutral-3;
+$block-panel-border-color:                              $neutral-5;
+$block-panel-dashed-block-icon-color:                   $neutral-6;
+$block-panel-dashed-block-icon-size:                    rem-calc(96px);
+$block-panel-dashed-border-color:                       $neutral-5;
+$block-panel-text-color:                                $main-font-color;
+$block-panel-background-color:                          $neutral-8;
+$block-panel-small-only-header-font-size:               rem-calc(13px);
+
+.mod-block-panel {
+  @extend .typography-7;
+  background-color: $block-panel-background-color;
+  border: 1px solid $block-panel-border-color;
+  border-radius: ru(.25);
+  overflow: hidden;
+  margin-bottom: ru(1);
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  h2 {
+    @extend .like-h2;
+    text-align: center;
+  }
+
+  h3 {
+    @extend .like-h5;
+    margin: 0 0 ru(.25);
+    color: $block-panel-colored-heading-color;
+  }
+
+  img {
+    display: block;
+    margin: 0 auto;
+    padding: 0 ru(.25);
+  }
+
+  p {
+    max-width: 30rem;
+    margin: 0;
+  }
+
+  .header {
+    @extend .typography-4;
+    font-weight: bold;
+    margin-bottom: 0;
+    text-align: center;
+  }
+
+  .body {
+    flex: 1;
+  }
+
+  .nav {
+    flex-basis: 100%;
+  }
+
+  .content {
+    flex: 1;
+  }
+
+  .actions {
+    @extend .typography-6;
+    align-self: flex-end;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+
+    .link {
+      display: inline-block;
+      margin-top: ru(.5);
+    }
+  }
+
+  &.colored {
+    .header {
+      background-color: $block-panel-colored-block-background-color;
+      color: $block-panel-colored-block-text-color;
+
+      &[class*='i-']:before {
+        font-size: rem-calc(32px);
+        line-height: ru(1.75);
+        margin: 0 0 ru(.25);
+      }
+    }
+
+    .content {
+      p {
+        @extend .typography-6;
+        font-weight: 600;
+        margin: 0;
+        color: $block-panel-text-color;
+      }
+    }
+  }
+
+  &.dashed {
+    border: 2px dashed $block-panel-dashed-border-color;
+
+    h3 {
+      @extend .like-h3;
+      margin: 0 0 ru(.25);
+    }
+
+    .header {
+      color: $block-panel-dashed-block-icon-color;
+
+      &[class*='i-']:before {
+        margin: ru(1.5) 0 0;
+        font-size: $block-panel-dashed-block-icon-size;
+        line-height: ru(5);
+      }
+    }
+
+    .content {
+      p {
+        @extend .typography-4;
+        font-weight: 100;
+        margin: 0;
+      }
+    }
+  }
+
+  .selectbox {
+    width: 100%;
+    margin-bottom: ru(.5);
+  }
+
+  [class^='mod-'] {
+    flex-basis: 100%;
+    margin: 0;
+  }
+
+  @media #{$small-only} {
+    flex-direction: column;
+
+    h3 {
+      margin-bottom: 0;
+      font-size: $block-panel-small-only-header-font-size;
+      margin-top: ru(.5);
+    }
+
+    .header {
+      width: 100%;
+      line-height: ru(2.5);
+
+      &[class*='i-']:before {
+        display: none;
+      }
+    }
+
+    .body {
+      padding: ru(1);
+    }
+
+    .content + .actions {
+      padding-top: ru(1);
+    }
+
+    .selectbox {
+      margin-bottom: ru(.75);
+    }
+
+    [class^='mod-'] + .content {
+      padding-top: ru(1);
+    }
+  }
+
+  @media #{$medium-only} {
+    .header {
+      width: 100%;
+      line-height: ru(2.5);
+      margin-bottom: rem-calc(2px);
+
+      &[class*='i-']:before {
+        display: none;
+      }
+    }
+  }
+
+  @media #{$medium-up} {
+    .body {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .content {
+      padding: ru(1);
+    }
+
+    .actions {
+      flex-basis: 33%;
+      padding: ru(1);
+      min-width: ru(10.75);
+    }
+  }
+
+  @media #{$large-up} {
+    display: flex;
+    align-items: center;
+
+    .header {
+      display: flex;
+      align-self: stretch;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      flex-shrink: 0;
+      flex-basis: 2 / 12 * 100%;
+      padding: ru(.25);
+      margin-right: rem-calc(2px);
+    }
+
+    .content {
+      padding-left: ru(2);
+    }
+
+    &.dashed .content {
+      padding-left: 0;
+    }
+  }
+
+  @media #{$xlarge-up} {
+    .content {
+      padding-left: ru(4);
+    }
+  }
+}

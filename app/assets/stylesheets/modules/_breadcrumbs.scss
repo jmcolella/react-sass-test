@@ -1,0 +1,348 @@
+// scss-lint:disable all
+/*doc
+---
+title: Breadcrumbs
+name: breadcrumbs
+category: Modules - Breadcrumbs
+---
+### Simple breadcrumbs
+```slim_example
+ul.mod-breadcrumbs
+  li: a href='#' Sed sit amet
+  li: a href='#' Praesent finibus
+  li: a href='#' Aliquam bibendum
+  li: span In lobortis
+```
+
+### Smaller breadcrumbs
+```slim_example
+ul.mod-breadcrumbs.mini
+  li: a href='#' Ut ullamcorper
+  li: a href='#' Mauris in dui
+  li: a href='#' Interdum et
+  li: span Sed laoreet
+```
+
+### Breadcrumbs with backdrop
+```slim_example
+ul.mod-breadcrumbs.backdrop
+  li: a href='#' Maecenas
+  li: a href='#' Mauris in dui
+  li: a href='#' Nullam tincidunt
+  li: span Ut ullamcorper
+```
+
+### Blocks breadcrumbs
+```slim_example
+ul.mod-breadcrumbs.blocks style="margin-bottom: 1rem"
+  li.caption Praesent nec
+  li: span Curae
+  li: span Vivamus
+  li: span.active Aenean
+  li: span.inactive Donec
+
+ul.mod-breadcrumbs.blocks style="margin-bottom: 1rem"
+  li.caption Lorem ipsum
+  li: a href='#' Interdum
+  li: a href='#' Proin
+  li: a href='#' Aenean sed
+  li: a.active href='#' Purchase
+```
+
+### Blocks tall breadcrumbs:
+```slim_example
+ul.mod-breadcrumbs.blocks.tall style="margin-bottom: 1rem"
+  li.caption Nulla facilisi
+  li: span Curabitur
+  li: span Sed laoreet
+  li: span.active Maecenas
+  li: span.inactive Vestibulum
+  li: span.inactive Vivamus
+
+ul.mod-breadcrumbs.blocks.tall style="margin-bottom: 1rem"
+  li.caption Donec eget
+  li: a href='#' Quisque
+  li: a href='#' Odio
+  li: a href='#' Eleifend
+  li: a.active href='#' Scelerisque
+```
+*/
+// scss-lint:enable all
+
+$breadcrumbs-color:                                  $neutral-2;
+$breadcrumbs-hover-color:                            $brand-2;
+$breadcrumbs-backdrop-background-color:              rgba(0, 72, 72, .28);
+$breadcrumbs-backdrop-color:                         $neutral-8;
+$breadcrumbs-blocks-background-color:                $brand-5;
+$breadcrumbs-blocks-active-background-color:         $brand-3;
+$breadcrumbs-blocks-inactive-background-color:       $neutral-6;
+$breadcrumbs-blocks-hover-background-color:          $brand-4;
+$breadcrumbs-blocks-active-hover-background-color:   $brand-2;
+$breadcrumbs-blocks-inactive-hover-background-color: $neutral-5;
+$breadcrumbs-blocks-separator-color:                 $neutral-8;
+$breadcrumbs-blocks-icon-color:                      $brand-3;
+$breadcrumbs-blocks-active-color:                    $neutral-8;
+$breadcrumbs-blocks-active-icon-color:               $neutral-2;
+$breadcrumbs-blocks-caption-color:                   $neutral-4;
+$breadcrumbs-blocks-heading-color:                   $neutral-3;
+$breadcrumbs-blocks-padding:                         ru(.375);
+$breadcrumbs-blocks-small-only-link-font-size:       rem-calc(16px);
+$breadcrumbs-blocks-small-only-header-font-size:     rem-calc(13px);
+
+$breadcrumbs-logo-margin:     $global-main-nav-logo-margin;
+$breadcrumbs-logo-width:      $global-main-nav-logo-width;
+$breadcrumbs-nav-padding:     $global-main-nav-padding;
+
+.mod-breadcrumbs {
+  @include typography-6(false);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  list-style: none;
+  color: $breadcrumbs-color;
+
+  ul {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0;
+    list-style: none;
+  }
+
+  li {
+    + li {
+      &:before {
+        content: '>';
+        margin: 0 ru(.5);
+      }
+    }
+
+    &:last-child {
+      font-weight: 600;
+    }
+  }
+
+  a {
+    color: inherit;
+
+    &:hover,
+    &:active,
+    &:focus {
+      color: $breadcrumbs-hover-color;
+    }
+  }
+
+  &.mini {
+    @include typography-7(false);
+    margin: 0;
+    line-height: ru(.75);
+  }
+
+  &.backdrop {
+    padding: ru(.25) 0;
+    background-color: $breadcrumbs-backdrop-background-color;
+    color: $breadcrumbs-backdrop-color;
+
+    a {
+      &:hover,
+      &:active,
+      &:focus {
+        color: $breadcrumbs-backdrop-color;
+      }
+    }
+  }
+
+  &.logo-padded .layout-container {
+    padding-left: ($breadcrumbs-logo-width + $breadcrumbs-nav-padding) + ($breadcrumbs-logo-margin * 2);
+  }
+
+  &.blocks {
+    @include typography-7(false);
+    flex-wrap: nowrap;
+    text-align: center;
+    overflow: hidden;
+
+    li {
+      flex-grow: 1;
+      background: $breadcrumbs-blocks-background-color;
+
+      &:last-child {
+        font-weight: inherit;
+        :after { display: none; }
+      }
+
+      &:before {
+        display: none;
+      }
+
+    }
+
+    .caption {
+      @include typography-7;
+      font-weight: 400;
+      margin-bottom: 0;
+      color: $breadcrumbs-blocks-caption-color;
+      display: none;
+    }
+
+    span,
+    a {
+      position: relative;
+      display: block;
+      padding: $breadcrumbs-blocks-padding 0;
+      white-space: nowrap;
+      text-decoration: none;
+      color: $main-font-color;
+    }
+  }
+
+  &.tall {
+    @include typography-5(false);
+    font-weight: 300;
+    border-radius: ru(.25);
+
+    span,
+    a {
+      padding-top: $breadcrumbs-blocks-padding * 2;
+      padding-bottom: $breadcrumbs-blocks-padding * 2;
+    }
+  }
+
+  @media #{$small-only} {
+    &.blocks {
+      flex-direction: column;
+      font-weight: 600;
+      text-align: left;
+
+      h3 {
+        color: $breadcrumbs-blocks-heading-color;
+        font-size: $breadcrumbs-blocks-small-only-header-font-size;
+      }
+
+      li {
+        background: none;
+      }
+
+      .caption { display: block; }
+
+      span,
+      a {
+        @include icon(check);
+        font-size: $breadcrumbs-blocks-small-only-link-font-size;
+        height: auto;
+        padding: 0;
+        padding-left: ru(1);
+
+        &:before {
+          position: absolute;
+          left: 0;
+          // scss-lint:disable ImportantRule
+          margin-top: ru(.083) !important;
+          // scss-lint:enable ImportantRule
+          font-size: $breadcrumbs-blocks-small-only-link-font-size;
+          color: $breadcrumbs-blocks-icon-color;
+        }
+      }
+
+      .active {
+        @include icon(navigateright);
+        background: none;
+        color: $main-font-color;
+
+        &:before {
+          color: $breadcrumbs-blocks-active-icon-color;
+        }
+      }
+
+      .inactive {
+        background: none;
+
+        &:before {
+          display: none;
+        }
+      }
+
+      a,
+      a:hover,
+      a:active {
+        background: none;
+      }
+    }
+
+    &.tall {
+      font-size: rem-calc(13px);
+      font-weight: 600;
+      line-height: ru(1);
+
+      span,
+      a {
+        padding: 0;
+        padding-left: ru(1);
+      }
+    }
+  }
+
+  @media #{$medium-only} {
+    &.tall {
+      font-weight: 400;
+
+      span,
+      a {
+        @include breadcrumb-arrow(ru(.083), ru(1), ru(1.5), $breadcrumbs-blocks-separator-color, $breadcrumbs-blocks-background-color);
+        padding-top: ru(.5);
+        padding-bottom: ru(.5);
+      }
+    }
+  }
+
+  @media #{$medium-up} {
+    &.blocks {
+      > h3 { display: none; }
+
+      span,
+      a {
+        @include breadcrumb-arrow(ru(.083), ru(1), ru(1.5), $breadcrumbs-blocks-separator-color, $breadcrumbs-blocks-background-color);
+
+        &:hover,
+        &:focus {
+          text-decoration: none;
+          background: $breadcrumbs-blocks-hover-background-color;
+          &:after { background: $breadcrumbs-blocks-hover-background-color; }
+        }
+      }
+
+      .active {
+        font-weight: bold;
+        color: $breadcrumbs-blocks-active-color;
+        background: $breadcrumbs-blocks-active-background-color;
+        &:after { background: $breadcrumbs-blocks-active-background-color; }
+
+        &:hover {
+          background: $breadcrumbs-blocks-active-hover-background-color;
+          &:after { background: $breadcrumbs-blocks-active-hover-background-color; }
+        }
+      }
+
+      .inactive {
+        background: $breadcrumbs-blocks-inactive-background-color;
+        &:after { background: $breadcrumbs-blocks-inactive-background-color; }
+
+        &:hover {
+          background: $breadcrumbs-blocks-inactive-hover-background-color;
+          &:after { background: $breadcrumbs-blocks-inactive-hover-background-color; }
+        }
+      }
+    }
+
+    &.tall {
+      span,
+      a {
+        @include breadcrumb-arrow(ru(.167), ru(1), ru(1.5), $breadcrumbs-blocks-separator-color, $breadcrumbs-blocks-background-color);
+      }
+    }
+
+  }
+
+  @media #{$large-up}{
+    justify-content: flex-start;
+  }
+}

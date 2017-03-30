@@ -1,0 +1,50 @@
+// scss-lint:disable all
+/*doc
+---
+title: Hero
+name: hero
+category: Modules - Hero
+---
+
+### Hero
+```slim_example
+.mod-hero style='height: 300px;'
+  p Donec blandit diam
+```
+
+### Hero Light
+```slim_example
+.mod-hero.light style='height: 300px;'
+  p In rhoncus orci et
+```
+
+### Hero Gradient
+```slim_example
+.mod-hero.gradient style='height: 300px;'
+  p Nunc in pharetra velit
+```
+*/
+// scss-lint:enable all
+
+$hero-background-color:                     $brand-2;
+$hero-color:                                $neutral-8;
+$hero-light-background-color:               $neutral-6;
+$hero-light-color:                          $neutral-2;
+$hero-gradient-linear-start-color:          #3dbaa4;
+$hero-gradient-linear-stop-color:           #1da7ae;
+$hero-gradient-color:                       $neutral-8;
+
+.mod-hero {
+  background: $hero-background-color url('/images/banner-bg-key.png') repeat;
+  color: $hero-color;
+
+  &.light {
+    background-color: $hero-light-background-color;
+    color: $hero-light-color;
+  }
+
+  &.gradient {
+    @include linear-gradient(45deg, $hero-gradient-linear-start-color 10%, $hero-gradient-linear-stop-color 90%);
+    color: $hero-gradient-color;
+  }
+}

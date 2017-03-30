@@ -1,0 +1,116 @@
+$careers-container-max-width:             rem-calc(1100px);
+$careers-color:                           $neutral-2;
+$careers-section-dark-background-color:   $brand-2;
+$careers-section-action-background-color: $action-2;
+$careers-section-color:                   $neutral-8;
+$careers-image-border-color:              $neutral-5;
+
+.layout-careers {
+  padding: ru(2) 0 ru(1);
+  overflow: hidden;
+  font-family: $font-family-sans-serif;
+  color: $careers-color;
+
+  .layout-container {
+    max-width: $careers-container-max-width;
+    padding-left: ru(1);
+    padding-right: ru(1);
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .layout-values {
+    padding: ru(2) 0;
+
+    .mod-value-card {
+      // scss-lint:disable ImportantRule
+      flex: 1 0 rem-calc(290px) !important;
+      // scss-lint:enable ImportantRule
+    }
+  }
+
+  .layout-section {
+    padding: ru(3) 0;
+
+    &.dark { background-color: $careers-section-dark-background-color; }
+    &.action { background-color: $careers-section-action-background-color; }
+
+    * { color: $careers-section-color; }
+    p { margin-bottom: ru(2); }
+    iframe { max-width: 100%; }
+
+    img,
+    iframe {
+      margin: 0 auto;
+      border: 0;
+    }
+  }
+
+  h2 {
+    @include like-h1;
+    font-weight: 600;
+  }
+
+  h5 {
+    font-weight: 600;
+  }
+
+  strong { font-weight: 600; }
+
+  img,
+  iframe { display: block; }
+
+  img {
+    &.bordered {
+      border: 1px solid $careers-image-border-color;
+    }
+
+    &.rotated {
+      transform: rotate(-1.5deg);
+      box-shadow: ru(-.5) ru(.5) 0 $careers-image-border-color;
+    }
+  }
+
+  .our-values-sliders {
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+
+    .slick-list { margin-left: 0; }
+    .slick-initialized .slick-slide { margin-right: 0; }
+    .policygenius-slider-arrow { font-size: rem-calc(24px); }
+
+    .cards {
+      width: rem-calc(362px);
+      margin-right: ru(2);
+    }
+
+    .content {
+      max-width: none;
+      min-width: 0;
+
+      p { margin: 0; }
+    }
+
+    @media #{$small-only} {
+      flex-direction: column;
+      align-items: flex-start;
+
+      .cards {
+        width: 100%;
+        margin: 0;
+      }
+
+      .content {
+        width: 100%;
+        margin-top: ru(1);
+      }
+    }
+  }
+}
+
+.pages-show.careers {
+  .secure-info-box {
+    display: none;
+  }
+}

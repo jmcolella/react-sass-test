@@ -1,0 +1,42 @@
+// scss-lint:disable all
+/*doc
+---
+title: PG Logos
+name: pg-logos
+category: Components - PG Logos
+---
+## Black and White
+```slim_example_table
+.mod-example
+  .pg-logos
+```
+
+## Colored
+```slim_example_table
+.mod-example
+  .pg-logos.colored
+```
+
+## Centered
+```slim_example_table
+.mod-example
+  .pg-logos.centered
+```
+*/
+// scss-lint:enable all
+
+[class^='mod-'] {
+  .pg-logos {
+    @include retina('/images/security-logos.png', auto 100%);
+    height: ru(1.667);
+    background-repeat: no-repeat;
+
+    &.colored {
+      @include retina('/images/security-logos-colored.png', auto 100%);
+    }
+
+    &.centered {
+      background-position: center;
+    }
+  }
+}

@@ -1,0 +1,348 @@
+$comparison-map-image-background-color:       $neutral-8;
+$comparison-map-image-border-color:           $neutral-5;
+$comparison-filters-and-back-color:           $neutral-8;
+
+.mod-comparison {
+  h3 {
+    @extend .like-h3;
+  }
+
+  .filters {
+    background: $neutral-6;
+
+    .back {
+      width: 100%;
+      height: ru(2);
+      text-align: right;
+      top: 0;
+      left: 0;
+      position: absolute;
+      overflow: hidden;
+      display: block;
+      padding: 0 15px;
+      font-family: $font-family-sans-serif;
+      line-height: 50px;
+      text-decoration: none;
+      color: $comparison-filters-and-back-color;
+      background: $brand-3;
+
+      @include icon(navigateleft, after) {
+        float: right;
+        margin-top: 2px;
+      }
+    }
+  }
+
+  .results {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    background: $neutral-6;
+    flex-basis: 100%;
+
+    &.white-bg {
+      background: $neutral-8;
+    }
+
+    > .body {
+      display: flex;
+      flex-direction: column;
+      flex: 1 0 auto;
+    }
+
+    .policies {
+      display: inline-block;
+      width: 100%;
+      background: $neutral-6;
+
+      .policy-cards {
+        padding: 0 ru(1);
+      }
+
+      .mod-robust-card {
+        max-width: rem-calc(1000px);
+        margin: ru(2) auto;
+      }
+    }
+
+    .margin-top {
+      margin-top: 2rem;
+    }
+
+    .back-button {
+      max-width: rem-calc(850px);
+      margin: ru(1) auto;
+    }
+
+    &.side-padding {
+      padding: 0 2rem;
+    }
+  }
+
+  h1 {
+    @include like-h2;
+    margin: ru(2) 0 ru(1);
+    color: inherit;
+    word-wrap: break-word;
+  }
+
+  h4 {
+    @include like-h4;
+    color: inherit;
+    word-wrap: break-word;
+    margin-bottom: ru(.25);
+  }
+
+  p {
+    @include like-p;
+    margin-bottom: ru(1);
+  }
+
+  em {
+    font-style: italic;
+  }
+
+  .mod-interstitial {
+    max-width: rem-calc(1000px);
+    margin: ru(1.5) auto;
+    padding: 0 ru(1.5);
+
+    img {
+      width: 100%;
+    }
+
+    .map {
+      border-radius: ru(.25);
+      border: 1px solid $comparison-map-image-border-color;
+      background: $comparison-map-image-background-color;
+    }
+
+    h6 {
+      @include typography-7;
+      line-height: ru(.75);
+      margin-top: ru(.75);
+    }
+  }
+
+  .features-section {
+    max-width: rem-calc(1200px);
+    margin: auto;
+    padding: ru(2);
+
+    .headline-message {
+      margin-bottom: ru(1.5);
+
+      h2 {
+        @include typography-3;
+        color: $neutral-2;
+      }
+    }
+
+    .choices {
+      @include arrange-children-in-a-row;
+
+      .best-prices {
+        flex: 1 1 66.6%;
+      }
+
+      .why-shop {
+        flex: 1 1 33.3%;
+        max-width: rem-calc(300px);
+      }
+
+      .mod-info-panel {
+        margin-top: rem-calc(47px);
+      }
+
+      .free-help {
+        display: none;
+        margin: ru(2) auto;
+        text-align: center;
+
+        &.visible {
+          display: block;
+        }
+
+        .button {
+          margin-top: ru(1);
+        }
+      }
+
+      .heading {
+        min-height: ru(3);
+        margin-bottom: ru(1.5);
+        text-align: center;
+        color: $neutral-3;
+
+        h1 {
+          @include typography-3;
+          font-weight: 600;
+          margin: 0 0 ru(.25);
+          color: $neutral-2;
+        }
+      }
+
+      .pg-tooltip-popup {
+        @include typography-7;
+        line-height: ru(.75);
+        margin: 0;
+      }
+    }
+  }
+
+  h5:not(.mod-robust-card-minititle) {
+    @include typography-6;
+    font-weight: 600;
+    margin: 0 0 ru(1);
+
+    + .sub-link {
+      display: block;
+      font-size: rem-calc(11px);
+      line-height: rem-calc(14px);
+      margin: ru(-.875) 0 ru(.25);
+
+      a {
+        text-decoration: none;
+        color: $neutral-2;
+      }
+    }
+  }
+
+  .why-apply {
+    margin: 0 ru(2) ru(2);
+    padding: ru(1);
+    border: 1px solid $neutral-5;
+    border-radius: ru(.25);
+    background-color: $neutral-6;
+
+    h5 {
+      @include typography-4;
+      font-weight: 600;
+      text-align: center;
+      margin: 0 0 ru(2);
+    }
+  }
+
+  strong {
+    font-weight: 600;
+  }
+
+  @media #{$xlarge-up} {
+    .headline-message {
+      padding-right: ru(10);
+    }
+  }
+
+  @media #{$medium-only} {
+    .choices {
+      flex-wrap: wrap;
+      padding: ru(2) ru(1);
+
+      .heading {
+        min-height: 0;
+      }
+
+      .best-prices {
+        flex-basis: 100%;
+        // scss-lint:disable ImportantRule
+        margin-right: 0 !important;
+        // scss-lint:enable ImportantRule
+      }
+
+      .why-shop {
+        flex-basis: 100%;
+        max-width: none;
+        // scss-lint:disable ImportantRule
+        margin-left: 0 !important;
+        // scss-lint:enable ImportantRule
+      }
+
+      .mod-info-panel {
+        margin-top: 0;
+      }
+    }
+
+    .why-apply {
+      margin: 0 ru(1) ru(1);
+    }
+  }
+
+  @media #{$medium-up} {
+    .filters {
+      border-right: solid 1px $neutral-5;
+
+      .back {
+        display: none;
+      }
+    }
+
+    .mod-interstitial {
+      .layout-equal-columns {
+        div:first-child {
+          padding-right: ru(1);
+        }
+      }
+    }
+  }
+
+  @media #{$small-only} {
+    .results {
+      padding: 0;
+
+      &.layout-health-results {
+        background: $neutral-6;
+      }
+    }
+
+    .details {
+      padding-left: 0;
+      padding-right: 0;
+    }
+
+    .policies {
+      background: $neutral-8;
+    }
+
+    .filters {
+      padding-top: 0;
+    }
+
+    .why-apply {
+      margin: 0 ru(.75) ru(1.5);
+    }
+
+    .features-section {
+      max-width: none;
+      display: block;
+      padding: ru(.75);
+
+      .choices {
+        @include arrange-children-in-a-column;
+        padding: ru(.75);
+        margin-bottom: ru(1.5);
+
+        > * {
+          // scss-lint:disable ImportantRule
+          flex: 1 0 !important;
+          margin-left: 0 !important;
+          margin-right: 0 !important;
+          // scss-lint:enable ImportantRule
+        }
+
+        .why-shop {
+          max-width: none;
+        }
+
+        .heading {
+          min-height: 0;
+        }
+
+        .layout-equal-columns {
+          > * + * {
+            margin-top: ru(1);
+          }
+        }
+      }
+    }
+  }
+}

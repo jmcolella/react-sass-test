@@ -1,0 +1,58 @@
+// scss-lint:disable all
+/*doc
+---
+title: Collage
+name: collage
+category: Layouts - Collage
+---
+```slim_example
+.layout-collage
+  .items
+    .item.wide style='background-image: url(https://www.policygenius.com/blog/library/uploads/2016/07/7-expensive-cities-feature-071316-940x600.jpg)'
+    .item style='background-image: url(https://www.policygenius.com/blog/library/uploads/2016/06/feat-harry-potter-life-insurance-940x600.jpg)'
+    .item style='background-image: url(https://www.policygenius.com/blog/library/uploads/2015/12/no-license-insurance-feature-121815-940x600.jpg)'
+  .item.featured style='background-image: url(https://www.policygenius.com/blog/library/uploads/2016/05/feat-ltd-small-business-940x600.jpeg)'
+```
+*/
+// scss-lint:enable all
+
+.layout-collage {
+  display: flex;
+  align-items: stretch;
+
+  > .items {
+    flex: 1 1;
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .item {
+    flex: 1 1 ru(10);
+    background: {
+      position: 50% 50%;
+      size: cover;
+    }
+  }
+
+  .featured {
+    flex: 0 1 50%;
+    height: ru(24);
+  }
+
+  .wide { flex-basis: 100%; }
+
+  @media #{$small-only} {
+    flex-direction: column;
+
+    > * { flex: 0 0; }
+
+    > .featured { height: auto; }
+
+    > .items {
+      flex-direction: column;
+      flex-wrap: nowrap;
+    }
+
+    .item { flex-basis: ru(7); }
+  }
+}

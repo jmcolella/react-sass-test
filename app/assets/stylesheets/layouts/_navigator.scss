@@ -1,0 +1,970 @@
+// scss-lint:disable all
+/*doc
+---
+title: Navigator Layout
+name: navigator
+category: Layouts - Navigator
+---
+```slim_example
+.mod-navigator.layout-navigator
+  .bar
+    .hamburger-toggle.i-rows
+    .logo
+      img src='holder.js/320x60?auto=yes&text=PolicyGenius+Logo'
+    ul.mod-step-progress
+      li
+        a href='#'
+          i.icon-calculator
+            span.icon-check
+          .label Suspendisse
+      li
+        a href='#'
+          i.icon-health
+            span.icon-check
+          .label Vivamus
+      li.active
+        a href='#'
+          i.icon-quotes
+          .label Nulla
+      li.inactive
+        a href='#'
+          i.icon-application
+          .label Suspendisse
+    h1 Cras egestas neque non massa porta, molestie ornare
+    .mod-card.navigator
+      .content
+        .feature.price
+          h4 Pellentesque eu
+          p.value
+            strong 10 - 100 <small>/vulputate</small>
+        img.figure src='images/dog.png'
+  .main
+    .container
+      .header
+        ul.mod-step-progress
+          li
+            a href='#'
+              i.icon-calculator
+                span.icon-check
+              .label Suspendisse
+          li
+            a href='#'
+              i.icon-health
+                span.icon-check
+              .label Vivamus
+          li.active
+            a href='#'
+              i.icon-quotes
+              .label Nulla
+          li.inactive
+            a href='#'
+              i.icon-application
+              .label Suspendisse
+        .actions
+          .mod-contact-bar
+            .image
+              img src='images/roberta.png'
+            .stacked-buttons
+              a.button.i-phone href='#'
+                | (000) 000-0000
+              a.button.i-chat href='#' In rhoncus orci et
+      .content
+        ul.mod-step-progress
+          li
+            a href='#'
+              i.icon-calculator
+                span.icon-check
+              .label Suspendisse
+          li
+            a href='#'
+              i.icon-health
+                span.icon-check
+              .label Vivamus
+          li.active
+            a href='#'
+              i.icon-quotes
+              .label Nulla
+          li.inactive
+            a href='#'
+              i.icon-application
+              .label Suspendisse
+        h2
+          ' Pellentesque habitant morbi tristique
+          span.emphasized
+            | senectus
+        .toggle-input
+          label Suspendisse molestie
+          .radio-buttons
+            label.radio
+              input type='radio' name='radios' checked='checked'
+              span Vulputate
+            label.radio
+              input type='radio' name='radios'
+              span Proin pharetra
+        .selectfield
+          .field
+            label for='select1' Donec dui est, aliquet
+            .selectbox
+              select id='select1'
+                option disabled='disabled' selected='selected' Aliquam nisl nibh, lacinia
+                option tellus augue
+                option tellus augue
+        .textfield
+          .field
+            label for='zip' Nam accumsan
+            input type='text' id='zip' placeholder='Quam eu blandit rhoncus (10000)'
+        .date-field
+          label vitae consectetur
+          .field
+            .selectbox
+              select
+                option selected='selected' disabled='disabled' Aliquam
+                option Porttitor
+                option Egestas
+            .selectbox
+              select
+                option selected='selected' disabled='disabled' Sed
+                option 1
+                option 1
+            input type='text' placeholder='Ipsum aliquet' maxlength='4'
+
+        .spacer-l
+
+        h2 Pellentesque habitant morbi tristique senectus your pet
+        .toggle
+          .header
+            label Vel sapien at
+          .content
+            label.toggler
+              input type='radio' name='gender'
+              span.button Congue
+            label.toggler
+              input type='radio' name='gender'
+              span.button Dolor
+        .toggle
+          .header
+            .help
+            label Nam accumsan quam eu blandit
+          .content
+            label.toggler
+              input type='radio' name='example2'
+              span.button Quam
+            label.toggler
+              input type='radio' name='example2'
+              span.button Eu
+
+        p Nam consequat maximus turpis, vestibulum tristique
+
+        .form-error
+          p.form-error-message Maecenas efficitur accumsan
+        button.button.action Phasellus tellus augue
+        .hint maximus a viverra tincidunt
+      .sidebar
+        .mod-switch-images
+          img.active src='images/dog.png'
+          img src='images/dog2.png'
+        h3 Vivamus dictum justo a venenatis pulvinar.
+        ul.unstyled-list
+          li
+            h4 Curabitur et magna
+            p Vivamus dictum justo a venenatis pulvinar. Fusce ullamcorper
+          li
+            h4 Morbi sit amet
+            p Serously! Fusce id egestas metus, consectetur sagittis lacus.
+          li
+            h4 Proin at nunc at
+            p Sed et lacinia ante. Donec id urna feugiat, sollicitudin
+        hr
+        h3 Etiam malesuada quis augue vitae dapibus
+        a.button.info href='#' Sed non tortor
+    .footer
+      .container
+        .helpdesk
+          .phone
+            | Morbi quis
+            br
+            | 0-000-000-0000
+          a.button href='#' Vulputate ipsum
+          .availability
+            | Ullamcorper rhoncus nunc, ut convallis leo
+            a href='#' pretium
+        .trust
+          .pg-logos
+          ul.links
+            li: a href='#' Morbi quis dui
+            li: a href='#' Sodales cursus
+            li: a href='#' Vivamus ultricies
+```
+
+```slim_example
+.mod-navigator.layout-navigator
+  .bar
+    .hamburger-toggle.i-rows
+    .logo
+      img src='holder.js/320x60?auto=yes&text=PolicyGenius+Logo'
+    h1 Mauris semper faucibus tellus, id auctor mauris suscipit eget
+    .mod-card.navigator
+      .content
+        .feature.price
+          h4 Estimate so far
+          p.value
+            strong $10 - $100 <small>/sapien</small>
+        img.figure src='images/dog.png'
+  .main
+    .container
+      .header
+        .actions
+          .mod-contact-bar
+            .image
+              img src='images/roberta.png'
+            .stacked-buttons
+              a.button.i-phone href='#'
+                | (000) 000-0000
+              a.button.i-chat href='#' Proin aliquam tortor et
+      .content
+        h2
+          ' Pellentesque habitant morbi
+          span.emphasized
+            | tristique senectus
+        .toggle-input
+          label Nullam mollis turpis
+          .radio-buttons
+            label.radio
+              input type='radio' name='radios' checked='checked'
+              span Nullam
+            label.radio
+              input type='radio' name='radios'
+              span Eget mattis
+        .selectfield
+          .field
+            label for='select1' Nunc tincidunt velit
+            .selectbox
+              select id='select1'
+                option disabled='disabled' selected='selected' Nulla consectetur
+                option Condimentum
+                option Volutpat
+        .textfield
+          .field
+            label for='zip' Nulla vitae
+            input type='text' id='zip' placeholder='Fringilla turpis et (00000)'
+        .date-field
+          label Vitae consectetur
+          .field
+            .selectbox
+              select
+                option selected='selected' disabled='disabled' Risus
+                option Condimentum
+                option Volutpat
+            .selectbox
+              select
+                option selected='selected' disabled='disabled' Vitae
+                option ultricies
+                option turpis
+            input type='text' placeholder='Nulla vitae' maxlength='4'
+
+        .spacer-l
+
+        h2 Pellentesque habitant morbi tristique senectus
+        .toggle
+          .header
+            label Proin aliquam
+          .content
+            label.toggler
+              input type='radio' name='gender'
+              span.button Tortor
+            label.toggler
+              input type='radio' name='gender'
+              span.button Aliquam
+        .toggle
+          .header
+            .help
+            label  Aliquam sapien enim, elementum
+          .content
+            label.toggler
+              input type='radio' name='example2'
+              span.button Enim
+            label.toggler
+              input type='radio' name='example2'
+              span.button Sit
+
+        p Suspendisse erat dolor, auctor sed eleifend quis, hendrerit eget sapien. Donec blandit diam a neque aliquet, nec facilisis mi finibus.
+        .hint consectetur ornare, ultrices
+      .sidebar
+        a.button.left-side.info.mini.i-floppydisk In rhoncus orci
+        .mod-trustpilot.spacer-s
+          h4 Suspendisse sed sem sagittis
+          .content
+            .powered-by
+              span Accumsan quam eu
+              .trustpilot-logo
+            .stars.good
+              .star.filled
+              .star.filled
+              .star.filled
+              .star.filled
+              .star
+            .rating
+              strong> Laoreet
+              | quis dui consequat
+            .review
+              p Lorem Ipsum dolor sit amet, consecte tur adipiscing elit. Eti...
+              .meta
+                span> Nulla maximus,
+                em dui consequat
+            .review
+              p Lorem Ipsum dolor sit amet, consecte tur adipiscing elit. Eti...
+              .meta
+                span> Nulla maximus,
+                em dui consequat
+            .review
+              p Lorem Ipsum dolor sit amet, consecte tur adipiscing elit. Eti...
+              .meta
+                span> Nulla maximus,
+                em dui consequat
+    .footer
+      .container
+        .helpdesk
+          .phone
+            | Morbi quis
+            br
+            | 0-000-000-0000
+          a.button href='#' Vulputate ipsum
+          .availability
+            | Vestibulum lacinia dignissim convallis
+            a href='#' pretium
+        .trust
+          .pg-logos
+          ul.links
+            li: a href='#' Morbi quis dui
+            li: a href='#' Sodales cursus
+            li: a href='#' Vivamus ultricies
+```
+
+```js_example
+$('select#select1').on('change', function(e) {
+  var $target = $('.mod-switch-images img').not('.active');
+  $('.mod-switch-images img').removeClass('active');
+  $target.addClass('active');
+});
+*/
+// scss-lint:enable all
+
+$navigator-max-width:                       rem-calc(1000px);
+$navigator-background-color:                $neutral-7;
+$navigator-main-padding-on-medium-bottom:   ru(1.5);
+$navigator-bar-width-large:                 ru(11);
+$navigator-bar-width-xlarge:                ru(14);
+$navigator-bar-gradient-start-color:        $brand-1;
+$navigator-bar-gradient-stop-color:         $brand-2;
+$navigator-bar-menu-background-color:       $brand-2;
+$navigator-bar-color:                       $neutral-8;
+$navigator-content-color:                   $neutral-2;
+$navigator-content-width:                   65%;
+$navigator-content-padding-right:           ru(3.5);
+$navigator-sidebar-width:                   35%;
+$navigator-sidebar-color:                   $neutral-2;
+$navigator-sidebar-hr-color:                $neutral-5;
+$navigator-hint-color:                      $neutral-3;
+$navigator-footer-background-color:         $neutral-6;
+$navigator-footer-border-color:             $neutral-5;
+$navigator-footer-color:                    $neutral-3;
+$navigator-footer-button-color:             $neutral-3;
+$navigator-footer-button-hover-color:       $neutral-8;
+$navigator-footer-content-max-width:        rem-calc(325px);
+$navigator-warning-color:                   $action-1;
+$navigator-emphasized-color:                $action-1;
+
+$button-stacked-navigator-background-color:       $brand-2;
+$button-stacked-navigator-border-color:           $neutral-8;
+$button-stacked-navigator-color:                  $neutral-8;
+$button-stacked-navigator-hover-background-color: $neutral-8;
+$button-stacked-navigator-hover-color:            $brand-2;
+
+.layout-navigator {
+  display: flex;
+  align-items: stretch;
+  position: relative;
+  min-height: 100vh;
+  background-color: $navigator-background-color;
+
+  i { font-style: italic; }
+
+  strong { font-weight: bold; }
+
+  p {
+    @include like-p;
+    margin-bottom: ru(1);
+  }
+
+  > .bar {
+    @include linear-gradient(
+      to bottom,
+      $navigator-bar-gradient-start-color 0,
+      $navigator-bar-gradient-stop-color 100%,
+      $fallback: $navigator-bar-gradient-stop-color);
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: $navigator-bar-width-large;
+    height: 100%;
+    padding: ru(1.5);
+    color: $navigator-bar-color;
+
+    .hamburger-toggle {
+      display: none;
+    }
+
+    .logo {
+      img {
+        width: ru(6.5);
+      }
+    }
+
+    h1 {
+      @include like-h2;
+      font-weight: 400;
+      margin: ru(4) 0 ru(1);
+      color: inherit;
+      word-wrap: break-word;
+    }
+
+    .mod-card {
+      display: none;
+    }
+  }
+
+  span.emphasized {
+    font: inherit;
+    display: inline;
+    line-height: inherit;
+    color: $navigator-emphasized-color;
+  }
+
+  .container {
+    max-width: $navigator-max-width;
+  }
+
+  > .main {
+    flex: 1 0;
+    padding: ru(.5) ru(2);
+    margin-left: $navigator-bar-width-large;
+    display: flex;
+    flex-direction: column;
+
+    .mod-step-progress {
+      list-style: none;
+    }
+
+    > .container {
+      display: flex;
+      flex: 1 0 auto;
+      flex-wrap: wrap;
+
+      > .header {
+        display: flex;
+        flex: 1 0 100%;
+        margin-bottom: ru(3.167);
+        align-self: flex-start;
+
+        .actions {
+          flex: 0 1 $navigator-sidebar-width;
+          margin-left: auto;
+        }
+      }
+
+      > .content {
+        flex: 1 0 auto;
+        width: $navigator-content-width;
+        padding-right: $navigator-content-padding-right;
+
+        form {
+          > p,
+          > ul:not(.mod-step-progress) {
+            padding-left: ru(1);
+            padding-right: ru(1);
+          }
+        }
+
+        .button.action {
+          margin-top: ru(1);
+        }
+
+        .form-error + .button.action {
+          margin-top: 0;
+        }
+
+        .statistics-summary + .button.action {
+          margin-top: 0;
+        }
+
+        .hint {
+          @include typography-7();
+          margin-bottom: 0;
+          text-align: center;
+          color: $navigator-hint-color;
+          line-height: ru(.75);
+
+          &[class*=' i-']:before {
+            margin-right: ru(.167);
+          }
+        }
+
+        &.full-width {
+          padding-right: 0;
+          width: 100%;
+        }
+
+        .call-modal {
+          display: inline-block;
+          position: relative;
+          top: ru(-.5);
+          left: ru(1);
+          margin-bottom: ru(1);
+        }
+      }
+
+      > div:last-child {
+        padding-right: 0;
+      }
+
+      > .sidebar {
+        color: $navigator-sidebar-color;
+        flex: 1 0 auto;
+        width: $navigator-sidebar-width;
+
+        h2:not(.value) {
+          margin-top: ru(-.25);
+          color: $navigator-sidebar-color;
+        }
+      }
+    }
+
+    p {
+      color: $navigator-content-color;
+
+      &.warning {
+        color: $navigator-warning-color;
+      }
+    }
+
+    h2 {
+      @include like-h3;
+      padding-left: ru(1);
+      padding-right: ru(1);
+      color: $navigator-content-color;
+    }
+
+    .indented {
+      padding-left: ru(1);
+      padding-right: ru(1);
+    }
+
+    ul:not(.mod-icon-list) {
+      padding: 0;
+      list-style: disc inside;
+      color: $navigator-content-color;
+    }
+
+    > .footer {
+      display: flex;
+      flex: 0 1 auto;
+      padding: ru(1) ru(2);
+      margin: ru(3) ru(-2) ru(-.5);
+      background-color: $navigator-footer-background-color;
+      border-top: 1px solid $navigator-footer-border-color;
+      color: $navigator-footer-color;
+
+      > .container {
+        display: flex;
+        flex: 1 0 auto;
+        flex-direction: row-reverse;
+        width: 100%;
+        align-self: flex-end;
+      }
+
+      .trust {
+        .links {
+          @include typography-7;
+          margin: ru(.833) 0 0;
+          padding: 0;
+          list-style: none;
+
+          li {
+            display: inline-block;
+
+            + li {
+              margin-left: ru(.5);
+            }
+          }
+        }
+      }
+
+      .helpdesk {
+        margin-left: auto;
+
+        .phone {
+          @include typography-6;
+          float: left;
+          font-weight: 700;
+          margin-top: 0;
+        }
+
+        .button {
+          float: right;
+          min-width: ru(7);
+          padding: ru(.33) ru(1);
+          background-color: inherit;
+          border-color: $navigator-footer-color;
+          color: $navigator-footer-button-color;
+          margin-left: ru(.5);
+
+          &:hover,
+          &:active {
+            background-color: $navigator-footer-color;
+            color: $navigator-footer-button-hover-color;
+          }
+        }
+
+        .availability {
+          @include typography-7;
+          clear: both;
+          margin: 0;
+        }
+      }
+    }
+  }
+
+  .sidebar {
+    h2,
+    h3 {
+      @include like-h3;
+      padding-left: 0;
+      clear: both;
+      margin-bottom: ru(.75);
+      color: $navigator-sidebar-color;
+    }
+
+    h4 {
+      @include like-p;
+      font-weight: 700;
+      margin: 0;
+      color: $navigator-sidebar-color;
+    }
+
+    p {
+      font-weight: 300;
+      margin-top: 0;
+      margin-left: 0;
+      margin-right: 0;
+      color: $navigator-sidebar-color;
+    }
+
+    ul {
+      list-style: initial;
+      list-style-position: inside;
+
+      &.unstyled-list {
+        list-style: none;
+        color: $navigator-sidebar-color;
+
+        li:first-child { margin-top: ru(1); }
+        p { margin-top: 0; }
+      }
+    }
+
+    hr {
+      border-top: 1px solid $navigator-sidebar-hr-color;
+      margin: ru(1) 0;
+      height: 0;
+    }
+
+    img {
+      max-width: 350px;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      margin-bottom: ru(1);
+    }
+
+    .button {
+      width: 100%;
+    }
+  }
+
+
+  @media #{$xlarge-up} {
+    > .bar {
+      width: $navigator-bar-width-xlarge;
+
+      h1 {
+        @include like-h1;
+        font-weight: 400;
+        margin: ru(4) 0 ru(1);
+        color: inherit;
+      }
+    }
+
+    > .main {
+      margin-left: $navigator-bar-width-xlarge;
+    }
+  }
+
+  @media #{$large-up} {
+    .bar {
+      .mod-step-progress {
+        display: none;
+      }
+    }
+
+    .main {
+      > .container {
+        > .header {
+          height: ru(3.7);
+        }
+      }
+
+      .header {
+        .mod-step-progress {
+          width: calc(#{$navigator-content-width} - #{$navigator-content-padding-right});
+          margin-right: $navigator-content-padding-right;
+        }
+      }
+
+      .content {
+        .mod-step-progress {
+          display: none;
+        }
+      }
+    }
+  }
+
+  @media #{$medium-only} {
+    .bar {
+      .mod-step-progress {
+        display: none;
+      }
+    }
+
+    .main {
+      .content {
+        .mod-step-progress {
+          padding-bottom: ru(2);
+        }
+      }
+    }
+  }
+
+  @media #{$medium-bottom} {
+    flex-direction: column;
+    display: block;
+
+    > .bar {
+      @include linear-gradient(
+        to top,
+        $navigator-bar-gradient-start-color 0,
+        $navigator-bar-gradient-stop-color 100%,
+        $fallback: $navigator-bar-gradient-stop-color);
+
+      position: relative;
+      width: 100%;
+      flex: 1 0 auto;
+      padding: ru(1.5);
+      padding-right: calc(#{$navigator-sidebar-width} + #{$navigator-content-padding-right});
+      height: auto;
+
+      h1 {
+        margin: ru(1.5) 0 0;
+      }
+    }
+
+    > .main {
+      padding: $navigator-main-padding-on-medium-bottom;
+      margin-left: 0;
+      display: block;
+
+      .header {
+        .mod-step-progress {
+          display: none;
+        }
+
+        .actions {
+          position: absolute;
+          width: calc(#{$navigator-sidebar-width} - #{ru(1)});
+          top: ru(1.5);
+          right: ru(1.5);
+
+          .button {
+            border-color: $button-stacked-navigator-border-color;
+            background-color: transparent;
+            color: $button-stacked-navigator-color;
+
+            &:hover,
+            &:active,
+            &:focus {
+              background-color: $button-stacked-navigator-hover-background-color;
+              color: $button-stacked-navigator-hover-color;
+            }
+          }
+        }
+      }
+
+      > .container {
+        > .header {
+          margin: 0;
+        }
+      }
+
+
+      > .footer {
+        padding: ru(1) ru(1.5);
+        margin: ru(3) ru(-1.5) ru(-1.5);
+      }
+    }
+  }
+
+  @media #{$small-only} {
+    > .bar {
+      position: relative;
+      flex: 1 0 auto;
+      padding: ru(3) ru(1) ru(1);
+      align-self: stretch;
+      height: auto;
+
+      &:before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: ru(2);
+        background-color: $navigator-bar-menu-background-color;
+      }
+
+      .logo {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: ru(6.67);
+        padding: ru(.5);
+        text-align: center;
+
+        img {
+          width: 80%;
+          vertical-align: middle;
+        }
+      }
+
+      .hamburger-toggle {
+        display: block;
+        cursor: pointer;
+        font-size: rem-calc(21px);
+        position: absolute;
+        top: ru(.5);
+        right: ru(.75);
+      }
+
+      h1 {
+        @include like-h2;
+        font-weight: 400;
+        margin: ru(.5) 0 ru(1.5);
+        color: inherit;
+
+        span {
+          display: block;
+        }
+      }
+
+      .mod-card {
+        display: block;
+        margin-bottom: ru(-1.33);
+      }
+    }
+
+    > .main {
+      padding: ru(1);
+      flex-direction: column;
+
+      .header {
+        .actions {
+          display: none;
+        }
+      }
+
+      > .container {
+        h2,
+        .indented {
+          padding-left: 0;
+          padding-right: 0;
+        }
+
+        > .content {
+          flex: 0 0 100%;
+          padding: 0;
+
+          form {
+            > p,
+            > ul {
+              padding-left: 0;
+              padding-right: 0;
+            }
+          }
+
+          .mod-step-progress {
+            display: none;
+          }
+        }
+
+        > .sidebar {
+          display: none;
+          flex: 0 0 100%;
+          margin-top: ru(2);
+        }
+      }
+
+      > .footer {
+        margin: ru(2) ru(-1) ru(-1);
+
+        > .container {
+          flex-wrap: wrap;
+          max-width: $navigator-footer-content-max-width;
+          margin-left: auto;
+          margin-right: auto;
+        }
+
+        .helpdesk,
+        .trust {
+          flex-basis: 100%;
+        }
+
+        .helpdesk {
+          max-width: ru(16);
+          margin-left: auto;
+          margin-right: auto;
+
+          .button {
+            min-width: 0;
+            padding: ru(.33) ru(.75);
+          }
+
+          .availability {
+            text-align: center;
+          }
+        }
+
+        .trust {
+          margin-top: ru(1.75);
+          text-align: center;
+
+          .pg-logos {
+            background-position: 50% 0;
+          }
+
+          .links {
+            margin-top: ru(.5);
+          }
+        }
+      }
+    }
+  }
+}

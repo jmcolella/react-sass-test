@@ -1,0 +1,131 @@
+// scss-lint:disable all
+/*doc
+---
+title: Info Panel
+name: info_panel
+category: Panels - Info Panel
+---
+```slim_example
+.mod-info-panel
+  .header
+    img src='https://cdn.policygenius.com/assets/pg-logo-orange.png'
+  .content
+    h4 In rhoncus orci et
+    h5 Suspendisse molestie vel sapien at posuere
+    p Nunc mattis molestie libero, sed vulputate ipsum aliquet vitae.
+    h5 Proin pharetra felis et
+    p
+      ' Phasellus tellus augue, maximus
+      a href='#' a viverra tincidunt
+      |. Vivamus dictum justo a venenatis pulvinar. Fusce ullamcorper.
+  .footer
+    .mod-trustpilot.info
+      h5 Etiam malesuada quis
+      .rating
+        strong Efficitur
+        '  &ndash; dictum justo a venenatis
+      .stars.mini.excellent
+        .star.filled
+        .star.filled
+        .star.filled
+        .star.filled
+        .star.filled
+      .trustpilot-logo
+
+css:
+  .mod-info-panel {
+    max-width: 256px;
+  }
+```
+
+```slim_example
+.mod-info-panel
+  .header
+    img src='https://cdn.policygenius.com/assets/pg-logo-orange.png'
+  .content
+    h4 In rhoncus orci et
+    h5 Suspendisse molestie vel sapien at posuere
+    p Nunc mattis molestie libero, sed vulputate ipsum aliquet vitae.
+    h5 Proin pharetra felis et
+    p
+      ' Phasellus tellus augue, maximus
+      a href='#' a viverra tincidunt
+      |. Vivamus dictum justo a venenatis pulvinar. Fusce ullamcorper.
+    h5 Suspendisse molestie vel sapien at posuere
+    p Nunc mattis molestie libero, sed vulputate ipsum aliquet vitae.
+
+css:
+  .mod-info-panel {
+    max-width: 256px;
+  }
+```
+*/
+// scss-lint:enable all
+
+$mod-info-panel-border-color:             $neutral-5;
+$mod-info-panel-background-color:         $neutral-8;
+$mod-info-panel-header-color:             $accent-2;
+$mod-info-panel-content-color:            $neutral-2;
+$mod-info-panel-content-background-color: $neutral-7;
+
+.mod-info-panel {
+  font-family: $font-family-sans-serif;
+  text-align: center;
+  border: 1px solid $mod-info-panel-border-color;
+  border-radius: ru(.25);
+  background-color: $mod-info-panel-background-color;
+  overflow: hidden;
+
+  > * {
+    padding: ru(.75);
+  }
+
+  .header {
+    border-bottom: 1px solid $mod-info-panel-border-color;
+    padding-top: ru(.875);
+    padding-bottom: ru(.875);
+
+    img {
+      display: block;
+      margin: rem-calc(1px) auto 0;
+      max-width: ru(5);
+    }
+  }
+
+  .content {
+    background-color: $mod-info-panel-content-background-color;
+    color: $mod-info-panel-content-color;
+
+    h4 {
+      @include typography-6;
+      font-weight: 600;
+      line-height: ru(.75);
+      margin: 0 0 ru(.75);
+      color: inherit;
+    }
+
+    h5,
+    p {
+      @include typography-7;
+      line-height: ru(.75);
+      color: inherit;
+    }
+
+    h5 {
+      font-weight: 600;
+      margin: ru(.25) 0 0;
+    }
+
+    p {
+      margin: 0 0 ru(.5);
+    }
+
+    a {
+      color: inherit;
+    }
+  }
+
+  .footer {
+    border-top: 1px solid $mod-info-panel-border-color;
+  }
+}

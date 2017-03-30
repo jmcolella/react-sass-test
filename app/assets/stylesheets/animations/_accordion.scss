@@ -1,0 +1,228 @@
+// scss-lint:disable all
+/*doc
+---
+title: Accordion
+name: accordion
+category: Animations - Accordion
+---
+```slim_example
+.mod-accordion-button style='width: 480px;'
+  button.button.action Maecenas
+  .details
+    p Lorem ipsum dolor sit amet, consectetur Testadipiscing elit. Morbi eu interdum diam. Donec interdum porttitor risus non bibendum. Maecenas sollicitudin eros in quam imperdiet placerat. Cras justo purus, rhoncus nec lobortis ut, iaculis vel ipsum. Donec dignissim arcu nec elit faucibus condimentum. Donec facilisis consectetur enim sit amet varius. Pellentesque justo dui, sodales quis luctus a, iaculis eget mauris.
+```
+
+```js_example
+$('.button').on('click', function() {
+  $(this).next().slideToggle(250);
+});
+```
+
+```slim_example
+.mod-accordion
+  .section
+    .header
+      h4 Aenean ac bibendum
+      .toggle-accordion
+    .body
+      .textfield
+        .field
+          label for='text1' Phasellus
+          input type='text' id='text1' placeholder='Curabitur ex nibh'
+      .selectfield
+        .field
+          label for='select1' In hac habitasse platea dictumst
+          .selectbox
+            select id='select1'
+              option Lacus
+              option Varius
+              option Eleifend
+      .selectfield
+        .field
+          label for='select2' In rhoncus orci
+          .selectbox
+            select id='select2'
+              option Lacus
+              option Varius
+              option Eleifend
+      .checkbox-list
+        .header
+          h4 Vivamus eu aliquet
+          p
+            | (sapien, non fringilla enim)
+        .content
+          label.checkbox
+            input type='checkbox'
+            span Pellentesque habitant morbi
+          label.checkbox
+            input type='checkbox'
+            span Leo id odio
+      button.button.action Fusce euismod bibendum
+      .hint Vivamus ultricies augue in tortor
+
+  .section
+    .header
+      h4 Proin aliquam tortor
+      .toggle-accordion
+      em Aliquam sapien enim, elementum
+    .body
+      p Lorem ipsum dolor sit amet, consectetur Testadipiscing elit. Morbi eu interdum diam. Donec interdum porttitor risus non bibendum. Maecenas sollicitudin eros in quam imperdiet placerat. Cras justo purus, rhoncus nec lobortis ut, iaculis vel ipsum. Donec dignissim arcu nec elit faucibus condimentum.
+  .section
+    .header
+      h4 Mauris semper faucibus tellus
+      .toggle-accordion
+    .body
+      p Lorem ipsum dolor sit amet, consectetur Testadipiscing elit. Morbi eu interdum diam. Donec interdum porttitor risus non bibendum. Maecenas sollicitudin eros in quam imperdiet placerat. Cras justo purus, rhoncus nec lobortis ut, iaculis vel ipsum. Donec dignissim arcu nec elit faucibus condimentum.
+
+css:
+  .exampleOutput { background-color: #FBFBFB; }
+  .mod-accordion { max-width: 25rem; }
+```
+
+```js_example
+$('.mod-accordion .header').on('click', function() {
+  $(this).parents('.section').toggleClass('expanded');
+  $(this).parents('.section').find('.body').slideToggle(500);
+});
+```
+*/
+// scss-lint:enable all
+
+$accordion-section-border-color:              $neutral-3;
+$accordion-section-expanded-border-color:     $neutral-6;
+$accordion-section-expanded-background-color: $neutral-8;
+$accordion-section-header-color:              $neutral-2;
+$accordion-section-hint-color:                $neutral-3;
+
+.mod-accordion-button {
+  .details {
+    display: none;
+
+    p {
+      @include like-p;
+    }
+  }
+}
+
+
+.mod-accordion {
+  .section {
+    padding: ru(.75) ru(.75) 0;
+
+    transition: border .25s linear;
+
+    + .section {
+      border-top: 1px solid $accordion-section-border-color;
+    }
+
+    &.expanded {
+      background-color: $accordion-section-expanded-background-color;
+      border-top: ru(.25) solid $accordion-section-expanded-border-color;
+      border-bottom: ru(.25) solid $accordion-section-expanded-border-color;
+
+      .toggle-accordion {
+        transform: rotate(360deg);
+
+        &:before {
+          opacity: 0;
+        }
+
+        &:after {
+          opacity: 1;
+        }
+      }
+
+      + .section {
+        border-top: 0;
+      }
+    }
+  }
+
+  .header {
+    @extend .clearfix;
+    position: relative;
+    color: $accordion-section-header-color;
+    cursor: pointer;
+
+    h4,
+    h5 {
+      @include typography-5;
+      font-weight: 400;
+      // scss-lint:disable ImportantRule
+      margin: 0 ru(1.75) ru(.75) 0 !important;
+      // scss-lint:enable ImportantRule
+      color: inherit;
+      transition: margin 500ms ease;
+      float: left;
+    }
+
+    .toggle-accordion {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: ru(1.25);
+      height: ru(1.25);
+      font-weight: 100;
+      font-size: rem-calc(52px);
+      cursor: pointer;
+      transform: rotate(0);
+      transition: all 1s ease;
+      float: right;
+
+      &:before,
+      &:after {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: ru(1.25);
+        height: ru(1.25);
+        transform: translate(-50%, -50%);
+        transition: opacity 1s ease;
+      }
+
+      &:before {
+        content: '+';
+        opacity: 1;
+      }
+
+      &:after {
+        content: '\2013';
+        font-weight: 400;
+        font-size: rem-calc(38px);
+        line-height: 22px;
+        text-align: center;
+        opacity: 0;
+      }
+    }
+
+    em {
+      display: block;
+      clear: both;
+      position: relative;
+      top: ru(-.75);
+    }
+  }
+
+  .body {
+    display: none;
+    width: 100%;
+    word-break: break-word;
+  }
+
+  .hint {
+    @include typography-7();
+    margin-bottom: 0;
+    text-align: center;
+    color: $accordion-section-hint-color;
+
+    &[class*=' i-']:before {
+      margin-right: ru(.167);
+    }
+  }
+
+  @media #{$small-only} {
+    .section {
+      padding: ru(.75) 0 0;
+    }
+  }
+}

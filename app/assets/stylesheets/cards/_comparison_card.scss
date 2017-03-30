@@ -1,0 +1,1173 @@
+// scss-lint:disable all
+/*doc
+---
+title: Comparison Card
+name: comparison-card
+category: Cards - Comparison Card
+---
+
+## Usage notes:
+For the standard and simple comparison cards, you can hide columns/sections on small using the `.col-hide-for-medium-only` class.
+However, note that you will need to add the class to the corrisponding [header](modules_-_comparison_table_header.html) column/section if there is one in the comparision table.
+
+```slim_example
+.mod-comparison-card.small-only--with-header
+  .summary
+    .plan
+      .value
+        sup $
+        | 10
+        small
+             | /non
+      h4 Proin aliquam tortor
+    .info
+      img src='holder.js/160x40?auto=yes'
+      .rating
+        .stars
+          .com-rating.compact
+            .stars
+              .i-star.active
+              .i-star.active
+              .i-star.active
+              .i-star.active
+              .i-star
+        .rate
+          | 1.0
+          span
+              | /10
+          span.i-help
+    .pricing.col-hide-for-medium-only
+      h4 Aenean ac bibendum
+      .value
+        sup $
+        | 100
+      small aliquam dignissim
+    .pricing.col-hide-for-medium-only
+      h4 Donec blandit diam
+      .value
+        | 10
+        sup %
+      small et ex fermentum
+    .pricing.up
+      h4 Orci et
+      .value
+        sup $
+        | 10K
+      small consequat aliquet
+    .actions
+      a.button.action href='#' Nulla maximus
+      a.button.read-more href='#' Phasellus viverra mollis
+      a.link href='#'
+       span Show Details
+  .details
+    .section
+      h3 Vulputate
+      ul.mod-simple-list.condensed
+        li Nam accumsan quam eu
+        li Suspendisse sed sem sagittis
+        li Vestibulum lacinia
+      a.hidden-for-large-up.i-checkheart href='#' Maecenas efficitur accumsan hendrerit.
+    .section.visible-for-large-up
+      h3.icon-checkheart Aliquam
+      p
+       | Proin aliquam tortor et aliquam dignissim
+       strong $10/quam
+      a.action href='#' In rhoncus orci
+    .section
+      h3 Plan Features
+      ul.checklist
+        li.i-check.checked Aenean in lacus lacinia
+        li.i-check.checked Suspendisse erat dolor
+        li.i-delete Suspendisse molestie vel
+        li.i-delete Phasellus viverra mollis
+    .actions
+      h3 Nunc mattis molestie libero
+      a.button.mini.i-openbook Proin pharetra felis
+```
+
+```slim_example
+.mod-comparison-card
+  .no-results
+    h2 In rhoncus orci et ex fermentum
+    p Vivamus eu aliquet sapien, non fringilla enim.
+    a.button.info href='#' Show Details
+```
+
+```slim_example
+.mod-comparison-card
+  .no-results
+    h2 In rhoncus orci et ex fermentum.
+    p
+      | Suspendisse molestie
+      '
+      a href='#'
+        i nulla maximus congue
+      '
+      | dolor sed vestibulum.
+    img src='images/no-results-hero.gif'
+    p
+      i Consequat augue
+    p
+      | Proin aliquam tortor
+      a.action href='#' 0-000-000-0000
+```
+
+## No border variant
+
+```slim_example
+.mod-comparison-card.no-border
+  .you-re-unique
+    h2 In rhoncus orci et ex fermentum
+    p Ut scelerisque nulla at sem suscipit, at porta mi tincidunt.
+    p
+      strong: em Vivamus ultricies
+      ' Maecenas gravida ex a sed vulputate, sodales cursus risus blandit.
+
+    .talk-to-expert
+      img src='images/no-results-hero.gif'
+      div
+        h3 Suspendisse molestie vel sapien at
+        .contact-options
+          .buttons
+            .button.outline.mini.left-side.i-phone Nulla maximus congue
+            .button.outline.mini.left-side.i-chat A consequat augue
+          .mod-simple-card
+            | Donec dui est
+            br
+            | #00000000
+```
+
+## Simple Comparison Card
+```slim_example
+.mod-comparison-card.simple
+  .summary
+    .plan-col
+      .com-text-lockup--rate
+        .value
+          sup $
+          | 10
+          sup .10
+          small
+           | /non
+    .logo-col
+      img src='holder.js/120x80?auto=yes&text="Logo"'
+    .rating-col.visible-for-large-up
+      h4.col-header BBB Lorem
+      strong +A
+    .stars-col.visible-for-large-up
+      h4.col-header Pellentesque habitant
+      .com-rating.compact.narrow
+        .stars
+          .i-star.active
+          .i-star.active
+          .i-star.active
+          .i-star.active
+          .i-star
+    .cta-col.actions
+        .mod-example.button.action href='#' Nulla maximus
+        a.link href='#'
+          span Show Details
+        a.button.outline Jargon
+  .details
+    .ratings-col
+      h3.col-header.icon-checkheart Aliquam
+      p
+       | Proin aliquam tortor et aliquam dignissim
+       strong $10/quam
+      a.action href='#' In rhoncus orci
+    .features-col
+      h3.col-header Plan Features
+      ul.mod-icon-list.small
+        li.i-check.checked Aenean in lacus lacinia
+        li.i-check.checked Suspendisse erat dolor
+        li.i-check.checked Suspendisse molestie vel
+        li.i-check.checked Phasellus viverra mollis
+    .description-col
+      h3.col-header Vulputate
+      p
+        | Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nullam mollis turpis eget mattis congue. Fusce vitae turpis quis mauris maximus tincidunt vel sit amet nibh.
+      a.hidden-for-large-up.i-checkheart href='#' Maecenas efficitur accumsan hendrerit.
+```
+
+```js_example
+$('.mod-comparison-card').on('click', function(e) {
+  e.preventDefault();
+  var $this = $(this),
+      $details = $this.find('.details'),
+      $link_text = $this.find('.link span');
+  if ($details.hasClass('visible')) {
+    $link_text.text('Show Details');
+  } else {
+    $link_text.text('Hide Details');
+  }
+  $details.toggleClass('visible');
+});
+```
+*/
+// scss-lint:enable all
+
+$comparison-card-background-color:                $neutral-8;
+$comparison-card-border-color:                    $neutral-5;
+$comparison-card-section-header-soft:             $neutral-3;
+$comparison-card-plan-value-color:                $neutral-2;
+$comparison-card-plan-title-color:                $neutral-2;
+$comparison-card-rating-star-color:               $brand-3;
+$comparison-card-rating-empty-star-color:         $neutral-4;
+$comparison-card-rating-rate-color:               $neutral-3;
+$comparison-card-pricing-title-color:             $neutral-3;
+$comparison-card-pricing-value-color:             $neutral-2;
+$comparison-card-level-color:                     $neutral-2;
+$comparison-card-level-value-color:               $neutral-4;
+$comparison-card-terms-header-color:              $neutral-3;
+$comparison-card-terms-description-color:         $neutral-2;
+
+$comparison-card-small-background-color:          $neutral-8;
+$comparison-card-small-border-color:              $neutral-5;
+$comparison-card-small-header-background-color:   $brand-3;
+$comparison-card-small-rating-empty-star-color:   $brand-4;
+$comparison-card-small-header-color:              $neutral-8;
+$comparison-card-small-plan-value-color:          $neutral-8;
+
+$comparison-card-details-border-color:            $neutral-5;
+$comparison-card-details-color:                   $neutral-2;
+$comparison-card-details-icon-color:              $brand-3;
+$comparison-card-details-checklist-color:         $neutral-3;
+$comparison-card-details-checklist-checked-color: $neutral-2;
+$comparison-card-details-arrow-color:             $neutral-8;
+
+$comparison-card-summary-padding:                 ru(.75);
+
+.mod-comparison-card {
+  font-family: $font-family-sans-serif;
+  background-color: $comparison-card-background-color;
+  margin-bottom: ru(.667);
+  border-top: 1px solid $comparison-card-border-color;
+  border-bottom: ru(.167) solid $comparison-card-border-color;
+
+  h4,
+  .col-header {
+    @include typography-7(false);
+    line-height: ru(.75);
+    font-weight: 600;
+    color: $comparison-card-terms-header-color;
+  }
+
+  strong {
+    font-weight: 700;
+  }
+
+  em {
+    font-style: italic;
+  }
+
+  &.no-border {
+    border-top: 0;
+    border-bottom: 0;
+  }
+
+  .you-re-unique {
+    margin: ru(2) auto;
+    text-align: center;
+
+    h2 {
+      @include typography-3;
+      margin: 0 0 ru(.25);
+    }
+
+    h3 {
+      @include typography-4;
+    }
+
+    p {
+      @include typography-6;
+      margin: 0 0 ru(.25);
+    }
+
+    img {
+      width: rem-calc(200px);
+    }
+
+    .talk-to-expert {
+      margin-top: ru(2);
+
+      .button {
+        margin-bottom: ru(.75);
+      }
+
+      .mod-simple-card {
+        padding: ru(.75) ru(2);
+      }
+    }
+  }
+
+  .pg-tooltip {
+    border-bottom: 0;
+
+    &:hover .pg-tooltip-popup {
+      opacity: 0;
+      visibility: false;
+    }
+
+    &:focus {
+      outline: 0;
+
+      .pg-tooltip-popup {
+        opacity: 1;
+        pointer-events: auto;
+        visibility: visible;
+      }
+    }
+  }
+
+  .summary {
+    display: flex;
+    align-items: flex-end;
+    background-color: $comparison-card-background-color;
+    margin-bottom: ru(.25);
+    padding: ru(1);
+  }
+
+  .plan,
+  .plan-col,
+  .info,
+  .pricing,
+  .level,
+  .actions {
+    flex-grow: 1;
+  }
+
+  .plan {
+    h4 {
+      @include typography-7(false);
+      font-weight: 700;
+      color: $comparison-card-plan-title-color;
+      text-transform: capitalize;
+    }
+
+    .price {
+      margin: auto;
+    }
+
+    .value {
+      @include typography-1(false);
+      font-weight: 600;
+      line-height: 1;
+      color: $comparison-card-plan-value-color;
+
+      small,
+      sup {
+        @include typography-5(false);
+        line-height: 1;
+        color: inherit;
+      }
+
+      sup {
+        vertical-align: super;
+      }
+    }
+
+    &.quote {
+      justify-content: center;
+
+      p { margin: 0; }
+    }
+  }
+
+  .info {
+    img {
+      max-height: 30px;
+      max-width: 115px;
+      margin: auto;
+      display: block;
+    }
+  }
+
+  .carrier {
+    flex-direction: row;
+
+    img {
+      margin: auto;
+      max-height: rem-calc(32px);
+    }
+  }
+
+  .rating {
+    margin-top: ru(.75);
+
+    .rate {
+      font-weight: 600;
+
+      span {
+        color: $comparison-card-rating-rate-color;
+      }
+
+      .i-help {
+        margin-left: ru(.33);
+        font-size: rem-calc(14px);
+
+        &:before { margin-right: 0; }
+      }
+    }
+  }
+
+  .level,
+  .pricing {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    h4 {
+      @include typography-7(false);
+      flex-grow: 1;
+      font-weight: 700;
+      line-height: ru(.667);
+      color: $comparison-card-pricing-title-color;
+    }
+
+    small {
+      @include typography-7;
+      margin: 0;
+      color: $comparison-card-pricing-value-color;
+    }
+
+    .value {
+      @include typography-3(false);
+      line-height: 1;
+      color: $comparison-card-pricing-value-color;
+
+      sup {
+        @include typography-6(false);
+        vertical-align: super;
+        line-height: 1;
+      }
+    }
+  }
+
+  .level {
+    @include typography-5;
+    justify-content: center;
+    font-weight: 600;
+    margin: 0;
+    text-align: center;
+    color: $comparison-card-level-color;
+
+    .value {
+      @include typography-7(false);
+      color: $comparison-card-level-value-color;
+    }
+  }
+
+  .actions {
+    align-items: center;
+    flex-direction: column;
+    display: flex;
+
+    .link {
+      @include typography-7;
+      position: relative;
+      margin: auto auto 0;
+      text-decoration: none;
+
+      span {
+        text-decoration: underline;
+      }
+
+      &:before {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: ru(1);
+        height: ru(1);
+        padding-top: ru(.083);
+        text-align: center;
+        margin: 0;
+        transform: rotate(0);
+        transition: all .5s ease;
+      }
+    }
+
+    &.with-sign {
+      align-items: center;
+
+      .sign {
+        @include icon(plus);
+        @include icon(hyphen, after);
+        position: relative;
+        flex-shrink: 0;
+        flex-grow: 0;
+        flex-basis: ru(1);
+        width: ru(1);
+        height: ru(1);
+        margin-left: ru(.75);
+
+        &:before,
+        &:after {
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          margin: 0;
+          font-size: rem-calc(16px);
+          cursor: pointer;
+          transform: rotate(0);
+          transition: all .5s ease;
+        }
+
+        &:after {
+          opacity: 0;
+        }
+
+        &.expanded {
+          &:before,
+          &:after {
+            margin: ru(.083) 0 0;
+            transform: rotate(360deg);
+          }
+
+          &:before { opacity: 0; }
+          &:after { opacity: 1; }
+        }
+      }
+    }
+  }
+
+  .details {
+    display: flex;
+    position: relative;
+    padding: ru(1);
+    margin-top: ru(-2.25);
+    border-top: 1px solid $comparison-card-details-border-color;
+    color: $comparison-card-details-color;
+    transition: all .5s ease;
+    transform: rotateX(-120deg) translateY(120px);
+    max-height: 0;
+    opacity: 0;
+    z-index: -1;
+    font-size: rem-calc(13px);
+
+    h3 {
+      @include typography-6;
+      font-weight: 700;
+      margin: 0 0 ru(.33);
+
+      &.icon-checkheart {
+        @include icon(checkheart, after);
+
+        &:after {
+          color: $comparison-card-details-icon-color;
+          margin-top: 0;
+          line-height: 1;
+        }
+      }
+
+      &.soft {
+        color: $comparison-card-section-header-soft;
+      }
+    }
+
+    ul {
+      margin: 0;
+
+      &.checklist {
+        padding: 0;
+        list-style: none;
+
+        li {
+          position: relative;
+          padding-left: ru(1);
+          color: $comparison-card-details-checklist-color;
+
+          &:before {
+            position: absolute;
+            top: 0;
+            left: 0;
+          }
+
+          &.checked {
+            color: $comparison-card-details-checklist-checked-color;
+          }
+        }
+      }
+
+      &.checkmarks {
+        font-weight: 300;
+        padding: 0;
+        list-style: none;
+
+        li {
+          @extend .icon-check-dark;
+          position: relative;
+          padding-left: ru(1);
+
+          + li {
+            margin-top: ru(.25);
+          }
+
+          &:before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: rem-calc(2px);
+            width: ru(.667);
+            height: ru(.667);
+          }
+        }
+      }
+    }
+
+    p {
+      margin: 0;
+    }
+
+    .i-checkheart {
+      // scss-lint:disable ImportantRule
+      position: relative !important;
+      // scss-lint:enable ImportantRule
+      display: block;
+      padding-left: ru(1);
+      color: $comparison-card-details-color;
+
+      &:before {
+        position: absolute;
+        left: rem-calc(4px);
+        color: $comparison-card-details-icon-color;
+        margin-top: ru(.083);
+      }
+    }
+
+    .i-delete {
+      color: $comparison-card-details-checklist-color;
+    }
+
+    .section {
+      @include typography-7;
+      line-height: ru(.75);
+      flex-shrink: 1;
+      flex-grow: 1;
+      flex-basis: 25%;
+
+      &:nth-child(1) {
+        padding-right: ru(1);
+      }
+
+      &:nth-child(2) {
+        padding-right: ru(2.5);
+      }
+
+      &:nth-child(3) {
+        flex-basis: 22%;
+      }
+    }
+
+    .actions {
+      position: relative;
+      flex-shrink: 1;
+      flex-grow: 1;
+      flex-basis: 17%;
+      text-align: center;
+      padding-left: ru(1);
+      padding-bottom: ru(1);
+      margin-bottom: ru(-1);
+      border-left: 1px solid $comparison-card-details-border-color;
+
+      a.button {
+        min-height: ru(1.667);
+        white-space: normal;
+        margin: 0 auto;
+      }
+
+      &:before,
+      &:after {
+        position: absolute;
+        top: ru(-1);
+        left: 0;
+        transform: translateX(-50%);
+        content: '';
+        width: 0;
+        height: 0;
+        border-left: ru(.5) solid transparent;
+        border-right: ru(.5) solid transparent;
+        border-top: ru(.5) solid $comparison-card-details-border-color;
+      }
+
+      &:after {
+        margin-top: -1px;
+        border-top-color: $comparison-card-details-arrow-color;
+      }
+    }
+
+    .terms {
+      display: flex;
+      flex-shrink: 1;
+      flex-grow: 1;
+      flex-basis: 40%;
+      flex-wrap: wrap;
+      // scss-lint:disable ImportantRule
+      margin-bottom: ru(-1) !important;
+      padding-right: ru(1.5) !important;
+      // scss-lint:enable ImportantRule
+
+      > * {
+        flex-shrink: 1;
+        flex-grow: 1;
+
+        + * {
+          margin-left: ru(1);
+        }
+      }
+
+      .description {
+        @include typography-5;
+        font-weight: 600;
+        color: $comparison-card-terms-description-color;
+      }
+    }
+
+    .ratings-col {
+      @include g-unit(3);
+    }
+
+    .features-col {
+      @include g-unit(4);
+    }
+
+    .description-col {
+      @include g-unit(5);
+    }
+
+    &.visible {
+      transform: rotateX(0) translateY(0);
+      max-height: ru(10);
+      margin-top: 0;
+      opacity: 1;
+      z-index: 1;
+    }
+  }
+
+  .no-results {
+    margin: 0;
+    padding: ru(4) 0;
+    text-align: center;
+
+    h2 {
+      @include typography-3;
+      margin: 0 0 ru(.5);
+    }
+
+    p {
+      @include typography-6;
+      margin: 0 0 ru(.5);
+    }
+
+    i {
+      font-style: italic;
+    }
+
+    img {
+      width: rem-calc(200px);
+      margin-top: ru(1);
+      margin-bottom: ru(1);
+    }
+
+    .button {
+      max-width: ru(25);
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+
+  &:hover {
+    .summary {
+      .actions {
+        .button.action {
+          background-color: $button-action-background-color;
+          box-shadow: 0 ru(.208) 0 $button-action-border-color;
+          color: $button-action-color;
+
+          &:hover,
+          &:focus,
+          &:active {
+            box-shadow: 0 ru(.083) 0 $button-action-border-color;
+            background-color: $button-action-background-color;
+            color: $button-action-color;
+          }
+        }
+      }
+    }
+  }
+
+  @media #{$small-only} {
+    margin: 0 15px 1rem;
+    border-top: 0;
+    border-bottom: 0;
+    margin-top: 1rem;
+    background: none;
+
+    img {
+      display: block;
+      margin: auto;
+    }
+
+    .summary {
+      flex-wrap: wrap;
+      border: 1px solid $comparison-card-small-border-color;
+      border-bottom-width: ru(.125);
+      border-radius: ru(.25);
+      background-color: $comparison-card-small-background-color;
+      padding: $comparison-card-summary-padding;
+      position: relative;
+      overflow: hidden;
+      align-items: center;
+
+      > * + * {
+        margin-left: 0;
+      }
+    }
+
+    .plan,
+    .plan-col {
+      padding: ru(.75);
+      margin-bottom: ru(1);
+      text-align: center;
+
+      h4 { display: none; }
+
+      &.quote {
+        flex-basis: 100%;
+        padding: ru(.25) ru(.75);
+
+        p { color: $comparison-card-small-header-color; }
+      }
+    }
+
+    .plan.quote {
+      flex-basis: 100%;
+      padding: ru(.25) ru(.75);
+
+      p { color: $comparison-card-small-header-color; }
+    }
+
+    .info {
+      flex-basis: 100%;
+      align-items: flex-start;
+      img { margin: 0; }
+    }
+
+    .pricing,
+    .level,
+    .carrier,
+    .info {
+      padding-left: ru(1);
+      margin-bottom: ru(1);
+    }
+
+    .rating {
+      .rate {
+        color: $comparison-card-small-header-color;
+        span { color: $comparison-card-small-header-color; }
+        .pg-tooltip-sub { color: $comparison-card-plan-title-color; }
+
+        .pg-tooltip:hover .pg-tooltip-popup {
+          margin-top: 0;
+        }
+
+        .pg-tooltip-popup {
+          position: absolute;
+          transform: translateY(0) translateX(-64%);
+        }
+
+        .i-help::before {
+          color: $comparison-card-small-header-color;
+        }
+      }
+    }
+
+    .plan,
+    .level,
+    .pricing {
+      margin-bottom: ru(1);
+    }
+
+    .level,
+    .pricing {
+      display: block;
+      flex-basis: 50%;
+      align-self: stretch;
+      text-align: left;
+
+      h4 {
+        margin: 0 0 ru(.33);
+      }
+
+      .value {
+        margin-right: ru(.25);
+      }
+
+      small {
+        display: inline-block;
+      }
+    }
+
+    .up {
+      flex-basis: 100%;
+    }
+
+    .carrier {
+      width: 100%;
+
+      img {
+        max-width: none;
+        margin: auto auto auto 0;
+      }
+    }
+
+    .actions {
+      flex-direction: column;
+      width: 100%;
+      padding-left: 0;
+
+      .link,
+      .sign { display: none; }
+    }
+
+    .actions {
+      .button {
+        width: 100%;
+      }
+    }
+
+    > .details {
+      display: none;
+    }
+
+    .cta-col {
+      > .button {
+        margin-left: ru(1);
+        flex-basis: 50%;
+
+        &:first-child {
+          margin-left: 0;
+          flex-grow: 2;
+        }
+
+        &:last-child {
+          flex-basis: 33%;
+        }
+      }
+    }
+
+    // Special variant that makes the
+    // .plan and .rating elements into a special header
+    &.small-only--with-header {
+      .plan {
+        color: $comparison-card-small-header-color;
+        width: calc(100% + 2 * #{$comparison-card-summary-padding});
+        margin-top: -$comparison-card-summary-padding;
+        margin-left: -$comparison-card-summary-padding;
+        margin-right: -$comparison-card-summary-padding;
+        background-color: $comparison-card-small-header-background-color;
+
+        .value {
+          color: $comparison-card-small-header-color;
+          width: 50%;
+          margin-bottom: 0;
+        }
+      }
+
+      .rating {
+        position: absolute;
+        width: 50%;
+        right: 0;
+        top: ru(1);
+        margin-top: 0;
+        text-align: center;
+      }
+    }
+
+    &.simple {
+      border-radius: 6px;
+
+      .plan-col {
+        align-self: stretch;
+      }
+
+      .plan-col,
+      .logo-col,
+      .stars-col,
+      .rating-col {
+        flex-shrink: 1;
+        flex-grow: 1;
+        margin-bottom: ru(1);
+      }
+
+      .plan-col,
+      .logo-col {
+        flex-basis: 0%;
+      }
+
+      .stars-col,
+      .rating-col {
+        flex-basis: 50%;
+        text-align: center;
+      }
+
+      .cta-col {
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
+      }
+    }
+  }
+
+  @media #{$medium-only} {
+    .col-hide-for-medium-only {
+      display: none;
+    }
+
+    .summary {
+      min-height: ru(3.667);
+    }
+
+    > .details {
+      .terms {
+        flex-wrap: wrap;
+        // scss-lint:disable ImportantRule
+        padding-right: ru(1) !important;
+        margin-bottom: ru(-.5) !important;
+        // scss-lint:enable ImportantRule
+
+        .description {
+          @include typography-7;
+          line-height: ru(.75);
+          margin: 0 0 ru(.5);
+        }
+      }
+    }
+  }
+
+  @media #{$medium-up} {
+    .summary {
+      text-align: center;
+      align-items: center;
+
+      // Default column
+      > div {
+        @include g-unit(2);
+        flex-grow: 1;
+      }
+    }
+
+    .pricing {
+      text-align: left;
+    }
+
+    .link {
+      display: inline-flex;
+    }
+
+    .read-more {
+      display: none;
+    }
+
+    .rate,
+    .value {
+      text-align: center;
+    }
+
+    .actions {
+      .button {
+        width: auto;
+      }
+    }
+
+    .actions.with-sign {
+      flex-direction: row;
+    }
+
+    .button.outline {
+      display: none;
+    }
+
+    &.simple {
+      .plan-col,
+      .cta-col {
+        @include g-unit(3);
+      }
+
+      .logo-col,
+      .rating-col,
+      .stars-col {
+        @include g-unit(2);
+      }
+
+      .col-header {
+        color: $neutral-3;
+      }
+
+      .button {
+        width: 75%;
+      }
+    }
+
+    &.no-border {
+      .talk-to-expert {
+        .button {
+          margin-left: ru(.33);
+        }
+
+        .button:first-of-type { margin-left: 0; }
+      }
+    }
+  }
+
+  @media #{$large-up} {
+    .you-re-unique {
+      h3 {
+        text-align: left;
+      }
+    }
+
+    .talk-to-expert {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      > * {
+        flex-shrink: 1;
+        flex-grow: 0;
+        flex-basis: auto;
+
+        + * {
+          margin-left: ru(1);
+        }
+      }
+
+      .contact-options {
+        display: flex;
+        align-items: flex-start;
+
+        > * {
+          flex-shrink: 0;
+          flex-grow: 1;
+          flex-basis: auto;
+        }
+      }
+
+      .buttons {
+        margin-right: ru(1.25);
+
+        .button {
+          display: block;
+
+          + .button {
+            // scss-lint:disable ImportantRule
+            margin-left: 0 !important;
+            margin-top: ru(.41);
+            // scss-lint:enable ImportantRule
+          }
+        }
+      }
+    }
+  }
+}

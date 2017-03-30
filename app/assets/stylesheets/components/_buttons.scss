@@ -1,0 +1,452 @@
+// scss-lint:disable all
+/*doc
+---
+title: Buttons
+name: buttons
+category: Components - Buttons
+---
+## Simple Button
+```slim_example_table
+.mod-example
+  .button Praesent quis rhoncus
+br
+.mod-example
+  .button[disabled] Praesent quis rhoncus
+```
+
+## Info Button
+```slim_example_table
+.mod-example
+  .button.info Sed vehicula odios
+br
+.mod-example
+  .button.left-side.info Sed vehicula odios
+br
+.mod-example
+  .button.right-side.info Sed vehicula odios
+```
+
+## Button on colored background
+```slim_example_table
+.mod-example style='display: flex; justify-content: center; background-color: #00a4a5; padding: 25px'
+  .button.solid-background Vestibulum ultricies mi
+
+.mod-example style='display: flex; justify-content: center; background-color: #66c8c9; padding: 25px'
+  .button.solid-background.solid-background-primary Vestibulum ultricies mi
+
+.mod-example style='display: flex; justify-content: center; background-color: #3ad1ba; padding: 25px'
+  .button.solid-background.solid-background-secondary Vestibulum ultricies mi
+
+.mod-example style='display: flex; justify-content: center; background-color: #f08f5c; padding: 25px'
+  .button.solid-background.solid-background-tertiary Vestibulum ultricies mi
+```
+
+## Outline Button
+```slim_example_table
+.mod-example
+  .button.outline.i-phone Amet 9-999-999-9999
+.mod-example
+  .spacer-xs
+    .button.outline.i-chat Quisque maximus ligula
+```
+
+## Action Button
+```slim_example_table
+.mod-example
+  .button.action Ut dictum interdum
+br
+.mod-example
+  .button.action.lowlight Ut dictum interdum
+br
+.mod-example
+  .button.action[disabled] Ut dictum interdum
+```
+
+## Button with Icon
+```slim_example_table
+.mod-example
+  .button.i-openbook Read Our Guidlines
+br
+.mod-example
+  .button.action.i-star Get Your Checkup
+```
+
+## Mini Button
+```slim_example_table
+.mod-example
+  .button.mini Proin finibus nec
+br
+.mod-example
+  .button.mini.i-openbook Proin finibus nec
+```
+
+## Disabled Button Animation
+```slim_example_table
+.mod-example
+  .button.action[disabled] Mauris eget mauris
+```
+
+```js_example
+$('.button[disabled]').on('click', function() {
+  $(this).addClass('shaking').text('You shall not pass!');
+});
+```
+
+## Button with graphic
+```slim_example_table
+.mod-example
+  a.button.graphic href='#'
+    img.graphic-image src='images/heart-sign.png' width='60'
+    span.graphic-text Mauris eget mauris
+
+css:
+  .button.graphic {
+    max-width: 220px;
+  }
+```
+
+## Button like tag
+```slim_example_table
+.mod-example
+  a.button.tag #praesent sodales
+  a.button.tag #proin finibus consequat
+  a.button.tag #aliquam faucibus
+```
+
+## Expanded full width on mobile
+```slim_example_table
+.mod-example
+  .button.expanded-on-mobile Phasellus Ullamcorper
+  .button.outline.expanded-on-mobile Aenean Ac
+  .button.i-openbook.expanded-on-mobile Sed Eu Ex
+  .button.mini.expanded-on-mobile Aenean Tristique
+```
+
+## Stacked Buttons
+```slim_example_table
+.mod-example
+  .stacked-buttons
+    .button.i-phone
+      | (855) 695-2255
+    .button.i-chat Chat with an Expert
+```
+
+## Hamburger Button
+_Styles from hamburger vendor file_
+
+### Standard
+```slim_example_table
+button.hamburger type="button"
+  span.hamburger-box
+    span.hamburger-inner
+```
+
+### Is active
+```slim_example_table
+button.hamburger.is-active type="button"
+  span.hamburger-box
+    span.hamburger-inner
+```
+
+### Javascript
+```js_example
+$('.hamburger').click(function() {
+  $(this).toggleClass('is-active');
+});
+
+*/
+// scss-lint:enable all
+
+$button-background-color:                  $neutral-8;
+$button-border-color:                      $action-3;
+$button-border-radius:                     ru(.25);
+$button-color:                             $action-2;
+$button-hover-background-color:            $action-2;
+$button-hover-color:                       $neutral-8;
+$button-disabled-border-color:             $neutral-5;
+$button-disabled-color:                    $neutral-4;
+$button-info-color:                        $brand-2;
+$button-info-hover-color:                  $neutral-8;
+$button-shaking-offset:                    ru(.25);
+$button-action-background-color:           $accent-2;
+$button-action-border-color:               $accent-1;
+$button-action-color:                      $neutral-8;
+$button-action-lowlight-background-color:  $brand-2;
+$button-action-lowlight-border-color:      $brand-1;
+$button-action-lowlight-color:             $neutral-8;
+$button-action-disabled-background-color:  $neutral-5;
+$button-action-disabled-border-color:      $neutral-3;
+$button-action-disabled-color:             $neutral-8;
+$button-stacked-background-color:          $neutral-8;
+$button-stacked-border-color:              $neutral-5;
+$button-stacked-color:                     $neutral-2;
+$button-stacked-hover-background-color:    $neutral-4;
+$button-stacked-hover-color:               $neutral-8;
+$button-outline-color:                     $neutral-2;
+$button-outline-border-color:              $neutral-2;
+$button-outline-background-color:          $neutral-8;
+$button-outline-hover-color:               $neutral-8;
+$button-outline-hover-background-color:    $neutral-2;
+$button-graphic-border-color:              $neutral-5;
+$button-graphic-hover-border-color:        $brand-2;
+$button-graphic-border-radius:             ru(.25);
+$button-graphic-background-color:          $neutral-8;
+$button-graphic-color:                     $brand-2;
+$button-tag-background-color:              $brand-5;
+$button-tag-hover-background-color:        $brand-2;
+$button-tag-color:                         $neutral-2;
+$button-tag-hover-color:                   $neutral-8;
+$button-solid-background-color:            $neutral-8;
+$button-solid-background-hover-color:      $brand-2;
+$button-font:                              $sans-serif;
+$button-solid-background-primary-color:    $brand-3;
+$button-solid-background-secondary-color:  #3ad1ba;
+$button-solid-background-tertiary-color:   #f08f5c;
+
+[class^='mod-'] {
+  .button {
+    @include typography-6;
+    @include hover($button-hover-background-color, $button-border-color, $button-hover-color);
+    display: inline-block;
+    cursor: pointer;
+    font-family: $button-font;
+    font-weight: bold;
+    line-height: ru(1);
+    text-align: center;
+    text-decoration: none;
+    color: $button-color;
+    margin: 0;
+    padding: ru(.5);
+    background-color: $button-background-color;
+    border: 1px solid $button-border-color;
+    border-radius: $button-border-radius;
+    transition: background-color 300ms ease-out, border-color 300ms ease-out,
+                top 150ms ease-out, color 150ms ease-out, box-shadow 150ms ease-out;
+
+    &[disabled],
+    &.disabled {
+      @include hover($button-background-color, $button-disabled-border-color, $button-disabled-color);
+      border-color: $button-disabled-border-color;
+      background-color: $button-background-color;
+      color: $button-disabled-color;
+      cursor: not-allowed;
+      user-select: none;
+      outline: none;
+    }
+
+    &.full-width {
+      // scss-lint:disable ImportantRule
+      width: 100% !important;
+      // scss-lint:enable ImportantRule
+    }
+
+    &.info {
+      @include hover($button-info-color, $button-info-color, $button-info-hover-color);
+      display: block;
+      margin-top: ru(.75);
+      background-color: inherit;
+      border-color: $button-info-color;
+      color: $button-info-color;
+    }
+
+    &.solid-background {
+      @include hover($button-solid-background-color,
+        $button-solid-background-color, $button-solid-background-hover-color);
+      background-color: transparent;
+      border-color: $button-solid-background-color;
+      color: $button-solid-background-color;
+      text-transform: none;
+    }
+
+    &.solid-background-primary {
+      &:hover {
+        color: $button-solid-background-primary-color;
+      }
+    }
+
+    &.solid-background-secondary {
+      &:hover {
+        color: $button-solid-background-secondary-color;
+      }
+    }
+
+    &.solid-background-tertiary {
+      &:hover {
+        color: $button-solid-background-tertiary-color;
+      }
+    }
+
+    &.mini {
+      @extend .typography-7;
+      margin: 0;
+      padding: ru(.25) ru(.75);
+    }
+
+    &.shaking {
+      animation: disabled-button-shake .5s ease-out;
+    }
+
+    &.left-side {
+      text-align: left;
+    }
+
+    &.right-side {
+      text-align: right;
+    }
+
+    &.action {
+      @include hover-action(rem-calc(3px), rem-calc(2px), $button-action-border-color,
+                            $button-action-background-color, $button-action-color);
+      position: relative;
+      top: 0;
+      width: 100%;
+      background-color: $button-action-background-color;
+      padding-bottom: ru(.375);
+      border: 0;
+      color: $button-action-color;
+      box-shadow: 0 ru(.208) 0 $button-action-border-color;
+      margin-bottom: ru(.5);
+
+      // scss-lint:disable NestingDepth
+      &[disabled],
+      &.disabled {
+        @include hover-action(0, rem-calc(5px), $button-action-disabled-border-color,
+                              $button-action-disabled-background-color, $button-action-disabled-color);
+        background-color: $button-action-disabled-background-color;
+        box-shadow: 0 ru(.208) 0 $button-action-disabled-border-color;
+        color: $button-action-disabled-color;
+        transition: none;
+      }
+      // scss-lint:enable NestingDepth
+    }
+
+    &.lowlight {
+      @include hover-action(rem-calc(3px), rem-calc(2px), $button-action-lowlight-border-color,
+              $button-action-lowlight-background-color, $button-action-lowlight-color);
+      background-color: $button-action-lowlight-background-color;
+      color: $button-action-lowlight-color;
+      box-shadow: 0 ru(.208) 0 $button-action-lowlight-border-color;
+
+      // scss-lint:disable NestingDepth
+      &[disabled],
+      &.disabled {
+        @include hover-action(0, rem-calc(5px), $button-action-disabled-border-color,
+                $button-action-disabled-background-color, $button-action-disabled-color);
+        background-color: $button-action-disabled-background-color;
+        box-shadow: 0 ru(.208) 0 $button-action-disabled-border-color;
+        color: $button-action-disabled-color;
+      }
+      // scss-lint:enable NestingDepth
+    }
+
+    &.outline {
+      @include hover($button-outline-hover-background-color,
+                     $button-outline-border-color,
+                     $button-outline-hover-color);
+      background-color: $button-outline-background-color;
+      border-color: $button-outline-border-color;
+      color: $button-outline-color;
+    }
+
+    &.icon-graph {
+      &:before {
+        content: '';
+        height: ru(.75);
+        width: ru(.75);
+        display: inline-block;
+        vertical-align: middle;
+        background-size: contain;
+        margin-right: ru(.5);
+      }
+    }
+
+    &.graphic {
+      @include typography-5;
+      @include hover($button-background-color, $button-graphic-hover-border-color, $button-graphic-color);
+      display: flex;
+      align-items: center;
+      font-weight: 400;
+      padding: ru(.5);
+      background-color: $button-background-color;
+      line-height: ru(1);
+      border-color: $button-graphic-border-color;
+      color: $button-graphic-color;
+      text-align: left;
+      transition: all 250ms ease;
+    }
+
+    .graphic-image {
+      margin-right: ru(.5);
+    }
+
+    .graphic-text {
+      margin: 0;
+    }
+
+    &.tag {
+      @include hover($button-tag-hover-background-color, transparent, $button-tag-hover-color);
+      display: inline-block;
+      padding: ru(.208) ru(.667);
+      background-color: $button-tag-background-color;
+      border: 0;
+      margin: 0 ru(.25) ru(.25) 0;
+      font-weight: 400;
+      color: $button-tag-color;
+      text-transform: none;
+      text-align: left;
+    }
+
+    &.expanded-on-mobile {
+      @media #{$small-only} {
+        width: 100%;
+      }
+    }
+  }
+
+  .stacked-buttons {
+    overflow: hidden;
+
+    .button {
+      @include typography-7;
+      display: block;
+      position: relative;
+      margin: 0;
+      padding: ru(.25) ru(.75);
+      border-radius: 0;
+      border-color: $button-stacked-border-color;
+      background-color: $button-stacked-background-color;
+      color: $button-stacked-color;
+      text-align: left;
+
+      &:hover,
+      &:active,
+      &:focus {
+        background-color: $button-stacked-hover-background-color;
+        color: $button-stacked-hover-color;
+      }
+
+      &:first-child {
+        border-radius: $button-border-radius $button-border-radius 0 0;
+      }
+
+      &:last-child {
+        border-radius: 0 0 $button-border-radius $button-border-radius;
+      }
+
+      // scss-lint:disable NestingDepth
+      + .button {
+        margin-top: -1px;
+      }
+      // scss-lint:enable NestingDepth
+    }
+  }
+}
+
+@keyframes disabled-button-shake {
+  0% { transform: translateX(0); }
+  20% { transform: translateX(-$button-shaking-offset); }
+  40% { transform: translateX($button-shaking-offset); }
+  60% { transform: translateX(-$button-shaking-offset); }
+  80% { transform: translateX($button-shaking-offset); }
+  100% { transform: translateX(0); }
+}

@@ -1,0 +1,1142 @@
+// scss-lint:disable all
+/*doc
+---
+title: Comparison Page with health result
+name: comparison_result
+category: Pages - Comparison Page with health result
+---
+```slim_example
+main
+  #life-comparison-app
+    div
+      .mod-comparison_header
+        .wrap.life
+          h1
+            | PolicyGenius
+          a.toggle-filters[href='#']
+            | Show Filters
+          ul.mod-step-progress.dark
+            li
+              a[href='/life-insurance/quotes/family']
+                i.icon-calculator
+                  span.icon-check-dark
+                .label
+                  | Calculator
+            li
+              a[href='/life-insurance/health/health_profile']
+                i.icon-health
+                  span.icon-check-dark
+                .label
+                  | Health
+            li.active
+              a[href='#']
+                i.icon-quotes
+                .label
+                  | Quotes
+            li.inactive
+              a[href='#']
+                i.icon-application
+                .label
+                  | Application
+          ul.actions
+            li
+              a.expert[href='tel:18556952255']
+                | (855) 695-2255
+            li
+              a.chat
+                | Chat
+      .mod-comparison.layout-comparison
+        div
+        #filters.filters.layout-filters
+          a.back[href='#']
+            | Back to results
+          .mod-sidebar-filter
+            .section.show-for-medium-up
+              div
+                div
+                  div
+                    a.button.action.lowlight.i-floppydisk
+                      | Save Your Progress
+                  noscript
+                div
+                  div
+                    a#why-pg-modal-link.button.action.lowlight.i-help
+                      | Why PolicyGenius?
+                  noscript
+            .section
+              div
+                h2
+                  | Adjust your policy
+                .slider
+                  .header
+                    .title
+                      | Coverage
+                    .value
+                      | $550,000
+                  .rc-slider.bar
+                    .rc-slider-track.rc-slider-track-1[style='visibility: visible; left: 0%; width: 41.6667%;']
+                    .rc-slider-step
+                    .rc-slider-handle.rc-slider-handle-2.rc-slider-handle-upper[style='left: 41.6667%;']
+                    .rc-slider-mark
+                .slider
+                  .header
+                    .title
+                      | Term
+                    .value
+                      | 15
+                      |  Years
+                  .rc-slider.bar
+                    .rc-slider-track.rc-slider-track-1[style='visibility: visible; left: 0%; width: 40%;']
+                    .rc-slider-step
+                    .rc-slider-handle.rc-slider-handle-2.rc-slider-handle-upper[style='left: 40%;']
+                    .rc-slider-mark
+            .section
+              div
+                h2
+                  | Show Prices
+                label.radio.highlighted[for='m']
+                  input#m[type='radio' name='show-prices' value='m' checked='']
+                  span
+                    | Monthly
+                label.radio.highlighted[for='a']
+                  input#a[type='radio' name='show-prices' value='a']
+                  span
+                    | Annually
+                    small
+                      | (Save up to 10%)
+            .section.show-for-small-only
+              div
+                div
+                  div
+                    a.button.action.lowlight.i-floppydisk
+                      | Save Your Progress
+                  noscript
+                div
+                  div
+                    a#why-pg-modal-link.button.action.lowlight.i-help
+                      | Why PolicyGenius?
+                  noscript
+            .section
+              div
+                h2.section-toggler.collapsed
+                  | Edit Your Info
+                .inner.hide
+                  a.button.left-side.i-plus[href='/life-insurance/health/health_profile']
+                    | Edit Your Health
+                  a.button.left-side.i-user[href='/life-insurance/health/basic_info']
+                    | Edit Your Basics
+                  a.button.left-side.i-calculator[href='/life-insurance/quotes/family']
+                    | Calculate Coverage
+            .section
+              div
+                h2.section-toggler.collapsed
+                  | Plan types
+                .inner.hide
+                  .spacer-xs
+                  span No referral needed
+                  .spacer-xs
+                  div
+                    .checkbox-wrap
+                      label.checkbox
+                        input type='checkbox' checked='checked'
+                        span HMO
+                      i.i-help
+                    .checkbox-wrap
+                      label.checkbox
+                        input type='checkbox' checked='checked'
+                        span EMO
+                      i.i-help
+        #results.results
+          .layout-cards
+            div
+              .layout-space-between.hidden-for-small-only
+                div
+                  b Sort by
+                  .selectbox
+                    select
+                      option Best match
+                      option Premium
+                      option Deductible
+                      option Carrier Rating
+                .show-result
+                  | Showing all &nbsp;
+                  span 49
+                  | &nbsp; plans
+                div
+                  .button.action.lowlight.icon-graph View as graph
+              .layout-space-between.visible-for-small-only
+                .layout-view-actions
+                  div
+                    .selectbox
+                      select
+                        option Best match
+                        option Premium
+                        option Deductible
+                        option Carrier Rating
+                .show-result
+                  | Showing all &nbsp;
+                  span 49
+                  | &nbsp; plans
+            .mod-robust-card.dashed
+              h2.mod-robust-card-title Nice work!
+              .spacer-s
+              p We've taken your priorities and sorted the plans by best match. Remember, this is 100% of the plans of healthcare.gov & more!
+              .mod-robust-card-equal-columns
+                .mod-robust-card-equal-column
+                  p: strong Your must-haves
+                  ul.mod-simple-list
+                    li Premium under $200
+                    li Dr. Jones in network
+                    li Prozac covered
+                .mod-robust-card-equal-column
+                  p: strong Your nice-to-haves
+                  ul.mod-simple-list
+                    li No referral needed to see a specialist
+                    li Dr. Smith in network
+                    li Deductible under $4,000
+              .button.action Great! Start Comparing
+            .mod-robust-card
+              .mod-robust-card-header
+                h2.mod-robust-card-title HealthFirst Anthem Blue Cross and Blue Shield HealthFirst Anthem Blue Cross and Blue Shield HealthFirst Anthem Blue Cross and Blue Shield
+                .mod-robust-card-top-action
+                  a.mod-robust-card-priorities.icon-priorities data-reveal-id='yourPriorities' Your Priorities
+                .mod-robust-card-details
+                  .mod-robust-card-stars
+                    .com-rating.compact.narrow
+                      .stars
+                        .i-star.active
+                        .i-star.active
+                        .i-star.active
+                        .i-star
+                        .i-star
+                    .i-help
+                  .mod-robust-card-top-text
+                    ' On Exchange Plan
+                    i.i-help
+                    strong Classic Bronze Plan Pediatric Dental
+
+              .mod-robust-card-content
+                .mod-robust-card-section.half-width-on-mobile
+                  .mod-robust-card-caption
+                    | Monthly Premium
+                    i.i-help
+                  .mod-robust-card-shift
+                    .mod-robust-card-price
+                      .sign
+                        .icon-discount-white
+                      span.mod-robust-card-price-value $125
+                      small.mod-robust-card-price-period
+                        '  /mo
+                    ul.mod-icon-list.condensed
+                      li.icon-checkmark Under $200
+                    a.mod-robust-card-hint data-reveal-id='yourPriorities' Same price everywhere
+                .mod-robust-card-section.half-width-on-mobile
+                  .policygenius-tooltip
+                    .popup
+                      p: strong Deductible
+                      p A specified amount of money that the insured must pay before an insurance company will pay a claim.
+                    .mod-robust-card-caption
+                      | Deductible
+                      i.i-help
+                  .mod-robust-card-shift
+                    .mod-robust-card-type
+                      .sign HSA
+                      strong No deductible
+                    ul.mod-icon-list.condensed
+                      li.icon-checkmark Under $4,000
+                    a.mod-robust-card-hint Family deductible is $13,500$
+                .mod-robust-card-section.mod-robust-card-mobile
+                  .mod-robust-card-caption.no-icon Important to You
+                  .mod-robust-card-important
+                    .mod-robust-card-item
+                      strong.mod-robust-card-item-key 3 of 5
+                      span.mod-robust-card-item-value Doctors in Network
+                    .mod-robust-card-item
+                      strong.mod-robust-card-item-key 0 of 5
+                      span.mod-robust-card-item-value Prescriptions Covered
+                  .mod-robust-card-plan
+                    ' On Exchange Plan
+                    i.i-help
+                    strong Classic Bronze Dep 29
+                .mod-robust-card-section.mod-robust-card-desktop
+                  .mod-robust-card-caption
+                    | Network
+                    i
+                  .mod-robust-card-shift
+                    ul.mod-simple-list.no-bullet
+                      li 345+ doctors
+                      li 4 hospitals
+                      li 2 urgent care centers
+                .mod-robust-card-section.mod-robust-card-desktop
+                  .mod-robust-card-caption
+                    | Prescriptions
+                    i.i-help
+                  .mod-robust-card-shift
+                    ul.mod-icon-list.condensed
+                      li.icon-checkmark
+                        .list-truncation
+                          span.truncate Metrocyclinestat
+                          strong $18
+                      li.icon-close-accent Truvada
+                      li
+                        ' &
+                        .policygenius-tooltip.wide
+                          .popup
+                            p: strong Prescriptions
+                            ul.mod-icon-list.two-columns
+                              li.icon-checkmark
+                                .list-truncation
+                                  span.truncate Gottabekiddingme
+                                  strong $18
+                              li.icon-checkmark
+                                .list-truncation
+                                  span.truncate Amoxicillafin
+                                  strong $28
+                              li.icon-close-accent
+                                .list-truncation
+                                  span.truncate Orthotrycycline
+                              li.icon-close-accent
+                                .list-truncation
+                                  span.truncate Trufasia
+                              li.icon-checkmark
+                                .list-truncation
+                                  span.truncate Ibuprofin
+                                  strong $18
+                              li.icon-checkmark
+                                .list-truncation
+                                  span.truncate Gottabekiddingme
+                                  strong $18
+                              li.icon-checkmark
+                                .list-truncation
+                                  span.truncate Amoxicillafin
+                                  strong $28
+                          a href='#' 4 more
+
+              .mod-robust-card-footer
+                .mod-robust-card-actions
+                  a.button.action Apply Now
+                  a.button.outline Details
+                  a.button.outline.i-mail.mod-robust-card-desktop
+                  .mod-robust-card-info
+                    span Primary Visit
+                    .value $10
+                  .mod-robust-card-info
+                    span Specialist Visit
+                    .value $10
+                  .mod-robust-card-info
+                    span Emergency Room
+                    .value $600
+
+                .mod-robust-card-compare
+                  label.checkbox.flip
+                    input type='checkbox' checked='checked'
+                    span Compare
+
+            .reveal-modal.reset-for-mod-modal.mini#yourPriorities data-reveal='data-reveal'
+              .mod-modal.mini
+                .dialog
+                  .header
+                    .close.close-reveal-modal
+                    h3.modal-title Your Priorities
+                  .body
+                    .icon-priorities
+                      span This plan has
+                      strong  7 of 10
+                    .spacer-s
+                    .flex-row.wide.align-left.typography-7
+                      div
+                        p: strong Must-have
+                        ul.mod-icon-list.condensed.mini
+                          li.icon-checkmark
+                            .text-truncation
+                              .truncate Dr. Jones Frankenstein Frankenstein
+                          li.icon-checkmark
+                            .text-truncation
+                              .truncate Dr. Smith
+                          li.icon-checkmark
+                            .text-truncation
+                              .truncate Dr. Jones Frankenstein Frankenstein
+                          li.icon-close-accent
+                            .list-truncation
+                              span.truncate Lorem Ipsum dolor amet Prozac
+                              .nowrap
+                                strong  $18
+                      div
+                        p: strong Nice-to-have
+                        ul.mod-icon-list.condensed.mini
+                          li.icon-checkmark
+                            .list-truncation
+                              span.truncate Lorem Ipsum dolor amet Prozac
+                              .nowrap
+                                strong  $18
+                          li.icon-checkmark
+                            .list-truncation
+                              span.truncate Ibuprofen
+                              .nowrap
+                                strong  $45
+                          li.icon-close-accent
+                            .text-truncation
+                              .truncate Dr. Jones Frankenstein Frankenstein
+                    .spacer-negative-m
+
+            .mod-robust-card
+              .mod-robust-card-header
+                h2.mod-robust-card-title HealthFirst Anthem Blue Cross and Blue Shield HealthFirst Anthem Blue Cross and Blue Shield HealthFirst Anthem Blue Cross and Blue Shield
+                .mod-robust-card-top-action
+                  a.mod-robust-card-priorities.icon-priorities data-reveal-id='yourPriorities' Your Priorities
+                .mod-robust-card-details
+                  .mod-robust-card-stars
+                    .com-rating.compact.narrow
+                      .stars
+                        .i-star.active
+                        .i-star.active
+                        .i-star.active
+                        .i-star
+                        .i-star
+                    .i-help
+                  .mod-robust-card-top-text
+                    ' On Exchange Plan
+                    i.i-help
+                    strong Classic Bronze Plan Pediatric Dental
+
+              .mod-robust-card-content
+                .mod-robust-card-section.half-width-on-mobile
+                  .mod-robust-card-caption
+                    | Monthly Premium
+                    i.i-help
+                  .mod-robust-card-shift
+                    .mod-robust-card-price
+                      .sign
+                        .icon-discount-white
+                      span.mod-robust-card-price-value $125
+                      small.mod-robust-card-price-period
+                        '  /mo
+                    ul.mod-icon-list.condensed
+                      li.icon-checkmark Under $200
+                    a.mod-robust-card-hint data-reveal-id='yourPriorities' Same price everywhere
+                .mod-robust-card-section.half-width-on-mobile
+                  .policygenius-tooltip
+                    .popup
+                      p: strong Deductible
+                      p A specified amount of money that the insured must pay before an insurance company will pay a claim.
+                    .mod-robust-card-caption
+                      | Deductible
+                      i.i-help
+                  .mod-robust-card-shift
+                    .mod-robust-card-type
+                      .sign HSA
+                      strong No deductible
+                    ul.mod-icon-list.condensed
+                      li.icon-checkmark Under $4,000
+                    a.mod-robust-card-hint Family deductible is $13,500$
+                .mod-robust-card-section.mod-robust-card-mobile
+                  .mod-robust-card-caption.no-icon Important to You
+                  .mod-robust-card-important
+                    .mod-robust-card-item
+                      strong.mod-robust-card-item-key 3 of 5
+                      span.mod-robust-card-item-value Doctors in Network
+                    .mod-robust-card-item
+                      strong.mod-robust-card-item-key 0 of 5
+                      span.mod-robust-card-item-value Prescriptions Covered
+                  .mod-robust-card-plan
+                    ' On Exchange Plan
+                    i.i-help
+                    strong Classic Bronze Dep 29
+                .mod-robust-card-section.mod-robust-card-desktop
+                  .mod-robust-card-caption
+                    | Network
+                    i.i-help
+                  .mod-robust-card-shift
+                    ul.mod-simple-list.no-bullet
+                      li 345+ doctors
+                      li 4 hospitals
+                      li 2 urgent care centers
+                .mod-robust-card-section.mod-robust-card-desktop
+                  .mod-robust-card-caption
+                    | Prescriptions
+                    i.i-help
+                  .mod-robust-card-shift
+                    ul.mod-icon-list.condensed
+                      li.icon-checkmark
+                        .list-truncation
+                          span.truncate Metrocyclinestat
+                          strong $18
+                      li.icon-close-accent Truvada
+                      li
+                        ' &
+                        .policygenius-tooltip.wide
+                          .popup
+                            p: strong Prescriptions
+                            ul.mod-icon-list.two-columns
+                              li.icon-checkmark
+                                .list-truncation
+                                  span.truncate Gottabekiddingme
+                                  strong $18
+                              li.icon-checkmark
+                                .list-truncation
+                                  span.truncate Amoxicillafin
+                                  strong $28
+                              li.icon-close-accent
+                                .list-truncation
+                                  span.truncate Orthotrycycline
+                              li.icon-close-accent
+                                .list-truncation
+                                  span.truncate Trufasia
+                              li.icon-checkmark
+                                .list-truncation
+                                  span.truncate Ibuprofin
+                                  strong $18
+                              li.icon-checkmark
+                                .list-truncation
+                                  span.truncate Gottabekiddingme
+                                  strong $18
+                              li.icon-checkmark
+                                .list-truncation
+                                  span.truncate Amoxicillafin
+                                  strong $28
+                          a href='#' 4 more
+
+              .mod-robust-card-footer
+                .mod-robust-card-actions
+                  a.button.action Apply Now
+                  a.button.outline Details
+                  a.button.outline.i-mail.mod-robust-card-desktop
+                  .mod-robust-card-info
+                    span Primary Visit
+                    .value $10
+                  .mod-robust-card-info
+                    span Specialist Visit
+                    .value $10
+                  .mod-robust-card-info
+                    span Emergency Room
+                    .value $600
+
+                .mod-robust-card-compare
+                  label.checkbox.flip
+                    input type='checkbox' checked='checked'
+                    span Compare
+
+            .reveal-modal.reset-for-mod-modal.mini#yourPriorities data-reveal='data-reveal'
+              .mod-modal.mini
+                .dialog
+                  .header
+                    .close.close-reveal-modal
+                    h3.modal-title Your Priorities
+                  .body
+                    .icon-priorities
+                      span This plan has
+                      strong  7 of 10
+                    .spacer-s
+                    .flex-row.wide.align-left.typography-7
+                      div
+                        p: strong Must-have
+                        ul.mod-icon-list.condensed.mini
+                          li.icon-checkmark
+                            .text-truncation
+                              .truncate Dr. Jones Frankenstein Frankenstein
+                          li.icon-checkmark
+                            .text-truncation
+                              .truncate Dr. Smith
+                          li.icon-checkmark
+                            .text-truncation
+                              .truncate Dr. Jones Frankenstein Frankenstein
+                          li.icon-close-accent
+                            .list-truncation
+                              span.truncate Lorem Ipsum dolor amet Prozac
+                              .nowrap
+                                strong  $18
+                      div
+                        p: strong Nice-to-have
+                        ul.mod-icon-list.condensed.mini
+                          li.icon-checkmark
+                            .list-truncation
+                              span.truncate Lorem Ipsum dolor amet Prozac
+                              .nowrap
+                                strong  $18
+                          li.icon-checkmark
+                            .list-truncation
+                              span.truncate Ibuprofen
+                              .nowrap
+                                strong  $45
+                          li.icon-close-accent
+                            .text-truncation
+                              .truncate Dr. Jones Frankenstein Frankenstein
+                    .spacer-negative-m
+
+            .mod-robust-card
+              .mod-robust-card-header
+                h2.mod-robust-card-title HealthFirst Anthem Blue Cross and Blue Shield HealthFirst Anthem Blue Cross and Blue Shield HealthFirst Anthem Blue Cross and Blue Shield
+                .mod-robust-card-top-action
+                  a.mod-robust-card-priorities.icon-priorities data-reveal-id='yourPriorities' Your Priorities
+                .mod-robust-card-details
+                  .mod-robust-card-stars
+                    .com-rating.compact.narrow
+                      .stars
+                        .i-star.active
+                        .i-star.active
+                        .i-star.active
+                        .i-star
+                        .i-star
+                    .i-help
+                  .mod-robust-card-top-text
+                    ' On Exchange Plan
+                    i.i-help
+                    strong Classic Bronze Plan Pediatric Dental
+
+              .mod-robust-card-content
+                .mod-robust-card-section.half-width-on-mobile
+                  .mod-robust-card-caption
+                    | Monthly Premium
+                    i.i-help
+                  .mod-robust-card-shift
+                    .mod-robust-card-price
+                      .sign
+                        .icon-discount-white
+                      span.mod-robust-card-price-value $125
+                      small.mod-robust-card-price-period
+                        '  /mo
+                    ul.mod-icon-list.condensed
+                      li.icon-checkmark Under $200
+                    a.mod-robust-card-hint data-reveal-id='yourPriorities' Same price everywhere
+                .mod-robust-card-section.half-width-on-mobile
+                  .policygenius-tooltip
+                    .popup
+                      p: strong Deductible
+                      p A specified amount of money that the insured must pay before an insurance company will pay a claim.
+                    .mod-robust-card-caption
+                      | Deductible
+                      i.i-help
+                  .mod-robust-card-shift
+                    .mod-robust-card-type
+                      .sign HSA
+                      strong No deductible
+                    ul.mod-icon-list.condensed
+                      li.icon-checkmark Under $4,000
+                    a.mod-robust-card-hint Family deductible is $13,500$
+                .mod-robust-card-section.mod-robust-card-mobile
+                  .mod-robust-card-caption.no-icon Important to You
+                  .mod-robust-card-important
+                    .mod-robust-card-item
+                      strong.mod-robust-card-item-key 3 of 5
+                      span.mod-robust-card-item-value Doctors in Network
+                    .mod-robust-card-item
+                      strong.mod-robust-card-item-key 0 of 5
+                      span.mod-robust-card-item-value Prescriptions Covered
+                  .mod-robust-card-plan
+                    ' On Exchange Plan
+                    i.i-help
+                    strong Classic Bronze Dep 29
+                .mod-robust-card-section.mod-robust-card-desktop
+                  .mod-robust-card-caption
+                    | Network
+                    i.i-help
+                  .mod-robust-card-shift
+                    ul.mod-simple-list.no-bullet
+                      li 345+ doctors
+                      li 4 hospitals
+                      li 2 urgent care centers
+                .mod-robust-card-section.mod-robust-card-desktop
+                  .mod-robust-card-caption
+                    | Prescriptions
+                    i.i-help
+                  .mod-robust-card-shift
+                    ul.mod-icon-list.condensed
+                      li.icon-checkmark
+                        .list-truncation
+                          span.truncate Metrocyclinestat
+                          strong $18
+                      li.icon-close-accent Truvada
+                      li
+                        ' &
+                        .policygenius-tooltip.wide
+                          .popup
+                            p: strong Prescriptions
+                            ul.mod-icon-list.two-columns
+                              li.icon-checkmark
+                                .list-truncation
+                                  span.truncate Gottabekiddingme
+                                  strong $18
+                              li.icon-checkmark
+                                .list-truncation
+                                  span.truncate Amoxicillafin
+                                  strong $28
+                              li.icon-close-accent
+                                .list-truncation
+                                  span.truncate Orthotrycycline
+                              li.icon-close-accent
+                                .list-truncation
+                                  span.truncate Trufasia
+                              li.icon-checkmark
+                                .list-truncation
+                                  span.truncate Ibuprofin
+                                  strong $18
+                              li.icon-checkmark
+                                .list-truncation
+                                  span.truncate Gottabekiddingme
+                                  strong $18
+                              li.icon-checkmark
+                                .list-truncation
+                                  span.truncate Amoxicillafin
+                                  strong $28
+                          a href='#' 4 more
+
+              .mod-robust-card-footer
+                .mod-robust-card-actions
+                  a.button.action Apply Now
+                  a.button.outline Details
+                  a.button.outline.i-mail.mod-robust-card-desktop
+                  .mod-robust-card-info
+                    span Primary Visit
+                    .value $10
+                  .mod-robust-card-info
+                    span Specialist Visit
+                    .value $10
+                  .mod-robust-card-info
+                    span Emergency Room
+                    .value $600
+
+                .mod-robust-card-compare
+                  label.checkbox.flip
+                    input type='checkbox' checked='checked'
+                    span Compare
+
+            .reveal-modal.reset-for-mod-modal.mini#yourPriorities data-reveal='data-reveal'
+              .mod-modal.mini
+                .dialog
+                  .header
+                    .close.close-reveal-modal
+                    h3.modal-title Your Priorities
+                  .body
+                    .icon-priorities
+                      span This plan has
+                      strong  7 of 10
+                    .spacer-s
+                    .flex-row.wide.align-left.typography-7
+                      div
+                        p: strong Must-have
+                        ul.mod-icon-list.condensed.mini
+                          li.icon-checkmark
+                            .text-truncation
+                              .truncate Dr. Jones Frankenstein Frankenstein
+                          li.icon-checkmark
+                            .text-truncation
+                              .truncate Dr. Smith
+                          li.icon-checkmark
+                            .text-truncation
+                              .truncate Dr. Jones Frankenstein Frankenstein
+                          li.icon-close-accent
+                            .list-truncation
+                              span.truncate Lorem Ipsum dolor amet Prozac
+                              .nowrap
+                                strong  $18
+                      div
+                        p: strong Nice-to-have
+                        ul.mod-icon-list.condensed.mini
+                          li.icon-checkmark
+                            .list-truncation
+                              span.truncate Lorem Ipsum dolor amet Prozac
+                              .nowrap
+                                strong  $18
+                          li.icon-checkmark
+                            .list-truncation
+                              span.truncate Ibuprofen
+                              .nowrap
+                                strong  $45
+                          li.icon-close-accent
+                            .text-truncation
+                              .truncate Dr. Jones Frankenstein Frankenstein
+                    .spacer-negative-m
+            .mod-interstitial
+              .layout-equal-columns.top-align
+                div
+                  h3 More of a visual learner?
+                  p You can view your plan results in graph format so you can see how they compare by premium versus deductible.
+                  .button.info.mini View plans on a graph
+                  h6 Lorem ipsum dolor sit amet, velit omnes ocurreret an sit, soluta volutpat nam ad. Cu illud appellantur est, cu mea enim quidam essent.
+                div
+                  img src='holder.js/500x300?auto=yes'
+
+
+            .mod-robust-card
+              .mod-robust-card-header
+                h2.mod-robust-card-title HealthFirst Anthem Blue Cross and Blue Shield HealthFirst Anthem Blue Cross and Blue Shield HealthFirst Anthem Blue Cross and Blue Shield
+                .mod-robust-card-top-action
+                  a.mod-robust-card-priorities.icon-priorities data-reveal-id='yourPriorities' Your Priorities
+                .mod-robust-card-details
+                  .mod-robust-card-stars
+                    .com-rating.compact.narrow
+                      .stars
+                        .i-star.active
+                        .i-star.active
+                        .i-star.active
+                        .i-star
+                        .i-star
+                    .i-help
+                  .mod-robust-card-top-text
+                    ' On Exchange Plan
+                    i.i-help
+                    strong Classic Bronze Plan Pediatric Dental
+
+              .mod-robust-card-content
+                .mod-robust-card-section.half-width-on-mobile
+                  .mod-robust-card-caption
+                    | Monthly Premium
+                    i.i-help
+                  .mod-robust-card-shift
+                    .mod-robust-card-price
+                      .sign
+                        .icon-discount-white
+                      span.mod-robust-card-price-value $125
+                      small.mod-robust-card-price-period
+                        '  /mo
+                    ul.mod-icon-list.condensed
+                      li.icon-checkmark Under $200
+                    a.mod-robust-card-hint data-reveal-id='yourPriorities' Same price everywhere
+                .mod-robust-card-section.half-width-on-mobile
+                  .policygenius-tooltip
+                    .popup
+                      p: strong Deductible
+                      p A specified amount of money that the insured must pay before an insurance company will pay a claim.
+                    .mod-robust-card-caption
+                      | Deductible
+                      i.i-help
+                  .mod-robust-card-shift
+                    .mod-robust-card-type
+                      .sign HSA
+                      strong No deductible
+                    ul.mod-icon-list.condensed
+                      li.icon-checkmark Under $4,000
+                    a.mod-robust-card-hint Family deductible is $13,500$
+                .mod-robust-card-section.mod-robust-card-mobile
+                  .mod-robust-card-caption.no-icon Important to You
+                  .mod-robust-card-important
+                    .mod-robust-card-item
+                      strong.mod-robust-card-item-key 3 of 5
+                      span.mod-robust-card-item-value Doctors in Network
+                    .mod-robust-card-item
+                      strong.mod-robust-card-item-key 0 of 5
+                      span.mod-robust-card-item-value Prescriptions Covered
+                  .mod-robust-card-plan
+                    ' On Exchange Plan
+                    i.i-help
+                    strong Classic Bronze Dep 29
+                .mod-robust-card-section.mod-robust-card-desktop
+                  .mod-robust-card-caption
+                    | Network
+                    i.i-help
+                  .mod-robust-card-shift
+                    ul.mod-simple-list.no-bullet
+                      li 345+ doctors
+                      li 4 hospitals
+                      li 2 urgent care centers
+                .mod-robust-card-section.mod-robust-card-desktop
+                  .mod-robust-card-caption
+                    | Prescriptions
+                    i
+                  .mod-robust-card-shift
+                    ul.mod-icon-list.condensed
+                      li.icon-checkmark
+                        .list-truncation
+                          span.truncate Metrocyclinestat
+                          strong $18
+                      li.icon-close-accent Truvada
+                      li
+                        ' &
+                        .policygenius-tooltip.wide
+                          .popup
+                            p: strong Prescriptions
+                            ul.mod-icon-list.two-columns
+                              li.icon-checkmark
+                                .list-truncation
+                                  span.truncate Gottabekiddingme
+                                  strong $18
+                              li.icon-checkmark
+                                .list-truncation
+                                  span.truncate Amoxicillafin
+                                  strong $28
+                              li.icon-close-accent
+                                .list-truncation
+                                  span.truncate Orthotrycycline
+                              li.icon-close-accent
+                                .list-truncation
+                                  span.truncate Trufasia
+                              li.icon-checkmark
+                                .list-truncation
+                                  span.truncate Ibuprofin
+                                  strong $18
+                              li.icon-checkmark
+                                .list-truncation
+                                  span.truncate Gottabekiddingme
+                                  strong $18
+                              li.icon-checkmark
+                                .list-truncation
+                                  span.truncate Amoxicillafin
+                                  strong $28
+                          a href='#' 4 more
+
+              .mod-robust-card-footer
+                .mod-robust-card-actions
+                  a.button.action Apply Now
+                  a.button.outline Details
+                  a.button.outline.i-mail.mod-robust-card-desktop
+                  .mod-robust-card-info
+                    span Primary Visit
+                    .value $10
+                  .mod-robust-card-info
+                    span Specialist Visit
+                    .value $10
+                  .mod-robust-card-info
+                    span Emergency Room
+                    .value $600
+
+                .mod-robust-card-compare
+                  label.checkbox.flip
+                    input type='checkbox' checked='checked'
+                    span Compare
+
+            .reveal-modal.reset-for-mod-modal.mini#yourPriorities data-reveal='data-reveal'
+              .mod-modal.mini
+                .dialog
+                  .header
+                    .close.close-reveal-modal
+                    h3.modal-title Your Priorities
+                  .body
+                    .icon-priorities
+                      span This plan has
+                      strong  7 of 10
+                    .spacer-s
+                    .flex-row.wide.align-left.typography-7
+                      div
+                        p: strong Must-have
+                        ul.mod-icon-list.condensed.mini
+                          li.icon-checkmark
+                            .text-truncation
+                              .truncate Dr. Jones Frankenstein Frankenstein
+                          li.icon-checkmark
+                            .text-truncation
+                              .truncate Dr. Smith
+                          li.icon-checkmark
+                            .text-truncation
+                              .truncate Dr. Jones Frankenstein Frankenstein
+                          li.icon-close-accent
+                            .list-truncation
+                              span.truncate Lorem Ipsum dolor amet Prozac
+                              .nowrap
+                                strong  $18
+                      div
+                        p: strong Nice-to-have
+                        ul.mod-icon-list.condensed.mini
+                          li.icon-checkmark
+                            .list-truncation
+                              span.truncate Lorem Ipsum dolor amet Prozac
+                              .nowrap
+                                strong  $18
+                          li.icon-checkmark
+                            .list-truncation
+                              span.truncate Ibuprofen
+                              .nowrap
+                                strong  $45
+                          li.icon-close-accent
+                            .text-truncation
+                              .truncate Dr. Jones Frankenstein Frankenstein
+                    .spacer-negative-m
+
+            .mod-robust-card
+              .mod-robust-card-header
+                h2.mod-robust-card-title HealthFirst Anthem Blue Cross and Blue Shield HealthFirst Anthem Blue Cross and Blue Shield HealthFirst Anthem Blue Cross and Blue Shield
+                .mod-robust-card-top-action
+                  a.mod-robust-card-priorities.icon-priorities data-reveal-id='yourPriorities' Your Priorities
+                .mod-robust-card-details
+                  .mod-robust-card-stars
+                    .com-rating.compact.narrow
+                      .stars
+                        .i-star.active
+                        .i-star.active
+                        .i-star.active
+                        .i-star
+                        .i-star
+                    .i-help
+                  .mod-robust-card-top-text
+                    ' On Exchange Plan
+                    i.i-help
+                    strong Classic Bronze Plan Pediatric Dental
+
+              .mod-robust-card-content
+                .mod-robust-card-section.half-width-on-mobile
+                  .mod-robust-card-caption
+                    | Monthly Premium
+                    i.i-help
+                  .mod-robust-card-shift
+                    .mod-robust-card-price
+                      .sign
+                        .icon-discount-white
+                      span.mod-robust-card-price-value $125
+                      small.mod-robust-card-price-period
+                        '  /mo
+                    ul.mod-icon-list.condensed
+                      li.icon-checkmark Under $200
+                    a.mod-robust-card-hint data-reveal-id='yourPriorities' Same price everywhere
+                .mod-robust-card-section.half-width-on-mobile
+                  .policygenius-tooltip
+                    .popup
+                      p: strong Deductible
+                      p A specified amount of money that the insured must pay before an insurance company will pay a claim.
+                    .mod-robust-card-caption
+                      | Deductible
+                      i.i-help
+                  .mod-robust-card-shift
+                    .mod-robust-card-type
+                      .sign HSA
+                      strong No deductible
+                    ul.mod-icon-list.condensed
+                      li.icon-checkmark Under $4,000
+                    a.mod-robust-card-hint Family deductible is $13,500$
+                .mod-robust-card-section.mod-robust-card-mobile
+                  .mod-robust-card-caption.no-icon Important to You
+                  .mod-robust-card-important
+                    .mod-robust-card-item
+                      strong.mod-robust-card-item-key 3 of 5
+                      span.mod-robust-card-item-value Doctors in Network
+                    .mod-robust-card-item
+                      strong.mod-robust-card-item-key 0 of 5
+                      span.mod-robust-card-item-value Prescriptions Covered
+                  .mod-robust-card-plan
+                    ' On Exchange Plan
+                    i.i-help
+                    strong Classic Bronze Dep 29
+                .mod-robust-card-section.mod-robust-card-desktop
+                  .mod-robust-card-caption
+                    | Network
+                    i.i-help
+                  .mod-robust-card-shift
+                    ul.mod-simple-list.no-bullet
+                      li 345+ doctors
+                      li 4 hospitals
+                      li 2 urgent care centers
+                .mod-robust-card-section.mod-robust-card-desktop
+                  .mod-robust-card-caption
+                    | Prescriptions
+                    i.i-help
+                  .mod-robust-card-shift
+                    ul.mod-icon-list.condensed
+                      li.icon-checkmark
+                        .list-truncation
+                          span.truncate Metrocyclinestat
+                          strong $18
+                      li.icon-close-accent Truvada
+                      li
+                        ' &
+                        .policygenius-tooltip.wide
+                          .popup
+                            p: strong Prescriptions
+                            ul.mod-icon-list.two-columns
+                              li.icon-checkmark
+                                .list-truncation
+                                  span.truncate Gottabekiddingme
+                                  strong $18
+                              li.icon-checkmark
+                                .list-truncation
+                                  span.truncate Amoxicillafin
+                                  strong $28
+                              li.icon-close-accent
+                                .list-truncation
+                                  span.truncate Orthotrycycline
+                              li.icon-close-accent
+                                .list-truncation
+                                  span.truncate Trufasia
+                              li.icon-checkmark
+                                .list-truncation
+                                  span.truncate Ibuprofin
+                                  strong $18
+                              li.icon-checkmark
+                                .list-truncation
+                                  span.truncate Gottabekiddingme
+                                  strong $18
+                              li.icon-checkmark
+                                .list-truncation
+                                  span.truncate Amoxicillafin
+                                  strong $28
+                          a href='#' 4 more
+
+              .mod-robust-card-footer
+                .mod-robust-card-actions
+                  a.button.action Apply Now
+                  a.button.outline Details
+                  a.button.outline.i-mail.mod-robust-card-desktop
+                  .mod-robust-card-info
+                    span Primary Visit
+                    .value $10
+                  .mod-robust-card-info
+                    span Specialist Visit
+                    .value $10
+                  .mod-robust-card-info
+                    span Emergency Room
+                    .value $600
+
+                .mod-robust-card-compare
+                  label.checkbox.flip
+                    input type='checkbox' checked='checked'
+                    span Compare
+
+            .reveal-modal.reset-for-mod-modal.mini#yourPriorities data-reveal='data-reveal'
+              .mod-modal.mini
+                .dialog
+                  .header
+                    .close.close-reveal-modal
+                    h3.modal-title Your Priorities
+                  .body
+                    .icon-priorities
+                      span This plan has
+                      strong  7 of 10
+                    .spacer-s
+                    .flex-row.wide.align-left.typography-7
+                      div
+                        p: strong Must-have
+                        ul.mod-icon-list.condensed.mini
+                          li.icon-checkmark
+                            .text-truncation
+                              .truncate Dr. Jones Frankenstein Frankenstein
+                          li.icon-checkmark
+                            .text-truncation
+                              .truncate Dr. Smith
+                          li.icon-checkmark
+                            .text-truncation
+                              .truncate Dr. Jones Frankenstein Frankenstein
+                          li.icon-close-accent
+                            .list-truncation
+                              span.truncate Lorem Ipsum dolor amet Prozac
+                              .nowrap
+                                strong  $18
+                      div
+                        p: strong Nice-to-have
+                        ul.mod-icon-list.condensed.mini
+                          li.icon-checkmark
+                            .list-truncation
+                              span.truncate Lorem Ipsum dolor amet Prozac
+                              .nowrap
+                                strong  $18
+                          li.icon-checkmark
+                            .list-truncation
+                              span.truncate Ibuprofen
+                              .nowrap
+                                strong  $45
+                          li.icon-close-accent
+                            .text-truncation
+                              .truncate Dr. Jones Frankenstein Frankenstein
+                    .spacer-negative-m
+            .button.action.lowlight Show more
+```
+
+```js_example
+$('.section-toggler').click(function(event) {
+  if ($(this).hasClass('expanded')) {
+    $(this).removeClass('expanded').addClass('collapsed');
+    $(this).parent().find('.inner').slideUp(500);
+  } else {
+    $(this).addClass('expanded').removeClass('collapsed');
+    $(this).parent().find('.inner').slideDown(500);
+  }
+});
+```
+*/
+// scss-lint:enable all

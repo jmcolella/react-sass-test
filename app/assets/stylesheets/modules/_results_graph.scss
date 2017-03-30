@@ -1,0 +1,135 @@
+// scss-lint:disable all
+/*doc
+---
+title: Results Graph
+name: results-graph
+category: Modules - Results Graph
+---
+
+```slim_example
+  .mod-results-graph
+    .layout-three-quarters
+      figure.graph.mod-box-card
+        img src='holder.js/100px300?text=Results Graph'
+      .legend
+        .selectfield
+          .field
+            .selectbox
+              select
+                option value="10" Quis augue vitae
+                option value="25" Sed non tortor
+                option value="50" Id neque posuere
+                option value="100" Luctus ac vel
+                option value="160" Nullam metus
+        .legend-key
+          h4 Phasellus nec
+          p Fusce sagittis nec nulla sit amet varius.
+          ul.mod-icon-list.small
+            li.icon-tiger-circle
+              | Vulputate
+              strong
+                em  quis
+              |  iaculis
+            li.icon-tangerine-circle
+              | Aenean
+              strong
+                em  velit
+              |  malesuada
+            li.icon-turquoise-circle
+              | Maecenas
+              strong
+                em  turpis
+              |  porttitor
+            li.icon-teal-circle
+              | Suspendisse
+              strong
+                em  risus
+              |  hendrerit
+          p.i-alert Suspendisse vel massa iaculis, porta massa.
+```
+*/
+// scss-lint:enable all
+
+.mod-results-graph {
+
+  h4 {
+    @include like-h4;
+    word-wrap: break-word;
+    margin-bottom: ru(.25);
+  }
+
+  p:not(.i-alert) {
+    font-size: ru(.5);
+    line-height: ru(.75);
+  }
+
+  em {
+    font-style: italic;
+  }
+
+  .layout-three-quarters {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .graph {
+    order: 2;
+    margin: 0;
+  }
+
+  .legend {
+    order: 1;
+    display: flex;
+    flex-direction: column;
+    flex: 1 1;
+    margin-left: 0;
+  }
+
+  .selectfield-wrapper {
+    order: 2;
+  }
+
+  .legend-key {
+    order: 1;
+
+    p {
+      margin: 0 auto 18px;
+    }
+  }
+}
+
+@media #{$large-up} {
+  .mod-results-graph {
+    .layout-three-quarters {
+      display: flex;
+      flex-direction: row;
+    }
+
+    .graph {
+      order: 1;
+      margin-right: ru(1);
+    }
+
+    .legend {
+      order: 2;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .selectfield {
+      order: 1;
+    }
+
+    .legend-key {
+      order: 2;
+
+      p {
+        margin: 0 auto 18px;
+      }
+    }
+
+    .i-alert {
+      display: none;
+    }
+  }
+}

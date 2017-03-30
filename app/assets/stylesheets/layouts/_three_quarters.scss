@@ -1,0 +1,42 @@
+// scss-lint:disable all
+/*doc
+---
+title: Three Quarters Layout
+name: three-quarters
+category: Layouts - Three Quarters
+---
+
+```slim_example
+.layout-three-quarters
+  div
+    img src='holder.js/1000x400?auto=yes'
+  div
+    img src='holder.js/1000x1000?auto=yes'
+```
+
+## Right aligned
+```slim_example
+.layout-three-quarters.right-align
+  div
+    img src='holder.js/1000x1000?auto=yes'
+  div
+    img src='holder.js/1000x400?auto=yes'
+```
+*/
+// scss-lint:enable all
+
+.layout-three-quarters {
+  align-items: initial;
+
+  @media #{$medium-up} {
+    @include arrange-children-in-a-row;
+
+    > :first-child { flex: 3 0 0; }
+    > :last-child { flex: 1 0 0; }
+
+    &.right-align {
+      > :first-child { flex: 1 0 0; }
+      > :last-child { flex: 3 0 0; }
+    }
+  }
+}

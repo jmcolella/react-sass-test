@@ -1,0 +1,217 @@
+// scss-lint:disable all
+/*doc
+---
+title: Feature Image Card
+name: feature-image-card
+category: Cards - Feature Image Card
+---
+```slim_example
+.mod-feature-image-card style='max-width: 720px;'
+  .image
+    img src='holder.js/180x132?auto=yes&theme=dark'
+  .details
+    h4 Phasellus tellus augue
+    .actions
+      a href='#' maximus
+      a href='#' viverra
+```
+
+```slim_example
+.mod-feature-image-card style='max-width: 720px;'
+  .icon-check
+  .image
+    img src='holder.js/180x132?auto=yes&theme=dark'
+  .details
+    h4 Fusce id egestas metus, consectetur
+    .actions
+      a href='#' dictum
+      a href='#' justo
+```
+
+```slim_example
+.mod-feature-image-card style='max-width: 720px;'
+  .image
+    img.member src='images/male-silhouette.png'
+  .details
+    h4 Dapibus
+    h5 Proin at nunc at nisi lobortis bibendum at vel ex
+    .actions
+      a href='#' lacinia
+```
+
+```slim_example
+.mod-feature-image-card style='max-width: 720px;'
+  .details
+    h4 Donec id urna feugiat, sollicitudin
+    h5 Fusce id egestas
+    h6 Morbi sit amet dapibus dui
+    p
+      ' Vivamus dictum justo a venenatis
+      a.info Phasellus tellus
+    .actions
+      a href='#' maximus
+      a href='#' viverra
+```
+
+```slim_example
+.mod-feature-image-card style='max-width: 720px;'
+  .icon-close
+  .image
+    img.member src='images/female-silhouette.png'
+  .details
+    h4 Phasellus
+    h5 Etiam malesuada quis augue vitae dapibus
+    .actions
+      a href='#' edit
+```
+*/
+// scss-lint:enable all
+
+$feature-image-card-background-color:         $neutral-8;
+$feature-image-card-border-color:             $neutral-5;
+$feature-image-card-actions-background-color: $neutral-6;
+$feature-image-card-actions-divider-color:    $neutral-4;
+$feature-image-card-paragraph-color:          $neutral-4;
+$feature-image-card-actions-line-height:      rem-calc(13px);
+$feature-image-card-actions-height:           ru(1.667);
+$feature-image-card-icon-size:                ru(1);
+$feature-image-card-image-width:              ru(7.5);
+$feature-image-card-image-width-small:        ru(5.33);
+$feature-image-card-text-color:               $neutral-2;
+
+.mod-feature-image-card {
+  display: flex;
+  position: relative;
+  background-color: $feature-image-card-background-color;
+  border: 1px solid $feature-image-card-border-color;
+  border-radius: ru(.25);
+  margin-bottom: ru(1);
+
+  .image {
+    flex: 0 1 $feature-image-card-image-width;
+    position: relative;
+
+    img {
+      display: block;
+      border-radius: ru(.25) 0 0 ru(.25);
+
+      &.member {
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        height: 110%;
+        border-radius: 0;
+      }
+    }
+  }
+
+  .details {
+    border-left: 1px solid $feature-image-card-border-color;
+    display: flex;
+    flex: 1 1;
+    flex-direction: column;
+    padding: ru(.667);
+    overflow: hidden;
+
+    h4 {
+      @include typography-5;
+      color: $feature-image-card-text-color;
+      margin: auto 0;
+      max-height: ru(2.5);
+      overflow: hidden;
+    }
+
+    h5 {
+      @include typography-6;
+      font-weight: 400;
+      font-style: italic;
+      color: $feature-image-card-paragraph-color;
+      margin: 0;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      overflow: hidden;
+    }
+
+    h6 {
+      @include typography-7;
+      color: $feature-image-card-text-color;
+      margin-top: ru(.5);
+      margin-bottom: 0;
+      font-weight: bold;
+    }
+
+    p {
+      @include typography-7;
+      color: $feature-image-card-text-color;
+      line-height: ru(.75);
+      margin: 0;
+    }
+  }
+
+  .actions {
+    height: $feature-image-card-actions-height;
+    margin: ru(.667) ru(-.667) ru(-.667);
+    padding: ru(.5) ru(.667);
+    border-top: 1px solid $feature-image-card-border-color;
+    background-color: $feature-image-card-actions-background-color;
+    line-height: $feature-image-card-actions-line-height;
+    border-radius: 0 0 ru(.25);
+
+    a {
+      @include typography-7;
+      display: inline-block;
+      font-weight: 400;
+      margin: 0;
+      line-height: $feature-image-card-actions-line-height;
+      text-decoration: none;
+
+      &:hover,
+      &:active {
+        text-decoration: underline;
+      }
+
+      + a {
+        margin-left: ru(.25);
+        padding-left: ru(.25);
+        border-left: 1px solid $feature-image-card-actions-divider-color;
+      }
+    }
+  }
+
+  [class^='icon-'] {
+    position: absolute;
+    top: -$feature-image-card-icon-size / 2;
+    right: -$feature-image-card-icon-size / 2;
+    background-size: 100%;
+    cursor: pointer;
+
+    &:before {
+      content: '';
+      display: inline-block;
+      width: $feature-image-card-icon-size;
+      height: $feature-image-card-icon-size;
+    }
+  }
+
+  @media #{$small-only} {
+    padding-bottom: $feature-image-card-actions-height;
+
+    .image {
+      flex: 0 1 $feature-image-card-image-width-small;
+
+      img {
+        border-radius: ru(.25) 0 0;
+      }
+    }
+
+    .actions {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      margin: 0;
+      border-radius: 0 0 ru(.25) ru(.25);
+    }
+  }
+}

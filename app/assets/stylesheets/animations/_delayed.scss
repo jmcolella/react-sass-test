@@ -1,0 +1,51 @@
+// scss-lint:disable all
+/*doc
+---
+title: Delayed
+name: delayed
+category: Animations - Delayed
+---
+```slim_example_table
+div style='height: 400px;'
+  img.example-activate src='holder.js/200x80?auto=yes&theme=dark&text=Click to activate' style='margin-bottom: 12px;'
+  br
+  img.example-animation src='holder.js/200x80?auto=yes&theme=dark' style='display: none'
+  br
+  img.example-animation src='holder.js/200x80?auto=yes&theme=dark' style='display: none'
+  br
+  img.example-animation src='holder.js/200x80?auto=yes&theme=dark' style='display: none'
+```
+
+```js_example
+$('.example-activate').on('click', function() {
+  var delay = 0;
+
+  $('.example-animation').hide();
+
+  $('.example-animation').each(function(i, el) {
+    delay += 600;
+
+    setTimeout(function () {
+      $(el).show().addClass('animation-delayed')
+    }, delay);
+  })
+});
+```
+*/
+// scss-lint:enable all
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+.animation-delayed {
+  animation-fill-mode: both;
+  animation-duration: 2s;
+  animation-name: fadeInUp;
+}

@@ -1,0 +1,103 @@
+// scss-lint:disable all
+/*doc
+---
+title: Empty panel
+name: empty-panel
+category: Panels - Empty panel
+---
+Empty panel:
+
+```slim_example
+  .mod-empty-panel
+    .content
+      h1 Proin aliquam tortor et aliquam dignissim.
+      img src='holder.js/350x350?auto=yes&text=empty-panel-cta'
+
+    .actions
+      .hide-for-small
+        h2 In rhoncus orci et ex fermentum, ut euismod
+        p Ut scelerisque
+        ol
+          li Vivamus ultricies augue in tortor
+          li Vivamus ultricies augue in tortor
+          li Vivamus ultricies augue in tortor
+
+      a.button.action href='#' Suspendisse molestie
+```
+*/
+// scss-lint:enable all
+
+$empty-panel-border-color: $neutral-5;
+$empty-panel-background-color: $neutral-8;
+$empty-panel-padding-small-only: ru(1);
+$empty-panel-padding-medium-up: ru(2);
+$empty-panel-border-radius: ru(.5);
+
+.mod-empty-panel {
+  @include order-list-numbering-without-periods;
+
+  color: $main-font-color;
+  background-color: $empty-panel-background-color;
+  border: 2px dashed $empty-panel-border-color;
+  border-radius: $empty-panel-border-radius;
+
+  h1 { @extend .like-h2; }
+
+  h2 {
+    @extend .like-h2;
+    font-weight: 100;
+  }
+
+  h4 { @extend .like-h4; }
+
+  strong {
+    font-weight: bold;
+  }
+
+  img {
+    display: block;
+    max-width: rem-calc(300px);
+    width: 100%;
+    padding: 0 ru(1);
+    margin: auto;
+  }
+
+  p {
+    margin: 0;
+
+    + p {
+      margin-top: ru(1);
+    }
+  }
+
+  ol {
+    margin-bottom: ru(1);
+
+    li {
+      @extend .like-p;
+
+      margin: 0;
+
+      &::before {
+        font-weight: bold;
+      }
+    }
+  }
+
+  .content {
+    text-align: center;
+  }
+
+  @media #{$small-only} {
+    padding: $empty-panel-padding-small-only;
+  }
+
+  @media #{$medium-up} {
+    @include arrange-children-in-a-row($gutter: $empty-panel-padding-medium-up);
+    padding: $empty-panel-padding-medium-up;
+
+    img {
+      margin-bottom: -$empty-panel-padding-medium-up;
+    }
+  }
+}

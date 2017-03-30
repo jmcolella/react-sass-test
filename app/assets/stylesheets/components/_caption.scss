@@ -1,0 +1,66 @@
+// scss-lint:disable all
+/*doc
+---
+title: Caption Bubble
+name: caption-bubble
+category: Components - Caption Bubble
+---
+
+```slim_example
+.mod-example style='background-color: #00a4a5; padding: 50px'
+  .caption-bubble data-content='Lorem'
+    img src='holder.js/150x75?auto=yes'
+```
+*/
+// scss-lint:enable all
+
+$caption-bubble-line-height:       rem-calc(27px);
+$caption-bubble-border-radius:     rem-calc(6px);
+$caption-bubble-font-size:         rem-calc(13px);
+$caption-bubble-padding-inner:     0 rem-calc(20px);
+$caption-bubble-top:               rem-calc(-39px);
+$caption-bubble-caret-top:         rem-calc(-12px);
+$caption-bubble-caret-size:        rem-calc(6px);
+$caption-bubble-text-shadow-color: rgba(0, 0, 0, .15);
+$caption-bubble-text-shadow:       1px 1px 1px $caption-bubble-text-shadow-color;
+$caption-bubble-background-color:  $neutral-8;
+$caption-bubble-color:             $neutral-2;
+
+[class^='mod-'] {
+  .caption-bubble {
+    position: relative;
+    display: inline-block;
+
+    &:before,
+    &:after {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    &:before {
+      content: attr(data-content);
+      top: $caption-bubble-top;
+      padding: $caption-bubble-padding-inner;
+      border-radius: $caption-bubble-border-radius;
+      background-color: $caption-bubble-background-color;
+      color: $caption-bubble-color;
+      font-size: $caption-bubble-font-size;
+      line-height: $caption-bubble-line-height;
+      text-align: center;
+      white-space: nowrap;
+      text-shadow: $caption-bubble-text-shadow;
+    }
+
+    &:after {
+      content: '';
+      top: $caption-bubble-caret-top;
+      display: inline-block;
+      width: 0;
+      height: 0;
+      border-style: solid;
+      border-width: $caption-bubble-caret-size $caption-bubble-caret-size 0;
+      border-color: $caption-bubble-background-color transparent transparent;
+    }
+  }
+}

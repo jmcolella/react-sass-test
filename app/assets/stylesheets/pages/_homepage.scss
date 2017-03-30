@@ -1,0 +1,993 @@
+// scss-lint:disable all
+/*doc
+---
+title: Homepage
+name: homepage
+category: Pages - Homepage
+---
+```slim_example
+.mod-homepage.layout-homepage
+  .layout-header style='background-image: url(images/career-board-hero-image.jpg)'
+    .layout-container
+      .layout-header-text
+        h1
+         | Shopping for
+         br
+         | insurance is the worst.
+        h2 We're making it better.
+      .layout-header-bot
+        .mod-nav-bar data-mobile-title='Lorem Ipsum'
+          a.link href='#'
+            span Lorem
+            small Phasellus
+          a.link href='#'
+            span Ipsum
+            small Phasellus
+          a.link href='#'
+            span Vivamus
+            small Phasellus
+          a.link href='#'
+            span Fusce
+            small Phasellus
+          a.link href='#'
+            span Nullam
+            small Phasellus
+          a.link.full href='#'
+            span Suspendisse molestie™
+            small Etiam malesuada quis augue?
+    .mod-logos-row
+      .logos-row-panel
+        .logos-row-item
+          img.logos-row-img src='images/metlife-03-grey.svg'
+        .logos-row-item
+          img.logos-row-img src='images/metlife-03-grey.svg'
+        .logos-row-item
+          img.logos-row-img src='images/metlife-03-grey.svg'
+        .logos-row-item
+          img.logos-row-img src='images/metlife-03-grey.svg'
+      .logos-row-scroll-arrow
+      .logos-row-panel
+        .logos-row-item
+          img.logos-row-img src='images/metlife-03-grey.svg'
+        .logos-row-item
+          img.logos-row-img src='images/metlife-03-grey.svg'
+        .logos-row-item
+          img.logos-row-img src='images/metlife-03-grey.svg'
+        .logos-row-item
+          img.logos-row-img src='images/metlife-03-grey.svg'
+  .layout-intro
+    h2 The PolicyGenius approach
+    h4 Experts when you need them. Technology when you don't
+    .mod-features.colored
+      .primary-color
+        img src='images/rightpolicy.svg'
+        h4 Right policy, right price
+        p Find a policy that fits your life and your budget
+      .secondary-color
+        img src='images/rightpolicy.svg'
+        h4 Right policy, right price
+        p Find a policy that fits your life and your budget
+      .tertiary-color
+        img src='images/rightpolicy.svg'
+        h4 Right policy, right price
+        p Find a policy that fits your life and your budget
+    .layout-supplemental
+      .item
+        h4
+          ' Always 100% free.
+          br
+          a.info href='#' So how do we make money?
+      .item
+        p Similar to a traditional broker we make money when we sell an insurance policy. It's important to note that this doesn't cost you anything.
+  .layout-experts
+    .layout-container
+      .layout-center-align
+        div
+          .mod-card.color-shadow
+            h3
+              ' Keep your
+              span doctors & prescriptions
+            p We'll highlight which plans include your doctors and cover your prescriptions.
+        div
+          h3 About our team
+          ul.mod-icon-list
+            li.i-check
+              h5 Licensed & certified
+            li.i-check
+              h5 Salaried (not paid commisions)
+            li.i-check
+              h5 No pushy sales, just hones advice
+            li.i-check
+              h5 Jargon-free guarantee
+            li.i-check
+              h5 Based in the usa
+      .layout-equal-columns
+        div
+          .button.i-openbook.info Read Our Guidlines
+        div
+          .button.i-openbook.info Read Our Guidlines
+        div
+          .button.i-openbook.info Read Our Guidlines
+      p Available Monday-Friday | 9am-6pm EST
+  .layout-logos-panel.gradient
+    .layout-container
+      .layout-equal-columns
+        div
+          h3 Major companies
+          h5 We work with over 35 of America's top insurers
+          .logos-panel-icons
+            .logos-panel-item
+              img src='images/metlife-03.svg'
+            .logos-panel-item
+              img src='images/metlife-03.svg'
+            .logos-panel-item
+              img src='images/metlife-03.svg'
+            .logos-panel-item
+              img src='images/metlife-03.svg'
+            .logos-panel-item
+              img src='images/metlife-03.svg'
+            .logos-panel-item
+              img src='images/metlife-03.svg'
+        div
+          h3 Major press
+          h5 More than just our moms have taken notice
+          .logos-panel-icons
+            .logos-panel-item
+              img src='images/metlife-03.svg'
+            .logos-panel-item
+              img src='images/metlife-03.svg'
+            .logos-panel-item
+              img src='images/metlife-03.svg'
+            .logos-panel-item
+              img src='images/metlife-03.svg'
+            .logos-panel-item
+              img src='images/metlife-03.svg'
+            .logos-panel-item
+              img src='images/metlife-03.svg'
+  .layout-pattern.no-top-shade
+    .layout-pattern-bg
+    .layout-ratings
+      .layout-container
+        h2 We helped over 1 million people shop for insurance
+        p And they actually enjoyed it!
+        .mod-features.colored
+          div
+            .ratings-wrapper 78 of 100
+            h4 Right policy, right price
+            p Find a policy that fits your life and your budget
+          div
+            .ratings-wrapper A+
+            h4 Right policy, right price
+            p Find a policy that fits your life and your budget
+          div
+            .ratings-wrapper
+              .com-rating
+                .stars
+                  i.i-star.active
+                  i.i-star.active
+                  i.i-star.active
+                  i.i-star.active
+                  i.i-star.active
+            h4 Right policy, right price
+            p Find a policy that fits your life and your budget
+    .layout-faq
+      .layout-container
+        img src='images/question_bubbles.svg'
+        h2 Top 5 PolicyGenius FAQs
+        .mod-accordion
+          .section
+            .header
+              h4 Justin's discounts
+              .toggle-accordion
+            .body
+              p 123
+          .section
+            .header
+              h4 Tammy's discounts
+              .toggle-accordion
+            .body
+              p Lorem ipsum dolor sit amet, consectetur Testadipiscing elit. Morbi eu interdum diam. Donec interdum porttitor risus non bibendum. Maecenas sollicitudin eros in quam imperdiet placerat. Cras justo purus, rhoncus nec lobortis ut, iaculis vel ipsum. Donec dignissim arcu nec elit faucibus condimentum.
+          .section
+            .header
+              h4 2016 Honda Accord discounts
+              .toggle-accordion
+            .body
+              p Lorem ipsum dolor sit amet, consectetur Testadipiscing elit. Morbi eu interdum diam.
+          .section
+            .header
+              h4 2016 Honda Accord discounts
+              .toggle-accordion
+            .body
+              p Lorem ipsum dolor sit amet, consectetur Testadipiscing elit. Morbi eu interdum diam.
+          .section
+            .header
+              h4 2016 Honda Accord discounts
+              .toggle-accordion
+            .body
+              p Lorem ipsum dolor sit amet, consectetur Testadipiscing elit. Morbi eu interdum diam.
+    .layout-offer
+      .layout-container
+        h2 The easiest way to get insurance
+        a.button.action href='#' Start shopping
+        h3 What We offer
+        p Shopping, education, and helpful resources because let's face it, shopping for insurance isn't like shopping for shoes
+  .layout-main
+    .layout-sidebar
+      h5 What We Offer
+      .mod-sidenav.condensed
+        ul
+          li: a href='#' Insurance Checkup
+          li: a href='#' Life Insurance
+          li: a href='#' Health Insurance
+          li: a href='#' Disability Insurance
+          li: a.active href='#' Auto Insurance
+          li: a href='#' Pet Insurance
+          li: a href='#' Other Products
+    .layout-content
+      .layout-section
+        .layout-overlap-columns
+          div
+            .mod-card.colorbar
+              .header
+                h2 Insurance Checkup
+              .content
+                h5
+                 ' Not sure what you need? Try our Incsurance Checkup and figure out what you
+                 em actually
+                 ' need.
+                .footer
+                  a.button.action href='#' Get Quotes
+                  p
+                    | Best part?
+                    br
+                    span.like-h4 It's free
+          div.hidden-for-small-only
+            .mod-ad-unit
+              img src='holder.js/600x440?auto=yes'
+        .spacer-m
+        .flex-row.wide
+          div
+            h5 We'll let you know what you DO and DON'T need
+            ul.mod-simple-list.three-columns.no-bullet
+              li Life
+              li Health
+              li Auto
+              li Accident
+              li Homeowners
+              li Dental
+              li Vision
+              li Critical Illness
+              li Pet
+              li Disability
+              li Renters
+              li Long-term Care
+          .mod-card.gradient.hidden-for-small-only
+            img src='images/rightpolicy.svg' width='60'
+            h5 Find the hotels in your safety nets!
+      .layout-section.no-top-margin
+        .layout-overlap-columns
+          div
+            .mod-card.colorbar
+              .header
+                h2 Life Insurance
+              .content
+                h5
+                 ' Not sure what you need? Try our Incsurance Checkup and figure out what you
+                 em actually
+                 ' need.
+                .footer
+                  a.button.action href='#' Get Quotes
+                  p
+                    | Plans from
+                    br
+                    span.like-h4 $39/month
+          div.hidden-for-small-only
+            .mod-ad-unit
+              img src='images/bg-home.jpeg'
+        .spacer-m
+        .flex-row.wide
+          div
+            h2 Getting Started with Life Insurance
+            .mod-stacked-cards.branded
+              .cards
+                a.card href='#'
+                  h5 Health Insurance Basics
+                  p What it is, how it works and what you need to know.
+                  .read-more Read More
+                a.card href='#'
+                  h5 Health Insurance Marketplaces
+                  p How to shop on Healthcare.gov and exchanges.
+                  .read-more Read More
+                a.card href='#'
+                  h5 Health Insurance Reviews
+                  p Find the best health insurance company for you.
+                  .read-more Read More
+          .mod-card.gradient
+            img src='images/rightpolicy.svg' width='60'
+            h5 Read the full guide
+            p Psst... it's handwritten by real experts.
+            a.button.mini.outline Visit Our Guide
+        .spacer-m
+        .mod-rating-index
+          h2 Life Insurance company reviews
+          .cards.three-per-row
+            a.mod-card.rating href='#'
+              .com-rating.compact.align-left
+                h3.heading Blue Cross Blue Shield
+                .stars
+                  .i-star.active
+                  .i-star.active
+                  .i-star.active
+                  .i-star.active
+                  .i-star
+            a.mod-card.rating href='#'
+              .com-rating.compact.align-left
+                h3.heading Blue Cross Blue Shield
+                .stars
+                  .i-star.active
+                  .i-star.active
+                  .i-star.active
+                  .i-star
+                  .i-star
+            a.mod-card.rating href='#'
+              .com-rating.compact.align-left
+                h3.heading Blue Cross Blue Shield Health Carrier
+                .stars
+                  .i-star.active
+                  .i-star.active
+                  .i-star.active
+                  .i-star
+                  .i-star
+            a.mod-card.rating href='#'
+              .com-rating.compact.align-left
+                h3.heading Blue Cross Blue Shield
+                .stars
+                  .i-star.active
+                  .i-star.active
+                  .i-star
+                  .i-star
+                  .i-star
+            a.mod-card.rating href='#'
+              .com-rating.compact.align-left
+                h3.heading Blue Cross Blue Shield
+                .stars
+                  .i-star.active
+                  .i-star.active
+                  .i-star.active
+                  .i-star.active
+                  .i-star
+            a.mod-card.rating href='#'
+              span.more View All
+        .spacer-m
+        .mod-section-columns.layout-section-columns
+          div
+            h2 Life insurance glossary
+            a.button.tag premium
+            a.button.tag deductible
+            a.button.tag coinsurance
+            a.button.tag term
+            a.button.tag catastrophic plans
+            a.button.tag copayments
+            .spacer-s
+            a.button.outline.mini.full-width href='#' View All
+          div
+            h2 Life insurance FAQ
+            ul.mod-simple-list.no-bullet.extended.highlighting
+              li: a href='#' What is a health insurance deductible?
+              li: a href='#' What is a catastrophic plan?
+              li: a href='#' What is coinsurance?
+              li: a href='#' What is a catastrophic plan?
+            .spacer-s
+            a.button.outline.mini.full-width href='#' View All
+      .layout-section
+        .layout-overlap-columns
+          div
+            .mod-card.colorbar
+              .header
+                h2 Health Insurance
+              .content
+                h5
+                 ' Not sure what you need? Try our Incsurance Checkup and figure out what you
+                 em actually
+                 ' need.
+                .footer
+                  a.button.action href='#' Get Quotes
+                  p
+                    | Plans from
+                    br
+                    span.like-h4 $39/month
+          div.hidden-for-small-only
+            .mod-ad-unit
+              img src='holder.js/600x440?auto=yes'
+        .spacer-m
+        .flex-row.wide
+          div
+            h2 Getting Started with Life Insurance
+            .mod-stacked-cards.branded
+              .cards
+                a.card href='#'
+                  h5 Health Insurance Basics
+                  p What it is, how it works and what you need to know.
+                  .read-more Read More
+                a.card href='#'
+                  h5 Health Insurance Marketplaces
+                  p How to shop on Healthcare.gov and exchanges.
+                  .read-more Read More
+                a.card href='#'
+                  h5 Health Insurance Reviews
+                  p Find the best health insurance company for you.
+                  .read-more Read More
+          .mod-card.gradient
+            img src='images/rightpolicy.svg' width='60'
+            h5 Read the full guide
+            p Psst... it's handwritten by real experts.
+            a.button.mini.outline Visit Our Guide
+        .spacer-m
+        .mod-rating-index
+          h2 Life Insurance company reviews
+          .cards.three-per-row
+            a.mod-card.rating href='#'
+              .com-rating.compact.align-left
+                h3.heading Blue Cross Blue Shield
+                .stars
+                  .i-star.active
+                  .i-star.active
+                  .i-star.active
+                  .i-star.active
+                  .i-star
+            a.mod-card.rating href='#'
+              .com-rating.compact.align-left
+                h3.heading Blue Cross Blue Shield
+                .stars
+                  .i-star.active
+                  .i-star.active
+                  .i-star.active
+                  .i-star
+                  .i-star
+            a.mod-card.rating href='#'
+              .com-rating.compact.align-left
+                h3.heading Blue Cross Blue Shield Health Carrier
+                .stars
+                  .i-star.active
+                  .i-star.active
+                  .i-star.active
+                  .i-star
+                  .i-star
+            a.mod-card.rating href='#'
+              .com-rating.compact.align-left
+                h3.heading Blue Cross Blue Shield
+                .stars
+                  .i-star.active
+                  .i-star.active
+                  .i-star
+                  .i-star
+                  .i-star
+            a.mod-card.rating href='#'
+              .com-rating.compact.align-left
+                h3.heading Blue Cross Blue Shield
+                .stars
+                  .i-star.active
+                  .i-star.active
+                  .i-star.active
+                  .i-star.active
+                  .i-star
+            a.mod-card.rating href='#'
+              span.more View All
+        .spacer-m
+        .mod-section-columns.layout-section-columns
+          div
+            h2 Life insurance glossary
+            a.button.tag premium
+            a.button.tag deductible
+            a.button.tag coinsurance
+            a.button.tag term
+            a.button.tag catastrophic plans
+            a.button.tag copayments
+            .spacer-s
+            a.button.outline.mini.full-width href='#' View All
+          div
+            h2 Life insurance FAQ
+            ul.mod-simple-list.no-bullet.extended.highlighting
+              li: a href='#' What is a health insurance deductible?
+              li: a href='#' What is a catastrophic plan?
+              li: a href='#' What is coinsurance?
+              li: a href='#' What is a catastrophic plan?
+            .spacer-s
+            a.button.outline.mini.full-width href='#' View All
+      .layout-section
+        .layout-overlap-columns
+          div
+            .mod-card.colorbar
+              .header
+                h2 Disability Insurance
+              .content
+                h5
+                 ' Not sure what you need? Try our Incsurance Checkup and figure out what you
+                 em actually
+                 ' need.
+                .footer
+                  a.button.action href='#' Get Quotes
+                  p
+                    | Plans from
+                    br
+                    span.like-h4 $39/month
+          div.hidden-for-small-only
+            .mod-ad-unit
+              img src='holder.js/600x440?auto=yes'
+        .spacer-m
+        .flex-row.wide
+          div
+            h2 Getting Started with Life Insurance
+            .mod-stacked-cards.branded
+              .cards
+                a.card href='#'
+                  h5 Health Insurance Basics
+                  p What it is, how it works and what you need to know.
+                  .read-more Read More
+                a.card href='#'
+                  h5 Health Insurance Marketplaces
+                  p How to shop on Healthcare.gov and exchanges.
+                  .read-more Read More
+                a.card href='#'
+                  h5 Health Insurance Reviews
+                  p Find the best health insurance company for you.
+                  .read-more Read More
+          .mod-card.gradient
+            img src='images/rightpolicy.svg' width='60'
+            h5 Read the full guide
+            p Psst... it's handwritten by real experts.
+            a.button.mini.outline Visit Our Guide
+        .spacer-m
+        .mod-rating-index
+          h2 Life Insurance company reviews
+          .cards.three-per-row
+            a.mod-card.rating href='#'
+              .com-rating.compact.align-left
+                h3.heading Blue Cross Blue Shield
+                .stars
+                  .i-star.active
+                  .i-star.active
+                  .i-star.active
+                  .i-star.active
+                  .i-star
+            a.mod-card.rating href='#'
+              .com-rating.compact.align-left
+                h3.heading Blue Cross Blue Shield
+                .stars
+                  .i-star.active
+                  .i-star.active
+                  .i-star.active
+                  .i-star
+                  .i-star
+            a.mod-card.rating href='#'
+              .com-rating.compact.align-left
+                h3.heading Blue Cross Blue Shield Health Carrier
+                .stars
+                  .i-star.active
+                  .i-star.active
+                  .i-star.active
+                  .i-star
+                  .i-star
+            a.mod-card.rating href='#'
+              .com-rating.compact.align-left
+                h3.heading Blue Cross Blue Shield
+                .stars
+                  .i-star.active
+                  .i-star.active
+                  .i-star
+                  .i-star
+                  .i-star
+            a.mod-card.rating href='#'
+              .com-rating.compact.align-left
+                h3.heading Blue Cross Blue Shield
+                .stars
+                  .i-star.active
+                  .i-star.active
+                  .i-star.active
+                  .i-star.active
+                  .i-star
+            a.mod-card.rating href='#'
+              span.more View All
+        .spacer-m
+        .mod-section-columns.layout-section-columns
+          div
+            h2 Life insurance glossary
+            a.button.tag premium
+            a.button.tag deductible
+            a.button.tag coinsurance
+            a.button.tag term
+            a.button.tag catastrophic plans
+            a.button.tag copayments
+            .spacer-s
+            a.button.outline.mini.full-width href='#' View All
+          div
+            h2 Life insurance FAQ
+            ul.mod-simple-list.no-bullet.extended.highlighting
+              li: a href='#' What is a health insurance deductible?
+              li: a href='#' What is a catastrophic plan?
+              li: a href='#' What is coinsurance?
+              li: a href='#' What is a catastrophic plan?
+            .spacer-s
+            a.button.outline.mini.full-width href='#' View All
+      .layout-section
+        .layout-overlap-columns
+          div
+            .mod-card.colorbar
+              .header
+                h2 Auto Insurance
+              .content
+                h5
+                 ' Not sure what you need? Try our Incsurance Checkup and figure out what you
+                 em actually
+                 ' need.
+                .footer
+                  a.button.action href='#' Get Quotes
+                  p
+                    | Plans from
+                    br
+                    span.like-h4 $39/month
+          div.hidden-for-small-only
+            .mod-ad-unit
+              img src='holder.js/600x440?auto=yes'
+        .spacer-m
+        .flex-row.wide
+          div
+            h2 Getting Started with Life Insurance
+            .mod-stacked-cards.branded
+              .cards
+                a.card href='#'
+                  h5 Health Insurance Basics
+                  p What it is, how it works and what you need to know.
+                  .read-more Read More
+                a.card href='#'
+                  h5 Health Insurance Marketplaces
+                  p How to shop on Healthcare.gov and exchanges.
+                  .read-more Read More
+                a.card href='#'
+                  h5 Health Insurance Reviews
+                  p Find the best health insurance company for you.
+                  .read-more Read More
+          .mod-card.gradient
+            img src='images/rightpolicy.svg' width='60'
+            h5 Read the full guide
+            p Psst... it's handwritten by real experts.
+            a.button.mini.outline Visit Our Guide
+        .spacer-m
+        .mod-rating-index
+          h2 Life Insurance company reviews
+          .cards.three-per-row
+            a.mod-card.rating href='#'
+              .com-rating.compact.align-left
+                h3.heading Blue Cross Blue Shield
+                .stars
+                  .i-star.active
+                  .i-star.active
+                  .i-star.active
+                  .i-star.active
+                  .i-star
+            a.mod-card.rating href='#'
+              .com-rating.compact.align-left
+                h3.heading Blue Cross Blue Shield
+                .stars
+                  .i-star.active
+                  .i-star.active
+                  .i-star.active
+                  .i-star
+                  .i-star
+            a.mod-card.rating href='#'
+              .com-rating.compact.align-left
+                h3.heading Blue Cross Blue Shield Health Carrier
+                .stars
+                  .i-star.active
+                  .i-star.active
+                  .i-star.active
+                  .i-star
+                  .i-star
+            a.mod-card.rating href='#'
+              .com-rating.compact.align-left
+                h3.heading Blue Cross Blue Shield
+                .stars
+                  .i-star.active
+                  .i-star.active
+                  .i-star
+                  .i-star
+                  .i-star
+            a.mod-card.rating href='#'
+              .com-rating.compact.align-left
+                h3.heading Blue Cross Blue Shield
+                .stars
+                  .i-star.active
+                  .i-star.active
+                  .i-star.active
+                  .i-star.active
+                  .i-star
+            a.mod-card.rating href='#'
+              span.more View All
+        .spacer-m
+        .mod-section-columns.layout-section-columns
+          div
+            h2 Life insurance glossary
+            a.button.tag premium
+            a.button.tag deductible
+            a.button.tag coinsurance
+            a.button.tag term
+            a.button.tag catastrophic plans
+            a.button.tag copayments
+            .spacer-s
+            a.button.outline.mini.full-width href='#' View All
+          div
+            h2 Life insurance FAQ
+            ul.mod-simple-list.no-bullet.extended.highlighting
+              li: a href='#' What is a health insurance deductible?
+              li: a href='#' What is a catastrophic plan?
+              li: a href='#' What is coinsurance?
+              li: a href='#' What is a catastrophic plan?
+            .spacer-s
+            a.button.outline.mini.full-width href='#' View All
+      .layout-section
+        .layout-overlap-columns
+          div
+            .mod-card.colorbar
+              .header
+                h2 Pet Insurance
+              .content
+                h5
+                 ' Not sure what you need? Try our Incsurance Checkup and figure out what you
+                 em actually
+                 ' need.
+                .footer
+                  a.button.action href='#' Get Quotes
+                  p
+                    | Plans from
+                    br
+                    span.like-h4 $39/month
+          div.hidden-for-small-only
+            .mod-ad-unit
+              img src='holder.js/600x440?auto=yes'
+        .spacer-m
+        .flex-row.wide
+          div
+            h2 Getting Started with Life Insurance
+            .mod-stacked-cards.branded
+              .cards
+                a.card href='#'
+                  h5 Health Insurance Basics
+                  p What it is, how it works and what you need to know.
+                  .read-more Read More
+                a.card href='#'
+                  h5 Health Insurance Marketplaces
+                  p How to shop on Healthcare.gov and exchanges.
+                  .read-more Read More
+                a.card href='#'
+                  h5 Health Insurance Reviews
+                  p Find the best health insurance company for you.
+                  .read-more Read More
+          .mod-card.gradient
+            img src='images/rightpolicy.svg' width='60'
+            h5 Read the full guide
+            p Psst... it's handwritten by real experts.
+            a.button.mini.outline Visit Our Guide
+        .spacer-m
+        .mod-rating-index
+          h2 Life Insurance company reviews
+          .cards.three-per-row
+            a.mod-card.rating href='#'
+              .com-rating.compact.align-left
+                h3.heading Blue Cross Blue Shield
+                .stars
+                  .i-star.active
+                  .i-star.active
+                  .i-star.active
+                  .i-star.active
+                  .i-star
+            a.mod-card.rating href='#'
+              .com-rating.compact.align-left
+                h3.heading Blue Cross Blue Shield
+                .stars
+                  .i-star.active
+                  .i-star.active
+                  .i-star.active
+                  .i-star
+                  .i-star
+            a.mod-card.rating href='#'
+              .com-rating.compact.align-left
+                h3.heading Blue Cross Blue Shield Health Carrier
+                .stars
+                  .i-star.active
+                  .i-star.active
+                  .i-star.active
+                  .i-star
+                  .i-star
+            a.mod-card.rating href='#'
+              .com-rating.compact.align-left
+                h3.heading Blue Cross Blue Shield
+                .stars
+                  .i-star.active
+                  .i-star.active
+                  .i-star
+                  .i-star
+                  .i-star
+            a.mod-card.rating href='#'
+              .com-rating.compact.align-left
+                h3.heading Blue Cross Blue Shield
+                .stars
+                  .i-star.active
+                  .i-star.active
+                  .i-star.active
+                  .i-star.active
+                  .i-star
+            a.mod-card.rating href='#'
+              span.more View All
+        .spacer-m
+        .mod-section-columns.layout-section-columns
+          div
+            h2 Life insurance glossary
+            a.button.tag premium
+            a.button.tag deductible
+            a.button.tag coinsurance
+            a.button.tag term
+            a.button.tag catastrophic plans
+            a.button.tag copayments
+            .spacer-s
+            a.button.outline.mini.full-width href='#' View All
+          div
+            h2 Life insurance FAQ
+            ul.mod-simple-list.no-bullet.extended.highlighting
+              li: a href='#' What is a health insurance deductible?
+              li: a href='#' What is a catastrophic plan?
+              li: a href='#' What is coinsurance?
+              li: a href='#' What is a catastrophic plan?
+            .spacer-s
+            a.button.outline.mini.full-width href='#' View All
+      .layout-section
+        .layout-overlap-columns
+          div
+            .mod-card.colorbar
+              .header
+                h2 Other Products
+              .content
+                h5
+                 ' Not sure what you need? Try our Incsurance Checkup and figure out what you
+                 em actually
+                 ' need.
+                .footer
+                  a.button.action href='#' Get Quotes
+                  p
+                    | Plans from
+                    br
+                    span.like-h4 $39/month
+          div.hidden-for-small-only
+            .mod-ad-unit
+              img src='holder.js/600x440?auto=yes'
+        .spacer-m
+        .layout-table-grid
+          div
+            a.button.graphic href='#'
+              img.graphic-image src='images/heart-sign.png' width='60'
+              span.graphic-text Accident Insurance
+          div
+            a.button.graphic href='#'
+              img.graphic-image src='images/heart-sign.png' width='60'
+              span.graphic-text Dental Insurance
+          div
+            a.button.graphic href='#'
+              img.graphic-image src='images/heart-sign.png' width='60'
+              span.graphic-text Long-Term Care Insurance
+          div
+            a.button.graphic href='#'
+              img.graphic-image src='images/heart-sign.png' width='60'
+              span.graphic-text Vision Insurance
+          div
+            a.button.graphic href='#'
+              img.graphic-image src='images/heart-sign.png' width='60'
+              span.graphic-text Critical Illness Insurance
+          div
+            a.button.graphic href='#'
+              img.graphic-image src='images/heart-sign.png' width='60'
+              span.graphic-text Homeowners Insurance
+          div
+            a.button.graphic href='#'
+              img.graphic-image src='images/heart-sign.png' width='60'
+              span.graphic-text Renters Insurance
+          div
+  .layout-recent
+    .layout-container
+      h2 Recently written by our experts
+      .mod-frame-grid
+        a.item.featured style='background-color: #ccc;'
+          .headline
+            .tag Tag
+            p Headline Text Here
+          .details
+            p For most of us, the idea of shopping for life insurance is about as appealing...
+            .flex-row.v-centered
+              span.continue Continue Reading
+              span.estimation Est. 17 min read
+        .items
+          a.item.wide style='background-color: #ccc;'
+            .headline
+              .tag Tag
+              p Headline Text Here
+            .details
+              p For most of us, the idea of shopping for life insurance is about as appealing...
+              .flex-row.v-centered
+                span.continue Continue Reading
+                span.estimation Est. 17 min read
+          a.item style='background-color: #ccc;'
+            .headline
+              .tag Tag
+              p Headline Text Here
+            .details
+              p For most of us, the idea of shopping for life insurance is about as appealing...
+              .flex-row.v-centered
+                span.continue Continue Reading
+                span.estimation Est. 17 min read
+          a.item style='background-color: #ccc;'
+            .headline
+              .tag Tag
+              p Headline Text Here
+            .details
+              p For most of us, the idea of shopping for life insurance is about as appealing...
+              .flex-row.v-centered
+                span.continue Continue Reading
+                span.estimation Est. 17 min read
+    .layout-pattern
+      .layout-pattern-bg
+      .layout-container
+        .layout-equal-columns
+          div
+            h5 Personal Finance
+            ul
+              li
+                a.highlighting href='#' What is health Insurance?
+              li
+                a.highlighting href='#' What is the Affordable Care Act?
+              li
+                a.highlighting href='#' What is the penalty for not having health insurance?
+            a.button.outline.mini href='#' View all
+          div
+            h5 Family
+            ul
+              li
+                a.highlighting href='#' What is health Insurance?
+              li
+                a.highlighting href='#' What is the Affordable Care Act?
+              li
+                a.highlighting href='#' What is the penalty for not having health insurance?
+            a.button.outline.mini href='#' View all
+          div
+            h5 Productivity
+            ul
+              li
+                a.highlighting href='#' What is health Insurance?
+              li
+                a.highlighting href='#' What is the Affordable Care Act?
+              li
+                a.highlighting href='#' What is the penalty for not having health insurance?
+            a.button.outline.mini href='#' View all
+        .mod-example
+          .flip.vertical
+            figure
+              .front
+                .mod-card.gradient
+                  h5
+                    | Shopping for insurance
+                    br
+                    | doing your taxes in an airport bathroom
+              .back
+                .mod-card.gradient
+                  h5
+                    | Shopping for insurance
+                    br
+                    | doing your taxes in an airport bathroom
+        h3 We're making it better
+        a.button.action href='#' Start Shopping
+```
+```js_example
+$('.mod-accordion .header').on('click', function() {
+  $(this).parents('.section').toggleClass('expanded');
+  $(this).parents('.section').find('.body').slideToggle(500);
+});
+```
+*/
+// scss-lint:enable all

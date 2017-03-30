@@ -1,0 +1,58 @@
+@mixin table-model($alignment: top) {
+  // scss-lint:disable ImportantRule
+  display: table !important;
+  // scss-lint:enable ImportantRule
+  border-spacing: 0;
+  table-layout: fixed;
+  width: 100%;
+
+  > * {
+    display: table-cell;
+    vertical-align: $alignment;
+  }
+}
+
+@mixin ie9-arrange-children-in-a-row($gutter: ru(1)) {
+  .ie9 & {
+    @include table-model();
+
+    > * {
+      padding-left: $gutter / 2;
+      padding-right: $gutter / 2;
+    }
+
+    > :first-child { padding-left: 0; }
+    > :last-child { padding-right: 0; }
+  }
+}
+
+@mixin ie9-arrange-in-block-grid($per-row: 5, $gutter: ru(1), $min-width: ru(8)) {
+  .ie9 & {
+    font-size: 0;
+    margin-left: -$gutter;
+    margin-top: -$gutter;
+
+    > * {
+      display: inline-block;
+      vertical-align: top;
+      min-width: $min-width;
+      margin-left: $gutter;
+      margin-top: $gutter;
+
+      $column-width: (100% / $per-row);
+
+      @media (min-width: $min-width*$per-row) {
+        min-width: calc(#{$column-width} - #{$gutter});
+      }
+
+      @for $i from 2 through $per-row {
+        $screen-width: ($min-width * $i) + ($gutter * $i);
+        $column-width: (100% / $i);
+
+        @media (min-width: $screen-width) {
+          max-width: calc(#{$column-width} - #{$gutter});
+        }
+      }
+    }
+  }
+}

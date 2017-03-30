@@ -1,0 +1,473 @@
+// scss-lint:disable all
+/*doc
+---
+title: Health Product
+name: health_product
+category: Pages - Health Product
+---
+```slim_example
+.mod-health-product.layout-health-product
+  .layout-header.mod-hero.gradient
+    .layout-container
+      .layout-banner
+        header
+          h1 Buy the best health insurance for you
+          h2 Search and compare all Obamacare and private marketplace plans
+          .form
+            form
+              .textfield
+                .field
+                  label for='pet_criteria_name'
+                    | Zipcode
+                    abbr title='required' *
+                  input placeholder='10012' type='text'
+              input.button.action type='submit' value='Get Quotes'
+              p
+                b 14 days
+                | &nbsp; until open enrollment
+        aside
+          img.feature-image src='images/arm-holding-phone.png'
+  .mod-logos-row
+    .logos-row-panel
+      .logos-row-item
+        img.logos-row-img src='images/metlife-03-grey.svg'
+      .logos-row-item
+        img.logos-row-img src='images/metlife-03-grey.svg'
+      .logos-row-item
+        img.logos-row-img src='images/metlife-03-grey.svg'
+      .logos-row-item
+        img.logos-row-img src='images/metlife-03-grey.svg'
+    .logos-row-scroll-arrow
+    .logos-row-panel
+      .logos-row-item
+        img.logos-row-img src='images/metlife-03-grey.svg'
+      .logos-row-item
+        img.logos-row-img src='images/metlife-03-grey.svg'
+      .logos-row-item
+        img.logos-row-img src='images/metlife-03-grey.svg'
+      .logos-row-item
+        img.logos-row-img src='images/metlife-03-grey.svg'
+  .mod-banner.blue
+    .layout-row
+      blockquote
+        span We're adding new 2017 plans daily!
+  .layout-intro
+    .layout-leading
+      h2 The PolicyGenius approach
+      h4 Experts when you need them. Technology when you don't
+    .mod-features.colored
+      .primary-color
+        img src='images/rightpolicy.svg'
+        h4 Right policy, right price
+        p Find a policy that fits your life and your budget
+      .secondary-color
+        img src='images/rightpolicy.svg'
+        h4 Right policy, right price
+        p Find a policy that fits your life and your budget
+      .tertiary-color
+        img src='images/rightpolicy.svg'
+        h4 Right policy, right price
+        p Find a policy that fits your life and your budget
+    .layout-supplemental
+      .item
+        .offset-images
+          img src='holder.js/80x80?auto=yes'
+          img src='holder.js/80x80?auto=yes'
+          img src='holder.js/80x80?auto=yes'
+      .item
+        p Similar to a traditional broker we make money when we sell an insurance policy. It's important to note that this doesn't cost you anything.
+    .layout-equal-columns
+        div
+          .button.i-openbook.info Read Our Guidlines
+        div
+          .button.i-openbook.info Read Our Guidlines
+        div
+          .button.i-openbook.info Read Our Guidlines
+  .layout-pattern.no-top.no-bottom-shade
+    .layout-pattern-bg
+    p Available Monday-Friday | 9am-6pm EST
+    .layout-experts
+      .layout-container
+        .layout-center-align
+          div
+            .mod-card.color-shadow
+              h3
+                ' Keep your
+                span doctors & prescriptions
+              p We'll highlight which plans include your doctors and cover your prescriptions.
+          div
+            h3 About our team
+            ul.mod-icon-list
+              li.icon-checkmark
+                h5 No insurance jargon
+              li.icon-checkmark
+                h5 You choose what's important to you
+              li.icon-checkmark
+                h5 Keep your doctors & prescriptions
+              li.icon-checkmark
+                h5 Find providers near you
+              li.icon-checkmark
+                h5 Renew your current plan
+              li.icon-checkmark
+                h5 Compare plans visually
+    .layout-desc-block
+      .layout-container
+        .layout-equal-columns
+          div
+            img src='images/iphone_6-01.svg'
+          div
+            .mod-card.color-shadow
+                h3
+                  ' Keep your
+                  span doctors & prescriptions
+                p We'll highlight which plans include your doctors and cover your prescriptions.
+  .layout-bg-block style='background-color:#66C8C9'
+      .layout-container
+        .layout-equal-columns
+          div
+            .mod-card.color-shadow
+                h3
+                  ' Keep your
+                  span doctors & prescriptions
+                p We'll highlight which plans include your doctors and cover your prescriptions.
+          div
+            img src='holder.js/765x435?auto=yes'
+  .layout-pattern.no-shade
+    .layout-pattern-bg
+    .layout-way
+      .layout-container
+          h2 The easiest way to get health insurance
+          .form
+            form
+              .textfield
+                .field
+                  label for='pet_criteria_name'
+                    | Zipcode
+                    abbr title='required' *
+                  input placeholder='10012' type='text'
+              input.button.action type='submit' value='Get Quotes'
+    .layout-help
+      .layout-container
+          h3 We helped over 1 million people shop for insurance
+          p And they actually enjoyed it!
+          .mod-features.colored
+            div
+              span 78 of 100
+              h4 Right policy, right price
+              p Find a policy that fits your life and your budget
+            div
+              span A+
+              h4 Right policy, right price
+              p Find a policy that fits your life and your budget
+            div
+              span
+                i.i-star
+                i.i-star
+                i.i-star
+                i.i-star
+                i.i-star
+              h4 Right policy, right price
+              p Find a policy that fits your life and your budget
+  .layout-logos-panel.mod-hero.gradient
+    .layout-container
+      .layout-equal-columns
+        div
+          h3 Major companies
+          h5 We work with over 35 of America's top insurers
+          .logos-panel-icons
+            .logos-panel-item
+              img src='images/metlife-03.svg'
+            .logos-panel-item
+              img src='images/metlife-03.svg'
+            .logos-panel-item
+              img src='images/metlife-03.svg'
+            .logos-panel-item
+              img src='images/metlife-03.svg'
+            .logos-panel-item
+              img src='images/metlife-03.svg'
+            .logos-panel-item
+              img src='images/metlife-03.svg'
+        div
+          h3 Major press
+          h5 More than just our moms have taken notice
+          .logos-panel-icons
+            .logos-panel-item
+              img src='images/metlife-03.svg'
+            .logos-panel-item
+              img src='images/metlife-03.svg'
+            .logos-panel-item
+              img src='images/metlife-03.svg'
+            .logos-panel-item
+              img src='images/metlife-03.svg'
+            .logos-panel-item
+              img src='images/metlife-03.svg'
+            .logos-panel-item
+              img src='images/metlife-03.svg'
+  .layout-pattern.no-top-shade
+      .layout-pattern-bg
+      .layout-faq
+        .layout-container
+          img src='images/question_bubbles.svg'
+          h2 Top 5 PolicyGenius FAQs
+          .mod-accordion
+            .section
+              .header
+                h4 Justin's discounts
+                .toggle-accordion
+              .body
+                p 123
+            .section
+              .header
+                h4 Tammy's discounts
+                .toggle-accordion
+              .body
+                p Lorem ipsum dolor sit amet, consectetur Testadipiscing elit. Morbi eu interdum diam. Donec interdum porttitor risus non bibendum. Maecenas sollicitudin eros in quam imperdiet placerat. Cras justo purus, rhoncus nec lobortis ut, iaculis vel ipsum. Donec dignissim arcu nec elit faucibus condimentum.
+            .section
+              .header
+                h4 2016 Honda Accord discounts
+                .toggle-accordion
+              .body
+                p Lorem ipsum dolor sit amet, consectetur Testadipiscing elit. Morbi eu interdum diam.
+            .section
+              .header
+                h4 2016 Honda Accord discounts
+                .toggle-accordion
+              .body
+                p Lorem ipsum dolor sit amet, consectetur Testadipiscing elit. Morbi eu interdum diam.
+            .section
+              .header
+                h4 2016 Honda Accord discounts
+                .toggle-accordion
+              .body
+                p Lorem ipsum dolor sit amet, consectetur Testadipiscing elit. Morbi eu interdum diam.
+  .layout-rate
+    .layout-container
+      h2 Our clients rate us 9.7/10 on TRUSTPILOT
+      .mod-features.colored
+            div
+              span
+                i.i-star
+                i.i-star
+                i.i-star
+                i.i-star
+                i.i-star
+              h4 'Right policy, right price'
+              p
+                a href='#' Nishith N.
+            div.wide
+              span
+                i.i-star
+                i.i-star
+                i.i-star
+                i.i-star
+                i.i-star
+              h4 'PolicyGenius is not only a great tool when shopping for insurance but also provide wonderful customer service and assistance throughout the entire process. I highly recommend them.'
+              p
+                a href='#' Nishith N.
+      .mod-features.colored
+            div
+              span
+                i.i-star
+                i.i-star
+                i.i-star
+                i.i-star
+                i.i-star
+              h4 'Right policy, right price'
+              p
+                a href='#' Nishith N.
+            div
+              span
+                i.i-star
+                i.i-star
+                i.i-star
+                i.i-star
+                i.i-star
+              h4 'Right policy, right price'
+              p
+                a href='#' Nishith N.
+            div
+              span
+                i.i-star
+                i.i-star
+                i.i-star
+                i.i-star
+                i.i-star
+              h4 'Right policy, right price'
+              p
+                a href='#' Nishith N.
+      .mod-features.colored
+            div.wide
+              span
+                i.i-star
+                i.i-star
+                i.i-star
+                i.i-star
+                i.i-star
+              h4 'Right policy, right price'
+              p
+                a href='#' Nishith N.
+            div
+              span
+                i.i-star
+                i.i-star
+                i.i-star
+                i.i-star
+                i.i-star
+              h4 'Right policy, right price'
+              p
+                a href='#' Nishith N.
+  .layout-help
+    .layout-container
+      .mod-ad-unit
+        .content.align-left style='background-image: url(images/career-board-hero-image.jpg)'
+          h4
+            | The PolicyGenius Guide to Health Insurance
+            span.hidden-for-small-only
+              | : everything you need to know to find the right plan
+          a.button.action href='#' Learning Center
+      .flex-row.wide
+        div
+          h3 Getting Started with Health Insurance
+          .spacer-m.hidden-for-small
+          .mod-stacked-cards.branded
+            .cards
+              a.card href='#'
+                h5 Life Insurance 101
+                p What it is, what is covers, and what it's for.
+                .read-more Read More
+              a.card href='#'
+                h5 Shopping Guide
+                p Here's what to expect, from buying a policy to making a claim.
+                .read-more Read More
+              a.card href='#'
+                h5 Company Reviews
+                p We've done the research for you
+                .read-more Read More
+        div
+            h3 Life insurance glossary
+            a.button.tag premium
+            a.button.tag deductible
+            a.button.tag coinsurance
+            a.button.tag term
+            a.button.tag catastrophic plans
+            a.button.tag copayments
+            .spacer-s
+            a.button.outline.mini.full-width href='#' View All
+      .flex-row.wide
+        div
+          h3 Health Insurance company reviews
+          .spacer-s
+          .mod-rating-index
+            .cards
+              a.mod-card.rating href='#'
+                h3: span Blue Cross Blue Shield Health Carrier
+                .content
+                  .i-star.active
+                  .i-star.active
+                  .i-star.active
+                  .i-star
+                  .i-star
+              a.mod-card.rating href='#'
+                h3: span Blue Cross Blue Shield
+                .content
+                  .i-star.active
+                  .i-star.active
+                  .i-star
+                  .i-star
+                  .i-star
+              a.mod-card.rating href='#'
+                h3: span Blue Cross Blue Shield
+                .content
+                  .i-star.active
+                  .i-star.active
+                  .i-star.active
+                  .i-star.active
+                  .i-star
+              a.mod-card.rating href='#'
+                span.more View All
+        div
+          h3 Life insurance FAQ
+          ul.mod-simple-list.no-bullet.extended
+              li: a.highlighting href='#' What is a health insurance deductible?
+              li: a.highlighting href='#' What is a catastrophic plan?
+              li: a.highlighting href='#' What is coinsurance?
+              li: a.highlighting href='#' What is a catastrophic plan?
+          .spacer-s
+          a.button.outline.mini.full-width href='#' View All
+  .layout-recent
+    .layout-container
+      h2 Recently written by our experts
+      .mod-frame-grid
+        a.item.featured style='background-color: #ccc;'
+          .headline
+            .tag Tag
+            p Headline Text Here
+          .details
+            p For most of us, the idea of shopping for life insurance is about as appealing...
+            .flex-row.v-centered
+              span.continue Continue Reading
+              span.estimation Est. 17 min read
+        .items
+          a.item.wide style='background-color: #ccc;'
+            .headline
+              .tag Tag
+              p Headline Text Here
+            .details
+              p For most of us, the idea of shopping for life insurance is about as appealing...
+              .flex-row.v-centered
+                span.continue Continue Reading
+                span.estimation Est. 17 min read
+          a.item style='background-color: #ccc;'
+            .headline
+              .tag Tag
+              p Headline Text Here
+            .details
+              p For most of us, the idea of shopping for life insurance is about as appealing...
+              .flex-row.v-centered
+                span.continue Continue Reading
+                span.estimation Est. 17 min read
+          a.item style='background-color: #ccc;'
+            .headline
+              .tag Tag
+              p Headline Text Here
+            .details
+              p For most of us, the idea of shopping for life insurance is about as appealing...
+              .flex-row.v-centered
+                span.continue Continue Reading
+                span.estimation Est. 17 min read
+    .layout-pattern
+        .layout-pattern-bg
+        .layout-container
+          .flip.vertical
+            figure
+              .front
+                .mod-card.gradient
+                  h5
+                    | Shopping for insurance
+                    br
+                    | doing your taxes in an airport bathroom
+              .back
+                .mod-card.gradient
+                  h5
+                    | Shopping for insurance
+                    br
+                    | doing your taxes in an airport bathroom
+          h3 We're making it better
+          .form
+            form
+              .textfield
+                .field
+                  label for='pet_criteria_name'
+                    | Zipcode
+                    abbr title='required' *
+                  input placeholder='10012' type='text'
+              input.button.action type='submit' value='Get Quotes'
+```
+```js_example
+$('.mod-accordion .header').on('click', function() {
+  $(this).parents('.section').toggleClass('expanded');
+  $(this).parents('.section').find('.body').slideToggle(500);
+});
+```
+*/
+// scss-lint:enable all

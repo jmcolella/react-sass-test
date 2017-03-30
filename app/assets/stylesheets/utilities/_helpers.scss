@@ -1,0 +1,133 @@
+.no-border {
+  // scss-lint:disable ImportantRule
+  border: 0 !important;
+  // scss-lint:enable ImportantRule
+}
+
+div.disabled {
+  pointer-events: none;
+  cursor: not-allowed;
+  opacity: .3;
+}
+
+.two-columns {
+  columns: 2;
+  -webkit-column-break-inside: avoid;
+  page-break-inside: avoid;
+  break-inside: avoid-column;
+
+  @media #{$small-only} {
+    columns: 1;
+  }
+}
+
+.three-columns {
+  columns: 3;
+  -webkit-column-break-inside: avoid;
+  page-break-inside: avoid;
+  break-inside: avoid-column;
+
+  @media #{$small-only} {
+    columns: 2;
+  }
+}
+
+.text-truncation {
+  @include text-truncation;
+}
+
+.flex-row {
+  @include arrange-children-in-a-row;
+  align-items: flex-start;
+
+  > * {
+    flex: 0 1 auto;
+  }
+
+  img {
+    flex-shrink: 0;
+  }
+
+  &.align-left {
+    align-items: flex-start;
+  }
+
+  &.centered {
+    justify-content: center;
+  }
+
+  &.v-centered {
+    align-items: center;
+  }
+
+  &.wide {
+    > * {
+      flex: 1 1;
+    }
+  }
+
+  &.wrap {
+    flex-wrap: wrap;
+  }
+
+  @media #{$small-only} {
+    @include arrange-children-in-a-column(ru(1));
+    flex-direction: column;
+    align-items: center;
+
+    > * {
+      margin-left: 0;
+      margin-right: 0;
+    }
+  }
+
+  @media #{$medium-only} {
+    &.column-for-medium {
+      @include arrange-children-in-a-column(ru(1));
+      flex-direction: column;
+
+      > * {
+        margin-left: 0;
+        margin-right: 0;
+      }
+    }
+  }
+
+  @media #{$ie10-11} {
+    &.wide {
+      width: 100%;
+
+      > * {
+        flex: 1 1 auto;
+      }
+    }
+  }
+}
+
+// scss-lint:disable ColorVariable
+
+.z-depth-1 {
+  box-shadow: 0 1px 1.5px rgba(#000, .12), 0 1px 1px rgba(#000, .24);
+}
+
+.z-depth-2 {
+  box-shadow: 0 3px 3px rgba(#000, .16), 0 3px 3px rgba(#000, .23);
+}
+
+.z-depth-3 {
+  box-shadow: 0 10px 10px rgba(#000, .19), 0 6px 3px rgba(#000, .23);
+}
+
+.z-depth-4 {
+  box-shadow: 0 14px 14px rgba(#000, .25), 0 10px 5px rgba(#000, .22);
+}
+
+.z-depth-5 {
+  box-shadow: 0 19px 19px rgba(#000, .3), 0 15px 6px rgba(#000, .22);
+}
+
+.medium-block-shadow {
+  box-shadow: 0 ru(.167) ru(.5) rgba(0, 0, 0, .2);
+}
+
+// scss-lint:enable ColorVariable

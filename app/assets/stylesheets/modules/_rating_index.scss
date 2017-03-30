@@ -1,0 +1,218 @@
+// scss-lint:disable all
+/*doc
+---
+title: Rating Index
+name: rating-index
+category: Modules - Rating Index
+---
+```slim_example_table
+.mod-rating-index
+  h4 Phasellus nisi
+  h4 Sed lobortis et
+  ul
+    li
+      a href='#' Vestibulum ante
+      .rating
+        .com-rating.compact.narrow
+          .stars
+            .i-star.active
+            .i-star.active
+            .i-star.active
+            .i-star
+            .i-star
+    li
+      a href='#' Luctus et ultrices posuere
+      .rating
+        .com-rating.compact.narrow
+          .stars
+            .i-star.active
+            .i-star.active
+            .i-star.active
+            .i-star
+            .i-star
+    li
+      a href='#' Phasellus tellus
+      .rating
+        .com-rating.compact.narrow
+          .stars
+            .i-star.active
+            .i-star.active
+            .i-star.active
+            .i-star
+            .i-star
+    li
+      a href='#' Viverra tincidunt
+      .rating
+        .com-rating.compact.narrow
+          .stars
+            .i-star.active
+            .i-star.active
+            .i-star.active
+            .i-star
+            .i-star
+    li
+      a href='#' Vestibulum at lorem
+      .rating
+        .com-rating.compact.narrow
+          .stars
+            .i-star.active
+            .i-star.active
+            .i-star.active
+            .i-star
+            .i-star
+    li
+      a href='#' Vivamus dictum justo
+      .rating
+        .com-rating.compact.narrow
+          .stars
+            .i-star.active
+            .i-star.active
+            .i-star.active
+            .i-star
+            .i-star
+    li
+      strong: a href='#' Sollicitudin
+```
+
+```slim_example_table
+.mod-rating-index
+  h4 Etiam malesuada quis augue
+  p Sed non tortor id neque posuere luctus ac vel sapien. Nullam metus velit, efficitur commodo elementum vitae, porttitor id tortor.
+  .cards
+    a.mod-card.rating href='#'
+      h3: span Fusce sagittis
+      .content
+        .com-rating.compact.narrow
+          .stars
+            .i-star.active
+            .i-star.active
+            .i-star.active
+            .i-star
+            .i-star
+    a.mod-card.rating href='#'
+      h3: span PRETIUM
+      .content
+        .com-rating.compact.narrow
+          .stars
+            .i-star.active
+            .i-star.active
+            .i-star.active
+            .i-star
+            .i-star
+    a.mod-card.rating href='#'
+      h3: span Maecenas ullamcorper turpis quis
+      .content
+        .com-rating.compact.narrow
+          .stars
+            .i-star.active
+            .i-star.active
+            .i-star.active
+            .i-star
+            .i-star
+    a.mod-card.rating href='#'
+      h3: span Fusce
+      .content
+        .com-rating.compact.narrow
+          .stars
+            .i-star.active
+            .i-star.active
+            .i-star.active
+            .i-star
+            .i-star
+  a href='#' Quis elit
+```
+*/
+// scss-lint:enable all
+
+$rating-index-color:             $neutral-2;
+$rating-index-link-color:        $neutral-2;
+$rating-index-link-hover-color:  $brand-2;
+$rating-index-star-color:        $brand-5;
+$rating-index-star-active-color: $brand-2;
+
+.mod-rating-index {
+  font-weight: 400;
+  color: $rating-index-color;
+
+  h4 {
+    @include typography-4;
+    font-weight: 600;
+    margin: 0 0 ru(.5);
+    color: inherit;
+  }
+
+  p {
+    @include typography-6;
+    font-weight: 400;
+    margin: ru(.5) 0 ru(1);
+  }
+
+  ul {
+    margin: ru(1) 0 0;
+    padding: 0;
+    list-style: none;
+
+    li {
+      @include typography-6;
+      font-weight: 400;
+      display: flex;
+      margin: 0;
+
+      + li {
+        margin-top: ru(.5);
+      }
+    }
+
+    .rating {
+      display: flex;
+      margin-left: auto;
+      padding-left: ru(.5);
+    }
+  }
+
+  a {
+    color: $rating-index-link-color;
+
+    &:hover,
+    &:focus,
+    &:active {
+      color: $rating-index-link-hover-color;
+    }
+  }
+
+  strong {
+    font-weight: 600;
+  }
+
+  .cards {
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: ru(-.75);
+
+    > * {
+      flex: 0 1 calc(50% - #{ru(.75)});
+      margin: 0 ru(.75) ru(.75) 0;
+    }
+
+    &.three-per-row {
+      > * {
+        flex: 0 1 calc(33.33% - #{ru(.75)});
+
+        @media #{$ie10-11} {
+          flex-basis: auto;
+          width: calc(33.33% - #{ru(.75)});
+        }
+      }
+    }
+  }
+
+  &.one-in-row-small-only {
+    @media #{$small-only} {
+      .cards {
+        > * {
+          flex-basis: 100%;
+        }
+      }
+    }
+  }
+}

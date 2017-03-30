@@ -1,0 +1,62 @@
+// scss-lint:disable all
+/*doc
+---
+title: Callout
+name: callout
+category: Components - Callout
+---
+```slim_example_table
+.mod-example
+  .callout
+    h3 Suspendisse potenti proin
+    p $100,000
+  .callout
+    h3 Suspendisse potenti proin
+    p $100,000
+    small
+         | (quisque eleifend tincidunt magna)
+```
+*/
+// scss-lint:enable all
+
+$callout-border-color: $neutral-5;
+$callout-background-color: $neutral-6;
+$callout-color: $neutral-1;
+$callout-subheader-color: $neutral-2;
+
+[class^='mod-'] {
+  .callout {
+    margin-bottom: ru(1);
+    padding: ru(.5) ru(1);
+    border: 1px solid $callout-border-color;
+    border-bottom-width: 4px;
+    border-radius: ru(.25);
+    background-color: $callout-background-color;
+    font-family: $sans-serif;
+    color: $callout-color;
+
+    h3,
+    p {
+      @include typography-5;
+      display: inline-block;
+      color: inherit;
+      margin: 0;
+    }
+
+    h3 {
+      font-weight: 600;
+      margin-right: ru(.75);
+    }
+
+    p {
+      font-weight: 300;
+    }
+
+    small {
+      @include typography-7;
+      display: block;
+      margin: 0;
+      color: $callout-subheader-color;
+    }
+  }
+}

@@ -1,0 +1,63 @@
+// scss-lint:disable all
+/*doc
+---
+title: Statistics Summary
+name: statistics_summary
+category: Modules - Statistics Summary
+---
+```slim_example
+.mod-statistics-summary
+  .container
+    .image
+      img src='holder.js/40x40?auto=yes'
+    .figcaption
+      p.statistics-paragraph Proin aliquam tortor et aliquam dignissim.
+
+  p.statistics-paragraph
+    | In rhoncus
+    strong
+      |  ex
+    |  orci et ex fermentum, ut euismod diam
+    strong
+      |  tincidunt.
+```
+*/
+// scss-lint:enable all
+
+.mod-statistics-summary {
+  margin: ru(1.5) ru(4) ru(2) ru(1);
+
+  .container {
+    display: flex;
+  }
+
+  .image {
+    float: left;
+    margin-right: ru(.75);
+    margin-top: ru(.25);
+    min-width: 38px;
+  }
+
+  p.statistics-paragraph {
+    @include typography-4;
+    margin-top: 0;
+
+    strong {
+      @include typography-3;
+      font-weight: bold;
+    }
+
+    &:first-of-type {
+      padding-top: ru(.45);
+    }
+  }
+
+  p + p {
+    clear: both;
+    margin-top: ru(1);
+  }
+
+  @media #{$small-only} {
+    margin-right: 10%;
+  }
+}

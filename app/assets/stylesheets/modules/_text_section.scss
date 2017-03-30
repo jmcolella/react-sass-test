@@ -1,0 +1,151 @@
+// scss-lint:disable all
+/*doc
+---
+title: Text Section
+name: text_section
+category: Modules - Text Section
+---
+## Variant #1
+```slim_example
+.mod-example
+  .mod-text-section
+    .text-section-inner
+      h2.text-section-title.line Maecenas ullamcorper turpis quis elit
+      .text-section-block
+        h3.text-section-subtitle Suspendisse id felis nulla
+        p.text-section-paragraph
+          | Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nullam mollis turpis eget mattis congue. Fusce vitae turpis quis mauris maximus tincidunt vel sit amet nibh. Nunc tincidunt velit laoreet nulla consectetur, sit amet ultrices neque rhoncus. Ut sit amet nunc nec risus condimentum volutpat. Nulla vitae ultricies turpis. Etiam nec enim auctor, fringilla turpis et, congue dui. Donec finibus convallis leo vitae consectetur.
+      .text-section-block
+        h3.text-section-subtitle Pellentesque habitant morbi tristique
+        p.text-section-paragraph
+          | Nam metus massa, tempor vel tortor et, pretium vestibulum libero. Phasellus id nulla convallis, faucibus magna sit amet, tempus arcu. Nunc ornare ornare nunc, nec efficitur tortor. Sed non diam id purus placerat convallis sit amet vitae nulla. Phasellus nisi est, posuere ut elit id, lobortis molestie est. Sed lobortis et quam at rhoncus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Sed iaculis ante quis enim commodo, eget lacinia erat convallis. Donec lobortis dui eget lectus placerat pretium nec quis erat. Mauris tristique efficitur enim, eu scelerisque ante dignissim sit amet.
+```
+
+## Variant #2
+```slim_example
+.mod-example
+  .mod-text-section
+    .text-section-inner
+      h2.text-section-title.line Maecenas ullamcorper turpis quis elit
+      .text-section-block
+          .text-section-img
+            img src='holder.js/300px200'
+          h3.text-section-subtitle Suspendisse id felis nulla
+          p.text-section-paragraph
+            | Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nullam mollis turpis eget mattis congue. Fusce vitae turpis quis mauris maximus tincidunt vel sit amet nibh. Nunc tincidunt velit laoreet nulla consectetur, sit amet ultrices neque rhoncus. Ut sit amet nunc nec risus condimentum volutpat. Nulla vitae ultricies turpis. Etiam nec enim auctor, fringilla turpis et, congue dui. Donec finibus convallis leo vitae consectetur.
+      .text-section-block
+        .text-section-img.right
+          img src='holder.js/300px200'
+        h3.text-section-subtitle Pellentesque habitant morbi tristique
+        p.text-section-paragraph
+          | Nam metus massa, tempor vel tortor et, pretium vestibulum libero. Phasellus id nulla convallis, faucibus magna sit amet, tempus arcu. Nunc ornare ornare nunc, nec efficitur tortor. Sed non diam id purus placerat convallis sit amet vitae nulla. Phasellus nisi est, posuere ut elit id, lobortis molestie est. Sed lobortis et quam at rhoncus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Sed iaculis ante quis enim commodo, eget lacinia erat convallis. Donec lobortis dui eget lectus placerat pretium nec quis erat. Mauris tristique efficitur enim,  eu scelerisque ante dignissim sit amet.
+```
+*/
+// scss-lint:enable all
+
+.mod-text-section {
+  display: flex;
+  justify-content: center;
+  padding: ru(2) 0;
+  background-color: $neutral-7;
+
+  .text-section-inner {
+    @include g-unit(8);
+    overflow: hidden;
+    text-align: center;
+  }
+
+  .text-section-title {
+    @include typography-3;
+    margin-bottom: ru(2);
+    position: relative;
+    display: inline-block;
+    font-weight: 600;
+    color: $neutral-2;
+
+    &.line {
+      &:after {
+        content: '';
+        position: absolute;
+        bottom: ru(-.333333);
+        left: 50%;
+        width: calc(100% + #{ru(1.333333)});
+        border-bottom: 2px solid $brand-3;
+        transform: translateX(-50%);
+      }
+    }
+  }
+
+  .text-section-subtitle {
+    @include typography-4;
+    margin-bottom: ru(.5);
+    font-weight: 600;
+  }
+
+  .text-section-paragraph {
+    @include typography-6;
+    font-weight: 300;
+  }
+
+  .text-section-subtitle,
+  .text-section-paragraph {
+    color: $neutral-2;
+    text-align: left;
+  }
+
+  .text-section-block {
+    @include clearfix;
+
+    &:not(:last-child) {
+      margin-bottom: ru(2);
+    }
+  }
+
+  @media #{$large-up} {
+    .text-section-subtitle {
+      margin-top: 0;
+    }
+
+    .text-section-img {
+      @include g-unit(4);
+      float: left;
+
+      &.right {
+        padding-left: ru(1);
+        padding-right: 0;
+        float: right;
+      }
+
+      img {
+        max-width: 100%;
+        height: auto;
+        width: 100%;
+      }
+    }
+  }
+
+  @media #{$small-and-medium-only} {
+    .text-section-block {
+      display: flex;
+      flex-direction: column;
+
+      .img {
+        &:first-child {
+          margin-bottom: ru(1);
+        }
+      }
+    }
+
+    .text-section-subtitle {
+      order: -1;
+    }
+  }
+
+  @media #{$small-only} {
+    .text-section-inner {
+      @include g-unit(12);
+      padding-left: ru(.5);
+      padding-right: ru(.5);
+    }
+  }
+}

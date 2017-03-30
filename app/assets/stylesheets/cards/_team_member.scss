@@ -1,0 +1,42 @@
+// scss-lint:disable all
+/*doc
+---
+title: Team member Card
+name: team-member
+category: Cards - Team member
+---
+```slim_example_table
+.mod-team-member
+  img src='holder.js/300x300?auto=yes'
+  div JEtiam malesuada
+  div Vivamus
+```
+*/
+// scss-lint:enable all
+
+$team-member-max-width:         rem-calc(290px);
+$team-member-color:             $neutral-2;
+$team-member-border-color:      $neutral-5;
+$team-member-background-color:  $neutral-8;
+
+.mod-team-member {
+  @include typography-7;
+  display: inline-block;
+  max-width: $team-member-max-width;
+  border: 1px solid $team-member-border-color;
+  border-bottom-width: ru(.167);
+  border-radius: ru(.25);
+  background-color: $team-member-background-color;
+  padding-bottom: ru(.5);
+  font-weight: 600;
+  line-height: ru(.75);
+  text-align: center;
+  color: $team-member-color;
+  margin: 0;
+  overflow: hidden;
+
+  img {
+    display: block;
+    margin-bottom: ru(.5);
+  }
+}

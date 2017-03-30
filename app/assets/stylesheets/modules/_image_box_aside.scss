@@ -1,0 +1,94 @@
+// scss-lint:disable all
+/*doc
+---
+title: Image Box Aside
+name: image_box_aside
+category: Modules - Image Box Aside
+---
+```slim_example
+.mod-image-box-aside style='max-width: 640px;'
+  .body
+    .selectfield
+      .field
+        label for='select1' Aenean ac bibendum nisi
+        .selectbox
+          select id='select1'
+            option commodo
+            option condimentum
+            option ultrices
+    .selectfield
+      .field
+        label for='select2' Phasellus in laoreet quam
+        .selectbox
+          select id='select2'
+            option tortor
+            option aliquam
+            option dignissim
+  aside
+    img src='holder.js/100x180?auto=yes'
+```
+
+```slim_example
+.mod-image-box-aside style='max-width: 640px;'
+  .body
+    .selectfield.error
+      .field
+        label for='select1' In rhoncus orci et ex fermentum
+        .selectbox
+          select id='select1'
+            option ut euismod diam
+            option tincidunt
+            option malesuada
+    .error-message.visible Vivamus ultricies augue in tortor
+    .selectfield.error
+      .field
+        label for='select2' Maecenas gravida ex a sed vulputate
+        .selectbox
+          select id='select2'
+            option molestie
+            option sapien
+            option posuere
+    .error-message.visible Phasellus viverra mollis
+  aside
+    img src='holder.js/100x180?auto=yes'
+```
+*/
+// scss-lint:enable all
+
+$image-box-aside-background-color: $neutral-8;
+$image-box-aside-border-color: $neutral-5;
+$image-box-aside-width: ru(6);
+
+.mod-image-box-aside {
+  display: flex;
+
+  .body {
+    flex: 1 0;
+
+    + aside {
+      margin-left: ru(.75);
+    }
+  }
+
+  aside {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0 1 $image-box-aside-width;
+    border: 1px solid $image-box-aside-border-color;
+    border-radius: ru(.25);
+    padding: ru(.33);
+    background-color: $image-box-aside-background-color;
+    margin-bottom: ru(1);
+
+    + .body {
+      margin-left: ru(.75);
+    }
+  }
+
+  @media #{$small-only} {
+    aside {
+      display: none;
+    }
+  }
+}

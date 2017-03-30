@@ -1,0 +1,35 @@
+[class^='mod-'] {
+  div {
+    i {
+      font-style: normal;
+    }
+  }
+
+  label {
+    abbr {
+      // scss-lint:disable ImportantRule
+      display: none !important;
+      // scss-lint:enable ImportantRule
+    }
+  }
+
+  .i-help:not(a) {
+    &:before {
+      color: $neutral-3;
+      transition: color 250ms ease;
+    }
+
+    &:hover {
+      &:before {
+        color: $neutral-2;
+      }
+    }
+  }
+}
+
+// scss-lint:disable VendorPrefix
+html {
+  -ms-touch-action: manipulation;
+  touch-action: manipulation;
+}
+// scss-lint:enable VendorPrefix

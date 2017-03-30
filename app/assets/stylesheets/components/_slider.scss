@@ -1,0 +1,278 @@
+// scss-lint:disable all
+/*doc
+---
+title: Slider
+name: slider
+category: Components - Slider
+---
+## Slider
+```slim_example_table
+.mod-example
+  .slider
+    .header
+      .title Vestibulum
+      .value $100
+    .bar
+      .range style='width: 50%;'
+      .handler style='left: 50%;'
+```
+
+## Disabled slider
+```slim_example_table
+.mod-example
+  .slider.disabled
+    .header
+      .title Vestibulum
+      .value $100
+    .bar
+      .range style='width: 50%;'
+      .handler style='left: 50%;'
+```
+
+## With disabled range
+```slim_example_table
+.mod-example
+  .slider
+    .header
+      .title Vestibulum
+      .value $100
+    .bar
+      .range style='width: 50%;'
+      .disabled style='width: 20%;'
+      .handler style='left: 50%;'
+```
+
+## Tall slider
+```slim_example_table
+.mod-example
+  .slider.tall
+    .value.black
+      span $100
+      small.value-small
+        '  /sit
+    .bar
+      .range style='width: 50%;'
+      .handler style='left: 50%;'
+      .average style='left: 50%;'
+        .average-circle
+        .average-tooltip
+          span.average-text Average
+      .value.current style='left: 50%;'
+        span $1,000
+        small.value-small.semibold
+          '  /sit
+    .value.black
+      span $1,000
+      small.value-small
+        '  /sit
+```
+*/
+// scss-lint:enable all
+
+$slider-bar-height: ru(.33);
+$slider-bar-border-color: $neutral-6;
+$slider-bar-background-color: $neutral-8;
+$slider-title-color: $neutral-3;
+$slider-value-color: $brand-2;
+$slider-range-background-color: $brand-3;
+$slider-handler-size: ru(1);
+$slider-average-size: ru(1.25);
+$slider-average-color: $action-2;
+$slider-average-hover-color: $action-1;
+$slider-average-popup-color: $neutral-2;
+$slider-handler-background-color: $brand-2;
+$slider-disabled-color: $neutral-3;
+$slider-range-disabled-background-color: $neutral-5;
+$slider-range-disabled-border-color: $neutral-8;
+$slider-range-current-background-color: $neutral-8;
+$slider-range-current-border-color: $neutral-5;
+
+// scss-lint:disable NestingDepth
+[class^='mod-'] {
+  .slider {
+    font-family: $font-family-sans-serif;
+    margin-bottom: ru(1);
+    color: $slider-value-color;
+
+    &.disabled {
+      color: $slider-disabled-color;
+
+      .range {
+        background-color: $slider-disabled-color;
+      }
+
+      .handler {
+        cursor: no-drop;
+
+        &:hover {
+          box-shadow: none;
+        }
+      }
+    }
+
+    &.tall {
+      display: flex;
+      align-items: center;
+      margin: ru(2.25) 0 ru(1.33);
+
+      .bar {
+        flex: 1 1;
+        margin-left: ru(.75);
+        margin-right: ru(.75);
+      }
+    }
+
+    .header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: ru(.33);
+    }
+
+    .title {
+      @include typography-7();
+      font-weight: 700;
+      color: $slider-title-color;
+      margin-top: 0;
+      margin-bottom: 0;
+    }
+
+    .value {
+      @include typography-6;
+      font-weight: 600;
+      color: currentColor;
+      margin: 0;
+      flex: 0 1;
+      white-space: nowrap;
+
+      &.black {
+        color: $black-color;
+      }
+
+      &.current {
+        @include typography-5;
+        position: absolute;
+        bottom: 100%;
+        left: auto;
+        padding: ru(.083) ru(.33);
+        border: 1px solid $slider-range-current-border-color;
+        background-color: $slider-range-current-background-color;
+        transform: translateX(-50%);
+        white-space: nowrap;
+        margin: 0 0 ru(1);
+        color: $black-color;
+
+        &:before,
+        &:after {
+          position: absolute;
+          top: 100%;
+          left: 50%;
+          transform: translateX(-50%);
+          content: '';
+          width: 0;
+          height: 0;
+          border-left: ru(.33) solid transparent;
+          border-right: ru(.33) solid transparent;
+          border-top: ru(.33) solid $slider-range-current-border-color;
+        }
+
+        &:after {
+          margin-top: -1px;
+          border-top-color: $slider-range-current-background-color;
+        }
+      }
+    }
+
+    .value-small {
+      @include typography-7;
+      font-weight: 400;
+      margin: 0;
+
+      &.semibold {
+        font-weight: 600;
+      }
+    }
+
+    .bar {
+      position: relative;
+      clear: both;
+      height: $slider-bar-height;
+      border-radius: $slider-bar-height;
+      border: 1px solid $slider-bar-border-color;
+      background-color: $slider-bar-background-color;
+      box-shadow: 0 2px 0 rgba($neutral-1, .125);
+    }
+
+    .range,
+    .rc-slider-track {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: $slider-bar-height - rem-calc(1px);
+      background-color: $slider-range-background-color;
+      border-radius: $slider-bar-height;
+    }
+
+    .handler,
+    .rc-slider-handle {
+      position: absolute;
+      top: 50%;
+      z-index: 2;
+      left: auto;
+      width: $slider-handler-size;
+      height: $slider-handler-size;
+      background-color: currentColor;
+      border-radius: 50%;
+      margin: ru(-.5) 0 0;
+      transform: translateX(-50%);
+      transition: box-shadow 150ms ease-out;
+
+      &:hover {
+        box-shadow: 0 0 0 $slider-handler-size * .75 rgba($slider-handler-background-color, .125);
+      }
+    }
+
+    .average {
+      position: absolute;
+      left: auto;
+      top: 50%;
+      margin-top: ru(-.6333);
+      transform: translateX(-50%);
+
+      // z-index for the second tooltip not to override the first tooltip
+      z-index: 1;
+    }
+
+    .average-text {
+      @include typography-7;
+      line-height: ru(.75);
+      color: $slider-average-color;
+      text-decoration: underline;
+    }
+
+    .average-circle {
+      width: $slider-average-size;
+      height: $slider-average-size;
+      border-radius: 50%;
+      border: 1px dashed $action-1;
+    }
+
+    .average-tooltip {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .disabled {
+      position: absolute;
+      top: 0;
+      left: rem-calc(-1px);
+      opacity: 1;
+      height: $slider-bar-height - rem-calc(1px);
+      border-radius: $slider-bar-height 0 0 $slider-bar-height;
+      background-color: $slider-range-disabled-background-color;
+      border-right: 1px solid $slider-range-disabled-border-color;
+    }
+  }
+}
+// scss-lint:enable NestingDepth

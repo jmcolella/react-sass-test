@@ -1,0 +1,237 @@
+// scss-lint:disable all
+/*doc
+---
+title: Error State
+name: error-state
+category: Fields - Error State
+---
+```slim_example_table
+.mod-example
+  .form-error
+    p.form-error-message
+      span> Pellentesque habitant morbi tristique senectus
+      a Nullam mollis turpis
+```
+
+```slim_example_table
+.mod-example
+  .selectbox.error
+    select
+      option Nam metus massa
+      option Phasellus nisi est
+      option Nullam mollis turpis eget mattis congue. Fusce vitae turpis quis mauris maximus tincidunt vel sit amet nibh.
+```
+
+```slim_example_table
+.mod-example
+  .text-input.error
+    input type='text' placeholder='Fusce quis elit at turpis'
+  .error-message.visible Maecenas ullamcorper turpis quis elit volutpat
+```
+
+```slim_example_table
+.mod-example
+  .password-field.error
+    .text-input
+      .security
+      input type='password' id='password' placeholder='Fusce quis elit at'
+  .error-message.visible Vivamus faucibus lacus et purus
+```
+
+```slim_example_table
+.mod-example
+  .textfield.error
+    .field
+      label for='first_name1' Donec
+      input type='text' id='email1' placeholder='Fusce quis elit at turpis'
+  .error-message.visible Maecenas ullamcorper turpis quis elit volutpat
+```
+
+```slim_example_table
+.mod-example
+  .textfield.error
+    .field
+      label for='first_name1'
+        | Nullam consectetur
+        span.i-delete.cancel Suspendisse id
+      input type='text' id='first_name1' placeholder='Faucibus vel magna vel, auctor'
+  .error-message.visible Etiam ut ullamcorper diam
+```
+
+```slim_example_table
+.mod-example
+  .selectfield.error
+    .field
+      label for='select1' Ullamcorper
+      .selectbox
+        select id='select1'
+          option Nam metus massa
+          option Phasellus nisi est
+          option Long-term disability insurance
+  .error-message.visible Etiam ut ullamcorper diam.
+```
+
+```slim_example_table
+.mod-example
+  .checkbox-list.error
+    .header
+      h4 Aenean ac bibendum
+      p Phasellus in laoreet quam. Curabitur ex nibh, pharetra eget aliquam congue.
+    .content
+      label.checkbox
+        input type='checkbox' checked='checked'
+        span Congue, commodo vitae tortor
+      label.checkbox
+        input type='checkbox' checked='checked'
+        span Nam lectus tellus, tristique
+      label.checkbox
+        input type='checkbox'checked='checked'
+        span Tincidunt
+      label.checkbox
+        input type='checkbox'
+        span Nunc in pharetra velit
+  .error-message.visible Fusce euismod bibendum orci at.
+```
+
+```slim_example_table
+.mod-example
+  .toggle-input.error
+    label In rhoncus orci et
+    .radio-buttons
+      label.radio
+        input type='radio' name='radios'
+        span Proin
+      label.radio
+        input type='radio' name='radios'
+        span Aliquam tortor
+  .error-message.visible Consectetur ornare, ultrices ullamcorper
+```
+
+```slim_example_table
+.mod-example style='background: #00A4A5; padding: 24px;'
+  .form-error.emphasized
+    p.form-error-message Please fill out the fields below to continue
+```
+
+```slim_example_table
+.mod-example style='background: #00A4A5; padding: 24px;'
+  .textfield.error.no-border
+    .field
+      label for='first_name1' Donec
+      input type='text' id='email1' placeholder='Fusce quis elit at turpis'
+  .error-message.visible Maecenas ullamcorper turpis quis elit volutpat
+```
+
+```slim_example_table
+.mod-example style='background: #00A4A5; padding: 24px;'
+  .selectfield.error.no-border
+    .field
+      label for='select1' Ullamcorper
+      .selectbox
+        select id='select1'
+          option Nam metus massa
+          option Phasellus nisi est
+          option Long-term disability insurance
+  .error-message.visible Maecenas ullamcorper turpis quis elit volutpat
+```
+
+```slim_example_table
+.mod-example style='background: #00A4A5; padding: 24px;'
+  .selectbox.no-border.error
+    select
+      option Nam metus massa
+      option Phasellus nisi est
+      option Nullam mollis turpis eget mattis congue. Fusce vitae turpis quis mauris maximus tincidunt vel sit amet nibh.
+  .error-message.visible Quis elit volutpat
+```
+*/
+// scss-lint:enable all
+
+$error-border-color:              $accent-2;
+$error-message-color:             $accent-2;
+$error-noborder-label-color:      $action-1;
+$error-noborder-message-color:    $action-6;
+$error-noborder-background-color: $action-6;
+
+[class^='mod-'] {
+  .error {
+    border-color: $error-border-color;
+    margin-bottom: ru(1);
+
+    .text-input {
+      border-color: $error-border-color;
+    }
+
+    &.no-border {
+      background-color: $action-6;
+
+      label {
+        color: $action-1;
+      }
+
+      + .error-message {
+        color: $error-noborder-message-color;
+      }
+    }
+  }
+
+  .error-message {
+    @include typography-7;
+    font-family: $font-family-sans-serif;
+    font-weight: 700;
+    margin: ru(-.542) ru(1) 0;
+    line-height: ru(.75);
+    color: $error-message-color;
+    text-align: left;
+    max-height: ru(.75);
+    opacity: 0;
+    overflow: hidden;
+    transition: all 500ms ease;
+
+    &.visible {
+      opacity: 1;
+      max-height: ru(3);
+      margin-bottom: ru(1);
+    }
+  }
+
+  .selectbox + .error-message,
+  .text-input + .error-message {
+    margin-left: ru(.5);
+    margin-right: ru(.5);
+  }
+
+  .form-error {
+    margin-bottom: ru(1);
+
+    p.form-error-message {
+      @include typography-6;
+      font-family: $font-family-sans-serif;
+      font-weight: 700;
+      color: $error-message-color;
+      margin: 0;
+
+      > a { color: $error-message-color; }
+    }
+
+    &.emphasized {
+      p.form-error-message {
+        color: $error-noborder-message-color;
+      }
+    }
+  }
+
+  @media #{$medium-up-to-xxlarge} {
+    .error {
+      margin-bottom: ru(.75);
+    }
+
+    .error-message {
+      margin: ru(-.33) ru(.75) 0;
+
+      &.visible {
+        margin-bottom: ru(.75);
+      }
+    }
+  }
+}

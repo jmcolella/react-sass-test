@@ -1,0 +1,46 @@
+// scss-lint:disable all
+/*doc
+---
+title: One Two Three
+name: one-two-three
+category: Modules - One two three
+---
+
+```slim_example
+  .mod-one-two-three
+    figure
+      img src='holder.js/300x300?auto=yes&text=Illustration 1'
+      figcaption Aenean sit amet pretium orci, nec volutpat orci.
+
+    figure
+      img src='holder.js/300x300?auto=yes&text=Illustration 2'
+      figcaption Mauris ex mauris, porttitor sed risus.
+
+    figure
+      img src='holder.js/300x300?auto=yes&text=Illustration 3'
+      figcaption Maecenas ullamcorper turpis quis.
+```
+*/
+// scss-lint:enable all
+
+.mod-one-two-three {
+  text-align: center;
+
+  img {
+    padding: 0 ru(1) ru(.5);
+  }
+
+  figure {
+    margin: 0;
+    padding: 0;
+  }
+
+  figcaption {
+    @extend .like-h4;
+    margin: 0 ru(.5);
+  }
+
+  @media #{$medium-up} {
+    @include arrange-children-in-a-row;
+  }
+}

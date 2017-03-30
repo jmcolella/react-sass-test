@@ -1,0 +1,32 @@
+// scss-lint:disable all
+/*doc
+---
+title: Simple Card
+name: simple-card
+category: Cards - Simple Card
+---
+```slim_example_table
+.mod-simple-card
+  | In rhoncus orci
+  br
+  | #000000000
+```
+*/
+// scss-lint:enable all
+
+$simple-card-background-color:  $neutral-6;
+$simple-card-border-color:      $neutral-5;
+$simple-card-color:             $neutral-2;
+
+.mod-simple-card {
+  @include typography-6;
+  display: inline-block;
+  margin: 0;
+  padding: ru(1) ru(2);
+  border-radius: ru(.125);
+  background-color: $simple-card-background-color;
+  box-shadow: 0 rem-calc(5) 0 $simple-card-border-color;
+  font-weight: 600;
+  text-align: center;
+  color: $simple-card-color;
+}

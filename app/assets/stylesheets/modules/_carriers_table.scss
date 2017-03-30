@@ -1,0 +1,175 @@
+// scss-lint:disable all
+/*doc
+---
+title: Carriers Table
+name: carriers-table
+category: Modules - Carriers Table
+---
+```slim_example
+table.mod-carriers-table
+  thead
+    tr
+      th Maecenas
+      th Mauris ex
+      th AMorbi quis dui
+      th Vestibulum lacinia
+      th Phasellus tellus augue
+  tbody
+    tr
+      td URNA
+      td Fusce quis elit
+      td 1.0
+      td
+        .rating
+          .com-rating.compact.narrow
+            .stars
+              .i-star.active
+              .i-star.active
+              .i-star.active
+              .i-star
+              .i-star
+      td
+        .rating
+          .com-rating.compact.narrow
+            .stars
+              .i-star.active
+              .i-star.active
+              .i-star.active
+              .i-star
+              .i-star
+    tr
+      td Fusce
+      td Vivamus
+      td 1.0
+      td
+        .rating
+          .com-rating.compact.narrow
+            .stars
+              .i-star.active
+              .i-star.active
+              .i-star.active
+              .i-star
+              .i-star
+      td
+        .rating
+          .com-rating.compact.narrow
+            .stars
+              .i-star.active
+              .i-star.active
+              .i-star.active
+              .i-star
+              .i-star
+    tr
+      td Pretium
+      td Fringilla
+      td 1.0
+      td
+        .rating
+          .com-rating.compact.narrow
+            .stars
+              .i-star.active
+              .i-star.active
+              .i-star.active
+              .i-star
+              .i-star
+      td
+        .rating
+          .com-rating.compact.narrow
+            .stars
+              .i-star.active
+              .i-star.active
+              .i-star.active
+              .i-star
+              .i-star
+    tr
+      td Curabitur
+      td Nullam consectetur ipsum
+      td 1.0
+      td
+        .rating
+          .com-rating.compact.narrow
+            .stars
+              .i-star.active
+              .i-star.active
+              .i-star.active
+              .i-star
+              .i-star
+      td
+        .rating
+          .com-rating.compact.narrow
+            .stars
+              .i-star.active
+              .i-star.active
+              .i-star.active
+              .i-star
+              .i-star
+    tr
+      td Etiam malesuada
+      td Sed non tortor
+      td 1.0
+      td
+        .rating
+          .com-rating.compact.narrow
+            .stars
+              .i-star.active
+              .i-star.active
+              .i-star.active
+              .i-star
+              .i-star
+      td
+        .rating
+          .com-rating.compact.narrow
+            .stars
+              .i-star.active
+              .i-star.active
+              .i-star.active
+              .i-star
+              .i-star
+
+```
+*/
+// scss-lint:enable all
+
+$carriers-table-color:             $neutral-2;
+$carriers-table-border-color:      $neutral-5;
+$carriers-table-background-color:  $neutral-8;
+$carriers-table-star-color:        $brand-5;
+$carriers-table-star-active-color: $brand-2;
+
+table.mod-carriers-table {
+  width: 100%;
+  border: 1px solid $carriers-table-border-color;
+  border-collapse: collapse;
+  color: $carriers-table-color;
+
+  th,
+  td {
+    border: 1px solid $carriers-table-border-color;
+    padding: ru(.33) ru(.5);
+    // scss-lint:disable ImportantRule
+    background-color: $carriers-table-background-color !important;
+    // scss-lint:enable ImportantRule
+    color: inherit;
+  }
+
+  th { font-weight: 400; }
+
+  .center { text-align: center; }
+
+  .rating {
+    display: flex;
+    justify-content: center;
+
+    > .i-star {
+      color: $carriers-table-star-color;
+      &.active { color: $carriers-table-star-active-color; }
+
+      &:before {
+        font-size: rem-calc(15px);
+        margin: 0;
+      }
+
+      + .i-star { margin-left: ru(.125); }
+    }
+  }
+}

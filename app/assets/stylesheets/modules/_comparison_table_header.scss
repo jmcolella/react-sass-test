@@ -1,0 +1,94 @@
+// scss-lint:disable all
+/*doc
+---
+title: Comparison Table Header
+name: comparison-table-header
+category: Modules - Comparison Table Header
+---
+
+## Usage notes:
+You can hide columns/sections on small using the `.col-hide-for-medium-only` class.
+However, note that you will need to add the class to the corrisponding [card](cards_-_comparison_card.html) column/section if there is one.
+
+
+```slim_example
+.mod-comparison-table-header
+  .section
+    | Phasellus
+    span.i-directup
+  .section
+    | Nullam metus
+    span.i-dropdown
+  .section.col-hide-hide-for-medium-only
+    | Aenean sit
+    span.i-dropdown
+  .section
+    | Aliquam
+    span.i-dropdown
+  .section
+    | Sollicitudin
+    span.i-dropdown
+  .section
+```
+*/
+// scss-lint:enable all
+
+$table-header-border-color: $neutral-4;
+
+.mod-comparison-table-header {
+  font-family: $font-family-sans-serif;
+  display: flex;
+  padding: ru(1);
+  background: $neutral-6;
+  border-bottom: 1px solid $table-header-border-color;
+  color: $neutral-2;
+
+  .section {
+    @include g-unit(2);
+    display: flex;
+    flex-grow: 1;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+
+    span:first-child {
+      margin: .2rem;
+    }
+
+    .i-directup,
+    .i-dropdown {
+      margin-left: ru(.2);
+      font-size: .8rem;
+      margin-top: .15rem;
+    }
+
+    &:first-child {
+      padding-left: 0;
+    }
+
+    &:last-child {
+      flex: 1 0 auto;
+    }
+  }
+
+  &.light {
+    background: $neutral-7;
+  }
+
+  &.bordered {
+    border-top: 1px solid $neutral-5;
+  }
+
+  // Tech Debt:
+  // Hiding this element should be the job of its parent
+  @media #{$small-only} {
+    display: none;
+  }
+
+  @media #{$medium-only} {
+    .col-hide-for-medium-only {
+      display: none;
+    }
+  }
+}

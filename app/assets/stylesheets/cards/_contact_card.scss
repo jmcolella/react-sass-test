@@ -1,0 +1,117 @@
+// scss-lint:disable all
+/*doc
+---
+title: Contact Card
+name: contact-card
+category: Cards - Contact Card
+---
+### Contact Card
+```slim_example
+.mod-contact-card.h-card
+  .profile
+    h1 Proin aliquam tortor
+    .info
+      .image
+        img.u-photo src='holder.js/65x65?auto=yes'
+      .details
+        .p-name In rhoncus orci
+        .p-tel 0-000-000-0000
+        ul
+          li.i-phone
+            | et ex fermentum
+          li.i-mail
+            ' diam
+            a.action href='mailto:test@test.com' Vivamus eu aliquet
+    h4 Suspendisse
+    p Phasellus viverra mollis massa ut eleifend. Nulla maximus congue dolor sed vestibulum. Nunc mattis molestie libero.
+
+  .skills
+    h3 Proin pharetra felis et odio:
+    ul
+      li Sed dapibus orci id sapien placerat
+      li Donec dui est, aliquet at enim ac
+      li Aliquam nisl nibh, lacinia
+      li Morbi quis dui consequat, consectetur
+      li Nam accumsan quam eu blandit
+      li Vestibulum lacinia dignissim convallis
+```
+*/
+// scss-lint:enable all
+
+$contact-card-image-border-color: $brand-2;
+
+.mod-contact-card {
+  @include arrange-children-in-a-row($gutter: 1 / 12 * 100%);
+
+  h1 {
+    @extend .like-h1;
+  }
+
+  h3 {
+    @extend .like-h2;
+    font-weight: 300;
+  }
+
+  h4 {
+    @extend .like-p;
+    font-weight: 600;
+    margin: 0;
+  }
+
+  p,
+  li {
+    @extend .like-p;
+    margin: 0;
+  }
+
+  .info {
+    @include arrange-children-in-a-row(ru(.5));
+    margin-top: ru(.5);
+    margin-bottom: ru(1.5);
+
+    > * {
+      flex: auto 0;
+      align-self: flex-start;
+      width: auto;
+    }
+  }
+
+  .image {
+    img {
+      border-radius: 50%;
+      border: 2px solid $contact-card-image-border-color;
+      margin-right: ru(.5);
+      overflow: hidden;
+    }
+  }
+
+  .details {
+    ul {
+      margin-top: ru(1);
+      list-style: none;
+    }
+  }
+
+  .p-name,
+  .p-tel {
+    @extend .typography-3;
+    font-family: $font-family-sans-serif;
+    font-weight: 300;
+    margin-bottom: 0;
+  }
+
+  .skills {
+    ul {
+      list-style: disc;
+      padding-left: ru(1);
+    }
+  }
+
+  @media #{$small-only} {
+    @include arrange-children-in-a-row(0);
+    flex-direction: column;
+
+    .image { margin-right: ru(.5); }
+    .skills { margin-top: ru(1); }
+  }
+}

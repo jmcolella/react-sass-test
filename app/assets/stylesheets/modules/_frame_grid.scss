@@ -1,0 +1,268 @@
+// scss-lint:disable all
+/*doc
+---
+title: Frame Grid
+name: frame-grid
+category: Modules - Frame Grid
+---
+```slim_example
+.mod-frame-grid
+  a.item.featured style='background-color: #ccc;'
+    .headline
+      .tag Diam
+      p Aenean ac bibendum
+    .details
+      p Phasellus in laoreet quam. Curabitur ex nibh, pharetra eget aliquam congue...
+      .flex-row.v-centered
+        span.continue Ut pulvinar leo
+        span.estimation In hac habitasse
+
+  .items
+    a.item style='background-color: #ccc;'
+      .headline
+        .tag Diam
+        p Proin non accumsan
+      .details
+        p In hac habitasse platea dictumst. Integer suscipit orci odio...
+        .flex-row.v-centered
+          span.continue Ut pulvinar leo
+          span.estimation Proin aliquam tortor
+    a.item style='background-color: #ccc;'
+      .headline
+        .tag Diam
+        p Aliquam sapien enim
+      .details
+        p
+          | In rhoncus orci et ex fermentum, ut euismod diam tincidunt. Vivamus eu aliquet sapien,
+          | non fringilla enim. Ut scelerisque nulla at sem suscipit, at porta mi tincidunt.
+          | iNunc in pharetra velit. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
+          | Donec imperdiet leo id odio
+        .flex-row.v-centered
+          span.continue In rhoncus orci
+          span.estimation Et ex fermentum
+    a.item.wide style='background-color: #ccc;'
+      .headline
+        .tag Diam
+        p Ut euismod diam tincidunt
+      .details
+        p
+          | Nunc in pharetra velit. Pellentesque habitant morbi tristique senectus...
+        .flex-row.v-centered
+          span.continue Vivamus ultricies
+          span.estimation Augue in tortor
+css:
+  .mod-frame-grid { max-width: 940px; }
+```
+*/
+// scss-lint:enable all
+
+$frame-grid-headline-background-color: $neutral-8;
+$frame-grid-headline-color:            $neutral-2;
+$frame-grid-headline-tag-color:        $neutral-3;
+$frame-grid-headline-shadow-color:     rgba($neutral-1, .2);
+$frame-grid-gap-between:               ru(1);
+$frame-grid-link-overlay-color:        rgba($neutral-1, .6);
+$frame-grid-details-color:             $neutral-8;
+
+.mod-frame-grid {
+  display: flex;
+  flex-direction: column;
+
+  > * {
+    flex: 0 0;
+  }
+
+  > .items {
+    display: flex;
+    flex: 1 0;
+    flex-wrap: wrap;
+    flex-direction: column;
+    margin-left: 0;
+    margin-top: $frame-grid-gap-between;
+  }
+
+  .item {
+    flex: 1 1;
+    min-height: ru(7.5);
+    padding: ru(.5);
+    position: relative;
+    z-index: 2;
+    margin-bottom: 0;
+    background: {
+      position: 50% 50%;
+      size: cover;
+    }
+
+    + .item {
+      margin-left: 0;
+      margin-top: $frame-grid-gap-between;
+    }
+  }
+
+  .wide {
+    margin-left: 0;
+  }
+
+  .featured {
+    flex: 1 1;
+    min-height: ru(7.5);
+    height: auto;
+
+    &.half {
+      flex-basis: 50%;
+    }
+
+    .headline {
+      @include typography-5(false);
+      margin: 0;
+    }
+
+    .tag {
+      @include typography-7;
+      margin: 0;
+    }
+  }
+
+  .headline {
+    @include typography-6(false);
+    position: relative;
+    z-index: 1;
+    max-width: ru(13.83);
+    margin: 0;
+    padding: ru(.5);
+    box-shadow: 0 rem-calc(2px) rem-calc(2px) $frame-grid-headline-shadow-color;
+    background-color: $frame-grid-headline-background-color;
+    font-weight: 600;
+    color: $frame-grid-headline-color;
+
+    p {
+      margin: 0;
+    }
+
+    &:after {
+      content: '';
+      position: absolute;
+      top: 100%;
+      left: ru(.75);
+      width: 0;
+      height: 0;
+      border-left: ru(.375) solid transparent;
+      border-right: ru(.375) solid transparent;
+      border-top: ru(.375) solid $frame-grid-headline-background-color;
+    }
+  }
+
+  .details {
+    @include typography-7;
+    position: relative;
+    padding: ru(.5);
+    margin: ru(.5) 0 0;
+    line-height: ru(.75);
+    color: $frame-grid-details-color;
+    transition: opacity 350ms ease;
+    opacity: 0;
+
+    p {
+      font-weight: 600;
+      margin-bottom: ru(.75);
+    }
+
+    .continue {
+      font-weight: 600;
+      padding: ru(.25) ru(.5);
+      border: 1px solid $frame-grid-details-color;
+      border-radius: ru(.25);
+    }
+
+    .estimation {
+      font-style: italic;
+      margin-left: ru(.5);
+    }
+  }
+
+  a.item {
+    text-decoration: none;
+
+    &:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      background-color: $frame-grid-link-overlay-color;
+      transition: opacity 350ms ease;
+      opacity: 0;
+    }
+
+    &:hover,
+    &:active,
+    &:focus {
+      &:before {
+        opacity: 1;
+      }
+
+      .details {
+        opacity: 1;
+      }
+    }
+  }
+
+  .tag {
+    @include typography-7;
+    line-height: ru(.75);
+    margin: 0;
+    text-transform: uppercase;
+    color: $frame-grid-headline-tag-color;
+  }
+
+  .mod-article-list {
+    margin: ru(-.5);
+  }
+
+  &.equal-columns {
+    .featured {
+      height: auto;
+    }
+  }
+
+  @media #{$medium-up}{
+    flex-direction: row;
+
+    > .items {
+      flex-direction: row;
+      margin-top: 0;
+      margin-left: $frame-grid-gap-between;
+
+    }
+
+    .item {
+      margin-bottom: $frame-grid-gap-between;
+
+      + .item {
+        margin-top: 0;
+        margin-left: $frame-grid-gap-between;
+      }
+
+      &.wide {
+        margin-left: 0;
+      }
+    }
+
+    .wide {
+      flex-basis: 100%;
+
+      + .item {
+        margin-left: 0;
+      }
+    }
+
+    .featured {
+      flex: 0 1 33%;
+    }
+  }
+
+  @media #{$ie10-11} {
+    width: 100%;
+  }
+}

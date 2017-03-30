@@ -1,0 +1,143 @@
+// scss-lint:disable all
+/*doc
+---
+title: Rating Field
+name: rating-field
+category: Fields - Rating Field
+---
+```slim_example_table
+.mod-rating-field
+  .header
+    .help.i-help
+    h4 Etiam malesuada quis augue vitae dapibus.
+  .content
+    input type='radio' name='rate' id='rate5'
+    label.i-star for='rate5'
+    input type='radio' name='rate' id='rate4'
+    label.i-star for='rate4'
+    input type='radio' name='rate' id='rate3'
+    label.i-star for='rate3'
+    input type='radio' name='rate' id='rate2'
+    label.i-star for='rate2'
+    input type='radio' name='rate' id='rate1'
+    label.i-star for='rate1'
+```
+
+```slim_example_table
+.mod-rating-field
+  .header
+    .help.i-help
+    h4 Etiam malesuada quis augue vitae dapibus.
+  .content
+    input type='radio' name='rate_active' id='rate5_'
+    label.i-star for='rate5_'
+    input type='radio' name='rate_active' id='rate4_'
+    label.i-star for='rate4_'
+    input type='radio' name='rate_active' id='rate3_' checked='checked'
+    label.i-star for='rate3_'
+    input type='radio' name='rate_active' id='rate2_'
+    label.i-star for='rate2_'
+    input type='radio' name='rate_active' id='rate1_'
+    label.i-star for='rate1_'
+```
+*/
+// scss-lint:enable all
+
+$rating-field-background-color:  $neutral-8;
+$rating-field-border-color:      $neutral-5;
+$rating-field-border-radius:     ru(.25);
+$rating-field-header-color:      $neutral-1;
+$rating-field-star-color:        $brand-5;
+$rating-field-star-active-color: $brand-2;
+
+.mod-rating-field {
+  @include field;
+  background-color: $rating-field-background-color;
+  border: 1px solid $rating-field-border-color;
+  border-radius: $rating-field-border-radius;
+
+  .header {
+    padding: ru(.5) ru(1);
+    border-bottom: 1px solid $rating-field-border-color;
+
+    h4 {
+      @include typography-6;
+      font-weight: 600;
+      margin: 0;
+      color: $rating-field-header-color;
+    }
+
+    .help {
+      float: right;
+      margin-left: ru(1);
+      &:before { margin: 0; }
+    }
+  }
+
+  .content {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+    padding: ru(.5) ru(1);
+  }
+
+  .i-star {
+    margin: 0;
+    padding: 0 ru(.33) 0 0;
+    font-size: rem-calc(24px);
+    color: $rating-field-star-color;
+
+    &:before {
+      margin: 0;
+    }
+
+    &:hover {
+      color: $rating-field-star-active-color;
+
+      ~ .i-star {
+        color: $rating-field-star-active-color;
+      }
+
+      ~ input:checked {
+        ~ .i-star {
+          color: $brand-2;
+        }
+      }
+    }
+  }
+
+  input {
+    display: none;
+
+    &:checked {
+      + .i-star:hover,
+      ~ .i-star,
+      ~ .i-star:hover,
+      ~ .i-star:hover ~ .i-star {
+        color: $rating-field-star-active-color;
+      }
+    }
+  }
+
+
+  @media #{$medium-up-to-xxlarge} {
+    .header {
+      padding: ru(.5) ru(.75);
+
+      h4 {
+        @include typography-7;
+        margin: 0;
+        line-height: ru(.75);
+        color: $rating-field-header-color;
+      }
+
+      .help {
+        margin-top: ru(-.125);
+      }
+    }
+
+    .content {
+      padding: ru(.5) ru(.75);
+    }
+  }
+}

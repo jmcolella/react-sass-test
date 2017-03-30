@@ -1,0 +1,1210 @@
+// scss-lint:disable all
+/*doc
+---
+title: Banner Layout
+name: banner-layout
+category: Layouts - Banner
+---
+```slim_example
+.mod-hero.with-headshot.layout-banner
+  header
+    h1 Pellentesque habitant morbi tristique
+    h2 Nam metus massa, tempor vel tortor et
+    .layout-form-inputs
+      .field
+        label Mauris
+        .selectbox
+          select
+            option 100,000
+      .field
+        label Orci
+        .selectbox
+          select
+            option Dignissim
+
+    a.action.button Vel tortor
+    p
+      a Turpis quis mauris maximus
+  aside
+    h4 Suspendisse et nisi turpis
+    blockquote Maecenas rhoncus pulvinar dolor, sit amet commodo risus hendrerit quis. Suspendisse vel massa iaculis, porta massa in, pellentesque purus.
+    img.headshot src='holder.js/360x336?auto=yes'
+```
+
+# Banner hero with logo
+```slim_example
+.mod-hero.layout-banner
+  header
+    h2.text-center Maecenas ullamcorper turpis
+    .mod-estimate-panel
+      .header
+        .statistic
+          h4 Tristique
+          .value 100,000
+        .statistic
+          h4 Sapien
+          .value Tempus
+      .content
+        .statistic
+          h4 Vivamus faucibus
+          .value efficitur
+    button.button.action type='submit' Nulla facilisi
+    p
+      small Ut dapibus tellus finibus quis
+  aside
+    img.logo src='holder.js/200x100?auto=yes'
+    h4 Convallis condimentum neque viverra sit amet
+    blockquote Etiam ut ullamcorper diam. Pellentesque ornare malesuada blandit. Cras egestas neque non massa porta, molestie ornare ipsum luctus.
+```
+
+# Banner hero with feature image
+```slim_example
+.mod-hero.layout-banner
+  header
+    h1 Curabitur ex nibh, pharetra eget aliquam congue
+    form
+      .textfield
+        .field
+          label for='pet_criteria_name'
+            | Ut pulvinar leo non
+            abbr title='required' *
+          input placeholder='aliquam tortor et aliquam dignissim' type='text'
+      input.button.action type='submit' value='Aenean in lacus lacinia'
+      p
+        small Dictum et consectetur ornare.
+  aside
+    img.feature-image src='holder.js/500x250?auto=yes'
+    h3.text-center In rhoncus orci et ex fermentum, ut euismod
+```
+
+```slim_example
+.mod-hero.light.with-cover.layout-banner
+  header
+    h1 Suspendisse molestie vel sapien
+    h3
+      | Phasellus viverra mollis massa
+      a< href='#' Aenean sit
+    form
+      .layout-form-inputs
+        .selectfield
+          .field
+            label for='select1' Nulla maximus
+            .selectbox
+              select id='select1'
+                option 10,000
+                option 10,000
+                option 10,000
+                option 10,000
+        .selectfield
+          .field
+            label for='select2' Proin
+            .selectbox
+              select id='select2'
+                option bibendum
+                option tincidunt
+                option habitasse
+                option consectetur
+      .layout-form-inputs
+        div
+          button.button.action In rhoncus
+          p
+            | or libero vitae augue
+            a< href='#' 1-000-000-0000
+        div
+    .layout-transparent
+      .mod-trustpilot.horizontal
+        aside
+          .powered-by
+            .trustpilot-logo
+          .stars.mini.excellent
+            .star.filled
+            .star.filled
+            .star.filled
+            .star.filled
+            .star.filled
+          .rating
+            span Mlestie vel sapien
+            strong< Vivamus
+        .review
+          p Nulla maximus congue dolor sed vestibulum. Nunc mattis molestie libero, sed vulputate ipsum aliquet vitae. Proin pharetra felis et odio porttitor, et egestas tortor laoreet.
+          .meta
+            span Consequat augue
+            em< Donec dui est
+  aside
+    img src='holder.js/500x540?auto=yes'
+.mod-brands
+  h5 Aliquet at enim ac egestas
+  .content
+    img src='holder.js/120x50?auto=yes'
+    img src='holder.js/140x40?auto=yes'
+    img src='holder.js/120x50?auto=yes'
+    img src='holder.js/140x40?auto=yes'
+    img src='holder.js/120x50?auto=yes'
+    span Aliquam
+```
+
+```slim_example
+.mod-hero.light.layout-banner
+  header
+    h1 Morbi quis dui consequat, consectetur massa nec
+    .typography-5 Nam accumsan quam eu blandit rhoncus
+    form
+      .layout-form-inputs
+        .selectfield
+          .field
+            label for='select1' Suspendisse
+            .selectbox
+              select id='select1'
+                option 10,000
+                option 10,000
+                option 10,000
+                option 10,000
+        .selectfield
+          .field
+            label for='select2' Orci
+            .selectbox
+              select id='select2'
+                option Sodales
+                option Cursus
+                option Risus
+                option Blandit
+      button.button.action Morbi quis dui
+      p: a href='#' Nam accumsan quam eu blandit rhoncus
+      p
+        | sed sem sagittis
+        a< href='#' 1-000-000-0000
+  aside.we-work
+    h3
+      | Aenean gravida velit suscipit
+      br
+      | Maecenas efficitur accumsan
+    img src='holder.js/500x250?auto=yes'
+.layout-trustpilot.shift
+  .mod-trustpilot.horizontal
+    aside
+      .rating
+        span Phasellus tellus augue
+        strong< Maximus
+        span< at
+      .powered-by
+        .trustpilot-logo
+      a.button.mini.info href='#' Vivamus dictum justo
+    .review
+      p Proin et ultrices neque. Morbi sit amet dapibus dui. Fusce id egestas metus, consectetur sagittis lacus. Phasellus luctus elementum iaculis. Nunc mattis iaculis enim.
+      .meta
+        span Proin at nunc at nisi
+        em< Lobortis bibendum at
+    img src='holder.js/240x280?auto=yes'
+.layout-coverage-ticker
+  h4 Sollicitudin
+  ul
+    li
+      em> malesuada quis -
+      | Sed non tortor id neque posuere luctus ac vel sapien
+    li
+      em> porttitor -
+      | Nullam metus velit, efficitur commodo elementum vitae
+    li
+      em> Eget neque -
+      | Maecenas ullamcorper turpis quis elit volutpat
+```
+
+```slim_example
+.mod-hero.light.with-cover.layout-banner
+  header
+    h1 Phasellus tellus augue, maximus a viverra tincidunt
+    .typography-5
+      | Phasellus luctus elementum
+      a< href='#' Aenean sit
+    form
+      .mod-two-fields
+        .field
+          label for='select1' Coverage
+          .selectbox
+            select id='select1'
+              option 10,000
+              option 10,000
+              option 10,000
+              option 10,000
+        .field
+          label for='select2' Term
+          .selectbox
+            select id='select2'
+              option a venenatis pulvinar
+              option augue vitae dapibus
+              option non tortor id
+              option efficitur commodo
+      .layout-form-inputs
+        div
+          button.button.action Maecenas ullamcorper
+          p
+            | maximus a viverra
+            a< href='#' 0-000-000-0000
+        div
+    .layout-transparent
+      .mod-brands
+        h5 In rhoncus orci et ex fermentum, ut euismod
+        .content
+          img src='holder.js/120x50?auto=yes'
+          img src='holder.js/140x40?auto=yes'
+          img src='holder.js/120x50?auto=yes'
+          span et netus
+          img src='holder.js/140x40?auto=yes'
+          img src='holder.js/120x50?auto=yes'
+  aside
+    img src='holder.js/500x578?auto=yes'
+.layout-trustpilot
+  .mod-trustpilot.horizontal.columns
+    aside
+      .powered-by
+        .trustpilot-logo
+      .stars.mini.excellent
+        .star.filled
+        .star.filled
+        .star.filled
+        .star.filled
+        .star.filled
+    .review
+      p Etiam malesuada quis augue vitae dapibus. Sed non tortor id neque posuere luctus ac vel sapien. Nullam metus velit, efficitur commodo elementum vitae, porttitor id tortor. Fusce sagittis nec nulla sit amet varius.
+    .author
+      strong Maecenas ullamcorper
+      strong< New York, NY
+      a.more href='#' Phasellus tellus augue
+```
+
+```slim_example
+.mod-hero.light.layout-banner
+  header
+    h1 Phasellus tellus augue, maximus a viverra tincidunt
+    .typography-5
+      | Phasellus luctus elementum
+      a< href='#' Aenean sit
+    form
+      .mod-two-fields
+        .field
+          label for='select1' Coverage
+          .selectbox
+            select id='select1'
+              option 10,000
+              option 10,000
+              option 10,000
+              option 10,000
+        .field
+          label for='select2' Term
+          .selectbox
+            select id='select2'
+              option a venenatis pulvinar
+              option augue vitae dapibus
+              option non tortor id
+              option efficitur commodo
+      .layout-form-inputs
+        button.button.action Maecenas ullamcorper
+        p.spacer-zero
+          | maximus a viverra
+          br
+          a href='#' 0-000-000-0000
+  aside
+    .spacer-xl
+      .mod-trustpilot.mixed.spacer-negative-m
+        h2 Our clients love us!
+        .header
+          .stars.mini.excellent
+            .star.filled
+            .star.filled
+            .star.filled
+            .star.filled
+            .star.filled
+          .trustpilot-logo
+        .review
+          p Etiam malesuada quis augue vitae dapibus. Sed non tortor id neque posuere luctus ac vel sapien. Nullam metus velit, efficitur commodo elementum vitae, porttitor id tortor. Fusce sagittis nec nulla sit amet varius.
+          .meta
+            span Maecenas ullamcorper
+            em< New York, NY
+        strong
+          a.more href='#' Phasellus tellus augue
+.mod-brands.with-feature-image
+  h5 In rhoncus orci et ex fermentum, ut euismod
+  .content
+    img src='holder.js/120x50?auto=yes'
+    img src='holder.js/140x40?auto=yes'
+    img src='holder.js/120x50?auto=yes'
+    span et netus
+    img src='holder.js/140x40?auto=yes'
+    img src='holder.js/120x50?auto=yes'
+    img src='holder.js/120x50?auto=yes'
+  img src='holder.js/240x280?auto=yes'
+```
+
+```slim_example
+.mod-hero.light.layout-banner.layout-single-header
+  h1 Sed dapibus orci id sapien placerat, a consequat augue
+  header
+    .typography-5.text-center
+      | Phasellus luctus elementum
+      a< href='#' Aenean sit
+    form
+      .mod-two-fields
+        .field
+          label for='select1' Coverage
+          .selectbox
+            select id='select1'
+              option 10,000
+              option 10,000
+              option 10,000
+              option 10,000
+        .field
+          label for='select2' Term
+          .selectbox
+            select id='select2'
+              option a venenatis pulvinar
+              option augue vitae dapibus
+              option non tortor id
+              option efficitur commodo
+      .layout-form-inputs
+        button.button.action Maecenas ullamcorper
+        p.spacer-zero
+          | maximus a viverra
+          br
+          a href='#' 0-000-000-0000
+  aside.we-work
+    h3 America's top Insurance
+    img src='holder.js/500x200?auto=yes'
+.layout-trustpilot
+  .mod-trustpilot.horizontal
+    aside
+      .powered-by
+        .trustpilot-logo
+      .stars.mini.excellent
+        .star.filled
+        .star.filled
+        .star.filled
+        .star.filled
+        .star.filled
+      strong
+        a.more href='#' Phasellus tellus augue
+    .review
+      p Etiam malesuada quis augue vitae dapibus. Sed non tortor id neque posuere luctus ac vel sapien. Nullam metus velit, efficitur commodo elementum vitae, porttitor id tortor. Fusce sagittis nec nulla sit amet varius.
+      .meta
+        span Maecenas ullamcorper
+        em< New York, NY
+    img src='holder.js/240x240?auto=yes'
+```
+
+```slim_example
+.mod-hero.light.layout-banner.layout-single-header
+  h1 Phasellus tellus augue, maximus a viverra tincidunt
+  header
+    .typography-5.text-center
+      | Phasellus luctus elementum
+      a< href='#' Aenean sit
+    form
+      .mod-two-fields
+        .field
+          label for='select1' Coverage
+          .selectbox
+            select id='select1'
+              option 10,000
+              option 10,000
+              option 10,000
+              option 10,000
+        .field
+          label for='select2' Term
+          .selectbox
+            select id='select2'
+              option a venenatis pulvinar
+              option augue vitae dapibus
+              option non tortor id
+              option efficitur commodo
+      .layout-form-inputs
+        button.button.action Maecenas ullamcorper
+        p.spacer-zero
+          | maximus a viverra
+          br
+          a href='#' 0-000-000-0000
+  aside
+    .mod-trustpilot.mixed
+      .header
+        .stars.mini.excellent
+          .star.filled
+          .star.filled
+          .star.filled
+          .star.filled
+          .star.filled
+        .trustpilot-logo
+      .review
+        p Etiam malesuada quis augue vitae dapibus. Sed non tortor id neque posuere luctus ac vel sapien. Nullam metus velit, efficitur commodo elementum vitae, porttitor id tortor. Fusce sagittis nec nulla sit amet varius.
+        .meta
+          span Maecenas ullamcorper
+          em< New York, NY
+      strong
+        a.more href='#' Phasellus tellus augue
+.mod-brands.shift.with-feature-image
+  h5 In rhoncus orci et ex fermentum, ut euismod
+  .content
+    img src='holder.js/120x50?auto=yes'
+    img src='holder.js/140x40?auto=yes'
+    img src='holder.js/120x50?auto=yes'
+    span et netus
+    img src='holder.js/140x40?auto=yes'
+    img src='holder.js/120x50?auto=yes'
+    img src='holder.js/120x50?auto=yes'
+  img src='holder.js/240x280?auto=yes'
+```
+
+```slim_example
+.mod-hero.light.with-cover.layout-banner
+  header
+    h1 Phasellus tellus augue, maximus a viverra tincidunt
+    .typography-5
+      | Phasellus luctus elementum
+      a< href='#' Aenean sit
+    form
+      .mod-two-fields
+        .field
+          label for='select1' Coverage
+          .selectbox
+            select id='select1'
+              option 10,000
+              option 10,000
+              option 10,000
+              option 10,000
+        .field
+          label for='select2' Term
+          .selectbox
+            select id='select2'
+              option a venenatis pulvinar
+              option augue vitae dapibus
+              option non tortor id
+              option efficitur commodo
+      .layout-form-inputs
+        div
+          button.button.action Maecenas ullamcorper
+          p
+            | maximus a viverra
+            a< href='#' 0-000-000-0000
+        div
+    .layout-brands
+      .mod-brands
+        h5 Nam consequat maximus turpis, vestibulum
+        .content
+          img src='holder.js/120x50?auto=yes&theme=dark'
+          img src='holder.js/140x40?auto=yes&theme=dark'
+          img src='holder.js/120x50?auto=yes&theme=dark'
+          img src='holder.js/140x40?auto=yes&theme=dark'
+          img src='holder.js/120x50?auto=yes&theme=dark'
+          img src='holder.js/140x40?auto=yes&theme=dark'
+          img src='holder.js/120x50?auto=yes&theme=dark'
+          span et netus
+  aside
+    img src='holder.js/500x578?auto=yes'
+.layout-trustpilot
+  .mod-trustpilot.horizontal.columns
+    aside
+      .powered-by
+        .trustpilot-logo
+      .stars.mini.excellent
+        .star.filled
+        .star.filled
+        .star.filled
+        .star.filled
+        .star.filled
+    .review
+      p Etiam malesuada quis augue vitae dapibus. Sed non tortor id neque posuere luctus ac vel sapien. Nullam metus velit, efficitur commodo elementum vitae, porttitor id tortor. Fusce sagittis nec nulla sit amet varius.
+    .author
+      strong Maecenas ullamcorper
+      strong< Turpis quis elit
+      a.more href='#' Phasellus tellus augue
+```
+
+```slim_example
+.mod-hero.light.with-cover.layout-banner
+  header
+    h1 Phasellus tellus augue, maximus a viverra tincidunt
+    .typography-5
+      | Phasellus luctus elementum
+      a< href='#' Aenean sit
+    form
+      .mod-two-fields
+        .field
+          label for='select1' Coverage
+          .selectbox
+            select id='select1'
+              option 10,000
+              option 10,000
+              option 10,000
+              option 10,000
+        .field
+          label for='select2' Term
+          .selectbox
+            select id='select2'
+              option a venenatis pulvinar
+              option augue vitae dapibus
+              option non tortor id
+              option efficitur commodo
+      .layout-form-inputs
+        div
+          button.button.action Maecenas ullamcorper
+          p
+            | maximus a viverra
+            a< href='#' 0-000-000-0000
+        div
+          .mod-trustpilot.short
+            aside
+              .powered-by
+                .trustpilot-logo
+              .stars.mini.excellent
+                .star.filled
+                .star.filled
+                .star.filled
+                .star.filled
+                .star.filled
+              strong.typography-7
+                a.more href='#' Nulla maximus congue
+  aside
+    img src='holder.js/500x578?auto=yes'
+.mod-brands
+  h5 Vivamus dictum justo a venenatis pulvinar
+  .content
+    img src='holder.js/120x50?auto=yes'
+    img src='holder.js/140x40?auto=yes'
+    img src='holder.js/120x50?auto=yes'
+    img src='holder.js/140x40?auto=yes'
+    img src='holder.js/120x50?auto=yes'
+    span et netus
+```
+
+```slim_example
+.mod-hero.light.with-cover.layout-banner.layout-single-header
+  h1 Phasellus tellus augue, maximus a viverra tincidunt
+  header
+    .typography-5.text-center
+      | Phasellus luctus elementum
+      a< href='#' Aenean sit
+    form
+      .mod-two-fields
+        .field
+          label for='select1' Coverage
+          .selectbox
+            select id='select1'
+              option 10,000
+              option 10,000
+              option 10,000
+              option 10,000
+        .field
+          label for='select2' Term
+          .selectbox
+            select id='select2'
+              a venenatis pulvinar
+              augue vitae dapibus
+              non tortor id
+              efficitur commodo
+      .layout-form-inputs
+        button.button.action Maecenas ullamcorper
+        p
+          | maximus a viverra
+          a< href='#' 0-000-000-0000
+    .spacer-m
+.layout-trustpilot
+  .mod-trustpilot.horizontal.with-big-feature-image
+    aside
+      .powered-by
+        .trustpilot-logo
+      .stars.mini.excellent
+        .star.filled
+        .star.filled
+        .star.filled
+        .star.filled
+        .star.filled
+      a.more href='#' Phasellus tellus augue
+    .review
+      p Etiam malesuada quis augue vitae dapibus. Sed non tortor id neque posuere luctus ac vel sapien. Nullam metus velit, efficitur commodo elementum vitae, porttitor id tortor. Fusce sagittis nec nulla sit amet varius.
+    img.bottom-cover src='holder.js/500x540?auto=yes'
+```
+
+```slim_example
+.mod-hero.light.with-cover.layout-banner.layout-single-header
+  h1 Phasellus tellus augue, maximus a viverra tincidunt
+  header
+    .typography-5.text-center
+      | Phasellus luctus elementum
+      a< href='#' Aenean sit
+    form
+      .mod-two-fields
+        .field
+          label for='select1' Coverage
+          .selectbox
+            select id='select1'
+              option 10,000
+              option 10,000
+              option 10,000
+              option 10,000
+        .field
+          label for='select2' Term
+          .selectbox
+            select id='select2'
+              option a venenatis pulvinar
+              option augue vitae dapibus
+              option non tortor id
+              option efficitur commodo
+      .layout-form-inputs
+        button.button.action Maecenas ullamcorper
+        p.spacer-zero
+          | maximus a viverra
+          br
+          a href='#' 0-000-000-0000
+    .spacer-m
+.mod-brands.with-big-feature-image
+  h5 In rhoncus orci et ex fermentum, ut euismod
+  .content
+    img src='holder.js/120x50?auto=yes'
+    img src='holder.js/140x40?auto=yes'
+    img src='holder.js/120x50?auto=yes'
+    img src='holder.js/140x40?auto=yes'
+    img src='holder.js/120x50?auto=yes'
+    span et netus
+  img src='holder.js/500x600?auto=yes'
+```
+*/
+// scss-lint:enable all
+
+$banner-hero-max-width:                          rem-calc(1200px);
+$banner-hero-headshot-width:                     rem-calc(360px);
+
+$banner-trustpilot-background-color:             $brand-5;
+$banner-trustpilot-button-color:                 $neutral-3;
+$banner-trustpilot-button-hover-color:           $neutral-8;
+$banner-trustpilot-rating-color:                 $neutral-2;
+$banner-trustpilot-rating-rate-color:            $neutral-1;
+$banner-trustpilot-image-width:                  rem-calc(240px);
+
+$banner-coverage-ticker-header-background-color: $brand-1;
+$banner-coverage-ticker-header-color:            $neutral-8;
+$banner-coverage-ticker-list-background-color:   $neutral-8;
+$banner-coverage-ticker-list-timestamp-color:    $neutral-3;
+$banner-coverage-ticker-list-color:              $neutral-2;
+
+.layout-banner {
+  @include arrange-children-in-a-row($gutter: ru(2));
+  position: relative;
+  display: flex;
+  margin: 0 auto;
+  padding: ru(4) calc((100% - #{$banner-hero-max-width}) / 2);
+
+  > * {
+    flex-grow: 0;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  blockquote,
+  label,
+  a {
+    color: inherit;
+  }
+
+  h1 {
+    @extend .like-h1-title;
+  }
+
+  h2 {
+    @extend .like-h2;
+    line-height: 1;
+  }
+
+  h3 {
+    @extend .like-h3;
+  }
+
+  h4 {
+    @extend .like-p;
+    font-weight: 300;
+    margin-bottom: 0;
+  }
+
+  p {
+    @extend .like-p;
+    color: inherit;
+    text-align: center;
+  }
+
+  small {
+    font-style: italic;
+  }
+
+  blockquote {
+    @extend .typography-4;
+    font-family: $font-family-sans-serif;
+    font-weight: 600;
+    border: 0;
+    margin: 0;
+    padding: 0;
+  }
+
+  .selectbox {
+    width: 100%;
+  }
+
+  .logo {
+    max-width: 354px;
+  }
+
+  .feature-image {
+    margin: auto;
+    display: block;
+  }
+
+  .layout-form-inputs {
+    align-items: flex-start;
+
+    > * {
+      margin-bottom: ru(1);
+    }
+  }
+
+  > header {
+    position: relative;
+    padding-left: ru(1);
+  }
+
+  > aside {
+    position: relative;
+    padding-right: ru(1);
+
+    &.we-work {
+      text-align: center;
+
+      h3 {
+        color: $neutral-3;
+      }
+    }
+
+    .mod-trustpilot {
+      &.mixed {
+        margin-left: ru(4);
+
+        p {
+          text-align: left;
+        }
+      }
+    }
+  }
+
+  .layout-transparent {
+    position: absolute;
+    bottom: 0;
+    z-index: 1;
+    left: calc(50% + #{ru(1)});
+    right: calc(-100% - #{ru(1)});
+    border-radius: ru(.25) ru(.25) 0 0;
+    overflow: hidden;
+
+    p {
+      text-align: left;
+    }
+  }
+
+  &.with-headshot {
+    padding-bottom: 0;
+
+    header { padding-bottom: ru(2); }
+    img { vertical-align: bottom; }
+  }
+
+  &.with-cover {
+    padding-bottom: 0;
+
+    h3 {
+      font-weight: 400;
+    }
+
+    aside {
+      > img {
+        margin: ru(-4) auto 0;
+        min-height: ru(22.5);
+        display: block;
+      }
+    }
+  }
+
+  &.with-aside-image {
+    > aside {
+      margin-top: ru(-2.667);
+      background: {
+        repeat: no-repeat;
+        size: contain;
+        position: 100% 100%;
+      }
+    }
+  }
+
+
+  @media #{$small-only} {
+    flex-direction: column;
+    padding-left: ru(1);
+    padding-right: ru(1);
+
+    .logo {
+      margin-top: ru(1);
+    }
+
+    > header {
+      padding-left: 0;
+      margin-right: 0;
+    }
+
+    > aside {
+      padding-right: 0;
+      margin-left: 0;
+      margin-top: ru(1);
+    }
+
+    .layout-transparent {
+      position: relative;
+      left: 0;
+      right: 0;
+    }
+
+    &.with-cover {
+      padding-bottom: ru(4);
+
+      img {
+        margin: 0 auto;
+        min-height: 0;
+      }
+    }
+  }
+
+  @media #{$medium-only} {
+    > header {
+      flex-basis: 50%;
+    }
+
+    > aside {
+      flex-basis: 41.667%;
+      margin-left: auto;
+    }
+
+    .layout-form-inputs {
+      @include arrange-children-in-a-row($gutter: ru(1));
+    }
+
+    .layout-transparent {
+      right: -100%;
+    }
+  }
+
+  @media #{$medium-up} {
+    &.with-headshot {
+      > aside {
+        padding-bottom: ru(4);
+        min-height: ru(18);
+      }
+
+      blockquote { padding-bottom: ru(11); }
+
+      img.headshot {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: $banner-hero-headshot-width;
+      }
+    }
+
+    + .mod-brands {
+      padding-left: calc((100% - #{$banner-hero-max-width}) / 2);
+      padding-right: calc((100% - #{$banner-hero-max-width}) / 2);
+
+      h5 { margin: 0 0 0 ru(1); }
+      span { margin: 0 ru(1); }
+
+      &.shift {
+        margin-top: ru(-3);
+      }
+
+      &.with-feature-image {
+        position: relative;
+
+        .content {
+          margin-right: $banner-trustpilot-image-width + ru(1);
+        }
+
+        > img {
+          position: absolute;
+          bottom: 0;
+          right: calc((100% - #{$banner-hero-max-width}) / 2);
+          width: $banner-trustpilot-image-width;
+        }
+      }
+
+      &.with-big-feature-image {
+        position: relative;
+
+        h5 {
+          flex-basis: ru(8);
+        }
+
+        .content {
+          margin-right: ru(19);
+        }
+
+        > img {
+          position: absolute;
+          bottom: 0;
+          right: calc((100% - #{$banner-hero-max-width}) / 2);
+          width: ru(18);
+        }
+      }
+    }
+  }
+
+  @media #{$large-up} {
+    > header {
+      flex-basis: 33.33%;
+    }
+
+    > aside {
+      flex-basis: 58.33%;
+      margin-left: auto;
+    }
+
+    .layout-form-inputs {
+      @include arrange-children-in-a-row($gutter: ru(1));
+    }
+
+    &.with-headshot {
+      > aside { min-height: ru(23); }
+
+      blockquote {
+        padding-right: .85 * $banner-hero-headshot-width;
+        padding-bottom: 0;
+      }
+
+      img.headshot {
+        left: auto;
+        right: 0;
+      }
+    }
+
+    &.with-cover {
+      > header {
+        flex-basis: 50%;
+      }
+
+      > aside {
+        flex-basis: 50%;
+      }
+    }
+  }
+}
+
+
+.layout-transparent {
+  background: rgba($neutral-8, .75);
+
+  > * {
+    // scss-lint:disable ImportantRule
+    background: none !important;
+    // scss-lint:enable ImportantRule
+  }
+}
+
+
+.layout-trustpilot {
+  display: flex;
+  position: relative;
+  background-color: $banner-trustpilot-background-color;
+
+  &.shift {
+    margin-top: ru(-3);
+  }
+
+  .mod-trustpilot.horizontal {
+    background-color: inherit;
+    border-radius: 0;
+
+    .button {
+      margin-top: ru(.5);
+      border-color: $banner-trustpilot-button-color;
+      color: $banner-trustpilot-button-color;
+
+      &:hover,
+      &:active,
+      &:focus {
+        background-color: $banner-trustpilot-button-color;
+        color: $banner-trustpilot-button-hover-color;
+      }
+    }
+
+    .rating {
+      @include typography-5;
+      margin-bottom: ru(.5);
+      color: $banner-trustpilot-rating-color;
+
+      strong {
+        // scss-lint:disable ImportantRule
+        color: $banner-trustpilot-rating-rate-color !important;
+        // scss-lint:enable ImportantRule
+      }
+    }
+  }
+
+
+  @media #{$small-only} {
+    .mod-trustpilot.horizontal {
+      img {
+        margin: ru(1) auto 0;
+      }
+    }
+  }
+
+  @media #{$medium-up} {
+    .mod-trustpilot {
+      max-width: $banner-hero-max-width;
+      margin: 0 auto;
+
+      &.horizontal:not(.columns):not(.with-big-feature-image) {
+        position: relative;
+        padding: ru(1);
+
+        aside {
+          flex-basis: ru(12);
+
+          .powered-by {
+            display: block;
+          }
+
+          .button {
+            display: inline-block;
+          }
+        }
+
+        .review {
+          margin-left: ru(4);
+          margin-right: $banner-trustpilot-image-width;
+        }
+
+        img {
+          position: absolute;
+          bottom: 0;
+          right: 0;
+          width: $banner-trustpilot-image-width;
+        }
+      }
+
+      &.with-big-feature-image {
+        position: relative;
+
+        .review {
+          margin-right: ru(19);
+        }
+
+        > img {
+          position: absolute;
+          bottom: 0;
+          right: calc((100% - #{$banner-hero-max-width}) / 2);
+          width: ru(18);
+        }
+      }
+    }
+  }
+}
+
+
+.layout-coverage-ticker {
+  display: flex;
+  overflow: hidden;
+
+  > * {
+    flex: 1 1;
+  }
+
+  h4 {
+    @include like-p;
+    position: relative;
+    z-index: 1;
+    flex: 0 1 auto;
+    font-weight: 600;
+    margin: 0;
+    padding: ru(.33) ru(.75);
+    background-color: $banner-coverage-ticker-header-background-color;
+    color: $banner-coverage-ticker-header-color;
+  }
+
+  ul {
+    display: flex;
+    white-space: nowrap;
+    background-color: $banner-coverage-ticker-list-background-color;
+    color: $banner-coverage-ticker-list-color;
+    list-style: none;
+    margin: 0;
+    padding: ru(.33) 0;
+
+    li {
+      font-weight: 600;
+      margin-left: ru(1);
+
+      + li {
+        margin-left: ru(2);
+      }
+    }
+
+    em {
+      font-weight: 400;
+      font-style: normal;
+      color: $banner-coverage-ticker-list-timestamp-color;
+    }
+  }
+}
+
+
+.layout-single-header {
+  flex-wrap: wrap;
+
+  h1 {
+    flex: 1 0 100%;
+    margin: 0 0 ru(3);
+    text-align: center;
+  }
+}
+
+
+.layout-brands {
+  position: absolute;
+  bottom: ru(1.5);
+  z-index: 1;
+  left: calc(50% + #{ru(1)});
+  right: ru(-10);
+  overflow: hidden;
+
+  .mod-brands {
+    // scss-lint:disable ImportantRule
+    flex-direction: column !important;
+    background: none !important;
+    padding: 0 !important;
+    // scss-lint:enable ImportantRule
+
+    h5 {
+      @include typography-6;
+      width: 100%;
+      flex-basis: auto;
+      margin: 0 0 ru(.75);
+    }
+
+    .content {
+      margin-left: 0;
+      justify-content: flex-start;
+    }
+
+    img {
+      max-width: 20%;
+      margin: 0 ru(.75) ru(.5) 0;
+    }
+
+    span {
+      @include typography-6;
+      margin: 0;
+    }
+  }
+}

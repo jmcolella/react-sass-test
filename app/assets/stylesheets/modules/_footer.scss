@@ -1,0 +1,674 @@
+// scss-lint:disable all
+/*doc
+---
+title: Footer
+name: footer
+category: Modules - Footer
+---
+## Base Module
+```slim_example
+  .mod-footer
+    .main
+      .main-inner
+        .left-side
+          img.on-desktop src='holder.js/85x52?auto=yes'
+          img.on-mobile src='holder.js/154x28?auto=yes'
+          p.address.on-desktop
+            | Lorem ipsum dolor.
+            br
+            | In rhoncus orci et ex.
+          .feedback
+            a.solid-background.i-chat.hidden-for-small-only href='#!'
+              | Nunc in pharetra
+            a.button.solid-background.mini.i-chat.visible-for-small-only href='#!'
+              | Pellentesque habitant
+          .feedback
+            a.solid-background.i-phone.hidden-for-small-only href='#!'
+              | Vivamus ultricies
+            a.button.solid-background.mini.i-phone.visible-for-small-only href='#!'
+              | Augue in tortor
+            em
+              | Maecenas gravida | Ex a sed
+              br
+              | Phasellus | Suspendisse molestie
+          .feedback
+            a.solid-background.i-mail.hidden-for-small-only href='#!'
+              | Nulla maximus
+            a.button.solid-background.mini.i-mail.visible-for-small-only href='#!'
+              | Sed dapibus
+            em
+              | 24/7 - Donec dui est, aliquet at enim ac.
+          .socials.on-desktop
+            a.socials-item.icon-facebook-white href='#!'
+            a.socials-item.icon-twitter-white href='#!'
+            a.socials-item.icon-linkedin-white href='#!'
+            a.socials-item.icon-google-white href='#!'
+            a.socials-item.icon-pinterest-white href='#!'
+        .right-side
+          .cols
+            .col
+              .col-item.col-item-main
+                h2.title
+                  | Morbi quis dui consequat, consectetur massa nec, blandit tellus.
+                  em.on-mobile
+                    |  Nam accumsan quam eu blandit.
+                h3.subtitle.on-desktop
+                  | Vestibulum lacinia dignissim.
+                button.button.solid-background.mini.full-width Nam consequat Dolor
+
+              .col-item.col-item-main
+                h2.title
+                  | Phasellus tellus augue, maximus a viverra tincidunt, vestibulum at lorem.
+                .text-input
+                  input type='text' placeholder='Mauris semper'
+                button.button.solid-background.mini.full-width Curabitur et magna erat
+
+            .col
+              .col-item
+                h2.title.accordion
+                  | Vivamus dictum
+                ul.list
+                  li.list-item
+                    a.solid-background href='#!' Fusce ullamcorper ullamcorper ullamcorper ullamcorper ullamcorper
+                  li.list-item
+                    a.solid-background href='#!' Ut convallis leo
+                  li.list-item
+                    a.solid-background href='#!' Proin et ultrices neque
+                  li.list-item
+                    a.solid-background href='#!' Morbi sit amet dapibus
+                  li.list-item
+                    a.solid-background href='#!' Fusce id egestas
+
+              .col-item
+                h2.title.accordion
+                  | Phasellus luctus
+                ul.list
+                  li.list-item
+                    a.solid-background href='#!' Nunc mattis iaculis
+                  li.list-item
+                    a.solid-background href='#!' Proin at nunc at
+                  li.list-item
+                    a.solid-background href='#!' Nisi lobortis bibendum
+                  li.list-item
+                    a.solid-background href='#!' Sed et lacinia ante
+
+            .col
+              .col-item
+                h2.title.accordion
+                  | Donec id urna
+                ul.list
+                  li.list-item
+                    a.solid-background href='#!' Etiam malesuada
+                  li.list-item
+                    a.solid-background href='#!' Sed non tortor
+                  li.list-item
+                    a.solid-background href='#!' Nullam metus velit
+                  li.list-item
+                    a.solid-background href='#!' Porttitor id tortor
+                  li.list-item
+                    a.solid-background href='#!' Fusce sagittis nec
+
+              .col-item
+                h2.title.accordion
+                  | Phasellus nec iaculis
+                ul.list
+                  li.list-item
+                    a.solid-background href='#!' Quis vulputate
+                  li.list-item
+                    a.solid-background href='#!' Donec mattis
+
+          .row-links.on-desktop
+            img src='holder.js/33x33?auto=yes'
+            a.row-link.solid-background href='#!' Mauris ex mauris
+            a.row-link.solid-background href='#!' Porttitor
+            a.row-link.solid-background href='#!' Fusce
+            a.row-link.solid-background href='#!' Vivamus
+            a.row-link.solid-background href='#!' Curabitur
+            a.row-link.solid-background href='#!' Efficitur
+      .bottom-mobile
+        .socials
+          a.socials-item.icon-facebook-white href='#!'
+          a.socials-item.icon-twitter-white href='#!'
+          a.socials-item.icon-linkedin-white href='#!'
+          a.socials-item.icon-google-white href='#!'
+          a.socials-item.icon-pinterest-white href='#!'
+        small
+          | Maecenas ullamcorper turpis © 2016
+        small
+          | Fermentum placerat arcu
+          br
+          | Porttitor sed risus
+        .mobile-logos
+          img src='holder.js/72x25?auto=yes'
+          img src='holder.js/33x33?auto=yes'
+          img src='holder.js/73x15?auto=yes'
+    .bottom.on-desktop
+      .inner
+        .logos
+          .logo
+            img src='holder.js/80x20?auto=yes&theme=dark'
+          .logo
+            img src='holder.js/80x20?auto=yes&theme=dark'
+          .logo
+            img src='holder.js/80x20?auto=yes&theme=dark'
+          .logo
+            img src='holder.js/80x20?auto=yes&theme=dark'
+          .logo
+            img src='holder.js/80x20?auto=yes&theme=dark'
+          .logo
+            img src='holder.js/80x20?auto=yes&theme=dark'
+          .logo
+            img src='holder.js/80x20?auto=yes&theme=dark'
+          .logo
+            img src='holder.js/80x20?auto=yes&theme=dark'
+        .notes
+          .title Nam et consequat urna
+          .row-links
+            img src='holder.js/72x15?auto=yes&theme=dark'
+            a.row-link.highlighting href='#!' Vivamus faucibus
+            a.row-link.highlighting href='#!' Donec nunc nulla
+            a.row-link.highlighting href='#!' Posuere
+            a.row-link.highlighting href='#!' Curabitur
+          p.note
+            | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci commodi culpa debitis delectus dignissimos eligendi error excepturi iste iure, maiores maxime necessitatibus pariatur perferendis, perspiciatis qui, temporibus voluptas? Animi culpa deserunt dicta natus provident sit suscipit veritatis. Beatae blanditiis consectetur ex illo magnam neque, nulla perferendis veritatis. Cupiditate, distinctio dolore iusto laboriosam quidem velit voluptatem. Consectetur debitis eos, in ipsa ipsum laborum necessitatibus nihil numquam odit officia officiis, reprehenderit, sit suscipit tenetur ut? Accusamus, aliquam at delectus deleniti dolorum error exercitationem ipsa laboriosam laborum nesciunt nobis nulla possimus quae rerum temporibus veritatis vitae voluptate.
+          .row-links
+            img src='holder.js/72x24?auto=yes&theme=dark'
+            small.copyrights
+              | Maecenas rhoncus pulvinar © 2016
+```
+
+```js_example
+$('.accordion').on('click', function() {
+  if(window.innerWidth > 768) return;
+
+  $(this)
+    .parent()
+    .find('.list')
+    .slideToggle(250);
+});
+```
+
+*/
+// scss-lint:enable all
+
+$mod-footer-padding:              ru(1.5);
+$mod-footer-main-color:           $neutral-8;
+$mod-footer-gradient-start-color: $gradient-start-color;
+$mod-footer-gradient-mid-color:   $gradient-mid-color;
+$mod-footer-gradient-end-color:   $gradient-end-color;
+$mod-footer-max-width:            $global-container-width;
+
+.mod-footer {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+
+  .main {
+    @include linear-gradient(105deg, $mod-footer-gradient-start-color 0%,
+            $mod-footer-gradient-mid-color 50%, $mod-footer-gradient-end-color 100%);
+
+    padding-top: $mod-footer-padding;
+    padding-bottom: $mod-footer-padding;
+    color: $mod-footer-main-color;
+
+    [class^='mod-'] {
+      background-color: initial;
+    }
+  }
+
+  .main-inner {
+    padding-left: $mod-footer-padding;
+    padding-right: $mod-footer-padding;
+  }
+
+  .main-inner,
+  .inner {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: $mod-footer-max-width;
+  }
+
+  .left-side,
+  .right-side {
+    padding-bottom: rem-calc(15px);
+    vertical-align: top;
+    flex: 0 0 auto;
+  }
+
+  .left-side {
+    @include typography-7;
+
+    line-height: ru(.75);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 0;
+    flex-shrink: 0;
+  }
+
+  .address {
+    margin-top: rem-calc(10px);
+  }
+
+  .right-side {
+    padding-left: 3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .feedback {
+    &:first-of-type {
+      margin-bottom: rem-calc(10px);
+    }
+
+    &:nth-of-type(2) {
+      margin-bottom: rem-calc(25px);
+    }
+
+    em {
+      display: block;
+      font-style: italic;
+    }
+  }
+
+  .cols {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: rem-calc(45px);
+  }
+
+  .col-item {
+    &.col-item-main {
+      &:not(:last-child) {
+        margin-bottom: rem-calc(64px);
+      }
+    }
+
+    .button {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+  }
+
+  .title,
+  .subtitle {
+    @include typography-6;
+    color: currentColor;
+  }
+
+  .title {
+    font-weight: 600;
+
+    em {
+      font-style: italic;
+    }
+  }
+
+  .subtitle {
+    font-style: italic;
+  }
+
+  .row-links {
+    @include typography-7;
+    line-height: ru(.75);
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-bottom: 0;
+
+    img {
+      margin-right: rem-calc(25px);
+    }
+  }
+
+  .row-link {
+    white-space: nowrap;
+
+    &:not(last-child) {
+      margin-right: rem-calc(25px);
+    }
+  }
+
+  .bottom {
+    @include typography-7;
+    margin-bottom: 0;
+    line-height: ru(.75);
+    border: 1px solid $neutral-5;
+    background-color: $neutral-6;
+  }
+
+  .logos {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: rem-calc(74px);
+    padding-left: $mod-footer-padding - rem-calc(12.5px);
+    padding-right: $mod-footer-padding - rem-calc(12.5px);
+    border-bottom: 1px solid $neutral-5;
+
+    > img {
+      max-width: rem-calc(120px);
+      max-height: rem-calc(25px);
+      margin-left: rem-calc(12.5px);
+      margin-right: rem-calc(12.5px);
+
+      &:first-child {
+        margin-left: 0;
+      }
+
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+  }
+
+  .logo {
+    max-width: rem-calc(120px);
+    max-height: rem-calc(25px);
+    padding-left: rem-calc(12.5px);
+    padding-right: rem-calc(12.5px);
+
+    img {
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  .socials {
+    margin-top: auto;
+    display: flex;
+  }
+
+  .socials-item {
+    &:not(:last-child) {
+      margin-right: rem-calc(13px);
+    }
+
+    &:before {
+      content: '';
+      display: block;
+      width: rem-calc(26px);
+      height: rem-calc(26px);
+      background-size: 100% 100%;
+    }
+  }
+
+  .notes {
+    color: $neutral-2;
+    padding: ru(1) $mod-footer-padding $mod-footer-padding;
+  }
+
+  .note {
+    margin-top: rem-calc(15px);
+    margin-bottom: rem-calc(15px);
+  }
+
+  .bottom-mobile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    small {
+      @include typography-7;
+      line-height: ru(.75);
+      text-align: center;
+      margin-bottom: rem-calc(13px);
+
+      &:first-of-type {
+        margin-top: rem-calc(35px);
+      }
+
+      &:last-of-type {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  .mobile-logos {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: rem-calc(35px);
+
+    img {
+      margin-left: rem-calc(8px);
+      margin-right: rem-calc(8px);
+    }
+  }
+
+  .list {
+    a.solid-background {
+      line-height: ru(.75);
+    }
+  }
+
+  @media #{$medium-up} {
+    .left-side {
+      @include g-unit(3);
+      display: inline-flex;
+    }
+
+    .right-side {
+      @include g-unit(9);
+      display: inline-flex;
+    }
+
+    .col-item {
+      &:not(:last-child) {
+        margin-bottom: ru(.75);
+      }
+    }
+
+    .list-item {
+      &:not(:last-child) {
+        margin-bottom: ru(.35);
+      }
+    }
+  }
+
+  @media #{$medium-only} {
+    .left-side {
+      @include g-unit(3);
+    }
+
+    .cols {
+      flex-direction: column;
+      margin-bottom: rem-calc(30px);
+    }
+
+    .col {
+      max-width: 100%;
+      display: flex;
+
+      &:not(:last-child) {
+        margin-bottom: rem-calc(30px);
+      }
+    }
+
+    .col-item {
+      @include g-unit(6);
+
+      &:not(:last-child) {
+        margin-bottom: 0;
+      }
+
+      &.col-item-main {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+
+        &:not(:last-child) {
+          margin-bottom: 0;
+        }
+      }
+    }
+  }
+
+  @media #{$medium-up} {
+    .main-inner {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .on-mobile {
+      display: none;
+    }
+
+    .bottom-mobile {
+      display: none;
+    }
+
+    .right-side {
+      border-left: 1px solid $mod-footer-main-color;
+    }
+  }
+
+  @media #{$small-and-medium-only} {
+    .right-side {
+      overflow: hidden;
+    }
+
+    .row-link:not(last-child) {
+      margin-right: ru(.67);
+    }
+
+    .socials-item:not(:last-child) {
+      margin-right: ru(.275);
+    }
+  }
+
+  @media #{$small-only} {
+    .on-desktop {
+      display: none;
+    }
+
+    .list {
+      display: none;
+      padding-top: rem-calc(20px);
+      padding-bottom: rem-calc(14px);
+    }
+
+    .accordion {
+      @include typography-5();
+      position: relative;
+      cursor: pointer;
+      margin-top: 0;
+      margin-bottom: 0;
+      padding-top: ru(.5);
+
+      &:after {
+        content: '';
+        display: inline-block;
+        vertical-align: middle;
+        width: 12px;
+        height: 8px;
+        margin-left: rem-calc(14px);
+        background-image: url('images/accordion-arrow-white.svg');
+        background-size: 100% 100%;
+      }
+
+    }
+
+    .list-item {
+      &:not(:last-child) {
+        margin-bottom: rem-calc(14px);
+      }
+
+      a.solid-background {
+        @include typography-6();
+      }
+    }
+
+    .left-side {
+      padding: 0 $mod-footer-padding rem-calc(25px);
+      margin: 0 -#{$mod-footer-padding};
+      flex-direction: column;
+      align-items: center;
+      border-right: 0;
+      border-bottom: 1px solid $mod-footer-main-color;
+    }
+
+    .right-side {
+      padding-top: rem-calc(25px);
+      padding-left: 0;
+    }
+
+    .cols {
+      flex-direction: column;
+      margin-bottom: 0;
+    }
+
+    .col {
+      max-width: 100%;
+
+      &:first-of-type {
+        position: relative;
+        order: 2;
+        padding-top: rem-calc(22px);
+        padding-bottom: rem-calc(25px);
+
+        &:before {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: -#{$mod-footer-padding};
+          width: calc(100% + #{$mod-footer-padding} * 2);
+          border-top: 1px solid $mod-footer-main-color;
+        }
+      }
+
+      &:last-of-type {
+        margin-bottom: rem-calc(30px);
+      }
+    }
+
+    .col-item {
+      &.col-item-main {
+        &:not(:last-child) {
+          margin-bottom: rem-calc(30px);
+        }
+      }
+    }
+
+    .feedback {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      margin-top: rem-calc(10px);
+      margin-bottom: 0;
+
+      &:first-of-type {
+        margin-top: rem-calc(25px);
+      }
+
+      &:nth-of-type(2) {
+        margin-bottom: 0;
+      }
+
+      em {
+        margin-top: rem-calc(10px);
+        text-align: center;
+      }
+    }
+
+    .socials-item {
+      &:before {
+        width: rem-calc(36px);
+        height: rem-calc(36px);
+      }
+    }
+  }
+
+  @media #{$large-up} {
+    .col {
+      @include g-unit(4);
+
+      &:first-child {
+        @include g-unit(3);
+        margin-right: auto;
+      }
+    }
+  }
+}

@@ -1,0 +1,142 @@
+// scss-lint:disable all
+/*doc
+---
+title: Table Scrollable
+name: table-scrollable
+category: Components - Table Scrollable
+---
+```slim_example
+  .table-scrollable
+    table width='100%'
+      thead
+        tr
+          th colspan='2'
+          th colspan='3' Lorem
+          th colspan='3' Ipsum
+        tr
+          th Dolor
+          th Amet
+          th sit 30
+          th sit 40
+          th sit 50
+          th sit 30
+          th sit 40
+          th sit 50
+      tbody
+        tr
+          td Donec
+          td Nunc
+          td $10.00
+          td $10.00
+          td $10.00
+          td.highlighted $10.00
+          td $10.00
+          td $10.00
+        tr
+          td Sodales
+          td Odio
+          td $10.00
+          td $10.00
+          td $10.00
+          td $10.00
+          td $10.00
+          td $10.00
+        tr
+          td Quisque
+          td Curabitur
+          td $10.00
+          td $10.00
+          td $10.00
+          td $10.00
+          td $10.00
+          td $10.00
+        tr
+          td Proin
+          td In lacinia mi
+          td $10.00
+          td $10.00
+          td $10.00
+          td $10.00
+          td $10.00
+          td $10.00
+        tr.current
+          td Sed laoreet
+          td Interdum et malesuada
+          td $10.00
+          td.highlighted $10.00
+          td.highlighted $10.00
+          td $10.00
+          td $10.00
+          td $10.00
+        tr
+          td Sed non nunc
+          td Curabitur in tellus
+          td $10.00
+          td $10.00
+          td $10.00
+          td $10.00
+          td $10.00
+          td $10.00
+        tr
+          td Maecenas
+          td Duis sed eleifend
+          td.highlighted $10.00
+          td.highlighted $10.00
+          td.highlighted $10.00
+          td.highlighted $10.00
+          td.highlighted $10.00
+          td.highlighted $10.00
+        tr
+          td Aliquam
+          td In lobortis
+          td $10.00
+          td $10.00
+          td $10.00
+          td $10.00
+          td $10.00
+          td $10.00
+        tr
+          td SBLI
+          td Level Premium Term
+          td $10.00
+          td $10.00
+          td $100.00
+          td $10.00
+          td $10.00
+          td $10.00
+        tr
+          td Curae
+          td Duis sed eleifend
+          td $10.00
+          td $10.00
+          td $10.00
+          td $10.00
+          td $10.00
+          td $10.00
+        tr
+          td Suspendisse
+          td Curabitur in tellus
+          td $10.00
+          td $10.00
+          td $10.00
+          td.highlighted $10.00
+          td $10.00
+          td $10.00
+
+css:
+  .table-scrollable { max-width: 480px; }
+```
+*/
+// scss-lint:enable all
+
+.table-scrollable {
+  width: 100%;
+  overflow-y: hidden;
+  overflow-x: scroll;
+  -ms-overflow-style: -ms-autohiding-scrollbar;
+  -webkit-overflow-scrolling: touch;
+
+  @media #{$small-only} {
+    width: calc(100vw - #{ru(2)});
+  }
+}

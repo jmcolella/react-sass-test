@@ -1,0 +1,90 @@
+// scss-lint:disable all
+/*doc
+---
+title: Hero Layout
+name: hero-layout
+category: Layouts - Hero
+---
+```slim_example
+.layout-hero style='background-image: url(images/career-board-hero-image.jpg)'
+  .layout-container
+    h1
+      | Curabitur ex nibh, pharetra eget aliquam congue
+    .mod-cta.layout-cta
+      a.button.action href='#' Phasellus in laoreet quam
+      small
+        a href='#' Suspendisse
+        '* molestie vel sapien
+```
+*/
+// scss-lint:enable all
+
+.layout-hero {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: ru(2) 0;
+  min-height: ru(19);
+  background: {
+    position: 50% 50%;
+    size: cover;
+    color: $brand-2;
+  }
+  color: $neutral-8;
+
+  .layout-container {
+    width: 100%;
+    max-width: rem-calc(1100px);
+    padding-left: ru(1);
+    padding-right: ru(1);
+    align-self: center;
+  }
+
+  h1 {
+    @include like-h1-jumbo;
+    color: inherit;
+  }
+
+  .layout-cta {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+
+    .button {
+      width: auto;
+      padding-left: ru(2);
+      padding-right: ru(2);
+    }
+
+    small {
+      @include typography-7;
+      line-height: ru(.75);
+      margin: 0;
+
+      a {
+        color: inherit;
+      }
+    }
+  }
+
+  @media #{$medium-up} {
+    h1 { max-width: 75%; }
+  }
+
+  @media #{$small-only} {
+    min-height: 0;
+
+    h1 {
+      @include like-h1;
+      color: inherit;
+    }
+
+    .layout-cta {
+      .button {
+        padding-left: ru(1);
+        padding-right: ru(1);
+      }
+    }
+  }
+}
+

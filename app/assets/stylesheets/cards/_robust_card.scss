@@ -1,0 +1,2322 @@
+// scss-lint:disable all
+/*doc
+---
+title: Robust Card
+name: robust-card
+category: Cards - Robust Card
+---
+```slim_example
+.mod-robust-card style='max-width:62.5rem;'
+  .mod-robust-card-header
+    .mod-robust-card-header-row
+      .mod-robust-card-logo
+        .sign
+          .icon-discount-white
+          strong Etiam
+        img src='holder.js/182x48?auto=yes'
+      .mod-robust-card-top-info
+        .mod-robust-card-top-text
+          ' Maecenas ullamcorper
+          strong Mauris ex mauris, porttitor sed
+        a.mod-robust-card-hint Nam et consequat urna
+    .mod-robust-card-details
+      .mod-robust-card-top-text
+        ' Nullam metus
+        strong Fusce sagittis nec nulla sit
+
+  .mod-robust-card-content
+    .mod-robust-card-section.half-width-on-mobile
+      .mod-robust-card-caption
+        | Aenean
+        i.i-help
+      .mod-robust-card-pull
+        .mod-robust-card-price
+          span.mod-robust-card-price-value $100
+          sup.mod-robust-card-price-sup .00
+          small.mod-robust-card-price-period
+            ' /ex
+        a.mod-robust-card-hint Vivamus consectetur risus et
+    .mod-robust-card-section.half-width-on-mobile
+      .mod-robust-card-caption
+        span Sapien
+        | Maximus
+        i.i-help
+      .mod-robust-card-pull
+        .mod-robust-card-type Suspendisse vel massa
+        a.mod-robust-card-hint Curabitur efficitur
+    .mod-robust-card-section
+      .mod-robust-card-caption
+        | Turpis
+        span  Porttitor
+        i.i-help
+      .mod-robust-card-pull
+        .mod-robust-card-ratings
+          .mod-robust-card-rating
+            .mod-robust-card-rating-value MI
+            .mod-robust-card-rating-note ID
+          .mod-robust-card-rating
+            .mod-robust-card-rating-value ID
+            .mod-robust-card-rating-note Donec nunc nulla
+    .mod-robust-card-section.connected-on-mobile
+      .mod-robust-card-caption.mod-robust-card-desktop
+        | Hendrerit
+        i.i-help
+      .mod-robust-card-pull
+        .mod-robust-card-review
+          .mod-robust-card-stars
+            .com-rating.mini.narrow
+              .stars
+                .i-star.active
+                .i-star.active
+                .i-star.active
+                .i-star
+                .i-star
+          span Fermentum placerat
+        .mod-robust-card-review
+          .mod-robust-card-stars
+            .com-rating.mini.narrow
+              .stars
+                .i-star.active
+                .i-star.active
+                .i-star.active
+                .i-star
+                .i-star
+          span Fusce quis elit
+
+  .mod-robust-card-footer
+    .mod-robust-card-actions
+      a.button.action Curabitur
+      a.button.outline Efficitur
+      a.button.outline.i-mail.mod-robust-card-desktop
+      .mod-robust-card-count.i-user.mod-robust-card-desktop
+        ' Nullam
+        strong 100,000 placerat
+    .mod-robust-card-compare
+      label.checkbox.flip
+        input type='checkbox' checked='checked'
+        span Suspendisse
+```
+
+## No price variant
+```slim_example
+.mod-robust-card style='max-width:62.5rem;'
+  .mod-robust-card-header
+    .mod-robust-card-logo
+      img src='holder.js/182x48?auto=yes'
+    .mod-robust-card-top-info
+      .mod-robust-card-top-text
+        ' Maecenas ullamcorper
+        strong Mauris ex mauris, porttitor sed
+      a.mod-robust-card-hint Nam et consequat urna
+    .mod-robust-card-details
+      .mod-robust-card-top-text
+        ' Nullam metus
+        strong Fusce sagittis nec nulla sit
+
+  .mod-robust-card-content
+    .mod-robust-card-section.half-width-on-mobile
+      .mod-robust-card-caption
+        | Aenean
+        i.i-help
+      .mod-robust-card-pull
+        .mod-robust-card-no-price
+          span Ut pulvinar leo
+          br
+          span 0-000-000-0000
+        a.mod-robust-card-hint Vivamus consectetur risus et
+    .mod-robust-card-section.half-width-on-mobile
+      .mod-robust-card-caption
+        span Sapien
+        | Maximus
+        i.i-help
+      .mod-robust-card-pull
+        .mod-robust-card-type Suspendisse vel massa
+        a.mod-robust-card-hint Curabitur efficitur
+    .mod-robust-card-section
+      .mod-robust-card-caption
+        | Turpis
+        span  Porttitor
+        i.i-help
+      .mod-robust-card-pull
+        .mod-robust-card-ratings
+          .mod-robust-card-rating
+            .mod-robust-card-rating-value ET
+            .mod-robust-card-rating-note EX
+          .mod-robust-card-rating
+            .mod-robust-card-rating-value UT
+            .mod-robust-card-rating-note Donec nunc nulla
+    .mod-robust-card-section.connected-on-mobile
+      .mod-robust-card-caption.mod-robust-card-desktop
+        | Hendrerit
+        i.i-help
+      .mod-robust-card-pull
+        .mod-robust-card-review
+          .mod-robust-card-stars
+            .com-rating.mini.narrow
+              .stars
+                .i-star.active
+                .i-star.active
+                .i-star.active
+                .i-star
+                .i-star
+          span Fermentum placerat
+        .mod-robust-card-review
+          .mod-robust-card-stars
+            .com-rating.mini.narrow
+              .stars
+                .i-star.active
+                .i-star.active
+                .i-star.active
+                .i-star
+                .i-star
+          span Fusce quis elit
+
+  .mod-robust-card-footer
+    .mod-robust-card-actions
+      a.button.action Curabitur
+      a.button.outline Efficitur
+      a.button.outline.i-mail.mod-robust-card-desktop
+      .mod-robust-card-count.i-user.mod-robust-card-desktop
+        ' Nullam
+        strong 100,000 placerat
+    .mod-robust-card-compare
+      label.checkbox.flip
+        input type='checkbox' checked='checked'
+        span Suspendisse
+```
+
+## Card variation 1
+```slim_example
+.mod-robust-card style='max-width:62.5rem;'
+  .mod-robust-card-header
+    h2.mod-robust-card-title Suspendisse molestie vel sapien at posuere. Phasellus viverra mollis massa ut eleifend. Nulla maximus congue dolor sed vestibulum. Nunc mattis molestie libero
+    .mod-robust-card-top-action
+      a.mod-robust-card-priorities.icon-priorities Vivamus ultricies
+    .mod-robust-card-details
+      .mod-robust-card-stars
+        .com-rating.mini.narrow
+          .stars
+            .i-star.active
+            .i-star.active
+            .i-star.active
+            .i-star
+            .i-star
+        .i-help
+      .mod-robust-card-top-text
+        ' In rhoncus orci et
+        i.i-help
+        strong.mod-robust-card-desktop Ut scelerisque nulla at sem suscipit
+
+  .mod-robust-card-content
+    .mod-robust-card-section.half-width-on-mobile
+      .mod-robust-card-caption
+        | Nunc in pharetra
+        i.i-help
+      .mod-robust-card-pull
+        .mod-robust-card-price
+          .sign
+            .icon-discount-white
+          span.mod-robust-card-price-value $100
+          small.mod-robust-card-price-period
+            '  /ex
+        ul.mod-icon-list.condensed
+          li.icon-checkmark Vivamus $100
+        a.mod-robust-card-hint Vivamus consectetur risus et
+    .mod-robust-card-section.half-width-on-mobile
+      .mod-robust-card-caption
+        | Condimentum
+        i.i-help
+      .mod-robust-card-pull
+        .mod-robust-card-type.no-margin
+          .sign odio
+          strong Risus hendrerit
+        ul.mod-icon-list.condensed
+          li.icon-checkmark Fusce $1,000
+        a.mod-robust-card-hint Maecenas ullamcorper turpis
+    .mod-robust-card-section.mod-robust-card-mobile
+      .mod-robust-card-caption.no-icon Fusce quis elit at
+      .mod-robust-card-important
+        .mod-robust-card-item
+          strong.mod-robust-card-item-key turpis
+          span.mod-robust-card-item-value Vivamus faucibus lacus
+        .mod-robust-card-item
+          strong.mod-robust-card-item-key purus
+          span.mod-robust-card-item-value Curabitur efficitur euismod
+      .mod-robust-card-plan
+        ' In rhoncus orci et
+        i.i-help
+        strong Mauris pharetra augue ac arcu
+    .mod-robust-card-section.mod-robust-card-desktop
+      .mod-robust-card-caption
+        | faucibus
+        i.i-help
+      .mod-robust-card-shift
+        ul.mod-simple-list.no-bullet
+          li Curabitur
+          li Efficitur
+          li Euismod turpis nec
+    .mod-robust-card-section.mod-robust-card-desktop
+      .mod-robust-card-caption
+        | Suspendisse
+        i.i-help
+      .mod-robust-card-shift
+        ul.mod-icon-list.condensed
+          li.icon-checkmark
+            .list-truncation
+              span.truncate Consectetur
+              strong $10
+          li.icon-close-accent Truvada
+          li
+            ' &
+            a href='#' faucibus
+
+  .mod-robust-card-footer
+    .mod-robust-card-actions
+      a.button.action Curabitur
+      a.button.outline.half Efficitur
+      a.button.outline.half Suspendisse
+      a.button.outline.i-mail.mod-robust-card-desktop
+      .mod-robust-card-info
+        span Donec nunc nulla
+        .value $10
+      .mod-robust-card-info
+        span Suspendisse vel massa
+        .value $10
+      .mod-robust-card-info
+        span Emergency Room
+        .value $600
+
+    .mod-robust-card-compare
+      label.checkbox.flip
+        input type='checkbox' checked='checked'
+        span Suspendisse
+```
+
+## Details card
+```slim_example
+.mod-robust-card style='max-width:62.5rem;'
+  .mod-robust-card-header
+    .mod-robust-card-header-left
+      h2.mod-robust-card-title Blue Cross Blue Shield of Illinois
+      .mod-robust-card-details
+        .mod-robust-card-stars.lineup
+          .com-rating.mini.narrow
+            .stars
+              .i-star.active
+              .i-star.active
+              .i-star.active
+              .i-star
+              .i-star
+          .i-help
+        .mod-robust-card-tier
+          strong
+            | Mauris ex mauris
+            i
+    .mod-robust-card-header-right
+      a.button.action.i-clock.mini Vestibulum dignissim
+      a.mod-robust-card-hint.no-indent href="#" What is a Vestibulum dignissim plan?
+    .mod-robust-card-details
+      ' Off Vivamus Sapien
+      i.i-help
+      ' &nbsp;
+      strong Fusce euismod bibendum
+  .mod-robust-card-content
+    .mod-robust-card-section.table-like-on-mobile
+      .mod-robust-card-caption
+        | Nunc in pharetra
+        i.i-help
+      .mod-robust-card-shift
+        .mod-robust-card-price
+          .sign
+            .icon-discount-white
+          span.mod-robust-card-price-value $100
+          small.mod-robust-card-price-period
+            '  /ex
+    .mod-robust-card-section.table-like-on-mobile
+      .mod-robust-card-caption
+        | Condimentum
+        i.i-help
+      .mod-robust-card-shift
+        .mod-robust-card-type
+          .sign odio
+          strong $1,000
+          span
+            '  /odio
+    .mod-robust-card-section.table-like-on-mobile
+      .mod-robust-card-caption
+        | Suspendisse molestie
+        i.i-help
+      .mod-robust-card-shift.layout-equal-columns
+        .mod-robust-card-type.wrap
+          strong $1,000
+          span
+            | malesuada fames
+        .mod-robust-card-type.wrap
+          strong $10,000
+          span
+            | turpis egestas
+      a.mod-robust-card-hint Phasellus viverra mollis
+    .mod-robust-card-section.table-like-on-mobile
+      .mod-robust-card-caption
+        | Nulla maximus congue
+        i.i-help
+      .mod-robust-card-shift
+        .mod-robust-card-type
+          strong Aliquam nisl
+
+  .mod-robust-card-additional
+    h2.mod-robust-card-title Morbi quis dui
+    p
+      ' Vivamus ultricies augue
+      strong in tortor pharetra convallis
+      ' viverra mollis
+      strong et egestas tortor laoreet
+    .mod-robust-card-equal-columns
+      .mod-robust-card-equal-column
+        p: strong augue efficitur
+        ul.mod-icon-list
+          li.icon-checkmark Aliquam nisl nibh, lacinia
+          li.icon-checkmark Morbi quis dui consequat
+          li.icon-checkmark Suspendisse sed
+      .mod-robust-card-equal-column
+        p: strong Vestibulum lacinia dignissim
+        ul.mod-icon-list
+          li.icon-checkmark Nam consequat maximus turpis, vestibulum
+          li.icon-checkmark Maecenas efficitur accumsan
+          li.icon-checkmark Mauris semper faucibus
+
+  .mod-robust-card-additional
+    h2.mod-robust-card-title Suspendisse
+    h3.mod-robust-card-subtitle Ut scelerisque nulla
+    .mod-robust-card-equal-columns
+      .mod-robust-card-equal-column
+        p Phasellus viverra mollis massa ut eleifend. Nulla maximus congue dolor sed vestibulum.
+        p Proin pharetra felis et odio porttitor, et egestas
+      .mod-robust-card-equal-column
+        p
+          | Donec dui est, aliquet at enim ac, egestas consectetur orci. Aliquam nisl nibh, lacinia et diam &nbsp;
+          a href="#" Morbi quis dui.
+    .mod-robust-card-equal-columns
+      .mod-robust-card-equal-column
+        h4.mod-robust-card-underlined Nam accumsan quam
+        p.mod-robust-card-section-intro
+          | Suspendisse id felis nulla. Nulla facilisi. Mauris pharetra augue ac arcu dapibus aliquam. Nunc mattis diam libero
+          a href="#" Faucibus vel magna
+        .mod-robust-card-description-item
+          div Faucibus
+          b Mauris pharetra
+        h5.mod-robust-card-minititle Donec nunc nulla
+        span Scelerisque enim
+        table.mod-robust-card-table
+          tr.mod-robust-card-table-row
+            td.mod-robust-card-table-col Etiam malesuada quis
+            td.mod-robust-card-table-col
+              | Aenean sit &nbsp;
+              i.i-help
+          tr.mod-robust-card-table-row
+            td.mod-robust-card-table-col Mauris ex mauris
+            td.mod-robust-card-table-col
+              | $10 &nbsp;
+              i.i-help
+        h5.mod-robust-card-minititle Suspendisse vel massa
+        table.mod-robust-card-table
+          tr.mod-robust-card-table-row
+            td.mod-robust-card-table-col Etiam malesuada quis
+            td.mod-robust-card-table-col Aenean sit
+          tr.mod-robust-card-table-row
+            td.mod-robust-card-table-col Mauris ex mauris
+            td.mod-robust-card-table-col $10
+        h4.mod-robust-card-underlined Suspendisse
+        h5.mod-robust-card-minititle Donec nunc nulla
+        table.mod-robust-card-table
+          tr.mod-robust-card-table-row
+            td.mod-robust-card-table-col Mauris ex mauris
+            td.mod-robust-card-table-col $10
+        h5.mod-robust-card-minititle Suspendisse vel massa
+        table.mod-robust-card-table
+          tr.mod-robust-card-table-row
+            td.mod-robust-card-table-col Etiam malesuada quis
+            td.mod-robust-card-table-col Aenean sit
+          tr.mod-robust-card-table-row
+            td.mod-robust-card-table-col Mauris ex mauris
+            td.mod-robust-card-table-col $10
+        h5.mod-robust-card-minititle Donec nunc nulla
+        table.mod-robust-card-table
+          tr.mod-robust-card-table-row
+            td.mod-robust-card-table-col Etiam malesuada quis
+            td.mod-robust-card-table-col Aenean sit
+          tr.mod-robust-card-table-row
+            td.mod-robust-card-table-col Mauris ex mauris
+            td.mod-robust-card-table-col $10
+        h5.mod-robust-card-minititle Suspendisse vel massa
+        table.mod-robust-card-table
+          tr.mod-robust-card-table-row
+            td.mod-robust-card-table-col Etiam malesuada quis
+            td.mod-robust-card-table-col Aenean sit
+          tr.mod-robust-card-table-row
+            td.mod-robust-card-table-col Mauris ex mauris
+            td.mod-robust-card-table-col $10
+        h4.mod-robust-card-underlined Curabitur
+        h5.mod-robust-card-minititle Donec nunc nulla
+        table.mod-robust-card-table
+          tr.mod-robust-card-table-row
+            td.mod-robust-card-table-col Etiam malesuada quis
+            td.mod-robust-card-table-col Aenean sit
+          tr.mod-robust-card-table-row
+            td.mod-robust-card-table-col Mauris ex mauris
+            td.mod-robust-card-table-col $10
+        h5.mod-robust-card-minititle Suspendisse vel massa
+        table.mod-robust-card-table
+          tr.mod-robust-card-table-row
+            td.mod-robust-card-table-col Etiam malesuada quis
+            td.mod-robust-card-table-col Aenean sit
+          tr.mod-robust-card-table-row
+            td.mod-robust-card-table-col Mauris ex mauris
+            td.mod-robust-card-table-col $10
+        h4.mod-robust-card-underlined Pellentesque
+        h5.mod-robust-card-minititle Donec nunc nulla
+        table.mod-robust-card-table
+          tr.mod-robust-card-table-row
+            td.mod-robust-card-table-col Etiam malesuada quis
+            td.mod-robust-card-table-col Aenean sit
+          tr.mod-robust-card-table-row
+            td.mod-robust-card-table-col Mauris ex mauris
+            td.mod-robust-card-table-col $10
+        h5.mod-robust-card-minititle Suspendisse vel massa
+        table.mod-robust-card-table
+          tr.mod-robust-card-table-row
+            td.mod-robust-card-table-col Etiam malesuada quis
+            td.mod-robust-card-table-col Aenean sit
+          tr.mod-robust-card-table-row
+            td.mod-robust-card-table-col Mauris ex mauris
+            td.mod-robust-card-table-col $10
+      .mod-robust-card-equal-column
+        h4.mod-robust-card-underlined Cras egestas neque
+        h5.mod-robust-card-minititle Donec nunc nulla
+        table.mod-robust-card-table
+          tr.mod-robust-card-table-row
+            td.mod-robust-card-table-col Etiam malesuada quis
+            td.mod-robust-card-table-col Aenean sit
+          tr.mod-robust-card-table-row
+            td.mod-robust-card-table-col Mauris ex mauris
+            td.mod-robust-card-table-col $10
+        h5.mod-robust-card-minititle Suspendisse vel massa
+        table.mod-robust-card-table
+          tr.mod-robust-card-table-row
+            td.mod-robust-card-table-col Etiam malesuada quis
+            td.mod-robust-card-table-col Aenean sit
+          tr.mod-robust-card-table-row
+            td.mod-robust-card-table-col Mauris ex mauris
+            td.mod-robust-card-table-col $10
+        h5.mod-robust-card-minititle Donec nunc nulla
+        table.mod-robust-card-table
+          tr.mod-robust-card-table-row
+            td.mod-robust-card-table-col Etiam malesuada quis
+            td.mod-robust-card-table-col Aenean sit
+          tr.mod-robust-card-table-row
+            td.mod-robust-card-table-col Mauris ex mauris
+            td.mod-robust-card-table-col $10
+        h5.mod-robust-card-minititle Suspendisse vel massa
+        table.mod-robust-card-table
+          tr.mod-robust-card-table-row
+            td.mod-robust-card-table-col Etiam malesuada quis
+            td.mod-robust-card-table-col Aenean sit
+          tr.mod-robust-card-table-row
+            td.mod-robust-card-table-col Mauris ex mauris
+            td.mod-robust-card-table-col $10
+        h5.mod-robust-card-minititle Donec nunc nulla
+        table.mod-robust-card-table
+          tr.mod-robust-card-table-row
+            td.mod-robust-card-table-col Etiam malesuada quis
+            td.mod-robust-card-table-col Aenean sit
+          tr.mod-robust-card-table-row
+            td.mod-robust-card-table-col Mauris ex mauris
+            td.mod-robust-card-table-col $10
+        h5.mod-robust-card-minititle Suspendisse vel massa
+        table.mod-robust-card-table
+          tr.mod-robust-card-table-row
+            td.mod-robust-card-table-col Etiam malesuada quis
+            td.mod-robust-card-table-col Aenean sit
+          tr.mod-robust-card-table-row
+            td.mod-robust-card-table-col Mauris ex mauris
+            td.mod-robust-card-table-col $10
+        h4.mod-robust-card-underlined Maecenas rhoncus
+        h5.mod-robust-card-minititle Donec nunc nulla
+        table.mod-robust-card-table
+          tr.mod-robust-card-table-row
+            td.mod-robust-card-table-col Etiam malesuada quis
+            td.mod-robust-card-table-col Aenean sit
+          tr.mod-robust-card-table-row
+            td.mod-robust-card-table-col Mauris ex mauris
+            td.mod-robust-card-table-col $10
+        h5.mod-robust-card-minititle Suspendisse vel massa
+        table.mod-robust-card-table
+          tr.mod-robust-card-table-row
+            td.mod-robust-card-table-col Etiam malesuada quis
+            td.mod-robust-card-table-col Aenean sit
+          tr.mod-robust-card-table-row
+            td.mod-robust-card-table-col Mauris ex mauris
+            td.mod-robust-card-table-col $10
+        h4.mod-robust-card-underlined Nam accumsan quam
+        h5.mod-robust-card-minititle
+          | Donec nunc nulla &nbsp;
+          i.i-help
+        table.mod-robust-card-table
+          tr.mod-robust-card-table-row
+            td.mod-robust-card-table-col Phasellus
+            td.mod-robust-card-table-col Etiam malesuada quis
+          tr.mod-robust-card-table-row
+            td.mod-robust-card-table-col 10K
+            td.mod-robust-card-table-col 10K
+        .mod-robust-card-caption
+          b Quisque facilisis &nbsp;
+          i
+        h2.mod-robust-card-title SED
+        span Maecenas rhoncus
+        h5.mod-robust-card-minititle Vestibulum dignissim ac
+        p
+          | Vivamus eu aliquet sapien, non fringilla enim. Ut scelerisque nulla at sem suscipit, at porta mi tincidunt. Nunc in pharetra velit. Pellentesque
+          | habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Donec imperdiet leo id odio tincidunt
+  .mod-robust-card-additional
+    div
+      h4.mod-robust-card-subtitle Nunc in pharetra velit
+      p
+        | Vivamus eu aliquet sapien, non fringilla enim. Ut scelerisque nulla at sem suscipit, at porta mi tincidunt. Nunc in pharetra velit. Pellentesque
+        | habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Donec imperdiet leo id odio tincidunt
+      h4.mod-robust-card-add-subtitle In rhoncus orci et ex
+      p
+        | Vivamus eu aliquet sapien, non fringilla enim. Ut scelerisque nulla at sem suscipit, at porta mi tincidunt. Nunc in pharetra velit. Pellentesque
+        | habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Donec imperdiet leo id odio tincidunt
+      h4.mod-robust-card-add-subtitle Nunc in pharetra
+      p
+        | Vivamus eu aliquet sapien, non fringilla enim. Ut scelerisque nulla at sem suscipit, at porta mi tincidunt. Nunc in pharetra velit. Pellentesque
+        | habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Donec imperdiet leo id odio tincidunt
+      h4.mod-robust-card-add-subtitle Pellentesque habitant
+      p
+        | Vivamus eu aliquet sapien, non fringilla enim. Ut scelerisque nulla at sem suscipit, at porta mi tincidunt. Nunc in pharetra velit. Pellentesque
+        | habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Donec imperdiet leo id odio tincidunt
+      h4.mod-robust-card-subtitle
+        | Vivamus ultricies augue in &nbsp;
+        a.button.info.mini href='#' Nulla maximus congue dolor
+  .mod-robust-card-footer.m-wrap
+    .mod-robust-card-footer-left
+      h2.mod-robust-card-title Pellentesque habitant morbi
+      .mod-robust-card-plan
+        .text-truncation
+          .truncate
+            ' Nullam metus
+            strong Fusce sagittis nec nulla sit Fusce sagittis nec nulla sit Fusce sagittis nec nulla sit Fusce sagittis nec nulla sit Fusce sagittis nec nulla sit Fusce sagittis nec nulla sit Fusce sagittis nec nulla sit Fusce sagittis nec nulla sit Fusce sagittis nec nulla sit
+    .mod-robust-card-actions.top
+      div
+        a.button.action.i-clock Vestibulum dignissim
+        a.mod-robust-card-hint.oneline href="#" In rhoncus orci vestibulum dignissim augue?
+      a.button.outline Suspendisse molestie
+```
+
+## Details card 2
+```slim_example
+.mod-robust-card style='max-width:62.5rem;'
+  .mod-robust-card-header
+    .mod-robust-card-logo
+      img src='holder.js/182x48?auto=yes'
+    .mod-robust-card-header-right
+      a.button.action.mini Viverra
+    .mod-robust-card-details
+      'Donec nunc nulla&nbsp;
+      strong Curabitur efficitur euismod
+  .mod-robust-card-content
+    .mod-robust-card-section
+      .mod-robust-card-caption
+        | Aenean
+        i.i-help
+      .mod-robust-card-shift
+        .mod-robust-card-price
+          span.mod-robust-card-price-value $100
+          sup.mod-robust-card-price-sup .00
+          small.mod-robust-card-price-period
+            ' /ex
+        a.mod-robust-card-hint Vivamus consectetur risus et
+    .mod-robust-card-section
+      .mod-robust-card-caption
+        span Sapien
+        | Maximus
+        i.i-help
+      .mod-robust-card-shift
+        .mod-robust-card-type.big
+          | Sed dapibus orci
+          br
+          | Donec dui est, aliquet
+    .mod-robust-card-section
+      .mod-robust-card-caption
+        | Sagittis
+        i.i-help
+      .mod-robust-card-shift
+        .mod-robust-card-type.big $100,000
+    .mod-robust-card-section
+      .mod-robust-card-caption
+        | Turpis
+        i.i-help
+      .mod-robust-card-shift
+        .mod-robust-card-type.big Vestibulum
+  .mod-robust-card-additional.content-header-on-mobile
+    h2.mod-robust-card-title Maecenas efficitur
+  .mod-robust-card-content
+    .mod-robust-card-section
+      .mod-robust-card-caption Imperdiet
+      .mod-robust-card-shift
+        .mod-robust-card-type.big
+          strong 1000
+    .mod-robust-card-section
+      .mod-robust-card-caption
+        | Nam consequat
+        i.i-help
+      .mod-robust-card-shift
+        .mod-robust-card-type.big
+          strong 100,000
+    .mod-robust-card-section
+      .mod-robust-card-caption
+        | Tristique
+        i.i-help
+      .mod-robust-card-shift
+        .mod-robust-card-type.big
+          strong EX
+    .mod-robust-card-section
+      .mod-robust-card-caption
+        | UT Pretium
+        i.i-help
+      .mod-robust-card-shift
+        .mod-robust-card-type.big
+          strong ET
+    .mod-robust-card-section
+      .mod-robust-card-caption
+        | Sed vulputate
+        i.i-help
+      .mod-robust-card-shift
+        .mod-robust-card-type.big
+          vitae augue consequat
+  .mod-robust-card-additional
+    h2.mod-robust-card-title Vulputate, sodales cursus risus
+    p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores commodi eum ipsum nisi optio porro quod sint totam veritatis? Alias doloribus explicabo illo illum iste, nobis officiis placeat quidem sunt! Deserunt ducimus, iure iusto molestias nulla odit omnis velit vitae?
+  .mod-robust-card-additional
+    h2.mod-robust-card-title Egestas tortor
+    p Aliquam nisl nibh, lacinia et diam ut, mattis facilisis lectus. Morbi quis dui consequat, consectetur massa nec, blandit tellus. Nam accumsan quam eu blandit rhoncus. Suspendisse sed sem sagittis.
+
+    .flex-row
+      ul.mod-icon-list
+        li.icon-checkmark
+          h3.mod-robust-card-subtitle.indent Phasellus tellus augue
+          p Nam accumsan quam eu blandit rhoncus. Suspendisse sed sem sagittis, ultricies erat ut, pretium neque. Vestibulum lacinia dignissim convallis. Nam consequat maximus turpis, vestibulum tristique metus aliquam eget. Aenean gravida velit suscipit imperdiet aliquam. Maecenas efficitur accumsan hendrerit.
+          p
+            em
+              strong Convallis
+              | - Fusce id egestas metus, consectetur sagittis lacus. Phasellus luctus elementum iaculis.
+          p
+            em
+              strong Nunc
+              | - Proin aliquam tortor et aliquam dignissim. Aliquam sapien enim, elementum at massa sit amet, pretium egestas metus.
+          p
+            em
+              strong Proin
+              | - Etiam malesuada quis augue vitae dapibus. Sed non tortor id neque posuere luctus ac vel sapien. Nullam metus velit, efficitur commodo elementum vitae, porttitor id tortor.
+      table
+        thead
+          tr
+            th colspan="2" Fusce sagittis nec
+        tbody
+          tr
+            td Maecenas ullamcorper
+            td
+              strong Consequat
+          tr
+            td Fusce quis elit
+            td
+              strong Maximus
+          tr
+            td Aenean Rhoncus
+            td
+              strong Egestas
+          tr
+            td Elementum
+            td
+              strong Nisi
+          tr
+            td Sleep Feugiat
+            td
+              strong Turpis
+          tr
+            td Proin Etiam malesuada
+            td
+              strong Justo
+          tr
+            td Vivamus ultricies augue
+            td
+              strong Sapien
+          tr
+            td Fusce sagittis
+            td
+              strong Maximus
+    ul.mod-icon-list
+      li.icon-checkmark
+        strong Nam et consequat urna. Fusce quis elit at turpis convallis
+      li.icon-checkmark
+        strong Maecenas rhoncus pulvinar dolor, sit amet commodo risus hendrerit quis.
+      li.icon-checkmark
+        strong Suspendisse molestie vel sapien at posuere
+  .mod-robust-card-additional.flattened
+    .layout-ratings
+      div
+        .subtitle Nulla maximus
+        h5 Proin pharetra felis et odio
+        .rating
+          .com-rating.narrow
+            .stars
+              .i-star.active
+              .i-star.active
+              .i-star.active
+              .i-star
+              .i-star
+            .footer Phasellus in laoreet
+        p
+          strong Donec
+        ul.mod-simple-list.spacer-negative-xs
+          li Nunc in pharetra velit
+          li Pellentesque habitant morbi tristique
+          li Donec imperdiet leo id odio tincidunt, eget blandit
+        p
+          strong Proin
+        ul.mod-simple-list.spacer-negative-xs
+          li Phasellus tellus augue
+      div
+        .subtitle Donec id urna feugiat
+        h5 Etiam malesuada quis augue
+        .rating
+          .com-rating.narrow
+            .stars
+              .i-star.active
+              .i-star.active
+              .i-star.active
+              .i-star
+              .i-star
+            .footer Phasellus in laoreet
+        p
+          strong Aenean sit amet pretium orci
+        ul.mod-simple-list.spacer-negative-xs
+          li Maecenas ullamcorper
+        p
+          strong Fusce quis elit at turpis
+        ul.mod-simple-list.spacer-negative-xs
+          li Nam et consequat urna. Fusce quis elit at turpis convallis
+          li Maecenas rhoncus pulvinar dolor, sit amet commodo risus hendrerit quis.
+          li Suspendisse vel massa iaculis, porta massa in, pellentesque purus. Vivamus faucibus lacus
+    iframe allowfullscreen="" frameborder="0" height="360" src="https://www.youtube.com/embed/GGMezeQCZnE" width="640"
+  .mod-robust-card-header.pseudo
+    .mod-robust-card-logo
+      img src='holder.js/182x48?auto=yes'
+      .mod-robust-card-details
+        'Donec nunc nulla&nbsp;
+        strong Curabitur efficitur euismod
+    .mod-robust-card-actions.min
+      a.button.action.mini Viverra
+      a.button.outline Nulla facilisi
+  .mod-robust-card-additional
+    h2.mod-robust-card-title Suspendisse vel
+    p Donec nunc nulla, posuere ultricies imperdiet a, accumsan id lectus. Curabitur efficitur euismod turpis nec efficitur. Nullam consectetur ipsum in viverra sodales.
+    ul.mod-icon-list
+      li.icon-checkmark
+        strong Nulla facilisi
+        | -  pharetra augue ac arcu dapibus aliquam. Nunc mattis diam libero, vitae dapibus ex dictum in. Nullam tempor scelerisque enim, ut dapibus tellus finibus quis.
+      li.icon-checkmark
+        strong Pellentesque ornare
+        | - malesuada blandit. Cras egestas neque non massa porta, molestie ornare ipsum luctus. Quisque eget ullamcorper eros, semper pulvinar eros. Pellentesque eu tincidunt lacus.
+        strong Vulputate
+        | - Nullam mollis turpis eget mattis congue. Fusce vitae turpis quis mauris maximus tincidunt vel sit amet nibh. Nunc tincidunt velit laoreet nulla consectetur, sit amet ultrices neque rhoncus. Ut sit amet nunc nec risus condimentum volutpat. Nulla vitae ultricies turpis.
+      li.icon-checkmark
+        strong Aenean ac bibendum nisi
+        | - in laoreet quam. Curabitur ex nibh, pharetra eget aliquam congue, commodo vitae tortor. Nam lectus tellus, tristique eget molestie ut, condimentum id felis. Etiam porta facilisis.
+      li.icon-checkmark
+        strong In rhoncus orci et
+        | - ex fermentum, ut euismod diam tincidunt. Vivamus eu aliquet sapien, non fringilla enim. Ut scelerisque nulla at.
+      li.icon-checkmark
+        strong Nunc in pharetra velit
+        | - habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Donec imperdiet leo id odio tincidunt, eget blandit nisi fermentum. Donec non libero vitae augue consequat aliquet.
+      li.icon-checkmark
+        strong Vivamus
+        | - a nulla maximus tincidunt. Vestibulum dignissim ac erat ac placerat. In hac habitasse platea dictumst. Integer suscipit orci odio, vel volutpat turpis ultrices at.
+  .mod-robust-card-additional
+    h2.mod-robust-card-title Efficitur
+    .mod-robust-card-equal-columns
+      .mod-robust-card-equal-column
+        h3.mod-robust-card-subtitle Aliquam sapien enim, elementum
+        p $100,000
+        h3.mod-robust-card-subtitle Aenean in lacus
+        p 10, 10, 10, 10
+        h3.mod-robust-card-subtitle Donec blandit diam a neque aliquet, nec facilisis mi
+        p 10%
+      .mod-robust-card-equal-column
+        h3.mod-robust-card-subtitle Aliquam sapien enim, elementum
+        p $100,000
+        h3.mod-robust-card-subtitle Aenean in lacus
+        p 10, 10, 10, 10
+        h3.mod-robust-card-subtitle Donec blandit diam a neque aliquet, nec facilisis mi
+        p 10%
+  .mod-robust-card-additional
+    .mod-robust-card-equal-columns
+      .mod-robust-card-equal-column
+        h2.mod-robust-card-title Fermentum
+        h3.mod-robust-card-subtitle Ut scelerisque nulla at sem
+        p Nunc in pharetra velit. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Donec imperdiet leo id odio tincidunt, eget blandit nisi fermentum. Donec non libero.
+        p Mauris semper faucibus tellus, id auctor mauris suscipit eget. Aenean in lacus lacinia, varius massa eget, facilisis urna. Suspendisse erat dolor, auctor sed eleifend quis, hendrerit eget sapien.
+      .mod-robust-card-equal-column
+        h2.mod-robust-card-title Nunc
+        h3.mod-robust-card-subtitle Ut scelerisque nulla at sem
+        p Nunc in pharetra velit. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Donec imperdiet leo id odio tincidunt, eget blandit nisi fermentum. Donec non libero.
+        p Mauris semper faucibus tellus, id auctor mauris suscipit eget. Aenean in lacus lacinia, varius massa eget, facilisis urna. Suspendisse erat dolor, auctor sed eleifend quis, hendrerit eget sapien.
+  .mod-robust-card-header.pseudo
+    .mod-robust-card-logo
+      img src='holder.js/182x48?auto=yes'
+      .mod-robust-card-details
+        'Donec nunc nulla&nbsp;
+        strong Curabitur efficitur euismod
+    .mod-robust-card-actions.min
+      a.button.action.mini Viverra
+      a.button.outline Nulla facilisi
+```
+
+### Robust card with dashed border
+```slim_example
+.mod-robust-card.dashed style='max-width:62.5rem;'
+  .mod-robust-card-header
+    .mod-robust-card-logo
+      img src='holder.js/182x48?auto=yes'
+      .mod-robust-card-details.inline
+        .mod-robust-card-top-text
+          ' Nullam metus
+          strong Fusce sagittis nec nulla sit
+    .mod-robust-card-top-info
+      .mod-robust-card-rated
+        ' Maecenas ullamcorper
+        strong Mauris ex mauris, porttitor sed
+      a.mod-robust-card-hint Nam et consequat urna
+  .mod-robust-card-content
+    .mod-robust-card-section
+      .mod-robust-card-caption
+        | Aenean
+        i.i-help
+      .mod-robust-card-pull
+        .mod-robust-card-price
+          span.mod-robust-card-price-value $100
+          sup.mod-robust-card-price-sup .00
+          small.mod-robust-card-price-period
+            ' /ex
+        a.mod-robust-card-hint Vivamus consectetur risus et
+    .mod-robust-card-section
+      .mod-robust-card-caption
+        span Sapien
+        | Maximus
+        i.i-help
+      .mod-robust-card-pull
+        .mod-robust-card-type Suspendisse vel massa
+        a.mod-robust-card-hint Curabitur efficitur
+    .mod-robust-card-section
+      .mod-robust-card-caption
+        | Turpis
+        span  Porttitor
+        i.i-help
+      .mod-robust-card-pull
+        .mod-robust-card-ratings
+          .mod-robust-card-rating
+            .mod-robust-card-rating-value ET
+            .mod-robust-card-rating-note EX
+          .mod-robust-card-rating
+            .mod-robust-card-rating-value UT
+            .mod-robust-card-rating-note Donec nunc nulla
+    .mod-robust-card-section
+      .mod-robust-card-caption
+        | Hendrerit
+        i.i-help
+      .mod-robust-card-pull
+        .mod-robust-card-review
+          .mod-robust-card-stars
+            .com-rating.mini.narrow
+              .stars
+                .i-star.active
+                .i-star.active
+                .i-star.active
+                .i-star.active
+                .i-star
+          span Fermentum placerat
+        .mod-robust-card-review
+          .mod-robust-card-stars
+            .com-rating.mini.narrow
+              .stars
+                .i-star.active
+                .i-star.active
+                .i-star.active
+                .i-star
+                .i-star
+          span Fusce quis elit
+
+  .mod-robust-card-footer
+    .mod-robust-card-actions
+      a.button.action Curabitur
+      a.button.outline Efficitur
+      a.button.outline.i-mail
+      .mod-robust-card-count.i-user
+        ' Nullam
+        strong 100,000 placerat
+    .mod-robust-card-compare
+      label.checkbox.flip
+        input type='checkbox' checked='checked'
+        span Suspendisse
+```
+## Card variation 2
+```slim_example
+.mod-robust-card style='max-width:62.5rem;'
+  .mod-robust-card-header
+    .mod-robust-card-logo
+      img src='holder.js/182x48?auto=yes'
+    .mod-robust-card-top-info
+      .mod-robust-card-rated
+        strong #5 Largest in U.S.
+    .mod-robust-card-details
+      .mod-robust-card-plan
+        ' Founded in
+        strong 1956
+  .mod-robust-card-content
+    .mod-robust-card-section.mod-robust-card-section-small-full.mod-robust-card-mobile
+      h4.mod-robust-card-subtitle #5 Largest in U.S.
+      .mod-robust-card-count
+        ' Nullam
+        strong 700k customers
+    .mod-robust-card-section
+      .mod-robust-card-caption
+        | Turpis
+        i.i-help
+      .mod-robust-card-pull
+        .mod-robust-card-ratings
+          .mod-robust-card-rating
+            .mod-robust-card-rating-value ET
+            .mod-robust-card-rating-note EX
+          .mod-robust-card-rating
+            .mod-robust-card-rating-value UT
+            .mod-robust-card-rating-note Donec nunc nulla
+    .mod-robust-card-section
+      .mod-robust-card-caption
+        | Hendrerit
+        i.i-help
+      .mod-robust-card-pull
+        .mod-robust-card-review
+          .mod-robust-card-stars
+            .com-rating.mini.narrow
+              .stars
+                .i-star.active
+                .i-star.active
+                .i-star.active
+                .i-star.active
+                .i-star
+          span Donec placerat ipsum
+        .mod-robust-card-review
+          .mod-robust-card-stars
+            .com-rating.mini.narrow
+              .stars
+                .i-star.active
+                .i-star.active
+                .i-star.active
+                .i-star
+                .i-star
+          span Suspendisse
+
+  .mod-robust-card-footer
+    .mod-robust-card-actions
+      a.button.outline Vivamus
+      a.button.outline Phasellus viverra
+      .mod-robust-card-count.i-user.mod-robust-card-desktop
+        ' Nullam
+        strong Aliquam sapien enim
+```
+*/
+// scss-lint:enable all
+
+$robust-card-background-color:                    $neutral-8;
+$robust-card-border-color:                        $neutral-5;
+$robust-card-border-radius:                       ru(.25);
+$robust-card-color:                               $neutral-2;
+$robust-card-soft-color:                          $neutral-3;
+$robust-card-help-icon-color:                     $neutral-5;
+$robust-card-help-icon-hover-color:               $neutral-2;
+$robust-card-rating-color:                        $brand-2;
+$robust-card-star-color:                          $brand-5;
+$robust-card-star-active-color:                   $brand-2;
+$robust-card-section-border-color:                $neutral-6;
+$robust-card-header-background-color:             $neutral-7;
+$robust-card-header-detailed-color:               $neutral-7;
+$robust-card-footer-background-color:             $neutral-7;
+$robust-card-checkbox-color:                      $neutral-2;
+$robust-card-checkbox-disabled-color:             $neutral-3;
+$robust-card-action-color:                        $action-2;
+$robust-card-badge-color:                         #3ad0b9;
+$robust-card-large-badge-width:                   8.25rem;
+$robust-card-large-badge-height:                  ru(2);
+$robust-card-check-color:                         #3ad1ba;
+$robust-card-benefits-table-background-color:     $neutral-8;
+$robust-card-intro-link-color:                    $neutral-2;
+$robust-card-table-border-color:                  $neutral-5;
+$robust-card-table-background-color:              $neutral-7;
+$robust-card-section-border-color:                $neutral-6;
+$robust-card-rating-star-color:                   $brand-4;
+$robust-card-rating-star-active-color:            $brand-2;
+$robust-card-mini-header-color:                   $neutral-3;
+
+.mod-robust-card {
+  @include typography-6;
+  font-weight: 400;
+  color: $robust-card-color;
+  margin: 0;
+  background-color: $robust-card-background-color;
+  border: 1px solid $robust-card-border-color;
+  border-bottom-width: rem-calc(4px);
+  border-radius: $robust-card-border-radius;
+
+  .i-help {
+    line-height: ru(1);
+
+    &:before {
+      margin: 0 0 0 ru(.33);
+      font-size: rem-calc(12px);
+      color: $robust-card-help-icon-color;
+      transition: color 250ms ease;
+    }
+  }
+
+  &-stars {
+    display: flex;
+
+    .i-help {
+      &:last-child {
+        margin-right: ru(.35);
+      }
+    }
+  }
+
+  &-header {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    border-radius: $robust-card-border-radius $robust-card-border-radius 0 0;
+    padding: ru(1);
+
+    &.pseudo {
+      border-radius: 0;
+      border-top: 1px solid $neutral-6;
+      background-color: transparent;
+    }
+  }
+
+  &-header-row {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  &-header-left {
+    flex: 1 1 60%;
+  }
+
+  &-header-right {
+    align-self: flex-start;
+    margin-left: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .button.action {
+      padding-bottom: ru(.25);
+      min-width: ru(8);
+    }
+  }
+
+  &-logo {
+    @include badge(sign, 1.5, .3rem, '', .75, .5);
+    flex-shrink: 0;
+    flex-grow: 1;
+    align-self: flex-start;
+
+    .sign {
+      height: $robust-card-large-badge-height;
+      width: $robust-card-large-badge-width;
+      padding-right: 1rem;
+
+      @media #{$small-only} {
+        left: -1.5rem;
+      }
+
+      @media #{$large-up} {
+        left: -1.9rem;
+      }
+
+      // scss-lint:disable NestingDepth
+      [class^='icon-']:before {
+        height: 1.5rem;
+        width: 1.5rem;
+        left: .8rem;
+        top: 50%;
+        transform: translateY(-50%);
+      }
+
+      + img {
+        margin-left: $robust-card-large-badge-width;
+        padding-left: 0;
+      }
+
+      strong {
+        color: $white-color;
+        font-size: 1rem;
+        line-height: $robust-card-large-badge-height;
+      }
+      // scss-lint:enable NestingDepth
+    }
+
+    img {
+      display: block;
+      max-width: ru(7.333);
+      max-height: ru(2);
+    }
+  }
+
+  &-title {
+    @include typography-3;
+    flex: 1 1 auto;
+    width: 70%;
+    font-weight: 600;
+    margin-bottom: 0;
+    color: $robust-card-color;
+  }
+
+  &-subtitle {
+    @include like-h4;
+    margin-bottom: 0;
+
+    &.indent {
+      margin-bottom: ru(.25);
+    }
+  }
+
+  &-minititle {
+    @include typography-6;
+    margin-bottom: ru(.167);
+    font-weight: bold;
+    color: $robust-card-color;
+  }
+
+  &-top-info {
+    flex-grow: 0;
+    flex-shrink: 1;
+    margin-left: ru(1);
+    text-align: right;
+    white-space: nowrap;
+    align-self: flex-start;
+  }
+
+  &-top-action {
+    align-self: flex-start;
+    flex-grow: 0;
+    margin-left: ru(1);
+  }
+
+  &-tier {
+    &.big {
+      font-size: ru(.66);
+    }
+  }
+
+  &-break {
+    width: 100%;
+    margin: 0;
+  }
+
+  &-priorities {
+    position: relative;
+    display: inline-block;
+    padding-left: ru(1.25);
+    margin-left: ru(.75);
+    color: $robust-card-color;
+
+    &:before {
+      content: '';
+      position: absolute;
+      top: rem-calc(5px);
+      left: 0;
+      width: rem-calc(24px);
+      height: rem-calc(18px);
+      background-size: 100%;
+      background-repeat: no-repeat;
+    }
+  }
+
+  &-top-text {
+    margin: 0;
+    width: 100%;
+    text-overflow: ellipsis;
+
+    strong {
+      margin-left: rem-calc(10px);
+    }
+  }
+
+  &-hint {
+    @include typography-7;
+    display: inline-block;
+    margin-top: ru(.33);
+    margin-bottom: 0;
+
+    &.no-indent {
+      margin-top: 0;
+    }
+
+    &.oneline {
+      white-space: nowrap;
+    }
+  }
+
+  &-details {
+    @include typography-7;
+    display: flex;
+    margin-top: ru(.5);
+    margin-bottom: 0;
+    width: 100%;
+    color: $robust-card-soft-color;
+
+    &.inline {
+      margin-top: 0;
+    }
+
+    strong {
+      margin-left: rem-calc(10px);
+    }
+  }
+
+  &-add-subtitle {
+    @include typography-6;
+    margin-top: 0;
+    margin-bottom: 0;
+    font-weight: 600;
+  }
+
+  &-content {
+    display: flex;
+    margin: 0;
+    padding: 0;
+  }
+
+  &-table-full {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+
+    .mod-icon-list {
+      // scss-lint:disable ImportantRule
+      margin-bottom: 0 !important;
+      // scss-lint:enable ImportantRule
+    }
+
+    .mod-robust-card-section-intro {
+      margin-top: ru(.5);
+    }
+  }
+
+  &-table-full-row {
+    display: flex;
+    border-top: 1px solid $neutral-6;
+  }
+
+  &-table-full-col {
+    padding: ru(.75) ru(1.5);
+    width: 50%;
+
+    &:first-child {
+      border-right: 1px solid $neutral-6;
+    }
+  }
+
+  &-section {
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 auto;
+    padding: ru(.25) ru(1) ru(.75);
+
+    &.no-indent {
+      padding: 0;
+    }
+
+    .mod-icon-list {
+      // scss-lint:disable ImportantRule
+      margin-bottom: 0 !important;
+      // scss-lint:enable ImportantRule
+    }
+  }
+
+  &-section-small-full {
+    width: 100%;
+  }
+
+  &-plan {
+    color: $robust-card-soft-color;
+
+    strong {
+      margin-left: rem-calc(10px);
+    }
+  }
+
+  &-caption {
+    margin: 0 0 ru(.5);
+    cursor: help;
+
+    &.no-icon {
+      cursor: default;
+
+      // scss-lint:disable NestingDepth
+      &:after {
+        display: none;
+      }
+      // scss-lint:enable NestingDepth
+    }
+
+    > span {
+      display: none;
+    }
+  }
+
+  &-pull {
+    margin-top: auto;
+    margin-bottom: auto;
+  }
+
+  &-shift {
+    margin-top: ru(.167);
+
+    .mod-simple-list {
+      margin-bottom: 0;
+    }
+  }
+
+  &-price {
+    @include badge(sign, 1, .3rem, '', .75, .75);
+    margin: 0;
+  }
+
+  &-price-value {
+    @include typography-3;
+    font-weight: 600;
+    margin: 0;
+
+    &.small {
+      @include typography-5;
+    }
+  }
+
+  &-price-sup {
+    font-weight: 600;
+    vertical-align: rem-calc(11px);
+    margin: 0 0 0 ru(.125);
+  }
+
+  &-price-period {
+    @include typography-4;
+    margin: 0;
+
+    &.small {
+      @include typography-5;
+    }
+  }
+
+  &-no-price {
+    position: relative;
+    top: rem-calc(-5px);
+    font-weight: 600;
+  }
+
+  &-ratings {
+    display: table;
+    border-spacing: 0 ru(.25);
+    margin-top: ru(-.25);
+    margin-bottom: ru(-.25);
+  }
+
+  &-rating {
+    display: table-row;
+  }
+
+  &-rating-value {
+    @include typography-4;
+    display: table-cell;
+    font-weight: 600;
+    margin: 0;
+    padding-right: ru(.33);
+    color: $robust-card-rating-color;
+  }
+
+  &-rating-note {
+    display: table-cell;
+    vertical-align: middle;
+  }
+
+  &-type {
+    @include badge(sign, 1, .3rem, '', .75, .75);
+    @include typography-5;
+    font-weight: 600;
+    margin: 0 0 ru(.4);
+
+    &.wrap {
+      display: flex;
+      flex-direction: column;
+      margin: 0;
+    }
+
+    &.big {
+      font-size: ru(1);
+    }
+
+    &.no-margin {
+      margin: 0;
+    }
+
+    span {
+      @include typography-6;
+      margin: 0;
+      line-height: 1;
+      font-weight: 400;
+    }
+  }
+
+  &-important {
+    display: table;
+  }
+
+  &-item {
+    display: table-row;
+
+    > * {
+      display: table-cell;
+    }
+  }
+
+  &-item-key {
+    @include typography-6;
+    font-weight: 600;
+    padding-right: ru(.5);
+    margin: 0;
+  }
+
+  &-review {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: ru(.125);
+
+    &:not(:first-child) {
+      margin-top: ru(.5);
+    }
+
+    .mod-robust-card-stars {
+      margin-right: ru(.5);
+    }
+  }
+
+  &-section-intro {
+    @include typography-7;
+    font-style: italic;
+    margin-bottom: ru(.5);
+
+    a {
+      color: $robust-card-intro-link-color;
+    }
+  }
+
+  &-description-item {
+    font-style: italic;
+    font-weight: 300;
+
+    div {
+      font-style: normal;
+      font-weight: 700;
+    }
+
+    b {
+      color: $robust-card-check-color;
+      font-style: normal;
+      font-weight: 600;
+    }
+  }
+
+  .layout-learning-center {
+    padding-left: ru(1);
+    padding-right: ru(1);
+    background-color: transparent;
+    width: 100%;
+  }
+
+  &-additional {
+    display: flex;
+    flex-direction: column;
+    padding: ru(1);
+    border-top: 1px solid $neutral-6;
+
+    &.flattened {
+      padding-top: 0;
+      padding-bottom: 0;
+    }
+
+    .mod-robust-card-title,
+    .mod-robust-card-subtitle {
+      margin-bottom: ru(.5);
+    }
+
+    .button.info {
+      display: inline-block;
+      margin-left: ru(.5);
+    }
+
+    iframe {
+      display: block;
+      max-width: 100%;
+      margin: 0 auto;
+    }
+
+    .layout-learning-center {
+      padding-left: 0;
+    }
+
+    .flex-row {
+      table {
+        flex: 0 0 auto;
+        border: 1px solid $robust-card-table-border-color;
+        border-collapse: collapse;
+      }
+
+      th,
+      td {
+        border: 1px solid $robust-card-table-border-color;
+        padding: ru(.167) ru(.42);
+        // scss-lint:disable ImportantRule
+        background-color: $robust-card-table-background-color !important;
+        // scss-lint:enable ImportantRule
+      }
+
+      th {
+        font-weight: 600;
+        color: $header-font-color;
+      }
+    }
+
+    .layout-ratings {
+      display: flex;
+      flex-wrap: wrap;
+      // scss-lint:disable ImportantRule
+      max-width: none !important;
+      // scss-lint:enable ImportantRule
+      margin: 0 ru(-1);
+
+      > * {
+        flex: 1 1;
+        padding: ru(1);
+      }
+
+      .rating {
+        display: flex;
+        margin: ru(.75) 0 ru(.25);
+      }
+
+      .subtitle {
+        margin: 0 0 ru(.133);
+        color: $robust-card-mini-header-color;
+      }
+    }
+  }
+
+  &-table {
+    width: 80%;
+    table-layout: fixed;
+    font-weight: 300;
+    border: 0;
+    margin-bottom: ru(1);
+  }
+
+  &-table-row,
+  &-table-col {
+    border: 0;
+    background: $robust-card-benefits-table-background-color;
+  }
+
+  &-table-col {
+    padding-top: 0;
+    padding-bottom: 0;
+
+    &:first-child {
+      font-style: italic;
+      padding-left: 0;
+
+      // scss-lint:disable NestingDepth
+      &:first-letter {
+        text-transform: uppercase;
+      }
+      // scss-lint:enable NestingDepth
+    }
+
+    &:last-child {
+      font-weight: bold;
+      color: $robust-card-badge-color;
+    }
+
+    .i-help {
+      margin-left: 0;
+    }
+  }
+
+  &-equal-columns {
+    display: flex;
+  }
+
+  &-equal-column {
+    margin-left: ru(1);
+    margin-right: ru(1);
+    flex: 1 1;
+
+    &:first-child {
+      margin-left: 0;
+    }
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+
+  &-footer {
+    display: flex;
+    padding: ru(.5) ru(1);
+    background-color: $robust-card-footer-background-color;
+    border-top: 1px solid $robust-card-border-color;
+    border-radius: 0 0 ru(.125) ru(.125);
+  }
+
+  &-footer-left {
+    font-size: ru(.55);
+    flex: 50%;
+    padding-right: ru(1);
+  }
+
+  &-actions {
+    display: flex;
+    align-items: center;
+    flex: 1 1;
+
+    &.top {
+      justify-content: flex-end;
+      align-items: flex-start;
+      flex: 50%;
+    }
+
+    &.min {
+      flex-grow: 0;
+      flex-shrink: 0;
+      flex-basis: auto;
+
+      // scss-lint:disable NestingDepth
+      .button {
+        flex-shrink: 0;
+        margin-right: 0;
+        margin-left: 0;
+
+        + .button {
+          margin-left: ru(.5);
+        }
+      }
+      // scss-lint:enable NestingDepth
+    }
+
+    .button {
+      @include typography-7;
+      padding: ru(.33) ru(1.5);
+      margin-right: ru(.5);
+      margin-bottom: 0;
+
+      // scss-lint:disable NestingDepth
+      &.action {
+        width: auto;
+        margin-bottom: 0;
+        min-width: ru(6);
+        padding: ru(.292) ru(.75) ru(.25);
+        align-self: flex-start;
+      }
+
+      &.i-mail {
+        padding-left: ru(1);
+        padding-right: ru(1);
+        font-size: rem-calc(16px);
+
+        &:before {
+          margin: 0;
+          line-height: 1;
+        }
+      }
+
+      &.outline {
+        padding-left: ru(.5);
+        padding-right: ru(.5);
+        background-color: transparent;
+
+        &:hover,
+        &:focus,
+        &:active {
+          background-color: $button-outline-hover-background-color;
+        }
+      }
+
+      &.outline,
+      &.action {
+        &:last-child {
+          margin-right: 0;
+          margin-left: ru(.5);
+        }
+      }
+      // scss-lint:enable NestingDepth
+    }
+  }
+
+  &-action {
+    display: block;
+    margin-top: ru(-.125);
+    font-weight: 600;
+    color: $robust-card-action-color;
+  }
+
+  &-info {
+    @include typography-7;
+    flex-shrink: 1;
+    font-weight: 400;
+    line-height: ru(.75);
+    margin: 0 ru(1) 0 ru(.5);
+    align-self: center;
+
+    &:not(:first-of-type) {
+      margin-left: 0;
+    }
+
+    .value {
+      font-weight: 600;
+      color: $robust-card-action-color;
+    }
+  }
+
+  &-count {
+    @include typography-7;
+    margin-right: ru(1);
+    margin-bottom: 0;
+    flex-shrink: 0;
+  }
+
+  &-compare {
+    display: flex;
+    align-items: center;
+    margin: ru(-.5) 0 ru(-.5) auto;
+    padding: ru(.5) 0 ru(.5) ru(1);
+    border-left: 1px solid $robust-card-border-color;
+  }
+
+  &-dl {
+    display: table;
+  }
+
+  &-dl-row {
+    display: table-row;
+  }
+
+  &-dt,
+  &-dd {
+    display: table-cell;
+    vertical-align: middle;
+  }
+
+  &-dt {
+    @include typography-4;
+    font-weight: 600;
+    margin: 0;
+    padding-right: ru(.5);
+  }
+
+  &-dd {
+    word-break: break-all;
+  }
+
+  &-underlined {
+    @include typography-5;
+    font-weight: 600;
+    margin: 0 0 ru(.33);
+    position: relative;
+    padding: 0 ru(.15);
+    margin-left: ru(-.15);
+    display: inline-block;
+    vertical-align: middle;
+    align-self: flex-start;
+
+    &:after {
+      content: '';
+      position: absolute;
+      bottom: rem-calc(-2px);
+      left: 0;
+      right: 0;
+      height: rem-calc(2px);
+      background: $robust-card-check-color;
+    }
+  }
+
+  strong {
+    color: $robust-card-color;
+    font-weight: 600;
+  }
+
+  .list-truncation {
+    @include text-truncation;
+    table-layout: auto;
+
+    > * {
+      display: table-cell;
+    }
+
+    strong {
+      font-weight: 600;
+      padding-right: ru(.5);
+      margin: 0;
+    }
+  }
+
+  .truncate {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    width: 75%;
+    max-width: 1px;
+  }
+
+  .mod-simple-list {
+    li {
+      margin-bottom: rem-calc(5px);
+    }
+  }
+
+  @media #{$medium-up} {
+    .mod-robust-card-mobile {
+      display: none;
+    }
+
+    &-section {
+      &:not(:first-child) {
+        border-left: 1px solid $robust-card-section-border-color;
+      }
+    }
+
+    &-additional {
+      .layout-ratings {
+        > * {
+          &:not(:first-child) {
+            border-left: 1px solid $robust-card-section-border-color;
+          }
+        }
+      }
+    }
+  }
+
+  @media #{$medium-only} {
+    &-header {
+      padding: ru(.75);
+    }
+
+    &-section {
+      padding: ru(.5) ru(.75);
+
+      // scss-lint:disable NestingDepth
+      .mod-icon-list {
+        @include typography-7;
+        margin-bottom: 0;
+        line-height: ru(.75);
+
+        li {
+          &:before {
+            top: rem-calc(3px);
+            font-size: rem-calc(16px);
+          }
+
+          &.icon-checkmark:before {
+            width: ru(.583);
+            height: ru(.583);
+            top: rem-calc(2px);
+          }
+        }
+      }
+      // scss-lint:enable NestingDepth
+    }
+
+    &-price-value {
+      @include typography-3;
+      font-weight: 600;
+      margin: 0;
+    }
+
+    &-price-sup {
+      @include typography-7;
+      vertical-align: ru(.375);
+      margin: 0 0 0 ru(.125);
+    }
+
+    &-no-price {
+      top: rem-calc(-3px);
+    }
+
+    &-type {
+      @include typography-6;
+      font-weight: 600;
+      margin: 0 0 ru(.125);
+    }
+
+    &-rating {
+      &:not(:first-child) {
+        padding-top: ru(.25);
+      }
+    }
+
+    &-rating-value {
+      @include typography-6;
+      font-weight: 600;
+      margin: 0;
+    }
+
+    &-review {
+      flex-direction: column;
+      margin-bottom: 0;
+
+      &:not(:first-child) {
+        margin-top: ru(.25);
+      }
+
+      span {
+        @include multiline-truncation(1, ru(1));
+      }
+    }
+
+    &-actions {
+      .button.action {
+        min-width: 0;
+      }
+    }
+
+    &-footer {
+      padding: ru(.5) ru(.75);
+    }
+
+    &-compare {
+      padding-left: ru(.75);
+    }
+
+    &-hint {
+      line-height: ru(.75);
+    }
+  }
+
+  &.dashed {
+    border-width: ru(.085);
+    border-style: dashed;
+  }
+
+  @media #{$small-only} {
+    @include typography-7;
+    margin: 0;
+    border-bottom-width: ru(.167);
+
+    &-header {
+      flex-wrap: wrap;
+      padding: ru(.75) ru(.75) ru(.5);
+      background-color: $robust-card-header-background-color;
+      border-bottom: 1px solid $robust-card-border-color;
+    }
+
+    &-logo {
+      flex-shrink: 1;
+    }
+
+    &-title {
+      @include typography-4;
+      font-weight: 600;
+      margin: 0;
+      color: $robust-card-color;
+      flex-basis: auto;
+    }
+
+    &-top-info,
+    &-top-action {
+      display: none;
+    }
+
+    &-additional {
+      &.content-header-on-mobile {
+        margin-bottom: ru(-1.5);
+        padding: ru(.8334) ru(.8334) 0;
+      }
+
+      .flex-row {
+        margin-bottom: ru(2);
+
+        table {
+          margin-top: 0;
+        }
+      }
+
+      .layout-ratings {
+        flex-direction: column;
+      }
+    }
+
+    &-content {
+      flex-wrap: wrap;
+      margin: 0;
+      padding: ru(.75);
+
+      .layout-learning-center .layout-ratings {
+        padding-top: ru(.5);
+        align-items: flex-start;
+      }
+    }
+
+    &-section {
+      margin-top: ru(.75);
+      padding: 0;
+      justify-content: space-between;
+      width: 100%;
+
+      &.half-width-on-mobile {
+        margin-top: 0;
+        flex-basis: auto;
+        width: rem-calc(200px);
+        margin-bottom: ru(.5);
+      }
+
+      &.connected-on-mobile {
+        margin-top: 0;
+      }
+
+      &.table-like-on-mobile {
+        width: 100%;
+        margin: ru(.75) ru(-.75) 0;
+        padding: ru(.75) ru(.75) 0;
+        border-top: 1px solid $neutral-6;
+      }
+    }
+
+    &-header-left {
+      width: 100%;
+    }
+
+    &-header-right {
+      width: 100%;
+      margin-top: ru(.5);
+      margin-left: 0;
+    }
+
+    &-table-full-col {
+      padding: ru(.5);
+    }
+
+    &-caption {
+      > span {
+        display: inline;
+      }
+    }
+
+    &-table-col {
+      display: block;
+    }
+
+    &-type {
+      @include typography-6;
+      font-weight: 600;
+      margin: 0 0 ru(.125);
+
+      &.wrap {
+        margin-bottom: ru(.5);
+      }
+    }
+
+    &-equal-columns {
+      flex-direction: column;
+    }
+
+    &-equal-column {
+      width: 100%;
+      margin: 0;
+    }
+
+    &-price-value {
+      @include typography-3;
+      font-weight: 600;
+      margin: 0;
+    }
+
+    &-price-sup {
+      vertical-align: rem-calc(10px);
+    }
+
+    &-price-period {
+      @include typography-6;
+      margin: 0 0 0 rem-calc(5px);
+    }
+
+    &-no-price {
+      @include typography-6;
+      margin: 0;
+      top: rem-calc(-3px);
+    }
+
+    &-hint {
+      margin-top: ru(.125);
+      line-height: ru(.75);
+
+      &.oneline {
+        margin-top: ru(.67);
+      }
+    }
+
+    &-ratings {
+      border-spacing: 0;
+      margin-top: 0;
+      margin-bottom: 0;
+    }
+
+    &-rating-value {
+      @include typography-6;
+      width: ru(1.5);
+      font-weight: 600;
+      margin: 0;
+    }
+
+    &-review {
+      line-height: ru(1);
+      margin-bottom: 0;
+
+      &:not(:first-child) {
+        margin-top: 0;
+      }
+    }
+
+    &-description-item {
+      display: flex;
+      flex-direction: column-reverse;
+    }
+
+    &-info {
+      display: none;
+    }
+
+    &-compare {
+      display: none;
+    }
+
+    &-footer {
+      padding: 0 ru(.75) ru(.75);
+      border-top: 0;
+      background-color: $robust-card-background-color;
+
+      &.m-wrap {
+        flex-wrap: wrap;
+      }
+    }
+
+    &-footer-left {
+      width: 100%;
+      padding-right: 0;
+      margin-bottom: ru(1);
+      flex: 100%;
+    }
+
+    &-actions {
+      flex-wrap: wrap;
+
+      &.top {
+        align-items: stretch;
+        flex-direction: column;
+      }
+
+      &.min {
+        margin-top: ru(.5);
+        flex-grow: 1;
+        width: 100%;
+
+        // scss-lint:disable NestingDepth
+        .button.action {
+          margin-right: 0;
+
+          + .button {
+            margin-left: 0;
+          }
+        }
+        // scss-lint:enable NestingDepth
+      }
+
+      .button {
+        width: 100%;
+        margin-right: 0;
+
+        // scss-lint:disable NestingDepth
+        &:not(:first-child) {
+          margin-top: ru(.5);
+        }
+
+        &.action {
+          width: 100%;
+        }
+        // scss-lint:enable NestingDepth
+      }
+    }
+
+    .half {
+      flex-basis: calc(50% - .375rem);
+
+      // scss-lint:disable NestingDepth
+      + .half {
+        margin-left: ru(.5);
+      }
+      // scss-lint:enable NestingDepth
+    }
+
+    &-subtitle {
+      // scss-lint:disable NestingDepth
+      .button.info {
+        margin: 0;
+      }
+      // scss-lint:enable NestingDepth
+    }
+
+    .mod-robust-card-desktop {
+      display: none;
+    }
+
+    .layout-learning-center {
+      padding-left: ru(.25);
+      padding-right: ru(.25);
+
+      .layout-ratings {
+        // scss-lint:disable NestingDepth SelectorDepth
+        > * + * {
+          border-left: 0;
+        }
+        // scss-lint:enable NestingDepth SelectorDepth
+      }
+
+      .mod-icon-list {
+        margin-bottom: 0;
+
+        // scss-lint:disable NestingDepth
+        &:last-child {
+          margin-top: ru(1);
+        // scss-lint:enable NestingDepth
+        }
+      }
+    }
+  }
+}

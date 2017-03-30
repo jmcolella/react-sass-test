@@ -1,0 +1,292 @@
+// scss-lint:disable all
+/*doc
+---
+title: Date Field
+name: date-field
+category: Fields - Date Field
+---
+```slim_example
+.mod-example style='max-width: 600px;'
+  .date-field
+    label Date of birth
+    .field
+      .selectbox
+        select
+          option selected='selected' disabled='disabled' Month
+          option January
+          option February
+          option March
+          option April
+          option May
+          option June
+          option July
+          option August
+          option September
+          option October
+          option November
+          option December
+      .selectbox
+        select
+          option selected='selected' disabled='disabled' Day
+          option 1
+          option 2
+          option 3
+          option 4
+          option 5
+          option 6
+          option 7
+          option 8
+          option 9
+          option 10
+      input type='text' placeholder='Year (YYYY)' maxlength='4'
+```
+
+```slim_example
+.mod-example style='max-width: 600px;'
+  .date-field
+    label Date of birth
+    .field
+      .selectbox
+        select
+          option selected='selected' disabled='disabled' Month
+          option January
+          option February
+          option March
+          option April
+          option May
+          option June
+          option July
+          option August
+          option September
+          option October
+          option November
+          option December
+      .selectbox
+        select
+          option selected='selected' disabled='disabled' Day
+          option 1
+          option 2
+          option 3
+          option 4
+          option 5
+          option 6
+          option 7
+          option 8
+          option 9
+          option 10
+      .selectbox
+        select
+          option selected='selected' disabled='disabled' Year
+          option 2016
+          option 2015
+          option 2014
+          option 2013
+          option 2012
+          option 2011
+          option 2010
+          option 2009
+          option 2008
+          option 2007
+```
+
+```slim_example
+.mod-example style='max-width: 600px;'
+  .date-field
+    label Choose Date
+    .field
+      .selectbox
+        select
+          option selected='selected' disabled='disabled' Month
+          option January
+          option February
+          option March
+          option April
+          option May
+          option June
+          option July
+          option August
+          option September
+          option October
+          option November
+          option December
+      .selectbox
+        select
+          option selected='selected' disabled='disabled' Year
+          option 2016
+          option 2015
+          option 2014
+          option 2013
+          option 2012
+          option 2011
+          option 2010
+          option 2009
+          option 2008
+          option 2007
+```
+
+## Focus state
+```slim_example
+.mod-example style='max-width: 600px;'
+  .date-field.focused
+    label Date of birth
+    .field
+      .selectbox
+        select
+          option selected='selected' disabled='disabled' Month
+          option January
+          option February
+          option March
+      .selectbox
+        select
+          option selected='selected' disabled='disabled' Day
+          option 1
+          option 2
+          option 3
+      input type='text' placeholder='Year (YYYY)' maxlength='4'
+```
+
+```slim_example
+.mod-example style='background: #00A4A5; padding: 24px; max-width: 648px;'
+  .date-field.no-border
+    label Date of birth
+    .field
+      .selectbox
+        select
+          option selected='selected' disabled='disabled' Month
+          option January
+          option February
+          option March
+      .selectbox
+        select
+          option selected='selected' disabled='disabled' Day
+          option 1
+          option 2
+          option 3
+      input type='text' placeholder='Year (YYYY)' maxlength='4'
+```
+*/
+// scss-lint:enable all
+
+$date-field-label-background-color: $neutral-8;
+$date-field-background-color:       $neutral-8;
+$date-field-border-color:           $neutral-5;
+$date-field-header-color:           $neutral-1;
+$date-field-fields-color:           $neutral-1;
+$date-field-focused-border-color:      $brand-3;
+$date-field-focused-background-color:  $brand-6;
+
+[class^='mod-'] {
+  .date-field {
+    @include field;
+    font-family: $font-family-sans-serif;
+    background-color: $date-field-background-color;
+    border: 1px solid $date-field-border-color;
+    border-radius: ru(.25);
+    overflow: hidden;
+    transition: border-color 500ms ease, background-color 500ms ease;
+
+    &.focused {
+      border-color: $date-field-focused-border-color;
+      background-color: $date-field-focused-background-color;
+
+      label {
+        background-color: $date-field-focused-background-color;
+        border-bottom-color: $date-field-focused-border-color;
+      }
+
+      .selectbox,
+      input {
+        background-color: $date-field-focused-background-color;
+        border-left-color: $date-field-focused-border-color;
+      }
+    }
+
+    label {
+      @include field-label;
+      font-weight: 600;
+      color: $date-field-header-color;
+      border-bottom: 1px solid $date-field-border-color;
+      background-color: $date-field-label-background-color;
+    }
+
+    .field {
+      display: flex;
+
+      > * {
+        flex: 1 0 auto;
+        height: auto;
+        border: 0;
+        line-height: normal;
+        border-radius: 0;
+
+        + * {
+          border-left: 1px solid $date-field-border-color;
+        }
+      }
+
+      > *:nth-child(1) { flex-basis: 40%; }
+      > *:nth-child(2) { flex-basis: 25%; }
+      > *:nth-child(3) { flex-basis: 35%; }
+    }
+
+    input,
+    select {
+      @include field-input;
+      font-weight: 400;
+      height: auto;
+      line-height: normal;
+      color: $date-field-fields-color;
+    }
+
+    select {
+      padding-right: ru(1.5);
+    }
+
+    input {
+      &::placeholder {
+        color: $textfield-input-placeholder-color;
+      }
+    }
+
+    @media #{$small-only} {
+      .field {
+        flex-wrap: wrap;
+
+        > *:nth-child(1) {
+          flex-basis: 100%;
+          border-bottom: 1px solid $date-field-border-color;
+        }
+
+        > *:nth-child(2) {
+          flex-basis: 50%;
+          border-left: 0;
+        }
+
+        > *:nth-child(3) {
+          flex-basis: 50%;
+        }
+
+        > *:first-child:nth-last-child(2),
+        > *:first-child:nth-last-child(2) ~ * {
+          flex-basis: 50%;
+          border-bottom: 0;
+        }
+
+        > *:first-child:nth-last-child(2) ~ * {
+          border-left: 1px solid $date-field-border-color;
+        }
+      }
+    }
+
+    @media #{$medium-only} {
+      label {
+        padding: ru(.5) ru(.75);
+      }
+
+      input,
+      select {
+        padding-left: ru(.75);
+      }
+    }
+  }
+}

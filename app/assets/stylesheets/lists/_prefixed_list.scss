@@ -1,0 +1,52 @@
+// scss-lint:disable all
+/*doc
+---
+title: Prefixed List
+name: prefixed-list
+category: Lists - Prefixed List
+---
+```slim_example
+ul.mod-prefixed-list
+  li data-prefix='Q.': a href='#' Curabitur ex nibh, pharetra eget aliquam congue?
+  li data-prefix='Q.': a href='#' Nam lectus tellus, tristique eget molestie ut?
+  li data-prefix='Q.': a href='#' Aenean ac bibendum nisi?
+  li data-prefix='Q.': a href='#' Etiam porta facilisis viverra. Donec placerat ipsum a nulla maximus tincidunt?
+  li data-prefix='Q.': a href='#' Phasellus in laoreet quam?
+  li data-prefix='Q.': a href='#' In hac habitasse platea dictumst?
+  li data-prefix='Q.': a href='#' In rhoncus orci et ex?
+  li data-prefix='Q.': a href='#' Vivamus eu aliquet sapien?
+  li data-prefix='Q.': a href='#' Pellentesque habitant morbi tristique senectus et?
+```
+*/
+// scss-lint:enable all
+
+$prefixed-list-color:            $neutral-2;
+$prefixed-list-link-hover-color: $brand-2;
+
+ul.mod-prefixed-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  color: $prefixed-list-color;
+
+  li {
+    &:before {
+      content: attr(data-prefix);
+      margin-right: ru(.25);
+    }
+
+    + li {
+      margin-top: ru(.25);
+    }
+  }
+
+  a {
+    color: inherit;
+
+    &:hover,
+    &:active,
+    &:focus {
+      color: $prefixed-list-link-hover-color;
+    }
+  }
+}

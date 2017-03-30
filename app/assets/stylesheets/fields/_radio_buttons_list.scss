@@ -1,0 +1,332 @@
+// scss-lint:disable all
+/*doc
+---
+title: Radio Buttons List
+name: radio-buttons-list
+category: Fields - Radio Buttons List
+---
+```slim_example_table
+.mod-example
+  .toggle-input
+    label Aenean ac bibendum
+    .radio-buttons
+      label.radio
+        input type='radio' name='radios'
+        span Phasellus
+      label.radio
+        input type='radio' name='radios'
+        span Laoreet quam
+```
+
+## Multiple radio buttons list
+```slim_example_table
+.mod-example
+  .multiple
+    .toggle-input
+      label Curabitur
+      .radio-buttons
+        label.radio
+          input type='radio' name='radios'
+          span Hac
+        label.radio
+          input type='radio' name='radios'
+          span Diam
+    .toggle-input
+      label Tortor consectetur
+      .radio-buttons
+        label.radio
+          input type='radio' name='radios'
+          span Sed
+        label.radio
+          input type='radio' name='radios'
+          span Ut
+```
+
+## Grouped
+```slim_example
+.mod-radio-group style='max-width: 600px'
+  .header.hidden-for-small-only
+    .title Suspendisse
+    .value Molestie vel
+    .value Nulla maximus
+  .content
+    .toggle-input
+      label Nunc mattis molestie libero
+      .radio-buttons
+        label.radio
+          input type='radio' name='radios1'
+          span
+          strong Vel sapien
+        label.radio
+          input type='radio' name='radios1'
+          span
+          strong Maximus congue dolor
+    .toggle-input
+      label Sed vulputate ipsum aliquet
+      .radio-buttons
+        label.radio
+          input type='radio' name='radios2'
+          span
+          strong Vel sapien
+        label.radio
+          input type='radio' name='radios2'
+          span
+          strong Maximus congue dolor
+    .toggle-input
+      label Consequat augue
+      .radio-buttons
+        label.radio
+          input type='radio' name='radios3'
+          span
+          strong Vel sapien
+        label.radio
+          input type='radio' name='radios3'
+          span
+          strong Maximus congue dolor
+    .toggle-input
+      label Aliquam nisl nibh, lacinia
+      .radio-buttons
+        label.radio
+          input type='radio' name='radios4'
+          span
+          strong Proin aliquam
+        label.radio
+          input type='radio' name='radios4'
+          span
+          strong Suspendisse molestie vel
+    .toggle-input
+      label Vulputate ipsum aliquet
+      .radio-buttons
+        label.radio
+          input type='radio' name='radios5'
+          span
+          strong Vel sapien
+        label.radio
+          input type='radio' name='radios5'
+          span
+          strong Maximus congue dolor
+    .toggle-input
+      label Consequat augue
+      .radio-buttons
+        label.radio
+          input type='radio' name='radios6'
+          span
+          strong Vel sapien
+        label.radio
+          input type='radio' name='radios6'
+          span
+          strong Maximus congue dolor
+```
+
+## Focus state
+```slim_example_table
+.mod-example
+  .toggle-input.focused
+    label Etiam malesuada quis
+    .radio-buttons
+      label.radio
+        input type='radio' name='radios'
+        span Aenean
+      label.radio
+        input type='radio' name='radios'
+        span Mauris ex mauris
+```
+
+## No-border version
+```slim_example_table
+.mod-example style='background: #00A4A5; padding: 24px;'
+  .toggle-input.no-border
+    label Etiam malesuada quis
+    .radio-buttons
+      label.radio
+        input type='radio' name='radios'
+        span Aenean
+      label.radio
+        input type='radio' name='radios'
+        span Mauris ex mauris
+```
+*/
+// scss-lint:enable all
+
+$toggle-input-header-color:             $neutral-1;
+$toggle-input-border-color:             $neutral-5;
+$toggle-input-background-color:         $neutral-8;
+$toggle-input-focused-border-color:     $brand-3;
+$toggle-input-focused-background-color: $brand-6;
+
+$toggle-input-radio-label-vertical-padding: ru(.5);
+$toggle-input-radio-label-horizontal-padding: ru(1);
+
+$toggle-input-radio-label-vertical-padding-small: ru(.42);
+$toggle-input-radio-label-horizontal-padding-small: ru(.75);
+
+$radio-group-header-color: $neutral-1;
+$radio-group-label-color:  $neutral-2;
+
+[class^='mod-'] {
+  .multiple {
+    display: flex;
+
+    .toggle-input {
+      flex-basis: 50%;
+      margin-left: 1rem;
+
+      &:first-child {
+        margin-left: 0;
+      }
+    }
+  }
+
+  .toggle-input {
+    @include field;
+    font-family: $font-family-sans-serif;
+    border: 1px solid $toggle-input-border-color;
+    border-radius: ru(.25);
+    background-color: $toggle-input-background-color;
+    transition: border-color 500ms ease, background-color 500ms ease;
+
+
+    > label {
+      @include field-label;
+      font-weight: 600;
+      color: $toggle-input-header-color;
+      border-bottom: 1px solid $toggle-input-border-color;
+    }
+
+    &.focused {
+      border-color: $toggle-input-focused-border-color;
+      background-color: $toggle-input-focused-background-color;
+
+      label {
+        border-bottom-color: $toggle-input-focused-border-color;
+
+        + label {
+          border-top-color: $toggle-input-focused-border-color;
+        }
+      }
+    }
+
+    .radio {
+      padding: $toggle-input-radio-label-vertical-padding $toggle-input-radio-label-horizontal-padding;
+      padding-left: $toggle-input-radio-label-horizontal-padding + $radio-size + $radio-gap;
+
+      &:before {
+        top: $toggle-input-radio-label-vertical-padding;
+        left: $toggle-input-radio-label-horizontal-padding;
+      }
+
+      span:after {
+        top: $toggle-input-radio-label-vertical-padding;
+        left: $toggle-input-radio-label-horizontal-padding;
+      }
+
+      + .radio {
+        margin-top: 0;
+        border-top: 1px solid $toggle-input-border-color;
+      }
+    }
+
+    @media #{$medium-up-to-xxlarge} {
+      .radio {
+        padding: $toggle-input-radio-label-vertical-padding-small $toggle-input-radio-label-horizontal-padding-small;
+        padding-left: $toggle-input-radio-label-horizontal-padding-small + $radio-size + $radio-gap;
+
+        &:before {
+          top: $toggle-input-radio-label-vertical-padding-small;
+          left: $toggle-input-radio-label-horizontal-padding-small;
+        }
+
+        span:after {
+          top: $toggle-input-radio-label-vertical-padding-small;
+          left: $toggle-input-radio-label-horizontal-padding-small;
+        }
+      }
+    }
+  }
+}
+
+.mod-radio-group {
+  @media #{$medium-up} {
+    border-radius: ru(.25);
+    border: 1px solid $toggle-input-border-color;
+    border-bottom-width: rem-calc(4px);
+    background-color: $toggle-input-background-color;
+    overflow: hidden;
+
+    .header {
+      @include typography-7;
+      font-weight: 600;
+      color: $radio-group-header-color;
+      margin: 0;
+      padding: ru(.5) ru(.75);
+      border-bottom: 1px solid $toggle-input-border-color;
+      display: flex;
+
+      .title {
+        flex: 1 0;
+      }
+
+      .value {
+        flex: 0 0 ru(4.25);
+        text-align: center;
+      }
+
+      > * + * {
+        margin-left: ru(1);
+      }
+    }
+
+    .toggle-input {
+      display: flex;
+      align-items: center;
+      border: 0;
+      border-radius: 0;
+      margin: 0;
+      padding: ru(.5) ru(.75);
+
+      > * + * {
+        margin-left: ru(1);
+      }
+
+      > label {
+        flex: 1 0;
+        padding: 0;
+        border-bottom: 0;
+        color: $radio-group-label-color;
+      }
+
+      .radio {
+        width: 100%;
+        height: ru(.75);
+        padding: 0;
+
+        &:before,
+        span:after {
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          margin: 0;
+        }
+
+        strong {
+          display: none;
+        }
+
+        + .radio {
+          border: 0;
+          margin-left: ru(1.25);
+        }
+      }
+
+      .radio-buttons {
+        display: flex;
+        justify-content: center;
+        flex: 0 0 ru(9.5);
+      }
+
+      + .toggle-input {
+        border-top: 1px solid $toggle-input-border-color;
+      }
+    }
+  }
+}

@@ -1,0 +1,142 @@
+// scss-lint:disable all
+/*doc
+---
+title: Learning Center State
+name: learning-center-state
+category: Pages - Learning Center State
+---
+```slim_example
+.mod-learning-center.layout-learning-center
+  .layout-header style='background-image: url(https://d3auu7e972pryf.cloudfront.net/images/Hero_Family_Final-dcc0e76f2c.jpg)'
+    .layout-container
+      h4 Subheader text
+      h1 Header Text
+
+  .layout-main
+    .layout-content
+      .layout-section
+        h3 New York
+        p New York, The Empire State, is the fourth-most populous state in the U.S. and is home to the largest city by population in the United States, New York City. New York is one of the states that has built their own health insurance marketplace instead of relying on Healthcare.gov. According to New York State of Health, the New York health insurance marketplace, 2.8 million people were enrolled using the state marketplace at the end of the 2016 open enrollment period.
+        hr
+        h3 Recent Changes
+        p In 2017, the average premium increase for a health insurance policy in the state of New York will be 17.3%. This includes both on and off-exchange plans.
+        p New York passed a law this year that allows the beginning of a pregnancy to act as a qualifying event for a Special Enrollment Period. At the federal level, only the birth of a baby qualifies women for a Special Enrollment Period, not the beginning of the pregnancy.
+        p Additionally, victims of domestic violence or spousal abandonment, along with dependent children, qualify for Special Enrollment Periods.
+        hr
+
+        h3 Health insurance quick facts
+        .mod-statistic.two-per-row
+          ol
+            li
+              strong 07
+              | Health Insurance Companies
+            li
+              strong 35
+              | Health Insurance Plans
+            li
+              strong $215
+              | Average Monthly Premium
+            li
+              strong 85%
+              | Population Insured
+
+        .spacer-s
+
+        h3 Max penalties for no health insurance
+        .mod-statistic.two-per-row
+          ol
+            li
+              strong $695
+              | for Individuals
+            li
+              strong $695
+              | for Individuals
+        .spacer-negative-m
+        p
+          | * or greater of 2.5% of income
+        hr
+        h3 Recent Changes
+        p In 2017, the average premium increase for a health insurance policy in the state of New York will be 17.3%. This includes both on and off-exchange plans.
+        p New York passed a law this year that allows the beginning of a pregnancy to act as a qualifying event for a Special Enrollment Period. At the federal level, only the birth of a baby qualifies women for a Special Enrollment Period, not the beginning of the pregnancy.
+
+      .layout-section
+        h3 Health in New York
+        .caption 13th healthiest state
+        .mod-statistic.three-per-row
+          ol
+            li
+              strong 27%
+              | Obesity
+            li
+              strong 10%
+              | Diabetes
+            li
+              strong 25.9%
+              | Physical Inactivity
+        strong
+          | Top 3 causes of death:
+        p Heart Diseases, Cancers, Chronic, Lower Respiratory Diseases
+        hr
+        h3 Average cost of medical procedures
+        .mod-image-aside
+          img src='holder.js/80x80?auto=yes'
+          aside
+            h5 Electrocardiogram
+            p $38
+        .mod-image-aside
+          img src='holder.js/80x80?auto=yes'
+          aside
+            h5 Complete blood count (CBC)
+            p $16
+
+      .layout-section style='background-color: inherit; border: 0'
+        h3 Health news in New York
+        div
+          ul.mod-article-list.condensed.grid
+            li
+              a href='#'
+                figure
+                  img src='holder.js/120x60?auto=yes'
+                  figcaption
+                    .tag Life Insurance
+                    h3 How accurate are term life insurance quotes?
+            li
+              a href='#'
+                figure
+                  img src='holder.js/120x60?auto=yes'
+                  figcaption
+                    .tag PolicyGenius
+                    h3 How accurate are term life insurance quotes?
+      .layout-section
+        h3 Health insurance companies in New York
+        .layout-equal-columns.top-align
+          div
+            .mod-steps-list.colored
+              ol
+                li
+                  strong Blue Cross Blue Shield
+                  | 26.7%
+                li
+                  strong United HealthCare
+                  | 26.7%
+          div
+            img src='holder.js/300x300?auto=yes'
+      .spacer-m
+      .mod-ad-unit
+        .content.horizontal style='background-image: url(images/career-board-hero-image.jpg)'
+          h3 This fall, shopping for health insurance is about to get a whole lot easier.
+          a.button.action href='#' Learning Center
+
+
+    .layout-sidebar
+      h5 Have questions about health insurance?
+      form.mod-search-box.mini
+        input type='text' name='query' placeholder='What is life insurance?'
+      .spacer-m
+      .mod-ad-unit.mini
+        .content
+          h3 We make health insurance shopping easy
+          a.button.action href='#' Learning Center
+```
+*/
+// scss-lint:enable all

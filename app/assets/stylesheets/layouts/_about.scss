@@ -1,0 +1,155 @@
+// scss-lint:disable all
+/*doc
+---
+title: About Layout
+name: about
+category: Layouts - About
+---
+```slim_example
+.layout-about
+  .layout-nav
+    .mod-sidenav
+      ul
+        li
+          h4 Aenean
+          ul
+            li: a href='#' Aliquam
+            li: a href='#' Pretium
+            li: a href='#' Egestas metus
+        li
+          h4 Blandit
+          ul
+            li: a href='#' Ornare
+            li: a href='#' Finibus
+            li: a href='#' Facilisis
+  .layout-main
+    article.mod-article
+      h1 In rhoncus orci &#0153;
+      p
+        | Nunc in pharetra velit. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Donec imperdiet leo id odio tincidunt, eget blandit nisi fermentum. Donec non libero vitae augue consequat aliquet
+        a href='#' Fusce euismod.
+        | Vivamus ultricies augue in tortor pharetra convallis maecenas gravida.
+      p
+        | Proin aliquam tortor et aliquam dignissim. Aliquam sapien enim, elementum at massa sit amet, pretium egestas metus. Mauris semper faucibus tellus, id auctor mauris suscipit eget. Aenean in lacus lacinia, varius massa eget, facilisis urna. Suspendisse erat dolor, auctor sed eleifend quis, hendrerit eget sapien. Donec blandit diam a neque aliquet, nec facilisis mi finibus. Quisque facilisis mauris eget tortor consectetur vulputate. Vestibulum ipsum neque, dictum et consectetur ornare, ultrices ullamcorper velit.”
+      p
+        | Suspendisse molestie vel sapien at posuere. Phasellus viverra mollis massa ut eleifend. Nulla maximus congue dolor sed vestibulum. Nunc mattis molestie libero, sed vulputate ipsum aliquet vitae. Proin pharetra felis et odio porttitor, et egestas tortor laoreet. Sed dapibus orci id sapien placerat, a consequat augue efficitur. Donec dui est, aliquet at enim ac, egestas consectetur orci. Aliquam nisl nibh, lacinia et diam ut, mattis facilisis lectus
+        a href='#' Phasellus tellus augue.
+```
+
+
+```slim_example
+.layout-about
+  .layout-nav
+    nav.mod-sidenav
+      ul
+        li
+          h4 Vestibulum
+          ul
+            li: a href='#' Tristique
+            li: a href='#' Lacus
+            li: a href='#' Pellentesque
+        li
+          h4 Phasellus
+          ul
+            li: a href='#' Urna
+            li: a href='#' Euismod
+            li: a href='#' Interdum
+  .layout-main
+    section.mod-contact
+      h1 Pellentesque habitant morbi tristique.
+      .row
+        .layout-contactform
+          h2 Senectus et netus
+          p Et malesuada
+
+        .layout-chatcall
+          h2 Ac turpis egestas
+          a.button href='#'
+            | Nullam mollis
+          a.button href='#'
+            | Turpis
+          h2 Fusce vitae turpis
+          p Quis mauris
+```
+*/
+// scss-lint:enable all
+
+.layout-about {
+  @extend %grid-row;
+
+  .layout-row {
+    @extend %grid-row;
+  }
+
+  .layout-main,
+  .layout-contactform,
+  .layout-chatcall {
+    @include grid-column(12);
+    margin-bottom: ru(1);
+  }
+
+  .layout-press-nav {
+    display: flex;
+  }
+
+  @media #{$small-only} {
+    .layout-nav {
+      display: none;
+    }
+
+    .layout-press-nav {
+      flex-direction: column;
+
+      .mod-press-tabs {
+        order: 2;
+        margin-top: ru(1);
+      }
+    }
+  }
+
+  @media #{$medium-only} {
+    .layout-nav {
+      @include grid-column(2.5);
+    }
+
+    .layout-main {
+      @include grid-column(9, $offset: .5);
+    }
+  }
+
+  @media #{$medium-up} {
+    .layout-main,
+    .layout-contactform,
+    .layout-chatcall {
+      margin-bottom: 0;
+    }
+
+    .layout-contactform {
+      @include grid-column(7);
+    }
+
+    .layout-chatcall {
+      @include grid-column(5);
+    }
+
+    .layout-press-nav {
+      justify-content: space-between;
+
+      .mod-press-contact {
+        margin-left: ru(1);
+      }
+    }
+  }
+
+  @media #{$large-up} {
+    .layout-nav {
+      @include grid-column(2);
+    }
+
+    .layout-main {
+      @include grid-column(9, $offset: 1);
+    }
+  }
+}
+
+

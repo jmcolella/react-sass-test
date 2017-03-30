@@ -1,0 +1,359 @@
+/*doc
+---
+title: Learn Company Review
+name: learn-company-review
+category: Pages - Learn Company Review
+---
+```slim_example
+.mod-learning-center.layout-learning-center
+  .layout-header style='background-image: url(https://d3auu7e972pryf.cloudfront.net/images/Hero_Family_Final-dcc0e76f2c.jpg)'
+    .layout-container
+      h4 Subheader text
+      h1 Header Text
+
+  .layout-main
+    .layout-content
+      .layout-section
+        .layout-article
+          h3#our_take Our Take
+          img src=('holder.js/50x50?auto=yes')
+          p The Blue Cross Blue Shield Association is a federation of thirty-six health insurance
+          organizations and companies. The traces of the Association go back to 1929, with the founding
+          of Blue Cross. Blue Cross became an association in 1960 and merged with the Blue Shield Association in 1982,
+          forming one of the largest health insurance providers in the United States.
+          .mod-example
+            a.info href='#' See our comprehensive review here
+          hr
+          h3#basics-and-ratings
+            | Basics & Ratings
+            span.tooltip-link.policygenius-tooltip
+              | Why this matters
+              span.popup
+                | Two of the best ways to evaluate an insurance company are to look at its age and its fiscal health.
+        .layout-basics
+          .item
+            h6 Founded
+            p
+              strong = 1967
+          .item
+            h6
+              | JD Power
+              .policygenius-tooltip
+                span.i-help
+                span.popup J.D. Power and Associates is a global marketing information services firm that conducts surveys of customer satisfaction, product quality, and buyer behavior.
+            p: strong 2 out of 5
+          .item
+            h6
+              | Policyholders
+              .policygenius-tooltip
+                span.i-help
+                span.popup This is how many active US life insurance customers this company insures
+            p: strong 170,000
+          .item
+            h6
+              | A.M. Best
+              .policygenius-tooltip
+                span.i-help
+                span.popup A.M. Best is an independent rating agency that evaluates the financial strength of insurance companies. Ratings as of May 2016, on a scale from A++ to Dr
+            p: strong A+
+        hr
+        .layout-three-quarters.right-align
+          div
+            h3 Overall Score
+            .com-rating
+              .stars
+                .i-star.active
+                .i-star.active
+                .i-star.active
+                .i-star
+                .i-star
+              p.footer Average
+          div
+            p  We have ranked all the health insurance companies by their revenues to get a sense of how large they are. We have ranked all the health insurance companies by their revenues to get a sense of how large they are.
+        .spacer-m
+        .layout-equal-columns
+          .com-rating.compact
+            .heading
+              '  Number of Doctors
+              .policygenius-tooltip
+                  span.i-help
+                  span.popup J.D. Power and Associates is a global marketing information services firm that conducts surveys of customer satisfaction, product quality, and buyer behavior.
+            .stars
+              .i-star.active
+              .i-star.active
+              .i-star.active
+              .i-star
+              .i-star
+            .footer Average
+          .com-rating.compact
+            .heading
+              '  Customer Satisfaction
+              .policygenius-tooltip
+                  span.i-help
+                  span.popup J.D. Power and Associates is a global marketing information services firm that conducts surveys of customer satisfaction, product quality, and buyer behavior.
+            .stars
+              .i-star.active
+              .i-star.active
+              .i-star.active
+              .i-star
+              .i-star
+            .footer Average
+          .com-rating.compact
+            .heading
+              ' Affordability
+              .policygenius-tooltip
+                  span.i-help
+                  span.popup J.D. Power and Associates is a global marketing information services firm that conducts surveys of customer satisfaction, product quality, and buyer behavior.
+            .stars
+              .i-star.active
+              .i-star.active
+              .i-star.active
+              .i-star
+              .i-star
+            .footer Average
+        hr
+        h3 Largest U.S. health insurance companies
+        p We have ranked all the health insurance companies by their revenues to get a sense of how large they are.
+        .mod-statistic.two-per-row
+          ol
+            li
+              strong #5
+              Largest in U.S.
+            li
+              strong 140K
+              Doctors and Care Centers
+        p
+          strong
+            ' Top 3 in these states:
+          | Alabama, Maine, Kansas, California
+
+      .layout-section
+        h3 Sample quotes by insurer
+        p Here you will find the average monthly premium for different companies so you can compare which are more affordable.
+        .table-scrollable
+          table width='100%'
+            thead
+              tr
+                th Insurer
+                th Catastrophic
+                th Bronze
+                th Silver
+                th Gold
+                th Platinum
+            tbody
+              tr
+                td Oscar
+                td $367
+                td $367
+                td $367
+                td $367
+                td $367
+              tr
+                td BlueShield of Northeastern New York
+                td $610
+                td $610
+                td $610
+                td $610
+                td $610
+              tr
+                td Capital District Physicians Health Plan
+                td $531
+                td $531
+                td $531
+                td $531
+                td $531
+              tr
+                td Empire HealthChoice HMO
+                td $562
+                td $562
+                td $562
+                td $562
+                td $562
+              tr
+                td Excellus Health Plan, Inc.
+                td $539
+                td $562
+                td $562
+                td $562
+                td $562
+              tr
+                td Fidelis Care
+                td $308
+                td $562
+                td $562
+                td $562
+                td $562
+              tr
+                td Health Insurance Plan of Greater New York
+                td $548
+                td $562
+                td $562
+                td $562
+                td $562
+              tr
+                td Healthfirst
+                td $536
+                td $562
+                td $562
+                td $562
+                td $562
+              tr
+                td HealthNow New York
+                td $652
+                td $562
+                td $562
+                td $562
+                td $562
+              tr
+                td HealthNow NY, Inc
+                td $453
+                td $562
+                td $562
+                td $562
+                td $562
+              tr
+                td Independent Health Benefits Corporation
+                td $489
+                td $562
+                td $562
+                td $562
+                td $562
+              tr
+                td MetroPlus Health Plan, Inc.
+                td $378
+                td $562
+                td $562
+                td $562
+                td $562
+              tr
+                td MVP Health Care
+                td $433
+                td $562
+                td $562
+                td $562
+                td $562
+              tr
+                td North Shore-LIJ Insurance Company Inc
+                td $395
+                td $562
+                td $562
+                td $562
+                td $562
+              tr
+                td Oscar
+                td $447
+                td $562
+                td $562
+                td $562
+                td $562
+              tr
+                td Oxford Health Plans (NY), Inc.
+                td $616
+                td $562
+                td $562
+                td $562
+                td $562
+              tr
+                td UHC
+                td $562
+                td $562
+                td $562
+                td $562
+                td $554
+              tr
+                td WellCare of New York, Inc.
+                td $562
+                td $562
+                td $562
+                td $562
+                td $476
+
+      .layout-section style='background-color: inherit; border: 0'
+        .mod-ad-unit
+          .content
+            h3 We make health insurance shopping easy
+            a.button.action href='#'  Learning Center
+        .spacer-m
+        .mod-rating-index
+          h3 Other Health Insurance Companies
+          br
+          .cards.three-per-row
+            a.mod-card.rating href='#'
+              p United
+              .content
+                .i-star.active
+                .i-star.active
+                .i-star.active
+                .i-star.active
+                .i-star
+            a.mod-card.rating href='#'
+              p Humana
+              .content
+                .i-star.active
+                .i-star.active
+                .i-star.active
+                .i-star.active
+                .i-star
+            a.mod-card.rating href='#'
+              p Oscar
+              .content
+                .i-star.active
+                .i-star.active
+                .i-star.active
+                .i-star.active
+                .i-star
+            a.mod-card.rating href='#'
+              p Blue Cross Blue Shield
+              .content
+                .i-star.active
+                .i-star.active
+                .i-star.active
+                .i-star.active
+                .i-star
+            a.mod-card.rating href='#'
+              p AETNA
+              .content
+                .i-star.active
+                .i-star.active
+                .i-star.active
+                .i-star.active
+                .i-star
+            a.mod-card.rating href='#'
+              p Kaiser
+              .content
+                .i-star.active
+                .i-star.active
+                .i-star.active
+                .i-star.active
+                .i-star
+    .layout-sidebar.tabbed
+      .sidebar-tabs
+        a href='#' About
+        a.active href='#' Review
+      .search-bar
+        .spacer-m
+        form.mod-search-box.mini
+          input placeholder=('e.g. What is life insurance?') type='text' /
+      .sticky-sidebar style=('width: 288px;')
+        ul.sidebar-nav
+          li
+            strong Review
+          li
+            a.active href='#our-take'  Our Take
+          li
+            a href='#basics-and-ratings'  Basics & Ratings
+          li
+            a href='#market_share' Market Share
+          li.split
+            strong Plans
+          li
+            a href='#sample-quotes'  Sample Quotes
+          li
+            a href='#riders-and-options' Riders & Options
+          li
+            a href='#application_process' Application Process
+
+*/
+
+
+

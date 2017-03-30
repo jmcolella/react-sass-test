@@ -1,0 +1,245 @@
+// scss-lint:disable all
+/*doc
+---
+title: React Select
+name: react-select
+category: Fields - React Select
+---
+## React Select Field
+```slim_example
+<script src='https://cdnjs.cloudflare.com/ajax/libs/react/15.1.0/react.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/react/15.1.0/react-dom.min.js'></script>
+<script src='https://unpkg.com/classnames/index.js'></script>
+<script src='https://unpkg.com/react-input-autosize/dist/react-input-autosize.js'></script>
+<script src='https://unpkg.com/react-select/dist/react-select.js'></script>
+
+<link rel='stylesheet' href='https://unpkg.com/react-select/dist/react-select.css'>
+
+.mod-example
+  .selectfield
+    .field
+      label Etiam malesuada quis
+      div.policygenius-react-select-container#react-select-field-example
+```
+
+```js_example
+  var options = [
+    { value: '1', label: 'Aenean ac bibendum nisi' },
+    { value: '2', label: 'Phasellus in laoreet quam' },
+    { value: '3', label: 'Curabitur ex nibh, pharetra' },
+  ];
+  var reactSelect = React.createElement(
+    Select,
+    { options: options, placeholder: 'Donec placerat ipsum a nulla' }
+  );
+
+  ReactDOM.render(reactSelect, document.getElementById('react-select-field-example'));
+```
+
+## React Select Box
+```slim_example
+<script src='https://cdnjs.cloudflare.com/ajax/libs/react/15.1.0/react.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/react/15.1.0/react-dom.min.js'></script>
+<script src='https://unpkg.com/classnames/index.js'></script>
+<script src='https://unpkg.com/react-input-autosize/dist/react-input-autosize.js'></script>
+<script src='https://unpkg.com/react-select/dist/react-select.js'></script>
+
+<link rel='stylesheet' href='https://unpkg.com/react-select/dist/react-select.css'>
+
+.mod-example
+  .policygenius-react-select-container
+    .selectbox#react-select-box-example
+```
+
+```js_example
+  var options = [
+    { value: '1', label: 'Aenean ac bibendum nisi' },
+    { value: '2', label: 'Phasellus in laoreet quam' },
+    { value: '3', label: 'Curabitur ex nibh, pharetra' },
+  ];
+  var reactSelect = React.createElement(
+    Select,
+    { options: options, placeholder: 'Donec placerat ipsum a nulla' }
+  );
+
+  ReactDOM.render(reactSelect, document.getElementById('react-select-box-example'));
+```
+*/
+// scss-lint:enable all
+
+$react-select-height-normal:                ru(1.84);
+$react-select-height-mobile:                ru(2.25);
+$react-select-font-size-mobile:             rem-calc(19px);
+$react-select-padding-left-normal:          ru(.75);
+$react-select-padding-left-xxlarge:         ru(1);
+$react-select-padding-right-normal:         ru(2);
+$react-select-search-icon-color:            $neutral-4;
+$react-select-focused-background-color:     $brand-2;
+$react-select-option-line-height:           rem-calc(28px);
+$react-select-focused-option-color:         $neutral-8;
+
+.policygenius-react-select-container {
+  .Select {
+    &.is-open {
+      .Select-control {
+        @include icon(search);
+
+        &:before {
+          position: absolute;
+          right: ru(.67);
+          top: 25%;
+          margin: 0;
+          font-size: rem-calc(16px);
+          color: $react-select-search-icon-color;
+        }
+      }
+    }
+  }
+
+  .Select-control {
+    text-align: left;
+    border: 0;
+    height: $react-select-height-normal;
+  }
+
+  .Select-placeholder,
+  .Select--single > .Select-control .Select-value {
+    text-align: left;
+    line-height: $react-select-height-normal;
+  }
+
+  .Select-placeholder {
+    padding-left: $react-select-padding-left-normal;
+    padding-right: $react-select-padding-right-normal;
+  }
+
+  .Select-input {
+    padding-left: $react-select-padding-left-normal;
+    padding-right: $react-select-padding-right-normal;
+
+    > input {
+      line-height: inherit;
+    }
+  }
+
+  .Select--single > .Select-control .Select-value {
+    padding-left: $react-select-padding-left-normal;
+    padding-right: $react-select-padding-right-normal;
+    font-size: inherit;
+  }
+
+  .Select-menu-outer {
+    margin-top: -3px;
+    left: -1px;
+    width: calc(100% + 2px);
+  }
+
+  .Select-option {
+    text-align: left;
+    padding-left: $react-select-padding-left-normal;
+    line-height: $react-select-option-line-height;
+
+    &.is-focused {
+      background-color: $react-select-focused-background-color;
+      color: $react-select-focused-option-color;
+
+      * {
+        // scss-lint:disable ImportantRule
+        color: $react-select-focused-option-color !important;
+        // scss-lint:enable ImportantRule
+      }
+    }
+  }
+
+  .Select-loading-zone {
+    position: absolute;
+    right: 45px;
+    top: 7px;
+  }
+
+  .Select-noresults {
+    text-align: left;
+    padding-left: $react-select-padding-left-normal;
+    height: $react-select-height-normal;
+    line-height: $react-select-option-line-height;
+  }
+
+  .Select-arrow-zone,
+  .Select-clear-zone {
+    display: none;
+  }
+
+  .selectbox {
+    width: 100%;
+    height: auto;
+    line-height: normal;
+
+    &.multi-line-option {
+      .Select-option {
+        height: initial;
+        line-height: normal;
+      }
+    }
+
+    &:after {
+      display: none;
+    }
+  }
+
+  @media #{$small-only} {
+    .Select-control {
+      height: $react-select-height-mobile;
+    }
+
+    .Select-placeholder,
+    .Select-input,
+    .Select--single > .Select-control .Select-value {
+      line-height: $react-select-height-mobile;
+      font-size: $react-select-font-size-mobile;
+    }
+
+
+    .Select-input {
+      > input {
+        line-height: normal;
+      }
+    }
+
+    .Select {
+      &.is-open {
+        .Select-control {
+          &:before {
+            top: 30%;
+          }
+        }
+      }
+    }
+
+    .Select-loading-zone {
+      top: 11px;
+    }
+  }
+
+  @media #{$xxlarge-up} {
+    .Select--single > .Select-control .Select-value {
+      padding-left: $react-select-padding-left-xxlarge;
+    }
+
+    .Select-placeholder,
+    .Select-input {
+      padding-left: $react-select-padding-left-xxlarge;
+    }
+
+    .Select-option {
+      padding-left: $react-select-padding-left-xxlarge;
+    }
+
+    .Select-noresults {
+      padding-left: $react-select-padding-left-xxlarge;
+    }
+
+    .Select-menu-outer {
+      width: calc(100% + 3px);
+    }
+  }
+}

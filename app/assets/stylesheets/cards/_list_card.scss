@@ -1,0 +1,77 @@
+// scss-lint:disable all
+/*doc
+---
+title: List Card
+name: list-card
+category: Cards - List Card
+---
+```slim_example_table
+.mod-list-card
+  .content
+    h4 Phasellus tellus augue
+    ul
+      li: a href='#' Proin aliquam tortor et aliquam dignissim
+      li: a href='#' Aenean in lacus lacinia, varius massa eget, facilisis
+      li: a href='#' In rhoncus orci et ex fermentum, ut euismod diam
+      li: a href='#' Vivamus ultricies augue in tortor pharetra convallis
+  a.view-all href='#' Morbi sit
+```
+*/
+// scss-lint:enable all
+
+$list-card-border-color:            $neutral-5;
+$list-card-background-color:        $neutral-8;
+$list-card-header-color:            $brand-2;
+$list-card-link-color:              $neutral-2;
+$list-card-link-hover-color:        $brand-2;
+$list-card-footer-background-color: $neutral-6;
+
+.mod-list-card {
+  @include typography-6;
+  font-weight: 400;
+  margin: 0;
+  border: 1px solid $list-card-border-color;
+  border-radius: ru(.25);
+  background-color: $list-card-background-color;
+  box-shadow: 0 ru(.25) 0 $list-card-border-color;
+  margin-bottom: ru(2.25);
+  overflow: hidden;
+
+  h4 {
+    @include like-h3;
+    margin-bottom: ru(.5);
+    color: $list-card-header-color;
+  }
+
+  ul {
+    // scss-lint:disable ImportantRule
+    margin: 0 !important;
+    padding: 0 !important;
+    list-style: none !important;
+    // scss-lint:enable ImportantRule
+  }
+
+  li + li {
+    margin-top: ru(.5);
+  }
+
+  a {
+    color: $list-card-link-color;
+
+    &:hover,
+    &:active,
+    &:focus {
+      color: $list-card-link-hover-color;
+    }
+  }
+
+  .content {
+    padding: ru(.75);
+  }
+
+  .view-all {
+    display: block;
+    padding: ru(.33) ru(.75);
+    background-color: $list-card-footer-background-color;
+  }
+}

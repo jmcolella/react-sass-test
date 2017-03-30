@@ -1,0 +1,183 @@
+// scss-lint:disable all
+/*doc
+---
+title: Highlighted Field
+name: highlighted-field
+category: Fields - Highlighted field
+---
+```slim_example
+.mod-highlighted-field style='max-width: 600px;'
+  .textfield
+    .field
+      label.i-lock for='number' In rhoncus orci et ex
+      input type='text' id='number' placeholder='000-00-0000'
+  .detail Suspendisse molestie vel sapien at posuere. Phasellus viverra mollis massa ut eleifend. Nulla maximus congue.
+```
+
+```slim_example
+.mod-highlighted-field style='max-width: 600px;'
+  .selectfield
+    .field
+      label for='select1' Vulputate
+      .selectbox
+        select id='select1'
+          option Aliquam nisl nibh
+          option Lacinia et diam ut
+          option Morbi quis dui consequat
+  .detail Suspendisse molestie vel sapien at posuere. Phasellus viverra mollis massa ut eleifend. Nulla maximus congue.
+```
+
+```slim_example
+.mod-highlighted-field style='max-width: 600px;'
+  .toggle
+    .header
+      label
+        span Nam accumsan quam eu blandit rhoncus. Suspendisse sed sem sagittis, ultricies erat ut, pretium neque. Vestibulum lacinia.
+    .content
+      label.toggler
+        input type='radio' name='example5'
+        span.button Sit
+      label.toggler
+        input type='radio' name='example5'
+        span.button Ut
+  .detail Suspendisse molestie vel sapien at posuere. Phasellus viverra mollis massa ut eleifend. Nulla maximus congue.
+```
+
+```slim_example
+.mod-highlighted-field style='max-width: 600px;'
+  .textfield.focused
+    .field
+      label.i-lock for='number' Aenean gravida velit
+      input type='text' id='number' placeholder='000-00-0000'
+  .detail Suspendisse molestie vel sapien at posuere. Phasellus viverra mollis massa ut eleifend. Nulla maximus congue.
+```
+
+```slim_example
+.example style='padding: 30px; background-color: #00a4a5;'
+  .mod-highlighted-field style='max-width: 600px;'
+    .textfield
+      .field
+        label.i-lock for='number' Lorem Ipsum Dolor
+        input type='text' id='number' placeholder='000-00-0000'
+    .detail.light.discount
+      span orci et ex
+      span.big
+        | 10
+        sup %
+      span
+        | ut euismod
+        br
+        | diam tincidunt
+
+```
+*/
+// scss-lint:enable all
+
+$highlighted-field-textfield-label-background-color: $neutral-6;
+
+.mod-highlighted-field {
+  @include field;
+  display: flex;
+  align-items: flex-start;
+
+  > * {
+    flex: 1 0;
+  }
+
+  > *:nth-child(1) {
+    flex-basis: 66.6%;
+  }
+
+  .detail {
+    @include typography-7;
+    flex-basis: 33.3%;
+    font-weight: 400;
+    line-height: ru(.75);
+    margin: ru(.625) 0 0 ru(.75);
+
+    &.discount {
+      margin-top: 0;
+    }
+
+    &.light {
+      color: $neutral-8;
+    }
+
+    .big {
+      @include typography-1;
+      margin-bottom: 0;
+    }
+
+    sup {
+      @extend .typography-5;
+      vertical-align: super;
+      line-height: 1;
+      margin: 0;
+    }
+  }
+
+  label {
+    border-radius: ru(.25) ru(.25) 0 0;
+    background-color: $highlighted-field-textfield-label-background-color;
+
+    &[class^='i-']:before,
+    &[class*=' i-']:before {
+      float: right;
+      margin: ru(.208) ru(-.25) 0 0;
+      line-height: ru(.75);
+    }
+  }
+
+  .header {
+    label {
+      background-color: inherit;
+    }
+  }
+
+  .date-field {
+    label {
+      background-color: $highlighted-field-textfield-label-background-color;
+    }
+  }
+
+  @media #{$medium-up} {
+    .detail {
+      .big {
+        display: block;
+      }
+    }
+  }
+
+  @media #{$small-only} {
+    flex-wrap: wrap;
+
+    > *:nth-child(1) {
+      flex-basis: 100%;
+      order: 2;
+    }
+
+    .detail {
+      flex-basis: 100%;
+      order: 1;
+      margin: 0;
+      padding: 0 ru(1) ru(.75) 0;
+
+      br {
+        display: none;
+      }
+    }
+  }
+
+  @media #{$medium-up-to-xxlarge} {
+    .detail {
+      margin: ru(.5) 0 0 ru(.75);
+    }
+
+    label {
+      &[class^='i-']:before,
+      &[class*=' i-']:before {
+        margin-top: rem-calc(2px);
+      }
+    }
+  }
+}

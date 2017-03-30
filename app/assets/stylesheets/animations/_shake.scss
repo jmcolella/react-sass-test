@@ -1,0 +1,36 @@
+// scss-lint:disable all
+/*doc
+---
+title: Shake
+name: shake
+category: Animations - Shake
+---
+```slim_example_table
+.mod-example
+  .button.action[disabled] In rhoncus orci et ex
+```
+
+```js_example
+$('.button[disabled]').on('click', function() {
+  $(this).addClass('shaking').text('Proin aliquam tortor');
+});
+```
+*/
+// scss-lint:enable all
+
+$shaking-offset: ru(.25);
+
+[class^='mod-'] {
+  .shaking {
+    animation: shake .5s ease-out;
+  }
+}
+
+@keyframes shake {
+  0% { transform: translateX(0); }
+  20% { transform: translateX(-$shaking-offset); }
+  40% { transform: translateX($shaking-offset); }
+  60% { transform: translateX(-$shaking-offset); }
+  80% { transform: translateX($shaking-offset); }
+  100% { transform: translateX(0); }
+}

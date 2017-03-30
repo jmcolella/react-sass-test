@@ -1,0 +1,91 @@
+// scss-lint:disable all
+/*doc
+---
+title: Profile Card
+name: profile-card
+category: Cards - Profile Card
+---
+```slim_example
+.mod-profile-card style='max-width: 600px'
+  span.icon-close
+  .image
+    img src='holder.js/110x110?auto=yes'
+  .selectfield
+    .field
+      label for='age' Suspendisse molestie
+      .selectbox
+        select id='age'
+          option 10
+          option 10
+          option 10
+  .selectfield
+    .field
+      label for='education' Proin pharetra felis et odio
+      .selectbox
+        select id='education'
+          option Aenean gravida velit suscipit imperdiet
+          option Hendrerit
+          option Phasellus
+```
+*/
+// scss-lint:enable all
+
+$profile-card-border-color:     $brand-3;
+$profile-card-border-width:     ru(.25);
+$profile-card-background-color: $neutral-8;
+$profile-card-icon-size:        ru(1);
+$profile-card-image-width:      ru(5);
+
+.mod-profile-card {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: stretch;
+  position: relative;
+  border: 1px solid $profile-card-border-color;
+  border-top-width: $profile-card-border-width;
+  border-bottom-width: $profile-card-border-width;
+  border-radius: ru(.25);
+  background-color: $profile-card-background-color;
+  padding: ru(1);
+
+  > * {
+    flex: 1 0;
+  }
+
+  .image {
+    position: relative;
+    flex: 0 1 $profile-card-image-width;
+    border: 1px solid $profile-card-border-color;
+    border-radius: ru(.25);
+    margin: 0 ru(1) ru(1) 0;
+
+    img {
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      max-width: $profile-card-image-width - ru(.5);
+      max-height: $profile-card-image-width - ru(.5);
+    }
+  }
+
+  > :nth-of-type(3) {
+    flex-basis: 100%;
+    margin-bottom: 0;
+  }
+
+  .icon-close {
+    position: absolute;
+    top: -$profile-card-icon-size / 2;
+    right: -$profile-card-icon-size / 2;
+    background-size: 100%;
+    cursor: pointer;
+
+    &:before {
+      content: '';
+      display: inline-block;
+      width: $profile-card-icon-size;
+      height: $profile-card-icon-size;
+    }
+  }
+}

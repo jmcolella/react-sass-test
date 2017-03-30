@@ -1,0 +1,68 @@
+// scss-lint:disable all
+/*doc
+---
+title: Footer Message Bar
+name: footer_message_bar
+category: Modules - Footer Message Bar
+---
+
+```slim_example
+  .mod-footer-message-bar
+    p Maecenas ullamcorper turpis
+    h3
+      a.i-phone href='#'
+        | (000) 000-0000
+      span
+        | Maecenas rhoncus pulvinar
+
+```
+*/
+// scss-lint:enable all
+
+$footer-link-color-small:           $neutral-8;
+$footer-paragraph-color-small:      $neutral-8;
+$footer-h3-color-small:             $neutral-8;
+
+.mod-footer-message-bar {
+  @media #{$medium-up} {
+    display: none;
+  }
+
+  @media #{$small-only} {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    z-index: 9999;
+    width: 100%;
+
+    background-color: $brand-2;
+    height: auto;
+    padding: ru(.5);
+
+    a {
+      color: $footer-link-color-small;
+      text-decoration: none;
+    }
+
+    p {
+      @include typography-7;
+      color: $footer-paragraph-color-small;
+      margin: ru(0);
+      font-weight: 400;
+      line-height: inherit;
+    }
+
+    h3 {
+      @include like-h4;
+      margin: ru(0);
+      color: $footer-h3-color-small;
+    }
+
+    span {
+      @include typography-7;
+      margin-left: ru(.25);
+      font-weight: 400;
+      line-height: inherit;
+    }
+  }
+}

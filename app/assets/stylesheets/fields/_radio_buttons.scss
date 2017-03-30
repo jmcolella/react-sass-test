@@ -1,0 +1,155 @@
+// scss-lint:disable all
+/*doc
+---
+title: Radio Buttons
+name: radio-buttons
+category: Fields - Radio Buttons
+---
+```slim_example_table
+.mod-example
+  label.radio
+    input type='radio' name='radios'
+    span Vivamus
+  label.radio
+    input type='radio' name='radios'
+    span Nulla maximus
+```
+*/
+// scss-lint:enable all
+
+$radio-size:                             ru(.75);
+$radio-gap:                              ru(.5);
+$radio-border-color:                     $neutral-5;
+$radio-checked-size:                     ru(.417);
+$radio-checked-background-color:         $brand-3;
+$radio-offset-top:                       (ru(1) - $radio-size) / 2;
+$radio-label-color:                      $neutral-3;
+$radio-checked-label-color:              $neutral-1;
+$radio-label-vertical-padding:           ru(0);
+$radio-label-horizontal-padding:         ru(0);
+$radio-background-color:                 $neutral-8;
+$radio-highlighted-label-color:          $neutral-3;
+$radio-highlighted-checked-label-color:  $brand-2;
+$radio-single-size:                      ru(1);
+$radio-single-checked-size:              ru(.583);
+
+
+[class^='mod-'] {
+  .radio {
+    @include typography-6;
+    font-weight: 600;
+    margin: 0;
+    position: relative;
+    min-height: $radio-size;
+    padding: $radio-label-vertical-padding $radio-label-horizontal-padding;
+    padding-left: $radio-label-horizontal-padding + $radio-size + $radio-gap;
+    font-family: $font-family-sans-serif;
+    user-select: none;
+
+    + .radio {
+      margin-top: ru(.5);
+    }
+
+    &:before {
+      content: '';
+      position: absolute;
+      top: $radio-label-vertical-padding;
+      left: $radio-label-horizontal-padding;
+      width: $radio-size;
+      height: $radio-size;
+      border: 1px solid $radio-border-color;
+      background-color: $radio-background-color;
+      margin-top: $radio-offset-top;
+      border-radius: 50%;
+      overflow: hidden;
+    }
+
+    span,
+    strong {
+      vertical-align: top;
+      color: $radio-label-color;
+    }
+
+    span:after {
+      content: '';
+      opacity: 0;
+      position: absolute;
+      top: $radio-label-vertical-padding;
+      left: $radio-label-horizontal-padding;
+      width: $radio-checked-size;
+      height: $radio-checked-size;
+      background-color: $radio-checked-background-color;
+      border-radius: 50%;
+      margin-top: $radio-offset-top + ($radio-size - $radio-checked-size) / 2;
+      margin-left: ($radio-size - $radio-checked-size) / 2;
+    }
+
+    input {
+      position: absolute;
+      top: 0;
+      left: 0;
+      opacity: 0;
+    }
+
+    input:checked + span,
+    input:checked + span *,
+    input:checked ~ strong,
+    input:checked ~ strong * {
+      color: $radio-checked-label-color;
+    }
+
+    input:checked + span:after {
+      opacity: 1;
+    }
+
+    &.single {
+      min-width: $radio-single-size;
+      min-height: $radio-single-size;
+      padding: 0;
+
+      &:before {
+        width: $radio-single-size;
+        height: $radio-single-size;
+      }
+
+      span:after {
+        width: $radio-single-checked-size;
+        height: $radio-single-checked-size;
+        margin-top: $radio-offset-top + ($radio-single-size - $radio-single-checked-size) / 2;
+        margin-left: ($radio-single-size - $radio-single-checked-size) / 2;
+      }
+    }
+
+    &.highlighted {
+      @include typography-6;
+      font-weight: 400;
+      margin: 0;
+
+      + .radio {
+        margin-top: ru(.5);
+      }
+
+      span,
+      small {
+        color: $radio-highlighted-label-color;
+      }
+
+      input:checked + span,
+      input:checked + span * {
+        color: $radio-highlighted-checked-label-color;
+      }
+
+      small {
+        @include typography-7;
+        display: block;
+        margin: 0;
+      }
+    }
+
+    @media #{$medium-up-to-xxlarge} {
+      @include typography-7;
+      font-weight: 600;
+      margin: 0;
+    }
+  }
+}

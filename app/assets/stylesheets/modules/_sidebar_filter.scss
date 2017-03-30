@@ -1,0 +1,373 @@
+// scss-lint:disable all
+/*doc
+---
+title: Sidebar Filter
+name: sidebar-filter
+category: Modules - Sidebar Filter
+---
+```slim_example_table
+.mod-sidebar-filter
+  .section
+    a.button.action.lowlight.i-write href='#' Nam metus massa
+    a.button.action.lowlight.i-floppydisk href='#' Tempor vel tortor
+  .section
+    h2 Et, pretium vestibulum
+    .slider
+      .header
+        .title Libero
+        .value $100
+      .bar
+        .range style='width: 50%;'
+        .handler style='left: 50%;'
+    .slider
+      .header
+        .title Phasellus id nulla
+        .value 10%
+      .bar
+        .range style='width: 80%;'
+        .handler style='left: 80%;'
+    a.action.i-calculator href='#' Convallis, faucibus magna sit
+  .section
+    h2
+      | Amet tempus
+      .badge 3
+    p Nunc ornare ornare nunc nec efficitur
+  .section
+    h2.icon-checkheart Tortor
+    label.checkbox
+      input type='checkbox'
+      span Sed non diam id purus placerat convallis
+  .section
+    h2 Phasellus nisi est
+    label.checkbox
+      input type='checkbox' checked='checked'
+      span
+          | Posuere ut elit
+          div Lobortis molestie
+    label.checkbox
+      input type='checkbox' checked='checked'
+      span
+          | Sed lobortis et quam
+          div Lobortis molestie
+    label.checkbox
+      input type='checkbox'
+      span
+          | Vestibulum ante
+          div Lobortis molestie
+  .section
+    h2.section-toggler.expanded Donec lobortis dui
+    .inner
+      h3 Mauris tristique efficitur enim, eu
+      label.checkbox
+        input type='checkbox' checked='checked'
+        span Ante dignissim sit
+      label.checkbox
+        input type='checkbox' checked='checked'
+        span  Ultrices posuere
+      h3
+        ' Sed iaculis
+        strong
+          em
+            ' ante quis
+        | commodo
+      label.checkbox
+        input type='checkbox' checked='checked'
+        span Pellentesque habitant morbi
+      label.checkbox
+        input type='checkbox' checked='checked'
+        span Tristique senectus et
+      label.checkbox
+        input type='checkbox'
+        span Netus et malesuada
+      label.checkbox
+        input type='checkbox'
+        span Fames ac turpis
+      a.button Nullam mollis turpis
+```
+
+```js_example
+$('.section-toggler').click(function(event) {
+  if ($(this).hasClass('expanded')) {
+    $(this).removeClass('expanded').addClass('collapsed');
+    $(this).parent().find('.inner').slideUp(500);
+  } else {
+    $(this).addClass('expanded').removeClass('collapsed');
+    $(this).parent().find('.inner').slideDown(500);
+  }
+});
+```
+*/
+// scss-lint:enable all
+
+$sidebar-filter-color:                   $neutral-2;
+$sidebar-filter-title-color:             $neutral-2;
+$sidebar-filter-subtitle-color:          $neutral-3;
+$sidebar-filter-toggler-color:           $neutral-3;
+$sidebar-filter-background-color:        $neutral-6;
+$sidebar-filter-section-border-color:    $neutral-5;
+$sidebar-filter-plan-button-color:       $brand-2;
+$sidebar-filter-plan-button-hover-color: $neutral-8;
+$sidebar-filter-badge-background-color:  $brand-3;
+$sidebar-filter-badge-color:             $neutral-8;
+
+.mod-sidebar-filter {
+  background-color: $sidebar-filter-background-color;
+  padding: ru(.75);
+  font-size: rem-calc(14px);
+  line-height: ru(1);
+  margin: 0;
+  color: $sidebar-filter-color;
+  width: rem-calc(220px);
+
+  .slider .slider-heading span {
+    font-size: .9rem;
+    text-transform: none;
+  }
+
+  .sidebar-dropdown-filters {
+    .section {
+      &:first-child {
+        border-top: 1px solid $sidebar-filter-section-border-color;
+        margin-top: rem-calc(10px);
+      }
+
+      &:last-child {
+        border-bottom: 1px solid $sidebar-filter-section-border-color;
+        margin-bottom: rem-calc(10px);
+      }
+    }
+  }
+
+  .checkbox {
+    font-weight: 400;
+    line-height: ru(.75);
+
+    span {
+      vertical-align: middle;
+      display: inline-block;
+      color: $checkbox-label-selected-color;
+
+      div {
+        color: $sidebar-filter-subtitle-color;
+      }
+    }
+  }
+
+  .section {
+    padding: ru(.75);
+    margin-left: ru(-.75);
+    margin-right: ru(-.75);
+    &:first-child { margin-top: ru(-.75); }
+    &:last-child { margin-bottom: ru(-.75); }
+
+    + .section {
+      border-top: 1px solid $sidebar-filter-section-border-color;
+    }
+
+    .section-toggler {
+      @include icon(plus);
+      @include icon(hyphen, after);
+      position: relative;
+      padding-right: ru(1);
+      margin-bottom: 0;
+      cursor: pointer;
+      transition: margin-bottom .5s ease;
+
+      &:before,
+      &:after {
+        position: absolute;
+        top: 0;
+        right: 0;
+        margin: ru(.083) 0 0;
+        font-size: rem-calc(16px);
+        color: $sidebar-filter-toggler-color;
+        cursor: pointer;
+        transform: rotate(0);
+        transition: all .5s ease;
+      }
+
+      &:after {
+        opacity: 0;
+      }
+
+      i {
+        @include icon(help, after);
+        cursor: help;
+
+        &:after {
+          margin: 0 0 0 ru(.33);
+          font-size: rem-calc(12px);
+          color: $robust-card-help-icon-color;
+          transition: color 250ms ease;
+        }
+
+        &:hover {
+          &:after {
+            color: $robust-card-help-icon-hover-color;
+          }
+        }
+      }
+
+      &.expanded {
+        &:before,
+        &:after {
+          margin: ru(.083) 0 0;
+          transform: rotate(360deg);
+        }
+
+        &:before { opacity: 0; }
+        &:after { opacity: 1; }
+      }
+
+      &.collapsed {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  h2 {
+    @include typography-6();
+    font-weight: 600;
+    margin-top: 0;
+    margin-bottom: ru(.5);
+    color: $sidebar-filter-title-color;
+
+    &.icon-checkheart {
+      @include icon(checkheart, after);
+
+      &:after {
+        color: $brand-3;
+        margin-top: 0;
+      }
+    }
+
+    .badge {
+      @include typography-7();
+      font-weight: 600;
+      line-height: 1;
+      margin: 0 0 0 ru(.33);
+      display: inline-block;
+      padding: ru(.167) ru(.33);
+      border-radius: ru(.125);
+      background: $sidebar-filter-badge-background-color;
+      color: $sidebar-filter-badge-color;
+    }
+
+    + h3 {
+      margin-top: ru(-.5);
+    }
+  }
+
+  h3 {
+    font-size: rem-calc(14px);
+    font-family: $font-family-sans-serif;
+    font-weight: 400;
+    color: $sidebar-filter-subtitle-color;
+    margin-top: ru(.5);
+    margin-bottom: ru(.5);
+  }
+
+  p {
+    font-weight: 400;
+    margin: 0;
+  }
+
+  strong {
+    font-weight: 600;
+  }
+
+  em {
+    font-style: italic;
+  }
+
+  .action {
+    font-weight: 400;
+  }
+
+  .inner.fix-margin .checkbox span {
+    margin-top: ru(.08);
+  }
+
+  .countbox {
+    .countbox-label {
+      float: left;
+    }
+
+    .countbox-box {
+      background: $primary-color;
+      border-radius: rem-calc(5px);
+      color: $neutral-8;
+      float: left;
+      font-size: rem-calc(15px);
+      margin-left: rem-calc(10px);
+      text-align: center;
+      width: rem-calc(23px);
+    }
+  }
+
+  .button {
+    display: block;
+    margin-top: ru(.75);
+    padding-top: ru(.375);
+    padding-bottom: ru(.375);
+    font-size: rem-calc(14px);
+    background-color: inherit;
+    border-color: $sidebar-filter-plan-button-color;
+    color: $sidebar-filter-plan-button-color;
+
+    &:before {
+      line-height: 1;
+    }
+
+    &.action {
+      text-align: left;
+      margin-top: 0;
+      padding-left: ru(.5);
+      padding-right: ru(.5);
+    }
+
+    &:hover,
+    &:active {
+      background-color: $sidebar-filter-plan-button-color;
+      border-color: $sidebar-filter-plan-button-color;
+      color: $sidebar-filter-plan-button-hover-color;
+    }
+  }
+
+  .hide {
+    display: none;
+  }
+
+  @media #{$small-only} {
+    h2 {
+      margin-bottom: ru(.5);
+    }
+
+    h3 {
+      margin-top: ru(.5);
+      margin-bottom: ru(.5);
+    }
+
+    .checkbox + .checkbox {
+      margin-top: ru(.5);
+    }
+
+    .button {
+      margin-top: .5;
+    }
+  }
+
+  @media #{$medium-only} {
+    .button {
+      &:before {
+        display: none;
+      }
+    }
+  }
+
+  @media #{$medium-up} {
+    .span-break span {
+      display: block;
+    }
+  }
+}

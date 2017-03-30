@@ -1,0 +1,28 @@
+// scss-lint:disable all
+/*doc
+---
+title: Gradient
+name: gradient
+category: Base Styles - Gradient
+---
+
+```slim_example
+.example-gradient style='width: 100%; height: 200px'
+
+scss:
+  .example-gradient {
+    // @include linear-gradient(105deg, $gradient-start-color 0%, $gradient-mid-color 50%, $gradient-end-color 100%);
+  }
+```
+
+*/
+// scss-lint:enable all
+$gradient-opacity:        .85;
+$gradient-start-color:    rgba(#09c6a9, $gradient-opacity);
+$gradient-mid-color:      rgba($brand-2, $gradient-opacity);
+$gradient-end-color:      rgba($brand-3, $gradient-opacity);
+
+.example-gradient {
+  @include linear-gradient(105deg, $gradient-start-color 0%,
+                  $gradient-mid-color 50%, $gradient-end-color 100%);
+}

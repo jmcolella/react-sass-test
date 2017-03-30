@@ -1,0 +1,323 @@
+// scss-lint:disable all
+/*doc
+---
+title: Press Page Modules
+name: press
+category: Modules - Press Page Modules
+---
+## Press Cards
+```slim_example
+.mod-press-cards
+  .card
+    p '...ex nibh, pharetra eget aliquam congue, commodo vitae tortor eget aliquam congue.'
+    img src='holder.js/600x80?auto=yes&text=image'
+  .card
+    p 'Aliquam sapien enim, elementum at massa sit amet, pretium egestas metus.'
+    img src='holder.js/600x80?auto=yes&text=image'
+  .card
+    p '...semper faucibus tellus, id auctor mauris suscipit eget, aenean in lacus lacinia.'
+    img src='holder.js/600x80?auto=yes&text=image'
+  .card
+    p 'Suspendisse erat dolor, auctor sed eleifend quis, hendrerit eget sapien.'
+    img src='holder.js/600x80?auto=yes&text=image'
+  .card
+    p '...blandit diam a neque aliquet, nec facilisis mi finibus quisque facilisis mauris.'
+    img src='holder.js/600x80?auto=yes&text=image'
+  .card
+    p 'Vestibulum ipsum neque, dictum et consectetur ornare, ultrices ullamcorper velit.'
+    img src='holder.js/600x80?auto=yes&text=image'
+```
+
+## Press Tabs
+```slim_example
+.mod-press-tabs
+  ul
+    li.active: a href='#' Phasellus
+    li: a href='#' Suspendisse molestie
+    li: a href='#' Aenean
+    li: a href='#' Rhoncus
+    li: a href='#' Blandit
+```
+
+## Press List
+```slim_example
+.mod-press-list
+  ul
+    li
+      .image
+        img src='holder.js/180x45?auto=yes'
+      .content
+        .item
+          .title
+            | Suspendisse molestie vel
+            span Phasellus viverra
+          p: a href='#' Nulla maximus congue dolor sed vestibulum
+        .item
+          .title
+            | Aenean ac bibendum
+            span Commodo vitae
+          p: a href='#' Donec blandit diam a neque aliquet
+        .item
+          .title
+            | Curabitur ex nibh
+            span Lectus tellus
+          p: a href='#' Quisque facilisis mauris eget tortor consectetur vulputate
+    li
+      .image
+        img src='holder.js/180x45?auto=yes'
+      .content
+        .item
+          .title
+            | In rhoncus orci et ex fermentum
+            span Euismod diam
+          p: a href='#' Vivamus eu aliquet sapien, non fringilla enim. Ut scelerisque nulla.
+    li
+      .image
+        img src='holder.js/180x45?auto=yes'
+      .content
+        .item
+          .title
+            | Suspendisse molestie
+            span vel Sapien at posuere
+          p: a href='#' Phasellus viverra mollis massa ut eleifend. Nulla maximus congue dolor sed.
+```
+
+## Press Contact
+```slim_example
+.mod-press-contact
+  .content
+    .button.i-download href='#'
+      | Aliquam nisl
+    p Morbi quis dui consequat, consectetur massa nec
+    p
+      | <strong>Aenean gravida </strong>
+      a.action href='#'
+        | Suspendisse sed sem
+```
+*/
+// scss-lint:enable all
+
+$press-card-border-color:       $neutral-5;
+$press-card-background-color:   $neutral-8;
+$press-card-color:              $neutral-2;
+
+$press-tabs-link-color:         $neutral-4;
+$press-tabs-active-link-color:  $neutral-2;
+$press-tabs-border-color:       $neutral-5;
+
+$press-list-image-border-color: $neutral-5;
+$press-list-title-color:        $neutral-2;
+$press-list-title-date-color:   $neutral-4;
+$press-list-text-color:         $neutral-2;
+
+$press-cards-sections-margin:   ru(3);
+$press-cards-image-width:       rem-calc(192px);
+
+$press-contact-button-width:    rem-calc(192px);
+
+.mod-press-cards {
+  @include arrange-in-block-grid($per-row: 2);
+  font-family: $font-family-sans-serif;
+  margin-bottom: $press-cards-sections-margin;
+
+  .card {
+    position: relative;
+    min-height: ru(11.5);
+    padding: ru(.5);
+    border: 1px solid $press-card-border-color;
+    border-bottom-width: 4px;
+    border-radius: ru(.25);
+    background-color: $press-card-background-color;
+    text-align: center;
+    text-decoration: none;
+
+
+    p {
+      @include typography-5;
+      font-weight: 400;
+      color: $press-card-color;
+    }
+
+    img {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      max-width: 100%;
+    }
+  }
+
+  @media #{$large-up} {
+    @include arrange-in-block-grid($per-row: 3);
+    margin-top: $press-cards-sections-margin;
+  }
+
+  // This needs to go in the end
+
+  @media #{$medium-up} {
+    margin-top: $press-cards-sections-margin;
+  }
+}
+
+.mod-press-tabs {
+  font-family: $font-family-sans-serif;
+
+  ul {
+    margin: 0;
+    margin-bottom: $press-cards-sections-margin;
+    padding: 0;
+    list-style: none;
+  }
+
+  li {
+    @include typography-4;
+    display: inline-block;
+    vertical-align: middle;
+    font-weight: 400;
+    margin: 0;
+
+    a {
+      display: inline-block;
+      padding: ru(.167) ru(.667);
+      color: $press-tabs-link-color;
+      text-decoration: none;
+    }
+
+    &.active {
+      font-weight: 700;
+      a { color: $press-tabs-active-link-color; }
+    }
+
+    &:first-child {
+      a { padding-left: 0; }
+    }
+
+    + li {
+      border-left: 1px solid $press-tabs-border-color;
+    }
+  }
+
+  @media #{$small-only} {
+    text-align: center;
+
+    ul {
+      margin-bottom: ru(1);
+    }
+  }
+}
+
+.mod-press-list {
+  font-family: $font-family-sans-serif;
+
+  ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  li {
+    display: flex;
+    align-items: flex-start;
+    + li { margin-top: ru(1); }
+  }
+
+  .image {
+    flex-basis: $press-cards-image-width;
+    min-width: $press-cards-image-width;
+    max-width: $press-cards-image-width;
+    border: 1px solid $press-list-image-border-color;
+    border-radius: ru(.25);
+    padding: ru(.33);
+    text-align: center;
+
+    &.placeholder {
+      border: 0;
+    }
+
+    img {
+      display: inline-block;
+      vertical-align: top;
+      max-width: 100%;
+      margin: 0;
+    }
+  }
+
+  .content {
+    margin-left: ru(.75);
+  }
+
+  .item {
+    margin-bottom: ru(1);
+
+    .title {
+      font-size: rem-calc(11px);
+
+      h5 {
+        display: inline;
+        font-weight: 700;
+        color: $press-list-title-color;
+        text-transform: uppercase;
+      }
+
+      span {
+        font-weight: 400;
+        margin-left: ru(.25);
+        color: $press-list-title-date-color;
+      }
+    }
+
+    p {
+      @include typography-6;
+      font-weight: 400;
+      color: $press-list-text-color;
+      margin: 0;
+    }
+
+    a {
+      text-decoration: none;
+      color: $press-list-text-color;
+    }
+  }
+
+  @media #{$small-only} {
+    li {
+      flex-direction: column;
+      text-align: center;
+    }
+
+    .image {
+      flex: 0 0;
+      margin-bottom: ru(.25);
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .content {
+      margin: auto;
+    }
+  }
+}
+
+.mod-press-contact {
+  font-family: $sans-serif;
+  text-align: left;
+
+  p {
+    @extend .typography-7;
+    margin-bottom: ru(.5);
+  }
+
+  strong { font-weight: bold; }
+
+  .content {
+    .button {
+      @extend .typography-4;
+      width: $press-contact-button-width;
+      font-weight: normal;
+      margin-bottom: ru(.5);
+    }
+  }
+
+  @media #{$small-only} {
+    text-align: center;
+  }
+}

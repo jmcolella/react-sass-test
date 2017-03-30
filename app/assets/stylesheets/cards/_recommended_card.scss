@@ -1,0 +1,182 @@
+// scss-lint:disable all
+/*doc
+---
+title: Recommended Card
+name: recommended-card
+category: Cards - Recommended Card
+---
+```slim_example
+.mod-recommended-card style='max-width: 360px;'
+  h5 Proin aliquam tortor
+  .selectbox
+    select
+      optgroup label='In rhoncus orci et ex fermentum'
+        option $100,000
+      optgroup label='Pellentesque'
+        option $100,000
+        option $100,000
+        option $100,000
+  .footer Suspendisse molestie vel
+.mod-recommended-card style='max-width: 360px;'
+  h5 Nunc mattis molestie
+  .selectbox
+    select
+      optgroup label='PolicyGenius recommends'
+        option 10 dolor
+      optgroup label='Pellentesque'
+        option 10 dolor
+        option 10 dolor
+        option 10 dolor
+  .footer Phasellus tellus augue
+```
+
+```slim_example
+.mod-recommended-card.featured style='max-width: 360px;'
+  .header
+    img src='images/pg-logo-dark.svg'
+    span scelerisque
+  .selectbox
+    select
+      optgroup label='Suspendisse molestie'
+        option $100,000
+      optgroup label='Proin pharetra'
+        option $100,000
+        option $100,000
+        option $100,000
+  .footer
+    a href='#' Suspendisse sed sem sagittis
+```
+
+```js_example
+$('.mod-recommended-card').not('.featured').find('.selectbox').on('click', function() {
+  $(this).addClass('active');
+});
+
+$('.mod-recommended-card').not('.featured').find('select').on('change', function() {
+  $(this).parent().removeClass('active');
+});
+```
+*/
+// scss-lint:enable all
+
+$recommended-card-border-color:          $neutral-5;
+$recommended-card-background-color:      $neutral-8;
+$recommended-card-color:                 $neutral-2;
+$recommended-card-value-color:           $brand-2;
+$recommended-card-link-background-color: $neutral-6;
+
+.mod-recommended-card {
+  padding: ru(1);
+  background-color: $recommended-card-background-color;
+  border: 1px solid $recommended-card-border-color;
+  border-bottom-width: ru(.125);
+  border-radius: ru(.25);
+  margin: 0 ru(.33) ru(1) 0;
+  margin-bottom: ru(1);
+  overflow: hidden;
+  color: $recommended-card-color;
+
+  h5 {
+    @include typography-6;
+    font-weight: 700;
+    margin-top: ru(-.5);
+    color: inherit;
+  }
+
+  .selectbox {
+    display: block;
+    margin: ru(-.5) ru(-1) ru(.75);
+    padding-top: ru(.25);
+    height: auto;
+    border: 0;
+    border-radius: 0;
+    line-height: 1;
+    transition: none;
+
+    &.active {
+      border-top: 1px solid $recommended-card-border-color;
+      padding-top: 0;
+      margin-top: -1px;
+      margin-bottom: ru(.5);
+
+      select {
+        pointer-events: all;
+      }
+
+      &:after {
+        margin-top: ru(.25);
+        opacity: 1;
+      }
+    }
+
+    select {
+      @include typography-3;
+      color: $recommended-card-value-color;
+      margin: ru(.5) 0 0;
+      padding: 0 ru(2) 0 ru(1);
+      pointer-events: none;
+    }
+
+    &:after {
+      opacity: 0;
+      right: ru(.667);
+    }
+  }
+
+  .value {
+    @include typography-3;
+    color: $recommended-card-value-color;
+  }
+
+  .footer {
+    @include typography-7;
+    padding: ru(.25) ru(1);
+    margin: 0 ru(-1) ru(-1);
+    border-top: 1px solid $recommended-card-border-color;
+    background-color: $recommended-card-link-background-color;
+  }
+
+  &.featured {
+    padding: 0;
+
+    .header {
+      @include typography-6;
+      display: flex;
+      align-items: center;
+      margin: 0;
+      padding: ru(.5) ru(1) 0;
+      color: inherit;
+
+      img {
+        width: ru(4);
+        margin-right: ru(.25);
+      }
+
+      span {
+        @include typography-6;
+        font-weight: 400;
+        margin: 0 0 ru(.125);
+      }
+    }
+
+    .selectbox {
+      margin: ru(.25) 0 ru(.33);
+      padding: 0;
+
+      select {
+        margin: 0;
+        padding: 0 ru(2) 0 ru(1);
+        pointer-events: all;
+      }
+
+      &:after {
+        opacity: 1;
+        right: ru(1);
+      }
+    }
+
+    .footer {
+      margin: 0;
+    }
+  }
+}

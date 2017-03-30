@@ -1,0 +1,185 @@
+/*doc
+---
+title: Learn Company About
+name: learn-company-about
+category: Pages - Learn Company About
+---
+```slim_example
+.mod-learning-center.layout-learning-center
+  .layout-header style='background-image: url(https://d3auu7e972pryf.cloudfront.net/images/Hero_Family_Final-dcc0e76f2c.jpg)'
+    .layout-container
+      h4 Subheader text
+      h1 Header Text
+
+  .layout-main
+    .layout-content
+      .layout-section
+        h3 About
+        img src='holder.js/120x80?auto=yes'
+        p The Blue Cross Blue Shield Association is a federation of thirty-six health insurance organizations and companies. The traces of the Association go back to 1929, with the founding of Blue Cross. Blue Cross became an association in 1960 and merged with the Blue Shield Association in 1982, forming one of the largest health insurance providers in the United States.
+        a href='#' See our comprehensive BCBS review here
+        hr
+        h3#network-providers Network Providers
+        .two-columns
+          .mod-image-aside
+            aside
+              a.info href='#' New York-Presbyterian Hospital
+          .mod-image-aside
+            aside
+              a.info href='#' California Pacific Medical Center
+      .layout-section
+        h3 Essential Benefits
+        p Every health insurance plan is required to provide essential benefits, as defined by the Affordable Care Act. These essential benefits fall into ten categories of services:
+        .mod-image-aside
+          img src='holder.js/60x60?auto=yes'
+          aside
+            p
+              strong Ambulatory patient services
+              | &nbsp;(a.k.a. outpatient care that you can receive without being admitted to a hospital)
+            p
+              strong Emergency services
+        .mod-image-aside
+          img src='holder.js/60x60?auto=yes'
+          aside
+            p
+              strong Ambulatory patient services
+              | &nbsp;(a.k.a. outpatient care that you can receive without being admitted to a hospital)
+            p
+              strong Emergency services
+        .mod-image-aside
+          img src='holder.js/60x60?auto=yes'
+          aside
+            p
+              strong Ambulatory patient services
+              | &nbsp;(a.k.a. outpatient care that you can receive without being admitted to a hospital)
+            p
+              strong Emergency services
+        .mod-image-aside
+          img src='holder.js/60x60?auto=yes'
+          aside
+            p
+              strong Ambulatory patient services
+              | &nbsp;(a.k.a. outpatient care that you can receive without being admitted to a hospital)
+            p
+              strong Emergency services
+        .mod-image-aside
+          img src='holder.js/60x60?auto=yes'
+          aside
+            p
+              strong Ambulatory patient services
+              | &nbsp;(a.k.a. outpatient care that you can receive without being admitted to a hospital)
+            p
+              strong Emergency services
+        .mod-image-aside
+          img src='holder.js/60x60?auto=yes'
+          aside
+            p
+              strong Ambulatory patient services
+              | &nbsp;(a.k.a. outpatient care that you can receive without being admitted to a hospital)
+            p
+              strong Emergency services
+        p The specific services offered within those categories may vary from state to state, but these categories represent the minimum that all health insurance plans are required to cover. No matter where you purchase your health insurance plan from – federal, state, or private marketplace – it must cover these ten essential benefits. Plans may choose to cover additional services. State, federal, and private exchanges will give you the full list of the exact services each plan covers before you apply.
+      .layout-section
+        h3 Contact Information
+        ul.mod-simple-list.two-columns.unstyled
+          li
+            strong URL
+            p
+              a href='#' www.bcbs.com
+          li
+            strong Phone
+            p 1-888-630-2583 (Purchasing advice)
+          li
+            strong Chicago
+            p 225 North Michican Avenue Chicago, IL 60601
+          li
+            strong Washington, D.C.
+            p 1310 G Street, N.W Washington, DC 20005
+      .layout-section style='background-color: inherit; border: 0'
+        h3 BCBS Commercials
+        img src='holder.js/640x360?auto=yes'
+        img src='holder.js/640x360?auto=yes'
+        .spacer-m
+        .mod-ad-unit
+          .content.align-left style='background-image: url(images/career-board-hero-image.jpg)'
+            h3 Making health insurance painless
+            a.button.action href='#' Learning Center
+        .spacer-m
+        .mod-rating-index
+          h3 Other Health Insurance Companies
+          .cards.three-per-row
+            a.mod-card.rating href='#'
+              p United
+              .content
+                .i-star.active
+                .i-star.active
+                .i-star.active
+                .i-star.active
+                .i-star
+            a.mod-card.rating href='#'
+              p Humana
+              .content
+                .i-star.active
+                .i-star.active
+                .i-star.active
+                .i-star.active
+                .i-star
+            a.mod-card.rating href='#'
+              p Oscar
+              .content
+                .i-star.active
+                .i-star.active
+                .i-star.active
+                .i-star.active
+                .i-star
+            a.mod-card.rating href='#'
+              p Blue Cross Blue Shield
+              .content
+                .i-star.active
+                .i-star.active
+                .i-star.active
+                .i-star.active
+                .i-star
+            a.mod-card.rating href='#'
+              p AETNA
+              .content
+                .i-star.active
+                .i-star.active
+                .i-star.active
+                .i-star.active
+                .i-star
+            a.mod-card.rating href='#'
+              p Kaiser
+              .content
+                .i-star.active
+                .i-star.active
+                .i-star.active
+                .i-star.active
+                .i-star
+    .layout-sidebar.tabbed
+      .sidebar-tabs
+        a.active href='#'  About
+        a href='#'  Review
+      .search-bar
+        .spacer-m
+        form.mod-search-box.mini
+          input placeholder=('e.g. What is life insurance?') type='text' /
+      ul.sidebar-nav
+        li
+          strong About Blue Cross Blue Shield
+        li
+          a.active href='#'  About
+        li
+          a href='#'  Network providers
+        li
+          a href='#'  Essential Benefits
+        li
+          a href='#'  Special Features
+        li
+          a href='#'  Prescriptions Coverage
+        li
+          a href='#'  Application & Claims
+        li
+          a href='#'  Contact Information
+```
+*/

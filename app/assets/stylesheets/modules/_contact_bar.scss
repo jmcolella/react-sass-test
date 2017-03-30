@@ -1,0 +1,180 @@
+// scss-lint:disable all
+/*doc
+---
+title: Contact Bar
+name: contact_bar
+category: Modules - Contact Bar
+---
+## Base Examples
+```slim_example_table
+.mod-contact-bar style='max-width: 400px'
+  .image
+    img src='images/agent.png'
+  .stacked-buttons
+    a.button.i-phone href='#'
+      | (000) 000-0000
+    a.button.i-chat href='#' Maecenas ullamcorper turpis
+```
+## Wide Example
+```slim_example
+.mod-contact-bar.wide
+  img src='images/roberta.png'
+  .content
+    h5 Maecenas ullamcorper turpis quis
+    p
+      ' Vivamus faucibus lacus et purus fringilla, sit amet
+      strong placerat mi tempus
+  .actions
+    p
+      ' Etiam malesuada
+      a href='tel:0-000-000-0000' 0-000-000-0000
+    a.button.mini.i-chat.outline href='#' Mauris pharetra augue
+```
+*/
+// scss-lint:enable all
+
+$contact-bar-border-color:                $neutral-5;
+$contact-bar-background-color:            $neutral-8;
+$contact-bar-border-radius:               rem-calc(5px);
+
+$contact-bar-wide-border-color:           $neutral-5;
+$contact-bar-wide-background-color:       $neutral-6;
+$contact-bar-wide-button-color:           $neutral-2;
+$contact-bar-wide-button-hover-color:     $neutral-8;
+
+.mod-contact-bar {
+  display: flex;
+  border: 1px solid $contact-bar-border-color;
+  border-radius: ru(.25);
+
+  .image {
+    position: relative;
+    flex: 0 1 35%;
+    min-width: ru(3.25);
+    max-width: ru(4);
+    border-right: 1px solid $contact-bar-border-color;
+
+    img {
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      height: 110%;
+    }
+  }
+
+  .content {
+    flex: 1 1 auto;
+    padding-left: ru(2);
+    padding-right: ru(2);
+
+    p {
+      margin-bottom: 0;
+    }
+  }
+
+  // This .stacked-buttons sub-component styling is a special case where it's okay for the module to override
+  // some of the component styling since it doesn't make sense to have an extra variant
+  // for the stacked-buttons component.
+
+  .stacked-buttons {
+    flex: 1 0;
+    border-radius: 0 $contact-bar-border-radius $contact-bar-border-radius 0;
+
+    .button {
+      border: 0;
+      border-top: 1px solid $contact-bar-border-color;
+
+      // scss-lint:disable ImportantRule
+      border-radius: 0 !important;
+      // scss-lint:enable ImportantRule
+
+      &:first-of-type {
+        border-top: 0;
+      }
+    }
+  }
+
+  .actions {
+    flex: 0 1 ru(14);
+    text-align: center;
+
+    p {
+      margin-bottom: ru(.5);
+    }
+
+    a {
+      color: inherit;
+    }
+  }
+
+  &.wide {
+    align-items: center;
+    padding: ru(1);
+    border-color: $contact-bar-wide-border-color;
+    background-color: $contact-bar-wide-background-color;
+    color: $main-font-color;
+
+    img {
+      flex: 0 1 auto;
+      margin: ru(-1) 0;
+      height: rem-calc(128px);
+    }
+
+    h5 {
+      @include typography-5;
+      font-weight: 600;
+      margin: 0 0 ru(.25);
+      color: inherit;
+    }
+
+    p {
+      @include typography-6(false);
+      color: inherit;
+    }
+
+    strong {
+      font-weight: 600;
+    }
+  }
+
+  @media #{$small-only} {
+    .image {
+      flex: 0 1 ru(4);
+
+      img {
+        height: auto;
+      }
+    }
+
+    .actions,
+    .content {
+      margin-top: ru(1);
+    }
+
+    &.wide {
+      flex-direction: column;
+      padding: ru(.75);
+      text-align: center;
+
+      > * {
+        flex: 0 1 auto;
+      }
+
+      img {
+        margin: 0;
+      }
+
+      .content {
+        padding: 0;
+      }
+    }
+  }
+
+  @media #{$large-up} {
+    .image {
+      background-color: $contact-bar-background-color;
+      border-radius: $contact-bar-border-radius 0 0 $contact-bar-border-radius;
+    }
+  }
+}

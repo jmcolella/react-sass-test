@@ -1,0 +1,91 @@
+// scss-lint:disable all
+/*doc
+---
+title: Progress Bar
+name: progress-bar
+category: Modules - Progress Bar
+---
+```slim_example_table
+.mod-progress-bar
+  .header
+    h4 Aenean ac bibendum nisi
+    em Phasellus in laoreet quam
+  .bar
+    .progress style='width: 60%'
+
+css:
+  .mod-progress-bar { width: 600px; }
+```
+
+## Simple JS Example
+
+```slim_example_table
+.mod-example
+  button.button.action data-toggle-sticky-progress-bar='' Curabitur ex nibh
+```
+
+```js_example
+$('[data-toggle-sticky-progress-bar]').on('click', function() {
+  $('.mod-progress-bar').toggleClass('sticky');
+});
+```
+*/
+// scss-lint:enable all
+
+$progress-bar-border-color:         $neutral-5;
+$progress-bar-background-color:     $neutral-8;
+$progress-bar-header-color:         $neutral-1;
+$progress-bar-time-color:           $neutral-3;
+$progress-bar-bar-background-color: $neutral-5;
+$progress-bar-progress-start-color: $brand-3;
+$progress-bar-progress-stop-color:  $brand-1;
+
+.mod-progress-bar {
+  border: 1px solid $progress-bar-border-color;
+  border-bottom-width: 4px;
+  border-radius: ru(.25);
+  background-color: $progress-bar-background-color;
+  margin-bottom: ru(1);
+
+  .header {
+    display: flex;
+    border-bottom: 1px solid $progress-bar-border-color;
+    padding: ru(.5) ru(.75);
+
+    h4 {
+      @include typography-6;
+      font-weight: 600;
+      margin: 0;
+      color: $progress-bar-header-color;
+    }
+
+    em {
+      @include typography-7;
+      font-weight: 400;
+      font-style: italic;
+      color: $progress-bar-time-color;
+      margin: 0 0 0 auto;
+    }
+  }
+
+  .bar {
+    height: ru(.5);
+    margin: ru(1) ru(.75);
+    border-radius: ru(.25);
+    background-color: $progress-bar-bar-background-color;
+    overflow: hidden;
+  }
+
+  .progress {
+    @include linear-gradient(to right, $progress-bar-progress-start-color, $progress-bar-progress-stop-color);
+    height: ru(.5);
+  }
+
+  &.sticky {
+    position: fixed;
+    z-index: 10;
+    top: 0;
+    border-top: 0;
+    border-radius: 0 0 ru(.25) ru(.25);
+  }
+}

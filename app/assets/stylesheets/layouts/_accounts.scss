@@ -1,0 +1,202 @@
+// scss-lint:disable all
+/*doc
+---
+title: Accounts
+name: accounts
+category: Layouts - Accounts
+---
+## Sign In
+```slim_example
+.layout-center-vertical-align
+  .mod-example.layout-accounts
+    .body
+      .intro
+        h1 Nam metus massa
+        p Phasellus id nulla convallis, faucibus magna sit amet, tempus arcu. Nunc ornare ornare nunc.
+      .form
+        .textfield
+          .field
+            label for='email' Your email
+            input type='email' id='email' placeholder='customer@gmail.com'
+        .mod-two-fields
+          .field
+            label for='password1' Password
+            div
+              input type='password' id='password1' placeholder='Minimum 8 characters'
+          .field
+            label for='password2' Confirm Password
+            div
+              input type='password' id='password2' placeholder='Minimum 8 characters'
+        button.button.action.full-width type='submit' Sed non diam id purus placerat
+        .actions
+          a.action href='#' Donec lobortis dui eget
+          a.action href='#' Mauris tristique efficitur enim
+
+css:
+  .layout-center-vertical-align {
+    background: #FBFBFB;
+    min-height: 640px;
+  }
+```
+
+## Registration
+```slim_example
+.layout-accounts
+  .layout-center-vertical-align
+    .mod-example.layout-accounts
+      .body
+        .intro.wider
+          h1 Pellentesque habitant morbi
+          p: strong Nullam mollis turpis
+          ul
+            li Fusce vitae turpis quis mauris
+            li Nunc tincidunt velit laoreet nulla
+            li Ut sit amet nunc nec risus
+        .form
+          .mod-two-fields
+            .field
+              label for='first_name' First name
+              div
+                input type='text' id='first_name' placeholder='Enter your fisrt name'
+            .field
+              label for='last_name' Last name
+              div
+                input type='text' id='last_name' placeholder='Enter your last name'
+          .textfield
+            .field
+              label for='email' Your email
+              input type='email' id='email' placeholder='customer@gmail.com'
+          .mod-two-fields
+            .field
+              label for='password3' Password
+              div
+                input type='password' id='password3' placeholder='Minimum 8 characters'
+            .field
+              label for='password4' Confirm Password
+              div
+                input type='password' id='password4' placeholder='Minimum 8 characters'
+          button.button.action.full-width type='submit' Create your account
+          .actions
+            span Nam metus massa&#32;
+            a.action href='#' Sed lobortis
+
+css:
+  .layout-center-vertical-align {
+    background: #FBFBFB;
+    min-height: 640px;
+  }
+*/
+// scss-lint:enable all
+
+.layout-accounts {
+  background-color: $neutral-7;
+  flex: 1 1;
+
+  .body {
+    display: flex;
+    align-items: flex-start;
+    margin: 0 auto;
+    max-width: ru(35);
+
+    > * {
+      flex: 1 1;
+    }
+
+    strong {
+      font-weight: 600;
+    }
+
+    .intro {
+      flex-basis: 40%;
+
+      h1 {
+        @include like-h1;
+        margin: 0 0 ru(.5);
+        color: $neutral-2;
+      }
+
+      p {
+        color: $neutral-2;
+
+        + ul {
+          margin-top: ru(-.5);
+        }
+      }
+
+      ul {
+        margin: 0;
+        padding: 0 0 0 ru(1);
+        list-style: disc;
+      }
+
+      &.wider {
+        flex-basis: 42%;
+
+        h1 {
+          margin-bottom: ru(1.25);
+        }
+      }
+    }
+
+    .form {
+      flex-basis: 60%;
+
+      h2 {
+        @include like-h2;
+        margin: 0 0 ru(.5);
+      }
+    }
+
+    .actions {
+      margin-top: ru(.5);
+      text-align: center;
+
+      a + a {
+        margin-left: ru(.75);
+      }
+    }
+
+    @media #{$small-only} {
+      display: block;
+      padding: ru(.75);
+
+      > * {
+        width: 100%;
+      }
+
+      .intro {
+        margin-bottom: ru(1);
+
+        h1 {
+          @include like-h2;
+          margin: 0 0 ru(.5);
+        }
+      }
+
+      .actions {
+        a {
+          width: 100%;
+
+          + a {
+            margin-left: 0;
+            margin-top: ru(.25);
+          }
+        }
+      }
+    }
+
+    @media #{$medium-up} {
+      .intro {
+        padding-right: ru(3);
+      }
+    }
+
+    @media #{$large-up} {
+      .intro {
+        padding-right: ru(4.5);
+
+        &.wider { padding-right: ru(1); }
+      }
+    }
+  }
+}

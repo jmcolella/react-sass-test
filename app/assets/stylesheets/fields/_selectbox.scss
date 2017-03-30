@@ -1,0 +1,142 @@
+// scss-lint:disable all
+/*doc
+---
+title: Selectbox
+name: selectbox
+category: Fields - Select Box
+---
+## Selectbox
+```slim_example_table
+.mod-example
+  .selectbox
+    select
+      option Nam metus massa
+      option Pellentesque habitant
+      option Sed non diam id purus placerat
+```
+
+## Selectbox with placeholder text
+```slim_example_table
+.mod-example
+  .selectbox
+    select
+      option value='' Phasellus nisi est
+      option value='1' Vestibulum ante
+      option value='2' Sed iaculis ante
+      option value='3' Donec lobortis dui eget lectus
+```
+
+## Focus state
+```slim_example_table
+.mod-example
+  .selectbox.focused
+    select
+      option Nam metus massa
+      option Pellentesque habitant
+      option Nullam mollis turpis eget mattis
+```
+
+## No-border verison
+```slim_example_table
+.mod-example style='background: #00A4A5; padding: 24px;'
+  .selectbox.no-border
+    select
+      option Nam metus massa
+      option Pellentesque habitant
+      option Nullam mollis turpis eget mattis
+```
+
+```js_example
+$(function() {
+  $('select option').each(function() {
+    var $this = $(this),
+        $select = $this.parent();
+
+    if ($this.index() == 0 && $this.val() == '') {
+      $select.addClass('placeholder');
+    }
+  });
+
+  $('select').on('change', function() {
+    var $this = $(this);
+    if ($this.val()) {
+      $this.removeClass('placeholder');
+    } else {
+      $this.addClass('placeholder');
+    }
+  });
+});
+```
+*/
+// scss-lint:enable all
+
+$selectbox-border-color:      $neutral-5;
+$selectbox-background-color:  $neutral-8;
+$selectbox-arrow-color:       $neutral-2;
+$selectbox-text-color:        $neutral-1;
+$selectbox-placeholder-color: $neutral-3;
+
+$selectbox-focused-border-color:     $brand-3;
+$selectbox-focused-background-color: $brand-6;
+
+%selectbox-arrow {
+  width: 0;
+  height: 0;
+  border-left: ru(.25) solid transparent;
+  border-right: ru(.25) solid transparent;
+  border-top: ru(.25) solid $selectbox-arrow-color;
+}
+
+[class^='mod-'] {
+  @extend %reset;
+
+  .selectbox {
+    position: relative;
+    display: inline-block;
+    height: ru(2);
+    border: 1px solid $selectbox-border-color;
+    border-radius: ru(.25);
+    line-height: ru(2);
+    background-color: $selectbox-background-color;
+    transition: border-color 500ms ease, background-color 500ms ease;
+
+    &.focused {
+      border-color: $selectbox-focused-border-color;
+      background-color: $selectbox-focused-background-color;
+    }
+
+    select {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      border: 0;
+      padding: 0 ru(1.5) 0 ru(.5);
+      background: transparent;
+      font-family: $sans-serif;
+      font-weight: normal;
+      line-height: ru(1);
+      margin: 0;
+      -moz-appearance: none;
+      color: $selectbox-text-color;
+
+      &.placeholder {
+        color: $selectbox-placeholder-color;
+      }
+    }
+
+    &:after {
+      @extend %selectbox-arrow;
+      content: '';
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      right: ru(.5);
+      z-index: 0;
+    }
+
+    @media #{$medium-up-to-xxlarge} {
+      height: ru(1.84);
+      line-height: ru(1.84);
+    }
+  }
+}

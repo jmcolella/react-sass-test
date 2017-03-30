@@ -1,0 +1,1384 @@
+// scss-lint:disable all
+/*doc
+---
+title: Card
+name: card
+category: Cards - Card
+---
+## Simple Card
+```slim_example_table
+.mod-card
+  .header
+    h2.value <sup>$</sup>10 - <sup>$</sup>10 <small>lectus</small>
+  .content
+    .multiple
+      .feature
+        h4 Phasellus
+        p $100,000
+      .feature
+        h4 Quam
+        p Aliquam nisl
+    a.button.action href='#' Suspendisse sed sem sagittis
+```
+
+## Card with no action
+```slim_example_table
+.mod-card.no-action
+  .header
+    h2.value <sup>$</sup>10 - <sup>$</sup>10 <small>pretium</small>
+  .content
+    .multiple
+      .feature
+        h4 Tincidunt
+        p $100,000
+      .feature
+        h4 Vivamus
+        p Leo fringilla
+```
+
+## Card with simple plain text header
+```slim_example_table
+.mod-card.no-action
+  .header
+    h3 Suspendisse molestie vel sapien at posuere
+  .content
+    .feature
+      img src='holder.js/240x60?auto=yes'
+    .multiple
+      .feature
+        h4 Suspendisse
+        p $100,000
+      .feature
+        h4 Aliquam
+        p Vivamus
+```
+
+## Card with Logo
+```slim_example_table
+.mod-card
+  .header
+    h2.value <sup>$</sup>100<sup>.00</sup> <small>maximus</small>
+  .content
+    .feature
+      img src='holder.js/240x60?auto=yes'
+    .multiple
+      .feature
+        h4 Consequat
+        p $100,000
+      .feature
+        h4 Turpis
+        p Imperdiet
+    .feature
+      h4 Viverra tincidunt
+      p Vivamus dictum justo a venenatis
+```
+
+## Another Card option
+```slim_example_table
+.mod-card
+  .header.tall
+    h2 Suspendisse molestie vel sapien
+  .content
+    .feature
+      h4 Nulla maximus congue
+      p.value
+        strong $10 - $10 <small>vulputate</small>
+    .multiple
+      .feature
+        h4 Pharetra
+        p $100,000
+      .feature
+        h4 Pretium
+        p Imperdiet
+    a.button.action href='#' Phasellus tellus
+```
+
+## Card with columns in header
+```slim_example_table
+.mod-card.highlighted
+  .header
+    .multiple
+      .section
+        h2.value <sup>$</sup>100 <small>maximus</small>
+      .section.purchased
+        p Vivamus dictum<br>justo<strong>venenatis</strong>
+  .content
+    .feature
+      img src='holder.js/240x60?auto=yes'
+    .multiple
+      .feature
+        h4 Phasellus
+        p $100,000
+      .feature
+        h4 Luctus
+        p Bibendum
+    .feature
+      h4 Phasellus luctus
+      p 00000000000
+    .feature
+      h4 Etiam malesuada
+      p Nullam metus velit, efficitur commodo
+```
+
+## Minimalistic Card
+```slim_example_table
+.mod-card.highlighted
+  .header
+    h2 Life Fusce euismod
+  .content
+    .feature.emphasized Suspendisse molestie vel sapien
+    a.button.action href='#' Vivamus ultricies augue
+```
+
+## Card with Details link in header
+```slim_example_table
+.mod-card
+  .header
+    .multiple
+      .section
+        h2.value <sup>$</sup>100 <small>viverra</small>
+      .section.details
+        a href='#'
+          span.plus +
+          span SUSCIPIT
+  .content.compact
+    .feature
+      img src='holder.js/240x60?auto=yes'
+      a.soft href='#' Phasellus tellus augue
+    .feature.ratings
+      h4 Maecenas
+      p <strong>A+</strong> Vivamus dictum
+      p <strong>A+</strong> Proin et ultrices neque
+      a.soft href='#' Fusce id egestas
+    .more-content
+      .multiple
+        .feature
+          h4 Elementum
+          p $100,000
+        .feature
+          h4 Nisi
+          p Phasellus
+      .feature
+        h4 Convallis
+        p Fusce id egestas metus
+      .feature
+        h4 Bibendum
+        p Etiam malesuada
+    a.button.action.lowlight href='#' Nullam metus
+```
+
+## Highlighted Card with Details link in header
+```slim_example_table
+.mod-card.highlighted
+  .header
+    .multiple
+      .section
+        h2.value <sup>$</sup>100 <small>sagittis</small>
+      .section.details
+        a href='#'
+          span.plus +
+          span IACULIS
+  .content.compact
+    .feature
+      img src='holder.js/240x60?auto=yes'
+      a.soft href='#' Aenean ac bibendum
+    .feature.
+      h4 Placerat
+      p <strong>A+</strong> Habitasse
+      p <strong>A+</strong> Vel volutpat turpis
+      a.soft href='#' Aenean in lacus
+    a.button.action href='#' Suspendisse erat
+```
+
+## Card with Double Header
+```slim_example_table
+.mod-card
+  .header.double
+    h2 In rhoncus orci
+    p Vivamus eu aliquet sapien, non
+  .content
+    .feature
+      h4 Pellentesque
+      p.value
+        strong $10 <small>tincidunt</small>
+    a.button.action href='#' Vivamus ultricies augue
+```
+
+## Card with Double Line Header
+```slim_example_table
+.mod-card
+  .caption Most Popular
+  .header.double
+    h2 Phasellus nisi est
+    p Sed lobortis et quam at rhoncus
+  .content
+    .feature
+      h4 Ultrices
+      p.value
+        strong $10 <small>posuere</small>
+    a.button.action href='#' Mauris tristique efficitur
+```
+
+## Card with Carrier Logo
+```slim_example_table
+.mod-card.navigator
+  .header
+    h2.value <sup>$</sup>10 <small>posuere</small>
+  .content
+    .feature.emphasized
+      img src='holder.js/200x60?auto=yes'
+    .feature
+      h4 Phasellus tellus augue
+      p.narrow Vivamus dictum justo a venenatis pulvinar
+    .feature.price
+      h4 Phasellus luctus elementum
+      p.value
+        strong $10 - $10 <small>posuere</small>
+    img.figure src='holder.js/256x203?auto=yes'
+```
+
+## With Image
+```slim_example_table
+.mod-card.drawing
+  .header.tall
+    h2 Maecenas ullamcorper turpis
+  .content
+    img src='images/Jumping_Woman.png'
+    .multiple
+      .feature
+        h4 Maecenas
+        p $100,000
+      .feature
+        h4 Fusce
+        p Sollicitudin
+    a.button.action href='#' Consectetur
+```
+
+## Card with Progress Indicator
+```slim_example_table
+.mod-card
+  .header
+    h2.value
+      sup $
+      | 10&ndash;
+      sup $
+      | 10
+      small
+        | posuere
+  .progress style='width: 65%;'
+  .content
+    .feature
+      h4 Suspendisse id felis
+      p.narrow Nunc mattis diam libero, vitae dapibus ex
+    img.figure src='holder.js/256x203?auto=yes'
+```
+
+## Quote Summary Card
+```slim_example_table
+.mod-card.quote-summary
+  .header
+    h2 Mauris ex mauris
+  .content
+    .feature
+      p 2016 Nam et consequat urna
+      .actions
+        a href='#' ipsum
+        a href='#' purus
+    .feature
+      p Suspendisse id felis
+      .actions
+        a href='#' ipsum
+        a href='#' purus
+```
+
+## Discount Card
+```slim_example_table
+.mod-card.discount
+  .header
+    h2
+      | 10
+      small Curabitur efficitur
+  .content
+    .feature
+      img src='holder.js/60x25?auto=yes'
+      | Viverra
+    .feature
+      img src='holder.js/60x25?auto=yes'
+      | Nulla facilisi
+    .feature
+      img src='holder.js/60x25?auto=yes'
+      | LEO
+    .feature
+      img src='holder.js/60x25?auto=yes'
+      | Pellentesque
+    .feature
+      a href='#' Quisque eget ullamcorper
+```
+
+## Rating Card
+```slim_example_table
+.mod-card.rating
+  .com-rating.compact.align-left
+    .heading Fusce
+    .stars
+      .i-star.active
+      .i-star.active
+      .i-star.active
+      .i-star
+      .i-star
+```
+
+## Marketing Card
+```slim_example_table
+.mod-card.marketing-card
+  .header
+    h2 Convallis
+    i.icon-comments
+  .content
+    .feature
+      h3 Quisque eget ullamcorper
+      h4 Pellentesque ornare
+      p.desc
+       | Cras egestas neque non massa porta, molestie ornare ipsum luctus. Quisque eget ullamcorper eros
+       | &nbsp;
+       | neque et vulputate tristique, velit urna euismod nunc, eget interdum urna leo vel lacus
+    a.button.action href='#' Malesuada fames
+```
+
+## Colored bar card
+```slim_example_table
+.mod-card.colorbar
+  .header
+    h2 Nam metus massa
+  .content
+    h5
+     | Phasellus nisi est, posuere ut elit id, lobortis molestie est
+     | &nbsp; ante ipsum primis in faucibus orci luctus et ultrices
+    .footer
+      a.button.action href='#' Posuere cubilia
+      p
+          | Placerat pretium
+          br
+          | &nbsp;$
+          span.like-h4 10
+          | &nbsp;/eget
+```
+
+## Color Shadow Card
+```slim_example_table
+div style='background-color: #f6f6f6; padding: 48px;'
+  .mod-card.color-shadow
+    h3
+      ' Etiam nec
+      span pretium vestibulum libero
+    p Pellentesque ornare malesuada blandit. Cras egestas neque non massa porta, molestie ornare ipsum luctus.
+    a href='#!' Quisque eget ullamcorper
+css:
+  .mod-card.color-shadow {
+    max-width: 290px;
+  }
+```
+
+## Color Shadow Card Green
+```slim_example_table
+div style='background-color: #f6f6f6; padding: 48px;'
+  .mod-card.color-shadow.green
+    h3
+      ' Pellentesque
+      span ornare malesuada
+    p Cras egestas neque non massa porta, molestie ornare ipsum luctus. Quisque eget ullamcorper eros.
+    a href='#!' Pellentesque habitant
+
+css:
+  .mod-card.color-shadow {
+    max-width: 290px;
+  }
+```
+
+## Color Shadow Card Blue
+```slim_example_table
+div style='background-color: #f6f6f6; padding: 48px;'
+  .mod-card.color-shadow.blue
+    h3
+      ' Aenean ac bibendum
+      span condimentum id felis
+    p Donec placerat ipsum a nulla maximus tincidunt. Vestibulum dignissim ac erat ac placerat.
+    a href='#!' In hac habitasse platea
+
+css:
+  .mod-card.color-shadow {
+    max-width: 290px;
+  }
+```
+
+## Gradient Card
+```slim_example_table
+.mod-card.gradient
+  img src='images/rightpolicy.svg' width='60'
+  h5 Proin aliquam tortor et
+  p Aliquam sapien enim, elementum at massa sit amet
+  a.button.mini.outline In rhoncus orci
+```
+*/
+// scss-lint:enable all
+
+$card-border-color:                         $neutral-5;
+$card-background-color:                     $neutral-8;
+$card-header-color:                         $neutral-8;
+$card-header-background-color:              $brand-3;
+$card-highlighted-header-color:             $neutral-8;
+$card-highlighted-header-background-color:  $action-2;
+$card-details-background-color:             rgba(255, 255, 255, .4);
+$card-quote-summary-header-color:           $neutral-2;
+$card-quote-summary-link-divider-color:     $neutral-3;
+$card-content-subtitle:                     $neutral-3;
+$card-soft-link-color:                      $neutral-4;
+$card-caption-background-color:             $neutral-6;
+$card-caption-color:                        $neutral-2;
+$card-navigator-content-color:              $neutral-8;
+$card-discount-header-background-color:     $brand-2;
+$card-discount-link-background-color:       $neutral-6;
+$card-ratings-color:                        $neutral-2;
+$card-tooltip-color:                        $neutral-2;
+$card-more-content-divider-color:           $neutral-6;
+$card-more-content-border-color:            $neutral-5;
+$card-research-icon-color:                  $brand-3;
+$card-progress-background-color:            $brand-2;
+$card-box-shadow-color:                     rgba(0, 0, 0, .2);
+
+$card-rating-header-color:                  $neutral-2;
+$card-rating-star-color:                    $brand-5;
+$card-rating-star-active-color:             $brand-2;
+
+$card-marketing-icon-size:                  ru(1);
+$card-marketing-title-color:                $neutral-2;
+$card-marketing-subtitle-color:             $neutral-5;
+$card-marketing-paragraph-color:            $neutral-2;
+$card-marketing-dropshadow-color:           $neutral-5;
+
+$card-colorbar-outline-color:               $neutral-6;
+$card-colorbar-header-background-color:     $neutral-8;
+$card-colorbar-header-color:                #02a5a6;
+$card-colorbar-description-color:           $neutral-2;
+$card-colorbar-header-top-border-color:     #67c8c9;
+$card-colorbar-box-shadow-1-color:          rgba(0, 0, 0, .19);
+$card-colorbar-box-shadow-2-color:          rgba(0, 0, 0, .23);
+
+$card-color-shadow-color:                   $neutral-2;
+$card-color-shadow-primary-color:           $action-2;
+$card-color-shadow-primary-link-hover:      #d87600;
+$card-color-shadow-green-color:             #07947f;
+$card-color-shadow-green-text-color:        #09c6a9;
+$card-color-shadow-green-link-hover:        #07957f;
+$card-color-shadow-blue-color:              $brand-2;
+$card-color-shadow-blue-link-hover:         $brand-1;
+$card-color-shadow-offset:                  ru(.5);
+
+$card-gradient-color:                       $neutral-8;
+$card-gradient-linear-start-color:          #1da7a5;
+$card-gradient-linear-stop-color:           #3dbaa4;
+
+.mod-card {
+  border: 1px solid $card-border-color;
+  border-bottom-width: ru(.125);
+  border-radius: ru(.25);
+  background-color: $card-background-color;
+  font-family: $font-family-sans-serif;
+
+  + .mod-card {
+    margin-top: ru(1);
+  }
+
+  .caption {
+    @extend .typography-7;
+    font-weight: 700;
+    margin: 0;
+    padding: ru(.25) ru(1) ru(.5);
+    background-color: $card-caption-background-color;
+    border-radius: ru(.21) ru(.21) 0 0;
+    text-transform: uppercase;
+    color: $card-caption-color;
+
+    + .header {
+      border: 1px solid $card-border-color;
+      border-bottom: 0;
+      margin: ru(-.25) -1px 0;
+    }
+  }
+
+  .header {
+    padding: ru(.5) ru(1);
+    border-radius: ru(.21) ru(.21) 0 0;
+    text-align: center;
+    background-color: $card-header-background-color;
+    color: $card-header-color;
+
+    &.double {
+      text-align: left;
+    }
+
+    &.tall {
+      padding: ru(1);
+
+      .details {
+        margin: ru(-1);
+        margin-left: ru(1);
+      }
+    }
+
+    h2 {
+      @extend .like-h3;
+      line-height: 1;
+      margin: 0;
+      color: $card-header-color;
+      padding-left: 0;
+
+      &.value {
+        @extend .typography-1;
+        line-height: 1;
+        margin: 0;
+      }
+
+      sup {
+        @extend .typography-5;
+        vertical-align: super;
+        line-height: 1;
+        margin: 0;
+      }
+
+      small {
+        @extend .typography-5;
+        margin: 0;
+        line-height: 1;
+        color: $card-header-color;
+      }
+    }
+
+    h3 {
+      @extend .typography-6;
+      margin: ru(.125) 0;
+      color: $card-header-color;
+    }
+
+    h4 {
+      margin: ru(.125) 0;
+      color: $card-header-color;
+      text-transform: capitalize;
+    }
+
+    p {
+      @extend .typography-7;
+      line-height: ru(.75);
+      margin: ru(.125) 0;
+      color: $card-header-color;
+    }
+
+    .multiple {
+      align-items: center;
+    }
+
+    .details {
+      @extend .typography-7;
+      display: flex;
+      flex-grow: 0;
+      align-self: stretch;
+      justify-content: center;
+      width: ru(3);
+      padding: ru(.25);
+      margin: ru(-.5) ru(-1) ru(-.5) ru(.5);
+      background-color: $card-details-background-color;
+      font-weight: 600;
+      color: $card-header-color;
+
+      a {
+        flex-grow: 1;
+        align-self: center;
+        text-decoration: none;
+        color: $card-header-color;
+      }
+
+      span {
+        display: block;
+      }
+
+      .plus {
+        @extend .typography-2;
+        margin: 0;
+        line-height: 1;
+      }
+
+      .sign {
+        @include icon(plus);
+        @include icon(hyphen, after);
+        position: relative;
+        height: ru(1);
+
+        &:before,
+        &:after {
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          margin: 0;
+          font-size: rem-calc(16px);
+          color: $card-header-color;
+          cursor: pointer;
+          transform: rotate(0);
+          transition: all .5s ease;
+        }
+
+        &:after {
+          opacity: 0;
+        }
+      }
+    }
+  }
+
+  &.highlighted {
+    .header {
+      background-color: $card-highlighted-header-background-color;
+      color: $card-highlighted-header-color;
+
+      h2 {
+        color: $card-highlighted-header-color;
+      }
+    }
+  }
+
+  &.drawing {
+    margin-left: ru(3.5);
+
+    .content {
+      text-align: center;
+
+      img {
+        position: absolute;
+        z-index: 1;
+        top: ru(-1.5);
+        left: ru(-1);
+        transform: translateX(-50%);
+      }
+    }
+  }
+
+  &.navigator {
+    .content {
+      padding: ru(1) ru(1) ru(1.5);
+    }
+
+    .feature.price {
+      display: none;
+    }
+  }
+
+  &.quote-summary {
+    .header {
+      padding: ru(.75) ru(1);
+      border-bottom: 1px solid $card-border-color;
+      background-color: $card-background-color;
+      color: $card-quote-summary-header-color;
+
+      h2 {
+        color: inherit;
+      }
+    }
+
+    .content {
+      .feature {
+        margin: 0 ru(-1);
+        padding: 0 ru(1);
+
+        p {
+          @include typography-6;
+          margin: 0;
+        }
+
+        + .feature {
+          margin-top: ru(1);
+          padding-top: ru(1);
+          border-top: 1px solid $card-border-color;
+        }
+      }
+
+      .actions {
+        @include typography-7;
+        line-height: 1;
+        margin: ru(.25) 0 0;
+
+        a {
+          display: inline-block;
+          text-decoration: none;
+
+          &:hover,
+          &:active {
+            text-decoration: underline;
+          }
+
+          + a {
+            margin-left: ru(.25);
+            padding-left: ru(.25);
+            border-left: 1px solid $card-quote-summary-link-divider-color;
+          }
+        }
+      }
+    }
+  }
+
+  &.discount {
+    .header {
+      padding: ru(.75) ru(1);
+      background-color: $card-discount-header-background-color;
+    }
+
+    .content {
+      .feature {
+        font-weight: 400;
+        margin: 0 ru(-1);
+        padding: ru(.5) ru(1);
+        border-bottom: 1px solid $card-border-color;
+
+        &:first-child {
+          margin-top: ru(-1);
+        }
+
+        &:last-child {
+          margin-bottom: ru(-1);
+          border-bottom: 0;
+        }
+
+        img {
+          display: inline-block;
+          margin-right: ru(.5);
+        }
+
+        a {
+          display: block;
+          margin: ru(-.5) ru(-1);
+          padding: ru(.5) ru(1);
+          background-color: $card-discount-link-background-color;
+          border-radius: 0 0 ru(.25) ru(.25);
+        }
+      }
+    }
+  }
+
+  &.no-action {
+    .content {
+      .feature:last-child {
+        margin-bottom: 0;
+      }
+
+      .multiple:last-child {
+        .feature {
+          margin-bottom: 0;
+        }
+      }
+    }
+  }
+
+  &.rating {
+    display: block;
+    padding: ru(.5);
+    border-bottom-width: 1px;
+    text-decoration: none;
+
+    .content {
+      display: flex;
+      padding: 0;
+      border-radius: 0;
+    }
+
+    h3 {
+      // scss-lint:disable ImportantRule
+      margin: 0 0 ru(.33) !important;
+      // scss-lint:enable ImportantRule
+      width: 100%;
+      display: table;
+      table-layout: fixed;
+      border-spacing: 0;
+
+      span {
+        @include typography-7;
+        font-weight: 600;
+        line-height: ru(.75);
+        color: $card-rating-header-color;
+        display: table-cell;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+      }
+    }
+
+    .i-star {
+      font-size: rem-calc(18px);
+      color: $card-rating-star-color;
+
+      &.active {
+        color: $card-rating-star-active-color;
+      }
+
+      &:before {
+        margin: 0;
+      }
+
+      + .i-star {
+        margin-left: ru(.167);
+      }
+    }
+
+    .more {
+      @include typography-6;
+      font-weight: 600;
+      display: block;
+      margin: 0;
+      line-height: ru(2);
+      text-align: center;
+    }
+  }
+
+  &.marketing-card {
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      h2 {
+        font-size: 13px;
+        line-height: 18px;
+      }
+    }
+
+    .icon-comments {
+      background-size: 100%;
+      cursor: pointer;
+      width: $card-marketing-icon-size;
+      height: $card-marketing-icon-size;
+
+      &:before {
+        content: '';
+        display: inline-block;
+        height: 100%;
+        width: 100%;
+      }
+    }
+
+    .content {
+      .feature {
+        h3 {
+          @extend .like-h3;
+          color: $card-marketing-title-color;
+          margin-bottom: ru(.25);
+        }
+
+        h4 {
+          margin-bottom: 0;
+          color: $card-marketing-subtitle-color;
+        }
+
+        p.desc {
+          @extend .like-p;
+          color: $card-marketing-paragraph-color;
+        }
+      }
+    }
+  }
+
+  &.gradient {
+    @include linear-gradient(45deg, $card-gradient-linear-start-color 30%, $card-gradient-linear-stop-color 100%);
+    padding: ru(.75);
+    border: 0;
+    box-shadow: 0 ru(.167) ru(.5) $card-box-shadow-color;
+    text-align: center;
+    color: $card-gradient-color;
+
+    img {
+      height: ru(2.2);
+      margin-bottom: ru(.75);
+    }
+
+    h5 {
+      @include typography-5;
+      font-weight: 600;
+      margin: 0 0 ru(.75);
+      color: inherit;
+    }
+
+    p {
+      @include typography-6;
+      margin: 0 0 ru(.75);
+      color: inherit;
+    }
+
+    .button.outline {
+      background-color: transparent;
+      border-color: $card-gradient-color;
+      color: inherit;
+    }
+  }
+
+  .content {
+    position: relative;
+    padding: ru(1);
+    border-radius: 0 0 ru(.21) ru(.21);
+
+    .feature {
+      margin-bottom: ru(1);
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+
+      img {
+        display: block;
+
+        &.carrier {
+          max-height: ru(1.875);
+        }
+      }
+
+      h4 {
+        @extend .typography-7;
+        line-height: 1;
+        margin: 0 0 ru(.125);
+        color: $card-content-subtitle;
+      }
+
+      p {
+        @extend .like-h4;
+        // scss-lint:disable ImportantRule
+        font-weight: 600 !important;
+        // scss-lint:enable ImportantRule
+        margin: 0;
+
+        &.value {
+          @extend .typography-2;
+          line-height: 1;
+          margin: 0;
+
+          small {
+            @extend .typography-5;
+            line-height: 1;
+            margin: 0;
+          }
+        }
+
+        &.narrow {
+          font-weight: 400;
+        }
+
+        &.pg-tooltip-popup {
+          @include typography-7;
+          line-height: ru(.75);
+          margin: 0;
+          color: $card-tooltip-color;
+        }
+      }
+
+      &.ratings {
+        p {
+          color: $card-content-subtitle;
+
+          strong {
+            color: $card-ratings-color;
+          }
+        }
+      }
+    }
+
+    &.compact {
+      .feature {
+        p {
+          @extend .like-h4;
+          // scss-lint:disable ImportantRule
+          font-weight: 400 !important;
+          // scss-lint:enable ImportantRule
+          margin: 0;
+        }
+      }
+    }
+  }
+
+  .more-content {
+    position: relative;
+    max-height: 0;
+    margin: ru(-1) rem-calc(-25px) 0;
+    padding: ru(1) rem-calc(25px) 0;
+    overflow: hidden;
+    transition: max-height .5s ease;
+
+    &:before,
+    &:after {
+      display: none;
+      content: '';
+      position: absolute;
+      top: ru(.5);
+      left: 0;
+      width: 0;
+      height: 0;
+      border-top: ru(.5) solid transparent;
+      border-bottom: ru(.5) solid transparent;
+      border-left: ru(.5) solid $card-more-content-border-color;
+    }
+
+    &:after {
+      margin-left: -1px;
+      border-left-color: $card-background-color;
+    }
+
+    hr {
+      border-top: 1px solid $card-more-content-divider-color;
+      height: 0;
+      margin: 0 0 ru(.75);
+    }
+  }
+
+  &.expanded {
+    .more-content {
+      max-height: ru(17);
+
+      &:before,
+      &:after {
+        display: block;
+      }
+    }
+
+    .details {
+      .sign {
+        &:before,
+        &:after {
+          margin: ru(.083) 0 0;
+          transform: rotate(360deg);
+        }
+
+        &:before {
+          opacity: 0;
+        }
+
+        &:after {
+          opacity: 1;
+        }
+      }
+    }
+  }
+
+  .research {
+    @include icon(openbook);
+    @include typography-7;
+    line-height: ru(.75);
+    position: relative;
+    padding-left: ru(2.25);
+    margin: 0;
+
+    strong {
+      display: block;
+    }
+
+    &:before {
+      position: absolute;
+      top: ru(1);
+      left: 0;
+      margin: 0;
+      font-size: rem-calc(32px);
+      color: $card-research-icon-color;
+    }
+  }
+
+  .multiple {
+    @extend %layout-flex;
+
+    > * {
+      flex-grow: 1;
+    }
+  }
+
+  .emphasized {
+    text-align: center;
+
+    > * {
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+
+  .purchased {
+    font-weight: 400;
+    text-align: left;
+
+    p {
+      color: inherit;
+    }
+  }
+
+  .soft {
+    @extend .typography-7;
+    color: $card-soft-link-color;
+
+    .pg-tooltip {
+      border-bottom-color: $card-soft-link-color;
+    }
+  }
+
+  .progress {
+    height: ru(.125);
+    margin-bottom: 0;
+    background-color: $card-progress-background-color;
+    transition: width 350ms ease;
+  }
+
+  &.colorbar {
+    border-radius: 0;
+    border: 0;
+    outline: 1px solid $card-colorbar-outline-color;
+    border-top: ru(.208) solid $card-colorbar-header-top-border-color;
+    box-shadow: 0 ru(.41) ru(.83) $card-colorbar-box-shadow-1-color, 0 ru(.25) ru(.25) $card-colorbar-box-shadow-2-color;
+
+    .header {
+      background: $card-colorbar-header-background-color;
+      text-align: left;
+      padding-top: ru(1.5);
+      padding-bottom: 0;
+
+      h2 {
+        @include typography-2;
+        color: $card-colorbar-header-color;
+        margin-bottom: 0;
+      }
+    }
+
+    .content {
+      h5 {
+        @include typography-5;
+        color: $card-colorbar-description-color;
+        margin-bottom: ru(1);
+      }
+
+      p {
+        font-weight: 300;
+      }
+
+      .button {
+        width: auto;
+      }
+    }
+
+    .footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      .button {
+        flex-grow: 1;
+        margin-right: ru(1);
+      }
+
+      a,
+      p {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  &.color-shadow {
+    position: relative;
+    border: 0;
+    border-radius: 0;
+    padding: ru(2.667) ru(1.875);
+    box-shadow: 0 ru(.167) ru(.5) $card-box-shadow-color;
+    color: $card-color-shadow-color;
+
+    &.blue {
+      &:before,
+      &:after {
+        background-color: $card-color-shadow-blue-color;
+      }
+
+      > h3 {
+        &:before {
+          background-color: $card-color-shadow-blue-color;
+        }
+
+        span {
+          color: $card-color-shadow-blue-color;
+        }
+      }
+
+      > a {
+        color: $card-color-shadow-blue-color;
+
+        &:hover {
+          color: $card-color-shadow-blue-link-hover;
+        }
+      }
+    }
+
+    &.green {
+      &:before,
+      &:after {
+        background-color: $card-color-shadow-green-color;
+      }
+
+      > h3 {
+        &:before {
+          background-color: $card-color-shadow-green-text-color;
+        }
+
+        span {
+          color: $card-color-shadow-green-text-color;
+        }
+      }
+
+      > a {
+        color: $card-color-shadow-green-text-color;
+
+        &:hover {
+          color: $card-color-shadow-green-link-hover;
+        }
+      }
+    }
+
+    &:before,
+    &:after {
+      content: '';
+      background-color: $card-color-shadow-primary-color;
+      position: absolute;
+    }
+
+    &:before {
+      width: $card-color-shadow-offset;
+      top: rem-calc(20px);
+      bottom: -$card-color-shadow-offset;
+      right: -$card-color-shadow-offset;
+    }
+
+    &:after {
+      height: $card-color-shadow-offset;
+      left: rem-calc(20px);
+      bottom: -$card-color-shadow-offset;
+      right: 0;
+    }
+
+    > h3 {
+      @include like-h2;
+      font-weight: 300;
+      position: relative;
+      margin: 0 0 ru(1.5);
+      padding: ru(1) 0 0;
+      color: inherit;
+
+      span {
+        color: $card-color-shadow-primary-color;
+      }
+
+      &:before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: ru(8);
+        height: 1px;
+        background-color: $card-color-shadow-primary-color;
+        overflow: hidden;
+      }
+    }
+
+    > p {
+      @include typography-5;
+      font-weight: 400;
+      margin: 0 0 ru(1.5);
+      color: inherit;
+    }
+
+    > a {
+      @include typography-6;
+      color: $card-color-shadow-primary-color;
+      font-weight: 400;
+      transition: color .2s;
+
+      &:hover {
+        color: $card-color-shadow-primary-link-hover;
+      }
+    }
+  }
+
+  strong {
+    font-weight: bold;
+  }
+
+  img {
+    display: inline-block;
+    vertical-align: bottom;
+
+    &.figure {
+      float: right;
+      max-width: 228px;
+      margin-top: ru(-.5);
+    }
+  }
+
+  @media #{$small-only} {
+    &.navigator {
+      min-height: ru(2.5);
+      overflow: visible;
+      background: none;
+      border: 0;
+      border-radius: 0;
+      padding: 0;
+
+      > .header,
+      > .content > *,
+      > .progress {
+        display: none;
+      }
+
+      .content {
+        padding: 0;
+        color: $card-navigator-content-color;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+      }
+
+      .feature.price,
+      .figure {
+        display: block;
+      }
+
+      .feature.price {
+        float: left;
+        margin: 0;
+
+        h4,
+        p.value {
+          color: inherit;
+        }
+
+        p.value {
+          @include typography-3;
+          margin: 0;
+        }
+      }
+
+      .figure {
+        max-width: rem-calc(90px);
+        flex: 0 1 rem-calc(90px);
+        align-self: flex-end;
+        margin-bottom: -5px;
+      }
+    }
+
+    &.discount {
+      border: 0;
+      margin-top: ru(1);
+      margin-bottom: ru(1);
+      border-radius: 0;
+
+      .header {
+        border-radius: 0;
+      }
+
+      .content {
+        display: none;
+      }
+    }
+  }
+}
